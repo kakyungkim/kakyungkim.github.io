@@ -1,0 +1,11 @@
+
+menu:
+  home: "Home"
+  about: "About"
+  blog: "Blog"
+  contact: "Contact"
+
+footer:
+  copyright: "© 2025 Ka-Kyung Blog."
+welcome_message: "Welcome to Ka-Kyung's blog!"
+

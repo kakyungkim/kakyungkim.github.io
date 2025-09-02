@@ -1,0 +1,40 @@
+---
+# 레이아웃 이름 정의 (필수 아님)
+---
+
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.default_lang }}">
+<head>
+  <meta charset="UTF-8" />
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <meta name="description" content="{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}" />
+  <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}" />
+</head>
+<body>
+
+  <header>
+    <h1><a href="{{ '/' | prepend: site.baseurl | append: page.lang | relative_url }}">{{ site.title }}</a></h1>
+    <nav>
+      <ul>
+        <li><a href="{{ '/' | prepend: site.baseurl | append: page.lang | relative_url }}">{{ site.data[page.lang].menu.home }}</a></li>
+        <li><a href="{{ '/about/' | prepend: site.baseurl | append: page.lang | relative_url }}">{{ site.data[page.lang].menu.about }}</a></li>
+        <li><a href="{{ '/blog/' | prepend: site.baseurl | append: page.lang | relative_url }}">{{ site.data[page.lang].menu.blog }}</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <article>
+      <h2>{{ page.title }}</h2>
+      <p><small>Published: {{ page.date | date: "%Y-%m-%d" }}</small></p>
+      {{ content }}
+    </article>
+  </main>
+
+  <footer>
+    <p>{{ site.data[page.lang].footer.copyright }}</p>
+  </footer>
+
+</body>
+</html>
+

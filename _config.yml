@@ -1,9 +1,22 @@
-theme: cupper
+theme: minimal-mistakes-jekyll
 
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-coffeescript
   - jekyll-multiple-languages-plugin
+# 다국어 플러그인 추가 시 아래 설정 예시 참고 가능
+languages: ["en", "kr"]
+default_lang: "kr"
+use_default_lang_prefix: true
+strategy: prefix
+
+lang_switcher:
+  en: "English"
+  kr: "한국어"
+
+permalink: /:lang/:year/:month/:day/:title.html
 
 title: Ka-Kyung Blog
 description: Personal research and tech blog

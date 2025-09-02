@@ -1,0 +1,10 @@
+menu:
+  home: "홈"
+  about: "소개"
+  blog: "블로그"
+  contact: "문의하기"
+
+footer:
+  copyright: "© 2025 Ka-Kyung 블로그."
+welcome_message: "Ka-Kyung 블로그에 오신 것을 환영합니다!"
+
