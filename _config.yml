@@ -1,1 +1,10 @@
 theme: cupper
+
+title: Ka-Kyung Blog
+description: Personal research and tech blog
+author:
+  name: Ka-Kyung Kim
+  email: kakyung.kim@gmail.com
+social:
+  github: kakyungkim
+  linkedin: kakyungkim
