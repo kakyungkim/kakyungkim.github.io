@@ -1,5 +1,10 @@
 theme: cupper
 
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-multiple-languages-plugin
+
 title: Ka-Kyung Blog
 description: Personal research and tech blog
 author:
