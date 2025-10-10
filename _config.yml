@@ -1,52 +1,25 @@
-#theme: minimal-mistakes-jekyll
-remote_theme: "mmistakes/minimal-mistakes"
+title: "Ka-Kyung Blog"
+description: "Personal research and tech blog"
+author:
+  name: "Ka-Kyung Kim"
+  email: "kakyung.kim@gmail.com"
 
-plugins: # GitHub Pages 공식 지원 플러그인만 유지
+remote_theme: "mmistakes/minimal-mistakes"
+plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
-  # - jekyll-coffeescript
-  # - jekyll-multiple-languages-plugin
+  - jekyll-coffeescript
+  - jekyll-multiple-languages-plugin
+  - jekyll-remote-theme
 
-# 다국어 관련 플러그인은 GitHub Pages 기본 빌드에서 지원되지 않음
-# 추후 GitHub Actions 커스텀 빌드 시 복원 가능
-# languages: ["en", "kr"]
-# default_lang: "kr"
-# use_default_lang_prefix: true
-# strategy: prefix
+languages: ["en", "kr"]
+default_lang: "kr"
+use_default_lang_prefix: true
+strategy: prefix
 
-# lang_switcher:
-#   en: "English"
-#   kr: "한국어"
+lang_switcher:
+  en: "English"
+  kr: "한국어"
 
-# permalink: /:lang/:year/:month/:day/:title.html
-permalink: /:year/:month/:day/:title.html
-
-# -----------------------------
-# Site Info
-# -----------------------------
-title: Ka-Kyung Blog
-description: Personal research and tech blog
-author:
-  name: Ka-Kyung Kim
-  email: kakyung.kim@gmail.com
-social:
-  github: kakyungkim
-  linkedin: kakyungkim
-
-# -----------------------------
-# Build Settings
-# -----------------------------
-url: "https://kakyungkim.github.io"   # 전체 도메인
-baseurl: ""                           # 빈 문자열로 둬야 함
-markdown: kramdown
-highlighter: rouge
-lsi: false
-safe: true
-
-# -----------------------------
-# Theme Config
-# -----------------------------
-paginate: 5
-paginate_path: "/page:num/"
-excerpt_separator: "<!--more-->"
+permalink: /:lang/:year/:month/:day/:title/
