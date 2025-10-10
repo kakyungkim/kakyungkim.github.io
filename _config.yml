@@ -27,3 +27,11 @@ author:
 social:
   github: kakyungkim
   linkedin: kakyungkim
+
+# Add below
+url: "https://kakyungkim.github.io"   # 전체 도메인
+baseurl: ""                           # 빈 문자열로 둬야 함
+markdown: kramdown
+highlighter: rouge
+lsi: false
+safe: true
