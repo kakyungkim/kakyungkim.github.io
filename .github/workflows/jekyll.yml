@@ -13,7 +13,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Setup Ruby
@@ -22,10 +22,15 @@ jobs:
           ruby-version: 3.1
           bundler-cache: true
 
+      - name: Setup Node.js (for coffeescript)
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
       - name: Install dependencies
         run: |
-          gem install bundler
-          bundle install
+          gem install bundler -v 2.4.13
+          bundle install --verbose
 
       - name: Build Jekyll site
         run: bundle exec jekyll build
