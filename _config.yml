@@ -1,24 +1,30 @@
 #theme: minimal-mistakes-jekyll
 remote_theme: "mmistakes/minimal-mistakes"
 
-plugins:
+plugins: # GitHub Pages 공식 지원 플러그인만 유지
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
-  - jekyll-coffeescript
-  - jekyll-multiple-languages-plugin
-# 다국어 플러그인 추가 시 아래 설정 예시 참고 가능
-languages: ["en", "kr"]
-default_lang: "kr"
-use_default_lang_prefix: true
-strategy: prefix
+  # - jekyll-coffeescript
+  # - jekyll-multiple-languages-plugin
 
-lang_switcher:
-  en: "English"
-  kr: "한국어"
+# 다국어 관련 플러그인은 GitHub Pages 기본 빌드에서 지원되지 않음
+# 추후 GitHub Actions 커스텀 빌드 시 복원 가능
+# languages: ["en", "kr"]
+# default_lang: "kr"
+# use_default_lang_prefix: true
+# strategy: prefix
 
-permalink: /:lang/:year/:month/:day/:title.html
+# lang_switcher:
+#   en: "English"
+#   kr: "한국어"
 
+# permalink: /:lang/:year/:month/:day/:title.html
+permalink: /:year/:month/:day/:title.html
+
+# -----------------------------
+# Site Info
+# -----------------------------
 title: Ka-Kyung Blog
 description: Personal research and tech blog
 author:
@@ -28,10 +34,19 @@ social:
   github: kakyungkim
   linkedin: kakyungkim
 
-# Add below
+# -----------------------------
+# Build Settings
+# -----------------------------
 url: "https://kakyungkim.github.io"   # 전체 도메인
 baseurl: ""                           # 빈 문자열로 둬야 함
 markdown: kramdown
 highlighter: rouge
 lsi: false
 safe: true
+
+# -----------------------------
+# Theme Config
+# -----------------------------
+paginate: 5
+paginate_path: "/page:num/"
+excerpt_separator: "<!--more-->"
