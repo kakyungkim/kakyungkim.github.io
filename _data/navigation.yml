@@ -1,0 +1,7 @@
+main:
+  - title: "About"
+    url: /about/
+  - title: "EN"
+    url: /en/
+  - title: "한국어"
+    url: /kr/
