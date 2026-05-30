@@ -4,6 +4,7 @@ title: "I Rebuilt My Dead Blog With an AI Pair — Here's What Actually Broke"
 date: 2026-05-30 09:00:00 +0900
 lang: en
 ref: rebuilding-my-blog-with-ai
+featured: true
 categories: [AI & Tooling]
 tags: [Jekyll, GitHub Pages, Claude Code, AI Pair Programming, minimal-mistakes]
 permalink: /en/2026/05/30/rebuilding-my-blog-with-ai/
