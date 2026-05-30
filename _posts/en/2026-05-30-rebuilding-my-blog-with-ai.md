@@ -9,6 +9,13 @@ permalink: /en/2026/05/30/rebuilding-my-blog-with-ai/
 excerpt: "Months ago I gave up on this blog after the environment setup defeated me. This week I sat down with an AI coding agent and we found that almost nothing was wrong with my writing — and almost everything was wrong with my build."
 ---
 
+<div class="notice--info" markdown="1">
+**TL;DR**
+1. My GitHub Pages blog sat dead for months — not because I ran out of writing, but because the build kept failing.
+2. Pairing with an AI agent, the real culprits turned out to be mundane: a theme downloaded over a broken SSL connection, a redundant CI step, and an old plugin silently dropping every post.
+3. Every fix was "do less" — use the theme as a gem, delete the step, drop the plugin — and the takeaways were just good habits: read the logs, distrust the guide, verify before calling it done.
+</div>
+
 Hi — I'm Ka-Kyung, a bioinformatics person who spends most days somewhere between clinical data, genomics, and machine learning. I started this blog months ago, wrote a couple of posts, and then it quietly died. Not for lack of ideas, but because I could never get the thing to *build and deploy*. Every attempt ended in a red X on GitHub and a stack trace I didn't have the patience to decode.
 
 This week I tried something different: I sat down with an AI coding agent and treated the broken blog as a debugging session instead of a chore. A few hours later it was live, bilingual, and running a proper theme. Here is what was actually wrong — because none of it was what I'd assumed.
