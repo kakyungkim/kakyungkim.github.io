@@ -1,0 +1,23 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+search: false
+---
+
+@charset "utf-8";
+
+// --- custom overrides (must precede the theme import) ---
+$doc-font-size: 15px; // 본문 살짝 축소 (테마 기본 16px)
+
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
+@import "minimal-mistakes"; // main partials
+
+// --- post-import overrides ---
+// notice 박스(세 줄 정리 / In short)를 테마 기본 0.75em 대신 본문 크기에 맞춤
+.notice,
+.notice--primary,
+.notice--info,
+.notice--warning,
+.notice--success,
+.notice--danger {
+  font-size: $type-size-5 !important; // 1em ≈ 본문
+}
