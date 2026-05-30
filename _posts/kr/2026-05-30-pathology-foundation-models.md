@@ -4,11 +4,14 @@ layout: single
 title: "병리 파운데이션 모델은 H&E 슬라이드에서 무엇을 보는가"
 date: 2026-05-30 10:00:00 +0900
 lang: kr
+ref: pathology-foundation-models
 categories: [Computational Pathology, Data Science]
 tags: [Foundation Models, Digital Pathology, H&E, Deep Learning, Biomarkers]
 permalink: /kr/2026/05/30/pathology-foundation-models/
 excerpt: "H&E 슬라이드는 조직을 분홍·보라로 담아낸 한 장의 사진입니다. 새로운 파운데이션 모델들은 그 안에 생각보다 많은 분자 신호가 숨어 있다고 말합니다."
 ---
+
+{% include lang-switch.html %}
 
 H&E 염색은 100년 넘게 병리학의 주력 도구였습니다. 헤마톡실린이 핵을 청보라색으로, 에오신이 세포질과 간질을 분홍색으로 물들이면, 훈련된 병리의가 그 구조를 읽어 질병을 진단합니다. 값싸고 빠르며, 생검을 거친 거의 모든 종양에 대해 이미 존재하는 데이터죠.
 

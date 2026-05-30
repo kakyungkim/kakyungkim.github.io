@@ -3,11 +3,13 @@ layout: single
 title: "임상 연구와 데이터 과학의 만남: AI와 바이오마커의 가능성"
 date: 2025-09-02 10:00:00 +0900
 lang: kr
+ref: data-scientist-in-drug-development
 categories: [Life Science, Data Science]
 tags: [AI, Multi-omics, Clinical Research, Biomarkers, CTC, scRNA-seq]
 permalink: /kr/2025/09/02/clinical-research-and-data-science/
 ---
 
+{% include lang-switch.html %}
 
 # 임상 연구와 데이터 과학의 만남: AI와 바이오마커의 가능성
 

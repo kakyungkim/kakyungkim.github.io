@@ -7,9 +7,9 @@ sitemap: false
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="refresh" content="0; url=/en/">
-<link rel="canonical" href="/en/">
+<meta http-equiv="refresh" content="0; url=/kr/">
+<link rel="canonical" href="/kr/">
 <title>Ka-Kyung Kim</title>
 </head>
-<body>Redirecting to <a href="/en/">/en/</a>…</body>
+<body>Redirecting to <a href="/kr/">/en/</a>…</body>
 </html>

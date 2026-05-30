@@ -1,0 +1,10 @@
+{% assign other = site.posts | where_exp: "p", "p.ref == page.ref and p.lang != page.lang" | first %}
+{% if other %}
+<p class="lang-switch" style="margin-bottom:1.5em">
+  {% if page.lang == "en" %}
+  <a href="{{ other.url | relative_url }}" class="btn btn--primary btn--small">🇰🇷 이 글 한국어로 보기</a>
+  {% else %}
+  <a href="{{ other.url | relative_url }}" class="btn btn--primary btn--small">🇺🇸 Read this post in English</a>
+  {% endif %}
+</p>
+{% endif %}
