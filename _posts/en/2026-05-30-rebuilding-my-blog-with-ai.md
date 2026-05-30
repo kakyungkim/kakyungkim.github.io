@@ -3,18 +3,14 @@ layout: single
 title: "I Rebuilt My Dead Blog With an AI Pair — Here's What Actually Broke"
 date: 2026-05-30 09:00:00 +0900
 lang: en
+ref: rebuilding-my-blog-with-ai
 categories: [AI & Tooling]
 tags: [Jekyll, GitHub Pages, Claude Code, AI Pair Programming, minimal-mistakes]
 permalink: /en/2026/05/30/rebuilding-my-blog-with-ai/
 excerpt: "Months ago I gave up on this blog after the environment setup defeated me. This week I sat down with an AI coding agent and we found that almost nothing was wrong with my writing — and almost everything was wrong with my build."
 ---
 
-<div class="notice--info" markdown="1">
-**TL;DR**
-1. My GitHub Pages blog sat dead for months — not because I ran out of writing, but because the build kept failing.
-2. Pairing with an AI agent, the real culprits turned out to be mundane: a theme downloaded over a broken SSL connection, a redundant CI step, and an old plugin silently dropping every post.
-3. Every fix was "do less" — use the theme as a gem, delete the step, drop the plugin — and the takeaways were just good habits: read the logs, distrust the guide, verify before calling it done.
-</div>
+{% include lang-switch.html %}
 
 Hi — I'm Ka-Kyung, a bioinformatics person who spends most days somewhere between clinical data, genomics, and machine learning. I started this blog months ago, wrote a couple of posts, and then it quietly died. Not for lack of ideas, but because I could never get the thing to *build and deploy*. Every attempt ended in a red X on GitHub and a stack trace I didn't have the patience to decode.
 
@@ -53,6 +49,13 @@ A few things surprised me about the process itself:
 - **It insisted on verifying.** Nothing was declared fixed until a build was green locally *and* in CI. That discipline — "show me it works" — is exactly what I'd been skipping on my own.
 
 None of these are AI-specific lessons, really. They're just good engineering habits that are easy to drop when you're frustrated and alone with a red X. The AI's main contribution was patience and a refusal to guess.
+
+<div class="notice--info" markdown="1">
+**In short**
+1. My GitHub Pages blog sat unpublished for months — not for lack of writing, but because the build kept failing.
+2. With an AI agent, the real culprits were mundane: a theme downloaded over a broken SSL connection, a redundant CI step, and an old plugin silently dropping every post.
+3. Every fix was "do less," and the lessons were plain: read the logs, distrust the guide, verify before calling it done.
+</div>
 
 ## What's next
 

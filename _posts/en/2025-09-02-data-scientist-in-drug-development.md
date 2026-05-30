@@ -3,10 +3,13 @@ layout: single
 title: "The Intersection of Clinical Research and Data Science: Opportunities with AI and Biomarkers"
 date: 2025-09-02 10:00:00 +0900
 lang: en
+ref: data-scientist-in-drug-development
 categories: [Life Science, Data Science]
 tags: [AI, Multi-omics, Clinical Research, Biomarkers, CTC, scRNA-seq]
 permalink: /en/2025/09/02/clinical-research-and-data-science/
 ---
+
+{% include lang-switch.html %}
 
 # The Intersection of Clinical Research and Data Science: Opportunities with AI and Biomarkers
 

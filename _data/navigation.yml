@@ -1,9 +1,9 @@
 main:
   - title: "Topics"
-    url: /en/topics/
+    url: /kr/topics/
   - title: "About"
-    url: /en/about/
-  - title: "EN"
-    url: /en/
+    url: /kr/about/
   - title: "한국어"
     url: /kr/
+  - title: "EN"
+    url: /en/

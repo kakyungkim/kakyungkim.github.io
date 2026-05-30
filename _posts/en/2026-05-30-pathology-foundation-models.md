@@ -4,11 +4,14 @@ layout: single
 title: "What Pathology Foundation Models See in an H&E Slide"
 date: 2026-05-30 10:00:00 +0900
 lang: en
+ref: pathology-foundation-models
 categories: [Computational Pathology, Data Science]
 tags: [Foundation Models, Digital Pathology, H&E, Deep Learning, Biomarkers]
 permalink: /en/2026/05/30/pathology-foundation-models/
 excerpt: "Routine H&E slides are pink-and-purple snapshots of tissue. A new generation of foundation models suggests they also carry a surprising amount of molecular signal."
 ---
+
+{% include lang-switch.html %}
 
 For more than a century, the H&E stain has been the workhorse of pathology. Hematoxylin paints nuclei blue-purple, eosin washes the cytoplasm and stroma pink, and a trained pathologist reads the resulting architecture to diagnose disease. It is cheap, fast, and available for almost every tumor that has ever been biopsied.
 
