@@ -49,6 +49,6 @@ None of these are AI-specific lessons, really. They're just good engineering hab
 
 ## What's next
 
-The blog builds, deploys, and speaks two languages now, so I can get back to the part I actually wanted to do: writing. Next up is a piece on **pathology foundation models** — what those big self-supervised models trained on tissue images can (and can't) tell us about a tumor's molecular state.
+The blog builds, deploys, and speaks two languages now — so I can finally get back to the part I wanted to do all along: writing. I'll be posting about the projects I build and the ideas I keep chewing on, somewhere in the space between data science and life science.
 
-If you've got a half-dead side project gathering dust because the *setup* beat you, this is your nudge. The writing was never the hard part. Thanks for reading.
+If you've got a half-dead side project gathering dust because the *setup* beat you, consider this your nudge. The writing was never the hard part. Thanks for reading.
