@@ -9,11 +9,10 @@ gem "jekyll-coffeescript"
 # group :jekyll_plugins do
 #   gem "jekyll-feed"
 #   gem "jekyll-seo-tag"
-#   gem "jekyll-multiple-languages-plugin"
-# end
+#   # end
 
 gem "jekyll-feed"
 gem "jekyll-seo-tag"
 gem "jekyll-sitemap"
 gem "kramdown-parser-gfm"
-gem "jekyll-multiple-languages-plugin"
+gem "jekyll-include-cache"

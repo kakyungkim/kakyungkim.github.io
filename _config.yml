@@ -1,24 +1,73 @@
-title: "Ka-Kyung Blog"
-description: "Personal research and tech blog"
+title: "Ka-Kyung Kim"
+subtitle: "Bioinformatics · Data Science · Life Science"
+description: "Research notes and writing on bioinformatics, clinical data analysis, and the intersection of data science and life science."
+locale: "en-US"
+url: "https://kakyungkim.github.io"
+repository: "kakyungkim/kakyungkim.github.io"
+
+# --- Theme (gem-based; no remote download) ---
+theme: minimal-mistakes-jekyll
+minimal_mistakes_skin: "air"   # default | air | aqua | contrast | dark | dirt | mint | neon | plum | sunrise
+
+# --- Author profile (sidebar) ---
 author:
   name: "Ka-Kyung Kim"
-  email: "kakyung.kim@gmail.com"
+  bio: "Bioinformatics specialist — NGS pipelines, clinical data, genomics."
+  location: "Seoul, Korea"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:kakyung.kim@gmail.com"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/kakyungkim"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/kakyungkim/"
 
-theme: minimal-mistakes-jekyll
+footer:
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/kakyungkim"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/kakyungkim/"
+
+# --- Plugins ---
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
-  - jekyll-coffeescript
-  - jekyll-multiple-languages-plugin
+  - jekyll-include-cache
 
-languages: ["en", "kr"]
-default_lang: "kr"
-use_default_lang_prefix: true
-strategy: prefix
+# --- Search ---
+search: true
+search_full_content: true
 
-lang_switcher:
-  en: "English"
-  kr: "한국어"
+permalink: pretty
 
-permalink: /:lang/:year/:month/:day/:title/
+# --- Per-type defaults ---
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      share: true
+      related: true
+      show_date: true
+      toc: true
+      toc_sticky: true
+      comments: false
+  - scope:
+      path: "_pages"
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+
+include:
+  - _pages
