@@ -15,7 +15,7 @@ excerpt: "I wanted to keep up with pharma, biotech, and AI every day — but doi
 
 Hi — I'm Ka-Kyung, a bioinformatics researcher who spends most days somewhere between clinical data, genomics, and machine learning.
 
-I wanted to keep up with where pharma, biotech, and AI are heading — every single day. But skimming trustworthy sources, organizing them, and interpreting them by hand doesn't survive more than a few days. It isn't a willpower problem; it's a volume problem. So I changed the approach: hand that repetitive work to a **team of AI agents**, and keep only the judgment and the review for myself. That became econ-radar.
+I wanted to keep up with where pharma, biotech, and AI are heading — every single day. But skimming trustworthy sources, organizing them, and interpreting them by hand doesn't survive more than a few days. It isn't a willpower problem; it's a volume problem. So I reframed the question — from "how do I use AI?" to "how do I engineer this repetitive work into a system?" I handed the gathering and organizing to a **team of AI agents with separated roles**, and kept only the judgment and the review for myself. What came out is econ-radar — a small agent harness.
 
 ## What econ-radar is
 
