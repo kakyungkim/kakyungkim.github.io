@@ -70,3 +70,33 @@ It's still an experiment, but I run it daily and keep refining the format and th
 ## Next
 
 It's early. I'm running it daily and tuning the voice and structure, and a public archive is on the way. I'll keep writing here about the build and what it teaches me.
+
+---
+
+## Update — Going fully automatic (2026-06-12)
+
+About two weeks in, I had to admit something: "I'll run it myself every day" was the weakest link in the system.
+
+### From gated to automatic
+
+The original design required my approval before anything went public. The agents could finish the newsletter, but posting to the blog still needed me to type `./deploy.sh`. Keeping a human in the loop felt right. The problem was that the human — me — wasn't always at the gate. Issues piled up for days. The whole point of building the harness started to blur.
+
+So I flipped the structure. At 18:30 KST each day, a cloud routine now handles everything from collecting news to publishing on the blog, then sends a message to a Telegram channel when it's done. If something looks off, I pull it down. The direction of trust reversed: instead of "nothing goes out until I confirm," it's now "things go out, and I step in when needed."
+
+Oddly, this felt more sustainable. Approving every issue takes daily willpower. Pulling down a bad one only happens when it has to.
+
+### The cloud doesn't touch your local files
+
+One thing tripped me up during the transition. The routine ran fine and committed to GitHub, but there were no new files on my laptop. I thought it had failed.
+
+The cause was simple: the cloud only pushes to `origin/main`. My local copy doesn't update until I run `git pull`. Obvious in hindsight, briefly confusing in the moment. Now I check `git log origin/main` before assuming anything broke — and before running the pipeline manually, which would produce a second copy of the same day's output.
+
+### One Telegram channel
+
+Adding a Telegram notification was a small call, but it turned out to be a useful one. When a short message lands — three headline lines and a link — I can decide on the spot whether to read the issue. Without the notification, I'd often forget an issue had even published.
+
+### Automation needs something watching it
+
+Moving to full automation made one thing clearer: to trust automation, you need something monitoring it. The Telegram message is that something. A day with no message means something went wrong.
+
+Full automation doesn't mean you stop paying attention. It means you pay attention to different things — less "did it publish?" and more "is what it published any good?"
