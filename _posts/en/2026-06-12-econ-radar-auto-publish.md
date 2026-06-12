@@ -18,19 +18,19 @@ I changed that two days in.
 
 ## A gate needs someone standing at it
 
-The idea wasn't wrong. The problem was that the person guarding the gate had to show up every day.
+The idea wasn't wrong. The problem was that someone had to show up at the gate every single day.
 
-Two days of running it made the pattern clear. The newsletter finished in the evening; I'd get to it later, or push it to the next day. A delayed issue loses some of its point.
+Two days of running it made the pattern clear: the newsletter would finish in the evening, and I'd get to it later, or push it to the next day. News from today is most useful today.
 
-The "nothing goes out until I confirm" rule was slowing the system down.
+The rule "nothing goes out until I confirm" was slowing itself down.
 
 ## Flipping the direction of trust
 
-Now a cloud routine runs at 18:30 KST every day, handles everything from collecting news to publishing the blog post, and sends a Telegram message when it's done.
+Now a cloud routine runs at 18:30 KST every day — collecting news, publishing the blog post, sending a Telegram message when it's done.
 
 "Nothing goes out until I confirm" became "things go out, and I pull them down if something looks off."
 
-Taking down an HTML file is something I can always do. Approving every issue takes willpower every day. Two days was enough to see which one was sustainable.
+Taking down an HTML file is something I can always do. Approving every issue takes willpower every day. Two days was enough to know which one would last.
 
 ## The cloud doesn't touch local files
 
@@ -40,15 +40,15 @@ The routine ran fine and pushed to GitHub, but there were no new files on my lap
 
 The cause was simple: the cloud only pushes to `origin/main`. My local machine doesn't update until I run `git pull`.
 
-Now I check `git log origin/main` before assuming anything broke — and before running the pipeline by hand.
+Now when something looks off, I check `git log origin/main` first, and verify the remote state before I run anything manually.
 
 ## One Telegram channel
 
-I made a dedicated Telegram channel for publish notifications. When an issue goes out, a message lands with three headline lines and a link.
+I made a dedicated Telegram channel for publish notifications. When an issue goes out, a message arrives with three headline lines and a link.
 
-Without it, I'd often forget an issue had even published. A day with no message is a signal that something went wrong — which turns out to be a useful monitoring mechanism.
+It sounds minor, but without it I'd often forget an issue had even published. A day with no message means something went wrong — which turns out to be a useful monitoring mechanism.
 
-Full automation doesn't mean you stop paying attention. It means you pay attention to different things. Less "did it publish?" and more "is what it published any good?"
+Full automation doesn't mean you stop paying attention. It means you pay attention to different things. Less "did it publish?" and more "was what it published any good?"
 
 ---
 
