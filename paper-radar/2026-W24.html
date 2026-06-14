@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>paper-radar — 2026-W24</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+    body { font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; font-size:16px; line-height:1.78; }
+    .badge { font-size:11px; font-weight:700; padding:2px 9px; border-radius:9999px; display:inline-block; margin-right:4px; }
+    .badge-genome   { background:#dcfce7; color:#166534; }
+    .badge-clinical { background:#dbeafe; color:#1e40af; }
+    .badge-drug     { background:#ede9fe; color:#5b21b6; }
+    .badge-protein  { background:#fce7f3; color:#9d174d; }
+    .badge-llmbio   { background:#fef9c3; color:#713f12; }
+    .badge-other    { background:#f3f4f6; color:#374151; }
+    .badge-preprint { background:#fef3c7; color:#92400e; }
+    .badge-peer     { background:#d1fae5; color:#065f46; }
+    .badge-insilico { background:#e0e7ff; color:#3730a3; }
+    .badge-retro    { background:#fef9c3; color:#713f12; }
+    .badge-prosp    { background:#d1fae5; color:#065f46; }
+    .badge-multi    { background:#dbeafe; color:#1e40af; }
+    .badge-rct      { background:#dcfce7; color:#166534; }
+    .key-point { border-left:4px solid #4338ca; padding:10px 16px; background:#f5f3ff; border-radius:0 10px 10px 0; margin-top:12px; }
+    .key-point .label { font-size:11px; font-weight:700; letter-spacing:0.06em; color:#4338ca; margin-bottom:4px; }
+    .key-point .text { font-size:15px; font-weight:500; color:#312e81; line-height:1.7; }
+    .insight { border-left:4px solid #14b8a6; padding:10px 16px; background:#f0fdfa; border-radius:0 10px 10px 0; margin-top:10px; }
+    .insight .label { font-size:11px; font-weight:700; letter-spacing:0.06em; color:#0f766e; margin-bottom:4px; }
+    .insight .text { font-size:15px; color:#134e4a; line-height:1.7; }
+    .lens-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+    .lens-item { font-size:13.5px; color:#374151; padding:4px 10px; background:#f9fafb; border:1px solid #e5e7eb; border-radius:8px; }
+    .verify-tag { font-size:12px; color:#6b7280; margin-top:8px; }
+</style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <div class="max-w-3xl mx-auto px-4 py-10">
+    <header class="mb-8">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="text-2xl font-bold tracking-tight text-gray-900">📄 paper-radar 주간 다이제스트</span>
+        <span class="text-lg text-gray-500 font-medium">2026-W24</span>
+      </div>
+      <p class="text-xs text-gray-400">바이오인포·임상ML·신약AI 논문 주간 요약. 모든 해석은 preprint 단계에서의 분석임.</p>
+    </header>
+
+    <section class="mb-8">
+      <h2 class="text-xs font-bold tracking-widest text-indigo-600 uppercase mb-3">At a Glance</h2>
+      <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-5 space-y-3">
+        <p class="text-[15px] leading-relaxed text-gray-800">이번 주는 <strong>신약 개발 파이프라인 전 단계를 AI로 대체하려는 시도</strong>가 동시다발로 나왔다. 분자 특성 예측(GLACIER, ADME 대조 사전학습), RNA 후성유전체 예측(m6A-FORM), 전사 교란 반응 예측(OCOO-T)은 모두 in silico 단계에 머물지만, ctDNA 내성 감시 논문(Span 검출기)은 실제 임상 미충족 수요와 가장 직접 맞닿아 코드까지 공개했다. 공개 코드는 5편 중 단 2편 — 지금 당장 직접 써볼 수 있는 논문은 이 둘뿐이다.</p>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">This Week's Top 5</h2>
+      <div class="space-y-6">
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#1</span>
+            <span class="badge badge-preprint ">preprint</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">Span 검출기: 검출 한계 아래에서 ctDNA 내성 징후 잡기 (Seeing Below the Limit of Detection: A Censored-Poisson Bayesian Latent-Growth Change-Point Detector for Serial ctDNA in HR+/HER2- Metastatic Breast Cancer)</h3>
+          <p class="text-[13px] text-gray-500 mb-3">arXiv (q-bio.QM, cs.LG, stat.ME) · 2026-06-10 · <strong>preprint(미동료심사)</strong> · <a href="https://arxiv.org/abs/2606.11876" class="underline text-indigo-700" target="_blank">arxiv.org/abs/2606.11876</a> · <a href="https://github.com/span-ai-labs/span-detector" class="underline text-indigo-700" target="_blank">code</a></p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">비검출 ctDNA 측정값을 결측이나 0으로 버리지 않고 좌측 구간 중도절단(left-censored) 관측으로 처리하는 베이지안 잠재 성장 변화점 모델이다. 합성 시나리오에서 동일 허위 경보율(10%) 기준으로 조기 검출률이 25% vs. 11%로 2배 차이를 보였고, GBSG-2(n=686)·PBC2(n=312) 공개 코호트에서 생존 예측 C-index 0.67/0.68을 확인했다.</div>
+          </div>
+
+<div class="lens-row"><span class="lens-item">🔬 Method: Censored-Poisson + 베이지안 잠재 성장 + 변화점 탐지를 단일 계층 모델에 통합; 코드 공개로 즉시 재현 가능.</span> <span class="lens-item">🩺 Clinical: 핵심 수치(2배 조기 검출)는 합성 데이터 기반이며, 실환자 직렬 ctDNA 코호트 전향 검증은 없음 — 임상 근거로 단독 인용 불가.</span> <span class="lens-item">🏭 Industry: 검출 한계 아래 알고리즘은 Guardant Health·Foundation Medicine 등 기존 ctDNA 플랫폼의 소프트웨어 차별화 레이어로 탑재 가능한 구조. 핵심 해자는 알고리즘보다 전향 시계열 ctDNA 데이터셋.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-retro ">후향</span> <span class="badge badge-other ">시뮬레이션 혼합 (실환자 ctDNA 코호트 검증 없음)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#2</span>
+            <span class="badge badge-preprint ">preprint</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">GLACIER: 멀티모달 학생-교사 분자 특성 예측 파운데이션 모델 (GLACIER: A Multimodal Student-Teacher Foundation Model for Molecular Property Prediction)</h3>
+          <p class="text-[13px] text-gray-500 mb-3">arXiv (cs.LG, q-bio.BM) · 2026-06-09 · <strong>preprint(미동료심사)</strong> · <a href="https://arxiv.org/abs/2606.11382" class="underline text-indigo-700" target="_blank">arxiv.org/abs/2606.11382</a> · <a href="https://github.com/eemokey/glacier" class="underline text-indigo-700" target="_blank">code</a></p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">분자 그래프(GNN), SMILES(트랜스포머), 물리화학 기술자(MLP) 세 인코더를 학생-교사 지식 증류 구조로 통합해 10만 개 약물 유사 분자로 사전학습한 모델이다. Biogen KERMT 기저치 대비 Biogen +7.6%, ExpansionRX +9.9%, ChEMBL-MT +9.5% 개선을 보고했다.</div>
+          </div>
+
+<div class="lens-row"><span class="lens-item">🔬 Method: 세 모달리티를 Finsler 기하학 기반 융합 모듈로 통합; Finsler 융합의 실질 기여를 확인할 ablation 수치는 초록에 없음.</span> <span class="lens-item">🩺 Clinical: ADME 예측 개선 → 신약 개발 파이프라인 효율화 경로이며, 임상 적용까지 예측-실험 일치도 검증 등 여러 단계가 남아 있음.</span> <span class="lens-item">🏭 Industry: 저분자 신약 스크리닝 병목 완화 가능성. 단, 아래 ADME 논문(#4)과 수치가 완전히 동일해 두 논문의 독립성 확인이 먼저 필요하다.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-insilico ">in silico</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#3</span>
+            <span class="badge badge-preprint ">preprint</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">m6A-FORM: RNA 메틸화 생물학 해독 파운데이션 모델 (m6A-FORM: A Foundation Model for Decoding N6-methyladenosine Biology)</h3>
+          <p class="text-[13px] text-gray-500 mb-3">arXiv (q-bio.GN, q-bio.MN) · 2026-06-10 · <strong>preprint(미동료심사)</strong> · <a href="https://arxiv.org/abs/2606.12219" class="underline text-indigo-700" target="_blank">arxiv.org/abs/2606.12219</a> · 코드: 없음</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">MeRIP-seq 피크 2,200만 개(143개 인간 연구)로 사전학습한 뒤 m6A-Atlas v2.0 + GLORI 고신뢰도 레이블로 파인튜닝해 단일 뉴클레오타이드 수준 m6A 사이트를 예측한다. PR-AUC 0.635 / ROC-AUC 0.988 (기존 최고 대비 PR-AUC +0.14 이상), 24개 인간 조직에서 보존 사이트 19,631개 식별, m6A 관련 조절인자 19종 결합 부위 동시 예측을 보고했다.</div>
+          </div>
+
+<div class="lens-row"><span class="lens-item">🔬 Method: 2단계(MeRIP-seq 사전학습 → 고신뢰도 레이블 파인튜닝) 구조; 143개 연구 배치 효과 처리 방식은 초록에 미기재.</span> <span class="lens-item">🩺 Clinical: 현 단계는 in silico 계산 도구. m6A 비정상 패턴이 임상 진단에 쓰이려면 독립 임상 샘플 검증부터 수년의 경로가 필요하다.</span> <span class="lens-item">🏭 Industry: Moderna·BioNTech 등 mRNA 치료제 플랫폼의 코돈 최적화 + 수식 전략 파이프라인에 통합 가능성. Storm Therapeutics·Accent Therapeutics 같은 m6A 조절인자 타깃 개발사의 표적 발굴 가속화 도구.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-insilico ">in silico</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#4</span>
+            <span class="badge badge-preprint ">preprint</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">GLACIER 동반 논문: ADME 다중과제 예측을 위한 확률론적 대조 사전학습 (Probabilistic Contrastive Pretraining for Multi-task ADME Property Prediction)</h3>
+          <p class="text-[13px] text-gray-500 mb-3">arXiv (cs.LG, q-bio.QM) · 2026-06-09 · <strong>preprint(미동료심사)</strong> · <a href="https://arxiv.org/abs/2606.11508" class="underline text-indigo-700" target="_blank">arxiv.org/abs/2606.11508</a> · 코드: 없음</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">재건·대조 판별·화학 감독 세 학습 신호를 단일 확률론적 잠재 변수 목적함수로 통합한 분자 그래프-트랜스포머로, 음전이(negative transfer) 완화를 명시적 설계 목표로 삼았다. 보고 수치는 GLACIER와 동일(Biogen +7.6%, ExpansionRX +9.9%, ChEMBL-MT +9.5%).</div>
+          </div>
+
+<div class="lens-row"><span class="lens-item">🔬 Method: 확률론적 잠재 표현으로 예측 불확실성 자연 추정 가능 — 배치 스크리닝에서 불확실성 가중 순위화에 실용적 이점이 있다.</span> <span class="lens-item">🩺 Clinical: GLACIER(#2)와 동일 경로. 절대 수치 미제공, ablation 미확인, 코드 미공개로 현재 독립 평가 불가.</span> <span class="lens-item">🏭 Industry: 코드 미공개. GLACIER 코드 실험 후 이 논문의 확률론적 대조 사전학습 아이디어를 자체 구현하는 방향이 현실적이다.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-insilico ">in silico</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#5</span>
+            <span class="badge badge-preprint ">preprint</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">OCOO-T: 전사 교란 반응 예측 가상 세포 모델 (OCOO-T: A Simple and Scalable Virtual Cell Model for Transcriptional Perturbation Response Prediction)</h3>
+          <p class="text-[13px] text-gray-500 mb-3">arXiv (q-bio.QM, cs.AI, q-bio.GN) · 2026-06-11 · <strong>preprint(미동료심사)</strong> · <a href="https://arxiv.org/abs/2606.12838" class="underline text-indigo-700" target="_blank">arxiv.org/abs/2606.12838</a> · 코드: 없음</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">흐름 매칭(flow matching) 기반 트랜스포머가 유전적·화학적·사이토카인 교란 세 유형에 대한 단일 세포 전사 반응을 하나의 모델에서 예측한다. 적응형 레이어 정규화 + 컨텍스트 토큰으로 세포 유형 특이성을 처리한다. Tahoe100M·Replogle·PBMC 세 벤치마크에서 "경쟁력 있는 성능"을 보고했으나, 구체적 수치는 초록에 없다.</div>
+          </div>
+
+<div class="lens-row"><span class="lens-item">🔬 Method: 흐름 매칭으로 세포 상태 전이를 연속 변환으로 모델링; 세포 사멸·분화 분기 같은 이산적 사건에서 이 가정이 성립하는지 미검증.</span> <span class="lens-item">🩺 Clinical: 약물 스크리닝 초기 단계의 가설 생성 도구 수준. 어떤 가상 세포 모델도 현재 임상 의사결정에 직접 쓰이지 않는다.</span> <span class="lens-item">🏭 Industry: CAR-T 설계나 유전자 편집 치료제 표적 사전 시뮬레이션에 방향성은 있으나, 코드 미공개·수치 미제공 상태로 산업 채택 가능성 판단 보류.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-insilico ">in silico</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Deep Dive</h2>
+      <div class="mb-6">
+        <h3 class="text-[16px] font-bold text-gray-800 mb-4">Span 검출기: 데이터 재정의가 알고리즘을 이긴다</h3>
+        <div class="space-y-3">
+          <p class="text-[15px] text-gray-800 leading-relaxed">HR+/HER2- 전이성 유방암(mBC)에서 CDK4/6 억제제나 내분비 치료 중 내성이 생길 때, ESR1·PIK3CA 변이 같은 ctDNA 변화가 영상 진행보다 수 개월 앞서 나타난다는 선행 연구는 이미 여럿 있다. 문제는 ctDNA 수치가 검출 한계(LOD) 이하로 내려갔을 때다. 기존 방법은 이 값을 결측 또는 0으로 처리했다. Span 검출기의 제안은 간단하다 — 비검출 측정값은 "내성 서브클론이 아직 LOD 아래에 있다"는 정보지, 정보가 없는 상태가 아니라는 것이다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">통계 설계는 Censored-Poisson 이진 검출 과정, 베이지안 잠재 성장 모델, 변화점 탐지의 조합이다. 생존분석에서 좌측 중도절단(left censoring)은 표준 처리지만, ctDNA 직렬 측정에 이 세 레이어를 통합한 구현은 문헌에서 드물다. 코드도 공개했다(github.com/span-ai-labs/span-detector).</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">그러나 읽을 때 조심해야 할 부분이 있다. "2배 조기 검출"이라는 수치(25% vs. 11%, 허위 경보율 10% 동일)는 시뮬레이션 데이터 기반이다. 논문이 실환자 검증에 쓴 GBSG-2(n=686)·PBC2(n=312)는 원래 ctDNA 직렬 측정 연구가 아니라 전통적 생존분석 벤치마크이며, 여기서 C-index는 기저치(0.67~0.68)와 거의 같다. 합성 데이터에서 나온 이점이 실환자 ctDNA 코호트에서 재현되는지는 아직 열린 질문이다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">짚어볼 포인트는 두 가지다. 하나는 Span AI Labs 계정으로 코드가 공개됐다는 것 — 상업화 의도가 있다고 보는 것이 자연스럽다. 액체생검 플랫폼(Guardant Health, Foundation Medicine)의 소프트웨어 레이어로 탑재되는 시나리오가 가장 현실적이다. 다른 하나는 범용성이다. "LOD 아래 데이터를 정보로 처리"하는 이 프레이밍은 ctDNA에만 그치지 않고, ADME 실험 데이터나 다른 임상 측정값의 LOD 문제에도 그대로 적용할 수 있다. 이번 주 5편 중 방법론적 파급력이 가장 넓은 논문이다.</p>
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <h3 class="text-[16px] font-bold text-gray-800 mb-4">GLACIER vs. ADME 대조 사전학습: 같은 숫자, 다른 논문</h3>
+        <div class="space-y-3">
+          <p class="text-[15px] text-gray-800 leading-relaxed">GLACIER(#2)와 ADME 대조 사전학습(#4)은 모두 분자 특성(ADME 계열) 예측 파운데이션 모델이고, 동일 벤치마크(Biogen KERMT, ExpansionRX, ChEMBL-MT)에서 정확히 같은 개선폭(+7.6%, +9.9%, +9.5%)을 보고한다. 같은 그룹이 공통 평가 플랫폼을 쓴 병렬 출고일 가능성이 가장 높다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">두 논문의 접근 방식은 다르다. GLACIER는 세 이질적 모달리티(그래프+SMILES+물리화학 기술자)를 Finsler 기하학 융합으로 통합하는 표현 학습 경로고, ADME 논문은 재건·대조·화학 감독 세 목적함수를 단일 확률론적 잠재 변수로 묶는 사전학습 경로다. 발상의 방향이 달라도 숫자가 같다는 것은 두 논문이 서로를 베이스라인으로 삼거나 같은 실험 환경을 공유했을 가능성을 강하게 시사한다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">지금 당장 직접 써보려면 GLACIER부터다 — 코드가 공개돼 있다. ChEMBL-MT처럼 공개된 벤치마크에서 독립 재현을 먼저 확인하고, 그 다음 확률론적 대조 사전학습 아이디어를 자체 구현하거나 두 모델을 앙상블하는 순서가 현실적이다. Biogen·ExpansionRX 수치는 내부 데이터일 가능성이 있으므로 재현 불가 벤치마크로 분류해 두고 보수적으로 취급해야 한다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">🔭 Wide Angle</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm px-6 py-2">
+        <div class="flex items-start gap-3 py-4 border-b border-gray-100 last:border-0">
+          <div class="flex-1">
+            <p class="text-[15px] font-semibold text-gray-900 mb-1">The Virtual Biotech: 멀티에이전트 AI 신약 발굴 프레임워크 <span class="badge badge-preprint ">preprint</span></p>
+            <p class="text-[14px] text-gray-700 leading-relaxed">CSO 에이전트가 통계유전학·화학정보학·임상데이터 전문 AI 과학자들을 조율해 표적 발굴·임상 실패 분석·바이오마커 전략을 자율 수행한다. 5만 5,984개 임상시험 자율 분석; 세포 유형 특이 표적 약물의 Ph I→II 전환율 +40%, 출시 확률 +48%, 부작용 -32% 보고(all: AI 에이전트 자율 분석 수치, peer-review 전). <a href="https://doi.org/10.64898/2026.02.23.707551" class="underline text-indigo-700" target="_blank">bioRxiv</a></p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 py-4 border-b border-gray-100 last:border-0">
+          <div class="flex-1">
+            <p class="text-[15px] font-semibold text-gray-900 mb-1">병리학의 파운데이션 모델 재고 (Rethinking Foundation Models in Pathology) </p>
+            <p class="text-[14px] text-gray-700 leading-relaxed">Nature Biomedical Engineering 동료심사 논평. 자연 이미지 기반 범용 파운데이션 모델이 조직 형태의 조합적 복잡성과 구조적으로 맞지 않는다고 주장하며 병리 전용 아키텍처의 필요성을 제기한다. Paige.AI·PathAI 등 병리 AI 제품 라인의 재설계 논쟁을 공식화한 참조점. <a href="https://doi.org/10.1038/s41551-026-01696-6" class="underline text-indigo-700" target="_blank">Nature Biomedical Engineering</a></p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 py-4 border-b border-gray-100 last:border-0">
+          <div class="flex-1">
+            <p class="text-[15px] font-semibold text-gray-900 mb-1">OmniBioTwin: 건강 디지털 트윈 계층 프레임워크 <span class="badge badge-preprint ">preprint</span></p>
+            <p class="text-[14px] text-gray-700 leading-relaxed">분자·세포·기관 수준 계산 모델을 7개 레이어 상호작용 연산자로 연결한 모듈식 디지털 트윈. GLP-1 신호 경로·알츠하이머 다중 스케일 모델 시연. 아키텍처 제안 단계이며 대규모 실증은 앞으로의 과제. <a href="https://arxiv.org/abs/2606.11264" class="underline text-indigo-700" target="_blank">arXiv</a></p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 py-4 border-b border-gray-100 last:border-0">
+          <div class="flex-1">
+            <p class="text-[15px] font-semibold text-gray-900 mb-1">유전체 기반 개인화 생리 해석을 위한 베이지안 추론 <span class="badge badge-preprint ">preprint</span></p>
+            <p class="text-[14px] text-gray-700 leading-relaxed">유전체 프로파일을 외생적 기준점으로 삼아 생리 측정값에서 유전 대 환경 기여를 분리한다. FTO·FADS1/2·FKBP5 세 유전자 앵커로 6개 도메인에 적용했고, HRV 55ms 예시에서 유전형별 해석 역전을 시연했다. 웨어러블+유전체 통합 소비자 건강 앱 방향의 새 프레이밍이지만 임상 검증은 없다. <a href="https://arxiv.org/abs/2606.13556" class="underline text-indigo-700" target="_blank">arXiv</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Threads to Follow</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <ul class="space-y-3 list-disc list-inside">
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>Span AI Labs 동향 추적</strong>: 코드가 공개된 만큼 HR+/HER2- mBC 이외의 암종(폐암, 대장암)으로 확장하는 전향 연구 발표 여부를 지켜본다. 액체생검 플랫폼과의 파트너십 공시가 있다면 알고리즘의 상업화 경로가 명확해진다.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>GLACIER 독립 재현 결과</strong>: ChEMBL-MT 기준으로 외부 연구자들의 재현 결과가 쌓이는지, MoleculeNet 등 표준 벤치마크 추가 실험이 공개되는지 추적. GLACIER-ADME 두 논문의 저자 관계가 밝혀지면 숫자 동일 이슈도 해소된다.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>Virtual Biotech peer-review</strong>: James Zou 그룹(Stanford 계열) 계보상 상위 저널 제출 가능성이 있다. peer-review 통과 후 수치가 검증된다면 멀티에이전트 신약 AI 분야 전체의 기준점이 된다.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>병리 AI 아키텍처 논쟁</strong>: Tizhoosh 논평에 대한 반박 논문이 나오는지, 이 논쟁이 FDA 조달 가이드라인에 반영되는지를 지켜본다. Kaiko AI·Owkin 등 병리 특화 파운데이션 모델 기업의 데이터셋 규모와 임상 검증 결과 발표가 다음 판단 기준이다.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>가상 세포 모델 코드 공개 레이스</strong>: OCOO-T를 포함해 이번 주 코드 미공개 논문 3편(m6A-FORM, OCOO-T, ADME 대조 사전학습)의 저장소 공개 여부를 모니터링. 코드 공개 시 GEARS·scGPT와의 직접 비교 실험이 의미 있다.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Sources</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <ul class="space-y-2 text-[13.5px]">
+              <li><a href="https://arxiv.org/abs/2606.11876" class="text-indigo-600 underline" target="_blank">1 — Span ctDNA 변화점 탐지기</a></li>
+              <li><a href="https://github.com/span-ai-labs/span-detector" class="text-indigo-600 underline" target="_blank">1 코드 — span-ai-labs/span-detector</a></li>
+              <li><a href="https://arxiv.org/abs/2606.11382" class="text-indigo-600 underline" target="_blank">2 — GLACIER 분자 특성 예측</a></li>
+              <li><a href="https://github.com/eemokey/glacier" class="text-indigo-600 underline" target="_blank">2 코드 — eemokey/glacier</a></li>
+              <li><a href="https://arxiv.org/abs/2606.12219" class="text-indigo-600 underline" target="_blank">3 — m6A-FORM RNA 메틸화 파운데이션 모델</a></li>
+              <li><a href="https://arxiv.org/abs/2606.11508" class="text-indigo-600 underline" target="_blank">4 — ADME 확률론적 대조 사전학습</a></li>
+              <li><a href="https://arxiv.org/abs/2606.12838" class="text-indigo-600 underline" target="_blank">5 — OCOO-T 가상 세포 교란 반응 예측</a></li>
+              <li><a href="https://doi.org/10.64898/2026.02.23.707551" class="text-indigo-600 underline" target="_blank">W1 — The Virtual Biotech (bioRxiv)</a></li>
+              <li><a href="https://doi.org/10.1038/s41551-026-01696-6" class="text-indigo-600 underline" target="_blank">W2 — 병리 파운데이션 모델 재고 (Nature BME)</a></li>
+              <li><a href="https://arxiv.org/abs/2606.11264" class="text-indigo-600 underline" target="_blank">W3 — OmniBioTwin 디지털 트윈</a></li>
+              <li><a href="https://arxiv.org/abs/2606.13556" class="text-indigo-600 underline" target="_blank">W4 — 유전체 기반 개인화 생리 해석</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="border-t border-gray-200 pt-8 pb-10 text-center">
+      <p class="text-sm text-gray-500 mt-4">paper-radar · 2026-W24</p>
+      <p class="text-xs text-gray-400 mt-1">바이오인포·임상ML·신약AI 논문 주간 요약. preprint 분석 포함.</p>
+    </footer>
+  </div>
+</body>
+</html>
