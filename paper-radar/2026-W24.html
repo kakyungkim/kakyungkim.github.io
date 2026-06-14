@@ -30,6 +30,7 @@
     .insight .text { font-size:15px; color:#134e4a; line-height:1.7; }
     .lens-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
     .lens-item { font-size:13.5px; color:#374151; padding:4px 10px; background:#f9fafb; border:1px solid #e5e7eb; border-radius:8px; }
+    .lens-demand { font-size:13.5px; color:#92400e; padding:4px 10px; background:#fef3c7; border:1px solid #fde68a; border-radius:8px; }
     .verify-tag { font-size:12px; color:#6b7280; margin-top:8px; }
 </style>
 </head>
@@ -62,10 +63,10 @@
           <p class="text-[13px] text-gray-500 mb-3">arXiv (q-bio.QM, cs.LG, stat.ME) · 2026-06-10 · <strong>preprint(미동료심사)</strong> · <a href="https://arxiv.org/abs/2606.11876" class="underline text-indigo-700" target="_blank">arxiv.org/abs/2606.11876</a> · <a href="https://github.com/span-ai-labs/span-detector" class="underline text-indigo-700" target="_blank">code</a></p>
           <div class="key-point">
             <div class="label">KEY POINT</div>
-            <div class="text">비검출 ctDNA 측정값을 결측이나 0으로 버리지 않고 좌측 구간 중도절단(left-censored) 관측으로 처리하는 베이지안 잠재 성장 변화점 모델이다. 합성 시나리오에서 동일 허위 경보율(10%) 기준으로 조기 검출률이 25% vs. 11%로 2배 차이를 보였고, GBSG-2(n=686)·PBC2(n=312) 공개 코호트에서 생존 예측 C-index 0.67/0.68을 확인했다.</div>
+            <div class="text">직렬 ctDNA 측정에서 검출 한계(LOD) 아래 값은 기존에 결측 또는 0으로 버려져 조기 내성 징후를 놓쳤다. Span 검출기는 이를 좌측 구간 중도절단(left-censored) 관측으로 처리하는 베이지안 잠재 성장 변화점 모델이다. 합성 시나리오에서 동일 허위 경보율(10%) 기준 조기 검출률 25% vs. 11%(2배)를 확인했고, GBSG-2(n=686)·PBC2(n=312) 공개 코호트에서 C-index 0.67/0.68을 얻었다.</div>
           </div>
 
-<div class="lens-row"><span class="lens-item">🔬 Method: Censored-Poisson + 베이지안 잠재 성장 + 변화점 탐지를 단일 계층 모델에 통합; 코드 공개로 즉시 재현 가능.</span> <span class="lens-item">🩺 Clinical: 핵심 수치(2배 조기 검출)는 합성 데이터 기반이며, 실환자 직렬 ctDNA 코호트 전향 검증은 없음 — 임상 근거로 단독 인용 불가.</span> <span class="lens-item">🏭 Industry: 검출 한계 아래 알고리즘은 Guardant Health·Foundation Medicine 등 기존 ctDNA 플랫폼의 소프트웨어 차별화 레이어로 탑재 가능한 구조. 핵심 해자는 알고리즘보다 전향 시계열 ctDNA 데이터셋.</span></div>
+<div class="lens-row"><span class="lens-item">🔬 Method: Censored-Poisson + 베이지안 잠재 성장 + 변화점 탐지를 단일 계층 모델에 통합; 코드 공개로 즉시 재현 가능.</span> <span class="lens-item">🩺 Clinical: 핵심 수치(2배 조기 검출)는 합성 데이터 기반이며, 실환자 직렬 ctDNA 코호트 전향 검증은 없음 — 임상 근거로 단독 인용 불가.</span> <span class="lens-item">🏭 Industry: 검출 한계 아래 알고리즘은 Guardant Health·Foundation Medicine 등 기존 ctDNA 플랫폼의 소프트웨어 차별화 레이어로 탑재 가능한 구조. 핵심 해자는 알고리즘보다 전향 시계열 ctDNA 데이터셋.</span> <span class="lens-demand">🎯 Demand: HR+/HER2- mBC 치료 반응을 모니터링하는 종양내과 연구팀 + Guardant Health·Foundation Medicine 같은 액체생검 플랫폼의 소프트웨어 팀. 코드 공개(span-ai-labs/span-detector)로 즉시 실험 가능.</span></div>
 <div class="verify-tag">검증 수준: <span class="badge badge-retro ">후향</span> <span class="badge badge-other ">시뮬레이션 혼합 (실환자 ctDNA 코호트 검증 없음)</span></div>
         </div>
 
@@ -78,10 +79,10 @@
           <p class="text-[13px] text-gray-500 mb-3">arXiv (cs.LG, q-bio.BM) · 2026-06-09 · <strong>preprint(미동료심사)</strong> · <a href="https://arxiv.org/abs/2606.11382" class="underline text-indigo-700" target="_blank">arxiv.org/abs/2606.11382</a> · <a href="https://github.com/eemokey/glacier" class="underline text-indigo-700" target="_blank">code</a></p>
           <div class="key-point">
             <div class="label">KEY POINT</div>
-            <div class="text">분자 그래프(GNN), SMILES(트랜스포머), 물리화학 기술자(MLP) 세 인코더를 학생-교사 지식 증류 구조로 통합해 10만 개 약물 유사 분자로 사전학습한 모델이다. Biogen KERMT 기저치 대비 Biogen +7.6%, ExpansionRX +9.9%, ChEMBL-MT +9.5% 개선을 보고했다.</div>
+            <div class="text">단일 모달리티 분자 표현 모델은 그래프·서열·물리화학 정보를 동시에 포착하지 못한다는 한계가 있었다. GLACIER는 분자 그래프(GNN), SMILES(트랜스포머), 물리화학 기술자(MLP) 세 인코더를 학생-교사 지식 증류 + Finsler 기하학 융합으로 통합해 10만 개 약물 유사 분자로 사전학습했다. Biogen KERMT 기저치 대비 Biogen +7.6%, ExpansionRX +9.9%, ChEMBL-MT +9.5% 개선을 보고했다.</div>
           </div>
 
-<div class="lens-row"><span class="lens-item">🔬 Method: 세 모달리티를 Finsler 기하학 기반 융합 모듈로 통합; Finsler 융합의 실질 기여를 확인할 ablation 수치는 초록에 없음.</span> <span class="lens-item">🩺 Clinical: ADME 예측 개선 → 신약 개발 파이프라인 효율화 경로이며, 임상 적용까지 예측-실험 일치도 검증 등 여러 단계가 남아 있음.</span> <span class="lens-item">🏭 Industry: 저분자 신약 스크리닝 병목 완화 가능성. 단, 아래 ADME 논문(#4)과 수치가 완전히 동일해 두 논문의 독립성 확인이 먼저 필요하다.</span></div>
+<div class="lens-row"><span class="lens-item">🔬 Method: 세 모달리티를 Finsler 기하학 기반 융합 모듈로 통합; Finsler 융합의 실질 기여를 확인할 ablation 수치는 초록에 없음.</span> <span class="lens-item">🩺 Clinical: ADME 예측 개선 → 신약 개발 파이프라인 효율화 경로이며, 임상 적용까지 예측-실험 일치도 검증 등 여러 단계가 남아 있음.</span> <span class="lens-item">🏭 Industry: 저분자 신약 스크리닝 병목 완화 가능성. 단, 아래 ADME 논문(#4)과 수치가 완전히 동일해 두 논문의 독립성 확인이 먼저 필요하다.</span> <span class="lens-demand">🎯 Demand: 제약사·CRO DMPK 팀 — ADME 예측 자동화로 합성 우선순위 결정 병목을 줄이려는 쪽. 코드 공개(eemokey/glacier)로 즉시 도입 가능; ChEMBL-MT에서 독립 재현 후 사용 권장.</span></div>
 <div class="verify-tag">검증 수준: <span class="badge badge-insilico ">in silico</span></div>
         </div>
 
@@ -94,10 +95,10 @@
           <p class="text-[13px] text-gray-500 mb-3">arXiv (q-bio.GN, q-bio.MN) · 2026-06-10 · <strong>preprint(미동료심사)</strong> · <a href="https://arxiv.org/abs/2606.12219" class="underline text-indigo-700" target="_blank">arxiv.org/abs/2606.12219</a> · 코드: 없음</p>
           <div class="key-point">
             <div class="label">KEY POINT</div>
-            <div class="text">MeRIP-seq 피크 2,200만 개(143개 인간 연구)로 사전학습한 뒤 m6A-Atlas v2.0 + GLORI 고신뢰도 레이블로 파인튜닝해 단일 뉴클레오타이드 수준 m6A 사이트를 예측한다. PR-AUC 0.635 / ROC-AUC 0.988 (기존 최고 대비 PR-AUC +0.14 이상), 24개 인간 조직에서 보존 사이트 19,631개 식별, m6A 관련 조절인자 19종 결합 부위 동시 예측을 보고했다.</div>
+            <div class="text">기존 m6A 예측 도구들은 소규모 실험 데이터에 학습돼 조직·세포 유형 간 일반화가 어려웠다. m6A-FORM은 MeRIP-seq 피크 2,200만 개(143개 인간 연구)로 사전학습한 뒤 m6A-Atlas v2.0 + GLORI 고신뢰도 레이블로 파인튜닝해 단일 뉴클레오타이드 수준 m6A 사이트를 예측한다. PR-AUC 0.635 / ROC-AUC 0.988(기존 최고 대비 PR-AUC +0.14 이상), 24개 인간 조직 보존 사이트 19,631개, m6A 조절인자 19종 결합 부위 동시 예측을 보고했다.</div>
           </div>
 
-<div class="lens-row"><span class="lens-item">🔬 Method: 2단계(MeRIP-seq 사전학습 → 고신뢰도 레이블 파인튜닝) 구조; 143개 연구 배치 효과 처리 방식은 초록에 미기재.</span> <span class="lens-item">🩺 Clinical: 현 단계는 in silico 계산 도구. m6A 비정상 패턴이 임상 진단에 쓰이려면 독립 임상 샘플 검증부터 수년의 경로가 필요하다.</span> <span class="lens-item">🏭 Industry: Moderna·BioNTech 등 mRNA 치료제 플랫폼의 코돈 최적화 + 수식 전략 파이프라인에 통합 가능성. Storm Therapeutics·Accent Therapeutics 같은 m6A 조절인자 타깃 개발사의 표적 발굴 가속화 도구.</span></div>
+<div class="lens-row"><span class="lens-item">🔬 Method: 2단계(MeRIP-seq 사전학습 → 고신뢰도 레이블 파인튜닝) 구조; 143개 연구 배치 효과 처리 방식은 초록에 미기재.</span> <span class="lens-item">🩺 Clinical: 현 단계는 in silico 계산 도구. m6A 비정상 패턴이 임상 진단에 쓰이려면 독립 임상 샘플 검증부터 수년의 경로가 필요하다.</span> <span class="lens-item">🏭 Industry: Moderna·BioNTech 등 mRNA 치료제 플랫폼의 코돈 최적화 + 수식 전략 파이프라인에 통합 가능성. Storm Therapeutics·Accent Therapeutics 같은 m6A 조절인자 타깃 개발사의 표적 발굴 가속화 도구.</span> <span class="lens-demand">🎯 Demand: mRNA 치료제 개발사(Moderna·BioNTech 계열) + m6A 타깃 약물 바이오텍 — RNA 수식 전략 최적화가 필요한 팀. 코드·가중치 미공개 상태로 현재 직접 도입 불가; 공개 시 RNA 설계 파이프라인 직결.</span></div>
 <div class="verify-tag">검증 수준: <span class="badge badge-insilico ">in silico</span></div>
         </div>
 
@@ -110,10 +111,10 @@
           <p class="text-[13px] text-gray-500 mb-3">arXiv (cs.LG, q-bio.QM) · 2026-06-09 · <strong>preprint(미동료심사)</strong> · <a href="https://arxiv.org/abs/2606.11508" class="underline text-indigo-700" target="_blank">arxiv.org/abs/2606.11508</a> · 코드: 없음</p>
           <div class="key-point">
             <div class="label">KEY POINT</div>
-            <div class="text">재건·대조 판별·화학 감독 세 학습 신호를 단일 확률론적 잠재 변수 목적함수로 통합한 분자 그래프-트랜스포머로, 음전이(negative transfer) 완화를 명시적 설계 목표로 삼았다. 보고 수치는 GLACIER와 동일(Biogen +7.6%, ExpansionRX +9.9%, ChEMBL-MT +9.5%).</div>
+            <div class="text">다중 과제 분자 특성 예측에서 과제 간 음전이(negative transfer)는 오래된 병목이었다. 이 논문은 재건·대조 판별·화학 감독 세 학습 신호를 단일 확률론적 잠재 변수 목적함수로 통합해 음전이를 설계 단계에서 완화했다. 보고 수치는 GLACIER와 동일(Biogen +7.6%, ExpansionRX +9.9%, ChEMBL-MT +9.5%) — 동일 수치의 배경은 💡 인사이트 참조.</div>
           </div>
 
-<div class="lens-row"><span class="lens-item">🔬 Method: 확률론적 잠재 표현으로 예측 불확실성 자연 추정 가능 — 배치 스크리닝에서 불확실성 가중 순위화에 실용적 이점이 있다.</span> <span class="lens-item">🩺 Clinical: GLACIER(#2)와 동일 경로. 절대 수치 미제공, ablation 미확인, 코드 미공개로 현재 독립 평가 불가.</span> <span class="lens-item">🏭 Industry: 코드 미공개. GLACIER 코드 실험 후 이 논문의 확률론적 대조 사전학습 아이디어를 자체 구현하는 방향이 현실적이다.</span></div>
+<div class="lens-row"><span class="lens-item">🔬 Method: 확률론적 잠재 표현으로 예측 불확실성 자연 추정 가능 — 배치 스크리닝에서 불확실성 가중 순위화에 실용적 이점이 있다.</span> <span class="lens-item">🩺 Clinical: GLACIER(#2)와 동일 경로. 절대 수치 미제공, ablation 미확인, 코드 미공개로 현재 독립 평가 불가.</span> <span class="lens-item">🏭 Industry: 코드 미공개. GLACIER 코드 실험 후 이 논문의 확률론적 대조 사전학습 아이디어를 자체 구현하는 방향이 현실적이다.</span> <span class="lens-demand">🎯 Demand: GLACIER(#2)와 동일 수요 — 제약사·CRO DMPK 팀. 코드 미공개로 현재 직접 도입 불가. GLACIER로 먼저 실험하고 이 논문의 불확실성 추정 아이디어를 차후 통합하는 순서가 현실적.</span></div>
 <div class="verify-tag">검증 수준: <span class="badge badge-insilico ">in silico</span></div>
         </div>
 
@@ -126,10 +127,10 @@
           <p class="text-[13px] text-gray-500 mb-3">arXiv (q-bio.QM, cs.AI, q-bio.GN) · 2026-06-11 · <strong>preprint(미동료심사)</strong> · <a href="https://arxiv.org/abs/2606.12838" class="underline text-indigo-700" target="_blank">arxiv.org/abs/2606.12838</a> · 코드: 없음</p>
           <div class="key-point">
             <div class="label">KEY POINT</div>
-            <div class="text">흐름 매칭(flow matching) 기반 트랜스포머가 유전적·화학적·사이토카인 교란 세 유형에 대한 단일 세포 전사 반응을 하나의 모델에서 예측한다. 적응형 레이어 정규화 + 컨텍스트 토큰으로 세포 유형 특이성을 처리한다. Tahoe100M·Replogle·PBMC 세 벤치마크에서 "경쟁력 있는 성능"을 보고했으나, 구체적 수치는 초록에 없다.</div>
+            <div class="text">기존 가상 세포 모델 대부분은 유전자·화학물질·사이토카인 교란을 별도 모델로 다뤄 확장성이 낮았다. OCOO-T는 흐름 매칭(flow matching) 기반 트랜스포머로 세 교란 유형을 단일 모델에서 예측하며, 적응형 레이어 정규화 + 컨텍스트 토큰으로 세포 유형 특이성을 처리한다. Tahoe100M·Replogle·PBMC 벤치마크에서 "경쟁력 있는 성능"을 보고했으나 초록에 구체 수치 없음.</div>
           </div>
 
-<div class="lens-row"><span class="lens-item">🔬 Method: 흐름 매칭으로 세포 상태 전이를 연속 변환으로 모델링; 세포 사멸·분화 분기 같은 이산적 사건에서 이 가정이 성립하는지 미검증.</span> <span class="lens-item">🩺 Clinical: 약물 스크리닝 초기 단계의 가설 생성 도구 수준. 어떤 가상 세포 모델도 현재 임상 의사결정에 직접 쓰이지 않는다.</span> <span class="lens-item">🏭 Industry: CAR-T 설계나 유전자 편집 치료제 표적 사전 시뮬레이션에 방향성은 있으나, 코드 미공개·수치 미제공 상태로 산업 채택 가능성 판단 보류.</span></div>
+<div class="lens-row"><span class="lens-item">🔬 Method: 흐름 매칭으로 세포 상태 전이를 연속 변환으로 모델링; 세포 사멸·분화 분기 같은 이산적 사건에서 이 가정이 성립하는지 미검증.</span> <span class="lens-item">🩺 Clinical: 약물 스크리닝 초기 단계의 가설 생성 도구 수준. 어떤 가상 세포 모델도 현재 임상 의사결정에 직접 쓰이지 않는다.</span> <span class="lens-item">🏭 Industry: CAR-T 설계나 유전자 편집 치료제 표적 사전 시뮬레이션에 방향성은 있으나, 코드 미공개·수치 미제공 상태로 산업 채택 가능성 판단 보류.</span> <span class="lens-demand">🎯 Demand: 표적 발굴·약물 반응 시뮬레이션이 필요한 초기 단계 바이오텍·학계 연구팀. 코드 미공개로 현재 접근 불가 — 공개 후 GEARS·scGPT와 직접 비교가 첫 채택 판단 기준.</span></div>
 <div class="verify-tag">검증 수준: <span class="badge badge-insilico ">in silico</span></div>
         </div>
       </div>
