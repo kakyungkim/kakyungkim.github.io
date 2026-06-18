@@ -46,6 +46,7 @@ search: true
 search_full_content: true
 
 permalink: pretty
+future: true   # KST 기준 당일 포스트가 UTC 빌드에서 미래 날짜로 skip되는 것 방지
 
 # --- Per-type defaults ---
 defaults:
