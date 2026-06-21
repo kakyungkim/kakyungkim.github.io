@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>paper-radar — 2026-W25</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+    body { font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; font-size:16px; line-height:1.78; }
+    .badge { font-size:11px; font-weight:700; padding:2px 9px; border-radius:9999px; display:inline-block; margin-right:4px; }
+    .badge-genome   { background:#dcfce7; color:#166534; }
+    .badge-clinical { background:#dbeafe; color:#1e40af; }
+    .badge-drug     { background:#ede9fe; color:#5b21b6; }
+    .badge-protein  { background:#fce7f3; color:#9d174d; }
+    .badge-llmbio   { background:#fef9c3; color:#713f12; }
+    .badge-other    { background:#f3f4f6; color:#374151; }
+    .badge-preprint { background:#fef3c7; color:#92400e; }
+    .badge-peer     { background:#d1fae5; color:#065f46; }
+    .badge-insilico { background:#e0e7ff; color:#3730a3; }
+    .badge-retro    { background:#fef9c3; color:#713f12; }
+    .badge-prosp    { background:#d1fae5; color:#065f46; }
+    .badge-multi    { background:#dbeafe; color:#1e40af; }
+    .badge-rct      { background:#dcfce7; color:#166534; }
+    .badge-nocode   { background:#fee2e2; color:#991b1b; }
+    .key-point { border-left:4px solid #4338ca; padding:10px 16px; background:#f5f3ff; border-radius:0 10px 10px 0; margin-top:12px; }
+    .key-point .label { font-size:11px; font-weight:700; letter-spacing:0.06em; color:#4338ca; margin-bottom:4px; }
+    .key-point .text { font-size:15px; font-weight:500; color:#312e81; line-height:1.7; }
+    .insight { border-left:4px solid #14b8a6; padding:10px 16px; background:#f0fdfa; border-radius:0 10px 10px 0; margin-top:10px; }
+    .insight .label { font-size:11px; font-weight:700; letter-spacing:0.06em; color:#0f766e; margin-bottom:4px; }
+    .insight .text { font-size:15px; color:#134e4a; line-height:1.7; }
+    .lens-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+    .lens-item { font-size:13.5px; color:#374151; padding:4px 10px; background:#f9fafb; border:1px solid #e5e7eb; border-radius:8px; }
+    .lens-demand { font-size:13.5px; color:#92400e; padding:4px 10px; background:#fef3c7; border:1px solid #fde68a; border-radius:8px; }
+    .verify-tag { font-size:12px; color:#6b7280; margin-top:8px; }
+</style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <div class="max-w-3xl mx-auto px-4 py-10">
+    <header class="mb-8">
+      <div class="flex items-center gap-3 mb-2">
+        <img src="logo-64.png" alt="paper-radar" class="w-9 h-9 rounded-xl" onerror="this.style.display='none'">
+        <span class="text-2xl font-bold tracking-tight text-gray-900">paper-radar 주간 다이제스트</span>
+        <span class="text-lg text-gray-500 font-medium">2026-W25</span>
+      </div>
+      <p class="text-xs text-gray-400">바이오인포·임상ML·신약AI 논문 주간 요약. 모든 해석은 preprint 단계에서의 분석임.</p>
+    </header>
+
+    <section class="mb-8">
+      <h2 class="text-xs font-bold tracking-widest text-indigo-600 uppercase mb-3">At a Glance</h2>
+      <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-5 space-y-3">
+        <p class="text-[15px] leading-relaxed text-gray-800">이번 주는 새 모델보다 <strong>"기존 AI가 어디서, 왜 실패하는가"를 정량화하는 논문</strong>이 핵심 축을 채웠다. 임상 EHR에서 추론 단계가 늘수록 LLM 정확도가 단조 감소한다는 실증, 멀티모달 암 파운데이션 모델의 분포 이동 한계 체계화, 생존 예측 공정성 지표 제안 — 세 논문 모두 새 성능 기록 수립보다 지금 쓰는 도구의 실패 조건 파악에 초점을 맞췄다. 그 틈에서 테이블 파운데이션 모델이 ICU 생존 분석에서 경량 적응만으로 기존 DeepSurv를 넘어선 결과가 나왔고, 단일세포 클러스터링 방법론 경쟁도 이어졌다. W25 5편 중 코드가 확인된 논문은 0편이다 — 아이디어를 채택하기 전에 기반 모델 코드로 먼저 실험할 필요가 있다.</p>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">This Week's Top 5</h2>
+      <div class="space-y-6">
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#1</span>
+            
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">임상 EHR 질의응답에서 트랜스포머 합성 추론 한계 실증 (Compositional Reasoning Depth Predicts Clinical AI Failure: Empirical Evidence Consistent with Transformer Compositionality Limits in Electronic Health Record Question Answering)</h3>
+          <p class="text-[13px] text-gray-500 mb-3">저자: Sanjay Basu (1저자 겸 교신저자) | UCSF Department of Medicine</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">MedAlign의 313개 임상 EHR QA 쌍에 hop count(추론 단계 수) 레이블을 붙이고, 이 중 301개를 대상으로 Claude Sonnet, GPT-4o, GPT-5 세 모델을 평가했다. hop=1에서 Claude Sonnet 정확도 30.6%, hop=4에서 17.6%로 단조 감소하며, 두 공급사·두 세대 모델 모두에서 동일 패턴이 재현됐다.</div>
+          </div>
+
+<div class="lens-row"><span class="lens-item">🔬 Method: 임상 EHR 질문을 hop 1~4로 분류하는 taxonomy 신규 제안 + MedAlign 313개 QA 주석 — hop count가 추론 복잡도의 단일 대리 변수로 충분한지는 추가 검증 필요.</span> <span class="lens-item">🩺 Clinical: 다단계 진단 추론·복합 처방 검토에 LLM 단독 판단을 적용하면 실패율이 구조적으로 높아진다는 실증 근거 — 임상 AI 도입 전 안전성 점검 프레임워크로 즉시 참조 가능.</span> <span class="lens-item">🏭 Industry: hop 분류 체계는 Epic·Nuance·Oracle Health 등 EHR 통합 CDSS 제품의 내부 QC 기준 후보가 될 수 있다. FDA AI 가이드라인의 "모델 한계 문서화" 항목에도 직접 활용 가능한 구조.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">in silico (MedAlign 벤치마크</span> <span class="badge badge-other ">N=313 QA 쌍)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#2</span>
+            
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">공정한 예후 예측을 위한 그룹 조건부 C-지수 (Towards Fair Predictions: Group Conditional Concordance Index to Quantify Fairness in Time-to-Event Prognostication)</h3>
+          <p class="text-[13px] text-gray-500 mb-3">저자: Haoyuan Wang (1저자), Matthew Engelhard (교신저자) | Duke University (Biostatistics &amp; Bioinformatics / Duke AI Health) — 공저자 Ricardo Henao, Chuan Hong, Daniel Wojdyla, Riddhiman Bhattacharya 포함</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">Harrell C-지수를 그룹 조건부로 확장한 xCI(group-conditional Concordance Index)를 제안하며, CI가 xCI들의 가중 평균임을 수학적으로 증명했다. Framingham Offspring·MESA·ARIC 조화 데이터와 Truveta 대규모 EHR 두 케이스 스터디에서 기존 C-지수가 놓친 인구통계 그룹 간 편향을 감지했다.</div>
+          </div>
+
+<div class="lens-row"><span class="lens-item">🔬 Method: Harrell C-지수의 그룹 조건부 확장 + IPCW(역확률 중도절단 가중치) 기반 추정량 — MAR(Missing at Random) 가정이 실제 EHR의 추적 소실 패턴에서 성립하는지가 핵심 취약점.</span> <span class="lens-item">🩺 Clinical: CVD 위험 예측 도구의 인종·성별·연령별 편향 감사 도구로 즉시 활용 가능. 생존 분석 공정성 지표로 FDA AI 가이드라인의 서브그룹 성능 검증 요건에 부합하는 구조.</span> <span class="lens-item">🏭 Industry: HeartFlow·Viz.ai 등 심혈관 AI 기업의 FDA 510(k) 또는 De Novo 신청 시 공정성 분석 섹션에 xCI 기반 결과를 포함하는 경로가 생겼다. Truveta(Microsoft 주도 EHR 컨소시엄)가 검증에 쓰였다는 점은 이 방법론이 이미 산업 데이터 플랫폼과 연결돼 있음을 시사한다.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">후향 (Framingham</span> <span class="badge badge-other ">MESA</span> <span class="badge badge-other ">ARIC 조화 코호트 + Truveta EHR — 두 케이스 스터디)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#3</span>
+            
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">임상 생존 분석을 위한 테이블 파운데이션 모델의 생존 적응 (Tabular Foundation Models for Clinical Survival Analysis via Survival-Aware Adaptation)</h3>
+          <p class="text-[13px] text-gray-500 mb-3">저자: Minh-Khoi Pham (1저자) 외 | ADAPT Centre, Dublin City University</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">TabPFN·TabDPT·TabICL 등 범용 테이블 파운데이션 모델에 MTLR(다중과제 로지스틱 회귀) 헤드를 결합해 임상 생존 분석에 적응시켰다. MIMIC-IV에서 TabDPT-FT-MTLR C-index 0.856(DeepSurv 대비 +1.4%, zero-shot 대비 +6.7%), eICU에서 TabICL-FT-MTLR C-index 0.797을 보고했다.</div>
+          </div>
+
+<div class="lens-row"><span class="lens-item">🔬 Method: 범용 테이블 FM 표현 위에 MTLR 헤드만 경량 파인튜닝하는 2단계 적응 레시피 — ICU 코호트 이외(외래·암 생존)로 이전 가능성은 별도 검증 필요.</span> <span class="lens-item">🩺 Clinical: 두 독립 ICU 코호트에서 후향 검증됐지만 전향 임상 검증과 임상 결과 연결 근거는 없다. C-index 개선이 ICU 치료 강도 조정·완화 치료 전환에 실제로 기여하는지는 별개 연구가 필요하다.</span> <span class="lens-item">🏭 Industry: TabPFN·TabDPT 등 Prior Labs 계열 모델의 임상 생존 분석 유효성 논거가 쌓이는 시점. 범용 테이블 FM이 헬스케어 시장에서 DeepSurv 대체 경량 베이스라인으로 자리 잡을 수 있다는 첫 실증 데이터다.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">후향 (MIMIC-IV + eICU 두 ICU 코호트</span> <span class="badge badge-other ">AIiH 2026 동료심사 완료)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#4</span>
+            
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">멀티모달 암 분석을 위한 파운데이션 모델 표현의 체계적 평가 (Probing, Fusion, and Trustworthiness: A Systematic Evaluation of Foundation Model Representations for Multimodal Cancer Analysis)</h3>
+          <p class="text-[13px] text-gray-500 mb-3">저자: Jingyu Hu (1저자), Tapabrata Chakraborti (교신저자) | 소속 미명기</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">실세계 상업 코호트(IH-BC: 유방암, IH-NSCLC: 비소세포폐암)에서 5개 WSI(전체 슬라이드 이미지) 파운데이션 모델을 8개 분류 과제에 걸쳐 세 축(probing·fusion·trustworthiness)으로 평가했다. 이미지·전사체 두 모달리티가 상호 보완적 신호를 담는다는 결론을 제시했으며, 컨포멀 예측(conformal prediction) 기반 신뢰도 평가를 통합했다.</div>
+          </div>
+
+<div class="lens-row"><span class="lens-item">🔬 Method: probing(단일 FM 표현) / fusion(이미지-오믹스 결합) / trustworthiness(컨포멀 예측 커버리지) 세 축 통합 평가 프레임워크 — 컨포멀 예측의 교환 가능성(exchangeability) 가정이 분포 이동 조건에서 성립하는지가 핵심 취약점.</span> <span class="lens-item">🩺 Clinical: 전향 임상 코호트나 외부 독립 검증이 없다. 상업 코호트 내부 벤치마크이므로 일반화 가능성은 미확인 — 병리 FM 배포 전 체계적 평가의 방법론적 틀로서 가치가 있다.</span> <span class="lens-item">🏭 Industry: Tempus AI·Owkin·PathAI 등 멀티모달 종양 AI 플랫폼에 직접 닿는다. 분포 이동 하 FM 일반화 실증 프레임워크는 FDA Good AI Practice 원칙 이후 강화된 규제 제출의 방법론적 근거가 될 수 있다.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-insilico ">in silico</span> <span class="badge badge-other ">후향적 상업 코호트 (외부 독립 검증 없음)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#5</span>
+            
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">scGTN: 단일세포 RNA 시퀀싱 클러스터링을 위한 샴 그래프 트랜스포머 네트워크 (scGTN: Deep Siamese Graph Transformer Network for Single-cell RNA Sequencing Clustering)</h3>
+          <p class="text-[13px] text-gray-500 mb-3">저자: Jinke Wu (1저자), Wei Ju (교신저자) | Sichuan University, University of International Business and Economics, Great Bay University, The Education University of Hong Kong</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">scRNA-seq 데이터의 희소성·잡음 문제를 다루면서 세포 간 그래프 구조를 명시적으로 통합하는 샴 그래프 트랜스포머 네트워크(scGTN)를 제안했다. 그래프 트랜스포머에 최단 경로 정보(shortest-path)와 노드별 거리를 인코딩하고 최적 수송(optimal transport)으로 자기 지도 클러스터링을 유도한다.</div>
+          </div>
+
+<div class="lens-row"><span class="lens-item">🔬 Method: KNN 그래프 + 최단 경로·노드별 거리 인코딩 그래프 트랜스포머 + 최적 수송 클러스터링 — 초록에 구체적 데이터셋명·NMI/ARI 수치가 없어 정량 비교 불가. 희귀 세포 유형에서 최적 수송의 균형 가정이 성립하는지는 미검증.</span> <span class="lens-item">🩺 Clinical: 세포 유형 분류 정확도 개선 → 종양 미세환경 분석·희귀 세포 아집단 발굴 → 임상 마커 개발의 경로이며 현 단계는 계산 방법론 검증에 머문다.</span> <span class="lens-item">🏭 Industry: 산업 함의는 제한적이다. 코드 공개·독립 재현 확인 후 10x Genomics 등 단일세포 분석 소프트웨어 스택과의 통합 가능성을 재평가할 시점이다.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">in silico (다수 벤치마크 scRNA-seq 데이터셋 — 구체 수치 초록 미기재)</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Deep Dive</h2>
+      <div class="mb-6">
+        <h3 class="text-[16px] font-bold text-gray-800 mb-4">EHR 추론 실패: 임상 LLM 배포의 구조적 한계를 어떻게 측정할 것인가</h3>
+        <div class="space-y-3">
+          <p class="text-[15px] text-gray-800 leading-relaxed">임상 LLM이 EHR 질문에서 실패한다는 것은 알려진 사실이었다. 덜 알려진 것은 왜, 그리고 어떤 종류의 질문에서 실패하는가였다. Sanjay Basu(UCSF)는 이 질문을 추론 단계 수(hop count)라는 조작 가능한 변수로 정량화했다. 임상 EHR 질문을 "답하기 위해 몇 단계의 추론이 필요한가"로 분류해 hop 1~4 레이블을 붙이는 taxonomy를 설계하고, MedAlign의 313개 임상의 생성 QA 쌍에 주석을 붙인 뒤 이 중 301개 질문을 평가에 사용했다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">결과는 세 모델에서 같은 패턴으로 나왔다. Claude Sonnet zero-shot 기준 hop=1에서 30.6%, hop=4에서 17.6%의 단조 감소를 보였고, GPT-4o와 GPT-5(gpt-5.4-2026-03-05)에서도 동일했다. 두 공급사(Anthropic·OpenAI), 두 세대(GPT-4, GPT-5)에서 패턴이 재현됐다는 점은 특정 모델의 결함보다 트랜스포머 합성 추론의 구조적 한계일 가능성을 높인다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">그런데 hop 효과 못지않게 눈에 들어오는 것은 절대 수치다. hop=1에서도 30.6%라는 결과는, 단일 추론으로 답할 수 있는 가장 단순한 질문에서조차 세 모델이 세 번에 두 번은 틀렸다는 의미다. MedAlign 과제 자체의 난이도 문제인지(임상의 생성 QA가 원래 어렵다), zero-shot 조건의 제약인지 구분이 필요하다. 실제 임상 배포는 RAG(검색 증강)·시스템 프롬프트·체인오브쏘트를 함께 쓰는데, 이 논문은 zero-shot만 평가했다. Extended thinking 조건에서 hop 효과가 얼마나 완화되는지는 원문 본문 확인 필요 (본문 확인 필요).</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">현재 근거 수준에서 다단계 추론이 필요한 질문(진단 추론, 다약제 상호작용, 복합 처방 검토)에 LLM 단독 판단을 쓰는 것은 안전하다고 보기 어렵다. hop 분류 체계는 임상 AI 제품의 적용 범위 제한과 내부 QC 기준 설정에 참조할 수 있는 설계 원칙으로 보인다. 다음 질문은 두 가지다 — RAG·CoT 환경에서 hop 효과가 얼마나 줄어드는가, 그리고 이 패턴이 영어 EHR 이외(한국어 EMR 등)에서도 성립하는가.</p>
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <h3 class="text-[16px] font-bold text-gray-800 mb-4">Fair Concordance xCI: 지표 하나가 숨긴 불평등을 드러낸다</h3>
+        <div class="space-y-3">
+          <p class="text-[15px] text-gray-800 leading-relaxed">하렐 C-지수(Harrell's C-index)는 생존 예측 모델의 표준 성능 지표다. 그런데 이 지표는 한 가지를 구조적으로 숨긴다. 모든 가능한 환자 쌍에 걸쳐 예측 순위가 맞는 비율을 집계하다 보면, 특정 인구통계 집단 내부의 예측이 체계적으로 더 나쁘거나 좋은 패턴이 전체 평균에 묻힌다. 심혈관 위험 예측 모델이 전체 C-index 0.75를 보고해도, 흑인 여성 집단에서 0.61, 백인 남성 집단에서 0.82인 상황이 수면 아래 있을 수 있다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">xCI는 이 문제를 그룹 멤버십 조건부로 C-index를 분리해 계산하는 방식으로 해결한다. Wang 등은 CI가 모든 가능한 그룹 쌍에 걸친 xCI의 가중 평균임을 수학적으로 증명했다. 이 분해가 가능하려면 IPCW(역확률 중도절단 가중치)로 우측 중도절단을 처리해야 하는데, MAR(Missing at Random) 가정이 실제 EHR에서 성립하는지가 가장 취약한 지점이다. 추적 소실이 사회경제적 지위나 보험 여부 같은 미관측 변수와 연관된 경우 IPCW가 편향을 완전히 제거하지 못한다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">Framingham Offspring·MESA·ARIC 조화 데이터와 Truveta 대규모 EHR 두 케이스 스터디에서 기존 C-index가 놓쳤던 그룹 간 편향을 감지했다는 것이 이 논문의 핵심 claim이다. 구체적 수치(어느 그룹에서 얼마나)는 초록에 없어 본문 확인이 필요하다. 코드도 공개되지 않았다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">당장 활용 가능한 가치는 지표 자체의 수식이다. IPCW 기반 C-index 계산은 scikit-survival 같은 표준 라이브러리 위에 래퍼를 추가하는 수준으로 구현 가능하다. FDA AI/ML SaMD 가이드라인이 서브그룹 성능 검증을 강화하는 방향으로 가고 있어, xCI는 생존 분석 공정성의 표준 보조 지표 후보다. 다만 xCI는 예측 순위의 집단 간 차이를 측정할 뿐이며, 보정(calibration) 공정성이나 편향의 원인 규명은 별도 분석이 필요하다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">🔭 Wide Angle</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm px-6 py-2">
+        <div class="flex items-start gap-3 py-4 border-b border-gray-100 last:border-0">
+          <div class="flex-1">
+            <p class="text-[15px] font-semibold text-gray-900 mb-1">CellVoyager: AI 에이전트의 자율적 단일세포 데이터 분석 </p>
+            <p class="text-[14px] text-gray-700 leading-relaxed">· <strong>peer-reviewed</strong> (Nature Methods, 2026, vol. 23, pp. 749-759) — LLM 기반 AI 에이전트가 scRNA-seq 데이터셋을 자율 탐색하며 수행 이력을 참조해 새 분석 파이프라인을 생성·실행했다. 코로나19·세포 간 소통·노화 세 케이스 스터디에서 GPT-4o·o3-mini 대비 논문 저자 실제 분석 예측 정확도 최대 +23%를 보고했으며, 전문가 평가에서 창의적·과학적으로 타당한 신규 발견도 생성했다고 동료심사를 통과했다. AI 에이전트가 자율적으로 생물학적 가설을 생성·검증한 첫 Nature Methods 사례로, 컴퓨터 생물학 자동화가 실용 단계에 진입한 데이터로 읽힌다. <a href="https://doi.org/10.1038/s41592-026-03029-6" class="underline text-indigo-700" target="_blank">doi.org/10.1038/s41592-026-03029-6</a></p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 py-4 border-b border-gray-100 last:border-0">
+          <div class="flex-1">
+            <p class="text-[15px] font-semibold text-gray-900 mb-1">BioHarness: 문헌·지식베이스·생물학 아틀라스를 아우르는 기질 인식 생의학 질의응답 <span class="badge badge-preprint ">preprint</span></p>
+            <p class="text-[14px] text-gray-700 leading-relaxed">문헌 검색이 불충분할 때 생의학 지식 도구 호출·아틀라스 기반 구조화 증거 조립 순으로 단계적으로 확장하는 LLM 하네스다. 예/아니오·다지선다·사실·목록·요약·발현 6개 질문 유형을 통합 지원하며, EHR Reasoning Failure 논문이 드러낸 LLM 단독 추론 한계를 RAG 계층화로 우회하려는 시도와 방향이 맞닿는다. <a href="https://arxiv.org/abs/2606.19396" class="underline text-indigo-700" target="_blank">arXiv:2606.19396</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Threads to Follow</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <ul class="space-y-3 list-disc list-inside">
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>EHR Reasoning Failure 후속 검증</strong>: hop 주석 데이터셋 공개 여부, 영어 외 EMR(한국어·일본어)에서 패턴 재현 여부를 추적한다. RAG·CoT 조건에서 hop=4 정확도가 얼마나 회복되는지가 이 분야의 다음 핵심 질문이다. 단일 저자 논문이므로 독립 그룹의 재현이 결과 신뢰도의 분기점.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>xCI 코드 공개 모니터링</strong>: 코드 공개 시 scikit-survival 기반 래퍼로 자체 임상 생존 분석 파이프라인에 즉시 통합 가능하다. FDA AI/ML SaMD 가이드라인 개정 추이와 함께 "생존 분석 공정성 지표 표준화" 논의가 가속될지 지켜본다.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>Tabular FM Survival 독립 재현</strong>: TabDPT 기반 모델은 공개 저장소(layer6ai-labs/TabDPT)가 있으므로 MTLR 헤드를 자체 구현해 MIMIC-IV에서 C-index 0.856 재현을 시도할 수 있다. ICU 이외 코호트(외래·암 생존) 검증 논문이 나오면 채택 결정의 근거가 된다.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>W24→W25 파운데이션 모델 흐름</strong>: 병리 FM 재고(W24 와이드) → 멀티모달 암 FM 체계 평가(W25)로 흐름이 이어진다. 다음 단계로는 실제 배포 환경에서 특정 FM이 다른 FM보다 어떤 조건에서 우위인지를 다루는 비교 논문들이 이어질 가능성이 있다. Tempus AI·Owkin의 외부 코호트 검증 데이터 공개 여부를 주목한다.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>scGTN vs. scSiameseClu 직접 비교</strong>: scSiameseClu(arXiv:2505.12626, IJCAI 2025)는 코드가 공개돼 있다. scGTN이 코드를 공개하면 동일 벤치마크(예: Zheng68K, pbmc3k)에서 직접 NMI/ARI 비교가 가능해진다. 최단 경로 인코딩이 분화 궤적이나 세포 상태 전환 데이터에서 실제로 차이를 만드는지가 판단 기준이다.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>xCI + Tabular FM 접점</strong>: Fair Concordance xCI와 Tabular FM Survival은 생존 분석이라는 공통 기반 위에 있다. 두 논문을 결합해 "어떤 인구통계 집단에서 FM 기반 생존 예측이 공정하지 않은가"를 측정하는 후속 연구가 W25에서 뻗어 나올 가능성이 있다.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Sources</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <ul class="space-y-2 text-[13.5px]">
+              <li><a href="https://arxiv.org/abs/2606.16890" class="text-indigo-600 underline" target="_blank">1 — EHR Reasoning Failure (임상 LLM 추론 한계)</a></li>
+              <li><a href="https://arxiv.org/abs/2606.16872" class="text-indigo-600 underline" target="_blank">2 — Fair Concordance xCI (그룹 조건부 C-지수)</a></li>
+              <li><a href="https://amia.secure-platform.com/summit/gallery/rounds/82009/details/14581" class="text-indigo-600 underline" target="_blank">2 발표 — AMIA Summit 발표</a></li>
+              <li><a href="https://arxiv.org/abs/2606.12006" class="text-indigo-600 underline" target="_blank">3 — Tabular FM Survival (테이블 FM 생존 분석)</a></li>
+              <li><a href="https://arxiv.org/abs/2606.17115" class="text-indigo-600 underline" target="_blank">4 — Probing+Fusion Cancer FM (멀티모달 암 FM 평가)</a></li>
+              <li><a href="https://arxiv.org/abs/2606.18672" class="text-indigo-600 underline" target="_blank">5 — scGTN (단일세포 RNA 클러스터링)</a></li>
+              <li><a href="https://doi.org/10.1038/s41592-026-03029-6" class="text-indigo-600 underline" target="_blank">W1 — CellVoyager (자율 scRNA-seq 분석 AI 에이전트)</a></li>
+              <li><a href="https://arxiv.org/abs/2606.19396" class="text-indigo-600 underline" target="_blank">W2 — BioHarness (생의학 QA 하네스)</a></li>
+              <li><a href="https://arxiv.org/abs/2505.12626" class="text-indigo-600 underline" target="_blank">참조 — scSiameseClu (IJCAI 2025, W25 비교 기준)</a></li>
+              <li><a href="https://arxiv.org/abs/2601.22259" class="text-indigo-600 underline" target="_blank">참조 — TabFM Survival 선행 논문</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="border-t border-gray-200 pt-8 pb-10 text-center">
+      <p class="text-sm text-gray-500 mt-4">paper-radar · 2026-W25</p>
+      <p class="text-xs text-gray-400 mt-1">바이오인포·임상ML·신약AI 논문 주간 요약. preprint 분석 포함.</p>
+    </footer>
+  </div>
+</body>
+</html>
