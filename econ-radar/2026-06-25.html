@@ -209,6 +209,12 @@
     }
     .toc a[data-tip]:hover::after,
     .toc a[data-tip]:hover::before { opacity: 1; visibility: visible; transform: translateY(0); }
+    @media (max-width: 640px) {
+      .toc { padding: 8px 10px; gap: 6px; margin: 0 0 20px; }
+      .toc .toc-label { font-size: 11px; }
+      .toc a { font-size: 11px; padding: 4px 10px; }
+      .toc a[data-tip]::after, .toc a[data-tip]::before { display: none; }
+    }
 
     /* 맨 위로 버튼 */
     .to-top {
