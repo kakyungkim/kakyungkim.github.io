@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>paper-radar — 2026-W26</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+    body { font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; font-size:16px; line-height:1.78; }
+    .badge { font-size:11px; font-weight:700; padding:2px 9px; border-radius:9999px; display:inline-block; margin-right:4px; }
+    .badge-genome   { background:#dcfce7; color:#166534; }
+    .badge-clinical { background:#dbeafe; color:#1e40af; }
+    .badge-drug     { background:#ede9fe; color:#5b21b6; }
+    .badge-protein  { background:#fce7f3; color:#9d174d; }
+    .badge-llmbio   { background:#fef9c3; color:#713f12; }
+    .badge-other    { background:#f3f4f6; color:#374151; }
+    .badge-preprint { background:#fef3c7; color:#92400e; }
+    .badge-peer     { background:#d1fae5; color:#065f46; }
+    .badge-insilico { background:#e0e7ff; color:#3730a3; }
+    .badge-retro    { background:#fef9c3; color:#713f12; }
+    .badge-prosp    { background:#d1fae5; color:#065f46; }
+    .badge-multi    { background:#dbeafe; color:#1e40af; }
+    .badge-rct      { background:#dcfce7; color:#166534; }
+    .badge-nocode   { background:#fee2e2; color:#991b1b; }
+    .key-point { border-left:4px solid #4338ca; padding:10px 16px; background:#f5f3ff; border-radius:0 10px 10px 0; margin-top:12px; }
+    .key-point .label { font-size:11px; font-weight:700; letter-spacing:0.06em; color:#4338ca; margin-bottom:4px; }
+    .key-point .text { font-size:15px; font-weight:500; color:#312e81; line-height:1.7; }
+    .insight { border-left:4px solid #14b8a6; padding:10px 16px; background:#f0fdfa; border-radius:0 10px 10px 0; margin-top:10px; }
+    .insight .label { font-size:11px; font-weight:700; letter-spacing:0.06em; color:#0f766e; margin-bottom:4px; }
+    .insight .text { font-size:15px; color:#134e4a; line-height:1.7; }
+    .lens-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+    .lens-item { font-size:13.5px; color:#374151; padding:4px 10px; background:#f9fafb; border:1px solid #e5e7eb; border-radius:8px; }
+    .lens-demand { font-size:13.5px; color:#92400e; padding:4px 10px; background:#fef3c7; border:1px solid #fde68a; border-radius:8px; }
+    .verify-tag { font-size:12px; color:#6b7280; margin-top:8px; }
+</style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <div class="max-w-3xl mx-auto px-4 py-10">
+    <header class="mb-8">
+      <div class="flex items-center gap-3 mb-2">
+        <img src="logo-64.png" alt="paper-radar" class="w-9 h-9 rounded-xl" onerror="this.style.display='none'">
+        <span class="text-2xl font-bold tracking-tight text-gray-900">paper-radar 주간 다이제스트</span>
+        <span class="text-lg text-gray-500 font-medium">2026-W26</span>
+      </div>
+      <p class="text-xs text-gray-400">바이오인포·임상ML·신약AI 논문 주간 요약. 모든 해석은 preprint 단계에서의 분석임.</p>
+    </header>
+
+    <section class="mb-8">
+      <h2 class="text-xs font-bold tracking-widest text-indigo-600 uppercase mb-3">At a Glance</h2>
+      <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-5 space-y-3">
+        <p class="text-[15px] leading-relaxed text-gray-800">이번 주는 <strong>임상 AI의 규제적 정당성에 물음표를 찍는 동료심사 결과가 가장 큰 파장을 만들었다.</strong> Nature Medicine에 실린 NYU 연구는 FDA 승인 임상 AI 도구가 실제 의사 쿼리에서 범용 프론티어 LLM에 뒤처진다는 사실을 맹검 평가로 확인했다. 신약개발 AI 쪽에서는 유전적 증거와 신약 승인 간 3배 연관성 재확인이 나왔지만, 저자 스스로 "문헌 마이닝이 성능 대부분을 설명한다"는 경고를 함께 내놓았다. 유전체 진단과 교란 예측 방법론에서도 두 편이 올라왔으나, 이번 주 5편 중 코드가 확인된 논문은 2편(Stable-Shift, 범용 LLM 비교)에 그친다.</p>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">This Week's Top 5</h2>
+      <div class="space-y-6">
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#1</span>
+            
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">범용 대형언어모델이 전문 임상 AI 도구를 능가한다: 의료 벤치마크 비교 연구 (General-purpose large language models outperform specialized clinical AI tools on medical benchmarks)</h3>
+          <p class="text-[13px] text-gray-500 mb-3">저자: Vishwanath K., Alyakin A. (공동 1저자), Oermann E.K. (교신저자) | NYU Langone Health / NYU Grossman School of Medicine</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">세 프론티어 LLM이 MedQA 500문항·HealthBench 500항목·실제 임상 쿼리(RCQ) 100건 세 단계 모두에서 OpenEvidence와 UpToDate Expert AI를 상회했다. RCQ는 NYU에서 실제 의사가 제출한 익명화 쿼리 100건을 미국 임상의 12명이 맹검 평가해 모델당 1,800건의 주석을 생성한 설계다. FDA 승인 임상 AI 도구들은 RCQ에서 Google Search AI Overview와 동등한 수준에 그쳤다고 보고한다.</div>
+          </div>
+
+<div class="lens-row"><span class="lens-item">🔬 Method: MedQA 500문항 + HealthBench 500항목 + RCQ 100건 × 12명 맹검 임상의 평가(1,800건 주석); temperature=0.0, seed=62 고정; 비교 대상에 Google Search AI Overview 포함</span> <span class="lens-item">🩺 Clinical: 벤치마크 점수 우위가 실제 환자 결과 개선으로 이어진다는 근거는 없다. 할루시네이션(hallucination) 발생률 비교는 초록에 포함되지 않았다. 범용 LLM은 의료기기(SaMD) 허가를 받지 않았으므로 규제 지위가 다르다.</span> <span class="lens-item">🏭 Industry: OpenEvidence·UpToDate(Wolters Kluwer)의 구독 모델과 임상 AI 스타트업에 경쟁 압력이 가해졌다. 범용 LLM 진영(OpenAI·Google·Anthropic)은 임상 시장 진입 논거를 하나 더 얻었으나, HIPAA·GDPR 준수와 책임 귀속 문제는 풀리지 않은 채로 남아 있다.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">벤치마크 비교 (peer-reviewed</span> <span class="badge badge-other ">NYU 단일 기관</span> <span class="badge badge-other ">RCQ 100건)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#2</span>
+            
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">유전적 증거와 신약 승인의 연관성: 26,278 타깃-질환 쌍의 관찰 연구 (Human genetic evidence is associated with drug approval across therapeutic areas)</h3>
+          <p class="text-[13px] text-gray-500 mb-3">저자: Victoria Paterson (1저자 겸 교신저자) | University of Edinburgh</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">유전적 연관성이 있는 타깃은 없는 타깃 대비 승인률이 OR=3.25(95% CI 2.79~3.79, p=1.91×10⁻⁴²)였으며, 동일 유전자 공유 쌍 비독립성을 부트스트랩으로 보정한 타깃 수준 분석에서는 OR=2.79(부트스트랩 95% CI 2.22~3.53)였다. 2015년 이후 승인 신약에서도 OR=3.51(p=1.72×10⁻⁸)로 재현됐다. 그러나 6가지 증거 유형 제거 분석에서 문헌 마이닝 단독이 분류기 성능(AUPRC)의 대부분(0.099 vs. 전체 0.109)을 설명한다는 경고가 함께 나왔다. (초록 기준 수치)</div>
+          </div>
+
+<div class="lens-row"><span class="lens-item">🔬 Method: Open Targets + ChEMBL 공개 DB 기반 관찰 연구; 로지스틱 회귀 + 부트스트랩 CI; 2015년 기준 시간 분할 검증; 6가지 증거 유형 제거 분석 — 관찰 연구이므로 인과 추론 불가</span> <span class="lens-item">🩺 Clinical: 유전 바이오마커로 계층화된 환자 집단 대상 임상시험 설계에 간접 근거로 쓸 수 있으나, 이 논문 하나로 진료 지침을 바꿀 수준은 아니다.</span> <span class="lens-item">🏭 Industry: Open Targets 컨소시엄(GSK·AstraZeneca·Sanofi 등) 회원사가 이 결과를 내부 타깃 스코어링 기준에 반영할 가능성이 있다. GWAS·희귀 변이 기반 증거를 문헌 마이닝보다 우선 가중하는 방향으로 포트폴리오 기준을 갱신하는 것이 실질적 함의다.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">후향 관찰 (데이터베이스 기반</span> <span class="badge badge-other ">N=26</span> <span class="badge badge-other ">278 타깃-질환 쌍</span> <span class="badge badge-other ">단일 연구자</span> <span class="badge badge-other ">단일 소스)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#3</span>
+            
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">유전성 출생결함 변이 우선순위 지정을 위한 근거 기반 에이전트 워크플로 (DeepBD: A Grounded Agentic Workflow for Variant Prioritization and Diagnosis of Genetic Birth Defects)</h3>
+          <p class="text-[13px] text-gray-500 mb-3">저자: Shiyu Li (1저자), Haishuai Wang (교신저자) | Zhejiang University</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">LLM 보조 케이스 구조화 → 사전학습 증거 엔진(자기지도 대조학습 초기화) → 전문가 모듈 → 근거 기반 진단 검토 레이어의 4단 워크플로. 내부 held-out 해결 사례 벤치마크에서 Recall@1/3/5/10 = 0.658/0.882/0.912/0.929를 기록했다(초록 기준). 핵심 신규성은 규칙 기반 증거·서열 표현·표현형 조건부 생물학 맥락을 별도 브랜치 없이 단일 점수로 병렬 통합하는 설계다.</div>
+          </div>
+
+<div class="lens-row"><span class="lens-item">🔬 Method: 자기지도 대조학습으로 사전학습된 증거 인코더 + 4단 에이전트 워크플로; Exomiser·DeepRare·LLM 재순위화와 비교; ablation 수행(세부 수치 초록 미제공) — 코드·데이터 미공개로 독립 재현 불가</span> <span class="lens-item">🩺 Clinical: 단일 기관(Zhejiang University) 내부 데이터 기반으로 외부 코호트 검증이 없다. "해결 사례" 벤치마크이므로 미해결·이질적 증례에서의 성능이 과도하게 낙관적으로 평가됐을 수 있다. 임상 배포를 위한 규제 경로(FDA De Novo·CE-IVD)까지는 상당한 거리가 있다.</span> <span class="lens-item">🏭 Industry: 직접 수요자는 소아·산부인과 임상 유전학 전문 검사실이다. 진단율 향상이 희귀질환 R&amp;D의 유전적으로 확인된 코호트 규모를 늘려 임상시험 모집 비용을 낮추는 간접 효과로 이어질 수 있다(추정).</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-insilico ">in silico</span> <span class="badge badge-other ">후향 (단일 기관 내부 held-out</span> <span class="badge badge-other ">N=18</span> <span class="badge badge-other ">622 코호트</span> <span class="badge badge-other ">외부 검증 없음)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#4</span>
+            
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">미관찰 유전자 교란에 대한 전사 반응 예측: 생물학적 구조 기반 Stable-Shift (Stable-Shift: Biologically Structured Prediction of Transcriptional Responses to Unseen Gene Perturbations)</h3>
+          <p class="text-[13px] text-gray-500 mb-3">저자: Sajib Acharjee Dip (1저자), Liqing Zhang (교신저자) | Department of Computer Science, Virginia Tech</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">단일세포 측정값을 교란 수준 발현 변화량(shift)으로 집계하고, 학습 교란들로 저랭크 반응 기저(basis)를 구성한 뒤 새로운 유전자의 좌표를 생물학 맥락(STRING 상호작용 네트워크·GO 주석·그래프 합성곱)에서 예측한다. K562 Perturb-seq 벤치마크에서 코사인 유사도 0.592(GEARS 0.569 대비)를 기록했으며, Spearman 상관과 상위 유전자 정밀도에서도 비교 방법 중 최고를 보고한다(초록 기준).</div>
+          </div>
+
+<div class="lens-row"><span class="lens-item">🔬 Method: 저랭크 기저 분해 + STRING·GO·GCN 기반 생물학 맥락 통합; K562 Perturb-seq 공개 벤치마크; 코드 공개(seed·스크립트·환경 파일 포함) — 조합 교란(multi-gene KO) 예측으로의 확장은 초록에 논의 없음</span> <span class="lens-item">🩺 Clinical: K562 단일 세포주 in silico 예측 단계로, 환자 조직·1차 세포 검증이 없다. 코사인 유사도 개선이 약리학적·독성학적 결과와 어떻게 연결되는지는 별도 실험으로 확인해야 한다.</span> <span class="lens-item">🏭 Industry: Perturb-seq 스크린을 플랫폼 자산으로 운영하는 Recursion Pharmaceuticals·Insitro 같은 기능 유전체 기업이 관심을 가질 만하다. 실험 비용 절감 도구로서의 가치는 다세포 타입·조직 일반화 검증에서 판가름 날 전망이다.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">in silico (K562 Perturb-seq 단일 세포주</span> <span class="badge badge-other ">단일 데이터셋)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#5</span>
+            
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">약물 설계를 위한 통합 다중모달 분자 파운데이션 모델 Molexar (Molexar: A Unified Multimodal Molecular Foundation Model for Drug Design)</h3>
+          <p class="text-[13px] text-gray-500 mb-3">저자: Haoyu Lin (1저자), Luhua Lai·Jianfeng Pei (교신저자) | Peking-Tsinghua Center for Life Sciences, Peking University</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">BRICS 단편 트리 구조를 토큰 문법으로 인코딩한 Fragment-SELFIES 언어가 생성 유효성(validity) 100%를 구조적으로 보장한다. 서로 다른 조건 유형을 별도 어댑터 없이 값-토큰 임베딩 인플레이스 교체(in-place replacement)로 주입해 동일 자기회귀 경로를 공유한다. CrossDocked2020 테스트 세트에서 목표 조건부 생성 경쟁력을, MolGenBench에서 안전성·효능 지표 유리한 결과를 보고한다 — 초록에 구체적 수치가 거의 없어 독립 판단에 한계가 있다(초록 기준).</div>
+          </div>
+
+<div class="lens-row"><span class="lens-item">🔬 Method: Fragment-SELFIES 사전학습 + 지도 파인튜닝(SFT) 단일 자기회귀 디코더(Gemma2 기반); 비조건부 유효성 100%; CrossDocked2020·MolGenBench 평가 — 초록에 베이스라인 이름·구체 수치 미제공; 코드·모델 가중치 미공개</span> <span class="lens-item">🩺 Clinical: 계산 벤치마크(in silico) 단계로, 실험적 합성·세포 활성·ADMET 검증이 없다. 분자 생성 AI의 임상 기여는 계산 지표가 아니라 실험적으로 확인된 생물활성 hit rate로 판단해야 한다.</span> <span class="lens-item">🏭 Industry: Fragment-based drug discovery(FBDD)는 빅파마 표준 워크플로이므로 이전 경로가 이론적으로 열려 있으나, RFDiffusion·DiffSBDD·TargetDiff 등 경쟁 모델이 이미 다수 포진해 있다. 코드 공개와 독립 재현이 나오기 전까지 산업 채택 여부를 판단하기 어렵다.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">in silico (CrossDocked2020</span> <span class="badge badge-other ">MolGenBench 계산 벤치마크</span> <span class="badge badge-other ">실험 검증 없음)</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Deep Dive</h2>
+      <div class="mb-6">
+        <h3 class="text-[16px] font-bold text-gray-800 mb-4">FDA 승인 임상 AI가 범용 LLM에 뒤처진다: 이 결과가 만들어 낼 파장</h3>
+        <div class="space-y-3">
+          <p class="text-[15px] text-gray-800 leading-relaxed">임상 AI 시장에는 오래된 전제가 있었다. FDA 허가를 받은 전문화된 도구가 더 안전하고 더 잘 작동해야 한다는 믿음이었다. IBM Watson Health의 좌절을 거쳐 OpenEvidence·UpToDate Expert AI 같은 2세대 제품들이 나왔을 때도 이 전제는 유지됐다. NYU Langone 연구는 동료심사를 거쳐 그 전제에 정면으로 도전했다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">연구 설계에서 주목할 부분은 세 단계의 계층 구조다. MedQA·HealthBench는 기존에 쓰이던 공개 벤치마크다. 핵심은 세 번째 단계인 RCQ(실제 임상 쿼리)다. NYU에서 실제 의사가 LLM에 제출한 익명화 쿼리 100건을 12명 미국 임상의가 무작위 맹검 평가해 모델당 1,800건의 주석을 생성했다. 시험 문제가 아니라 실제 진료 맥락에서 나온 질문이라는 점이 이전 비교 연구들과의 차이다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">결과는 세 평가 단계 모두에서 GPT-5.2·Gemini 3.1 Pro·Claude Opus 4.6이 OpenEvidence와 UpToDate Expert AI를 상회했으며, 임상 AI 도구들은 RCQ에서 Google Search AI Overview와 동등한 수준에 머물렀다고 보고한다. 구체적 수치는 초록에 없고 본문 확인이 필요하다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">이 결과를 읽을 때 두 가지 층위를 분리할 필요가 있다. 첫째, 이 연구가 측정한 것은 "벤치마크에서의 답변 질"이다. 실제 환자 결과(mortality, 재입원율)와의 연결 고리는 없다. 범용 LLM이 벤치마크에서 더 좋은 답을 낸다고 해서 환자에게 더 좋다는 뜻은 아니다. 둘째, FDA 승인 도구가 병원에서 쓰이는 이유에 성능만 있지 않다. HIPAA 준수, EHR 시스템 연동, 법적 책임 귀속, 안전 가드레일이 모두 포함된다. 범용 LLM은 이 요건들을 아직 충족하지 못했다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">그럼에도 이 연구가 만들어 낼 파장은 실질적이다. 병원 IT 조달 측면에서 전문 도구의 성능 프리미엄이 흔들렸다. 임상 AI 규제 프레임을 성능 중심으로 재설계해야 한다는 압력이 규제 기관 쪽으로 가해질 수 있다. OpenEvidence를 운영하는 쪽과 UpToDate(Wolters Kluwer)는 반박 연구를 준비할 인센티브가 생겼다. 범용 LLM 기업들은 임상 시장 진입 논거를 하나 더 얻었다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">NYU Langone 단일 기관, 미국 임상 맥락, 모델 버전 고정이라는 한계는 분명하다. 이 결과가 다른 국가·다른 의료 시스템·다른 전문 영역에서도 재현되는지는 별도 연구가 뒤따라야 한다. 코드는 공개됐으므로(GNU AGPL v3), MedQA·HealthBench 파트는 다른 그룹이 독립 재현을 시도할 수 있다.</p>
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <h3 class="text-[16px] font-bold text-gray-800 mb-4">유전 증거와 신약 승인: 3배 연관성 뒤에 있는 방법론적 경고</h3>
+        <div class="space-y-3">
+          <p class="text-[15px] text-gray-800 leading-relaxed">"유전적 증거가 있는 타깃이 임상에서 더 성공한다"는 주장은 Nelson et al. 2015(Science) 이후 신약개발 업계에서 도그마에 가까운 위치를 차지했다. 이 연구는 그 도그마를 26,278 타깃-질환 쌍이라는 지금껏 가장 큰 규모로 재확인하면서, 동시에 선행 연구들이 피해 온 질문을 정면으로 파고든다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">6가지 증거 유형(GWAS·희귀 변이·소마틱 변이·동물 모델·문헌 마이닝 등) 각각을 제거해 분류기 성능 기여를 측정하는 특성 제거 분석이 이 연구의 방법론적 핵심이다. 결과는 뚜렷했다. 문헌 마이닝 단독이 AUPRC 기준 전체 성능(0.109)의 거의 대부분(0.099)을 설명했고, 나머지 5가지 증거 유형을 모두 합쳐도 성능 기여는 미미했다(초록 기준 수치).</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">문헌 마이닝 기반 증거는 구조적으로 역방향 인과(reverse causation) 오염에 취약하다. 승인된 신약의 타깃에 관한 논문은 승인 이후 폭발적으로 늘어난다. "유전적 증거가 있으면 승인된다"는 연관성을 발견했을 때, 실제로는 "승인됐으니 많이 연구됐고 문헌이 쌓였다"는 역방향 관계를 보고 있었을 수 있다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">저자는 2015년 기준 시간 분할 검증으로 이 문제에 대응했다. 2015년 이후 승인 신약에서도 OR=3.51로 연관성이 재현된다는 점은 긍정적 신호다. 그러나 Open Targets 데이터베이스 자체가 어느 시점에 어떤 문헌을 수집했는지 명확히 분리되지 않는다면 누출을 완전히 통제했다고 보기 어렵다. 저자 스스로 이 가능성을 인정했다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">R&amp;D 총괄 시점에서 이 논문의 실용적 메시지는 세 가지다. 유전적 증거 유무는 여전히 타깃 우선순위화의 강한 신호다. 그러나 문헌 마이닝을 주 증거로 삼는 타깃 스코어링은 leakage에 취약하므로, GWAS·희귀 변이·기능 증거를 우선 가중하는 내부 기준을 재점검할 필요가 있다. 이 연관성을 인과로 읽어서도 안 된다. "유전 증거가 없으면 탈락 위험이 높다"는 방어적 판단 기준으로 쓰는 편이, "유전 증거가 있으면 성공한다"는 처방적 결론보다 이 데이터에 맞는 해석이다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">🔭 Wide Angle</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm px-6 py-2">
+        <div class="flex items-start gap-3 py-4 border-b border-gray-100 last:border-0">
+          <div class="flex-1">
+            <p class="text-[15px] font-semibold text-gray-900 mb-1">W1. Robin: 과학적 발견을 자동화하는 다중에이전트 시스템 </p>
+            <p class="text-[14px] text-gray-700 leading-relaxed">· <strong>peer-reviewed</strong> (Nature, 2026) — 문헌 검색(Crow)·심층 후보 조사(Falcon)·데이터 분석(Finch) 3개 특화 서브에이전트로 구성된 Robin이 건성 황반변성(dAMD) 대상 신약 후보로 리파수딜(ripasudil) 재창출을 제안하고 in vitro 확인에 성공했다고 보고한다. 자율 AI 에이전트가 실험 검증 루프까지 닫은 Nature 사례로, 약물 재창출 특화 바이오텍과 AI 기반 신약 탐색 플랫폼에 직접 함의가 있다. <a href="https://www.nature.com/articles/s41586-026-10652-y" class="underline text-indigo-700" target="_blank">DOI: 10.1038/s41586-026-10652-y</a> · <a href="https://arxiv.org/abs/2505.13400" class="underline text-indigo-700" target="_blank">arXiv:2505.13400</a></p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 py-4 border-b border-gray-100 last:border-0">
+          <div class="flex-1">
+            <p class="text-[15px] font-semibold text-gray-900 mb-1">W2. LabVLA: 실험실 로봇을 위한 비전-언어-액션 모델 <span class="badge badge-preprint ">preprint</span></p>
+            <p class="text-[14px] text-gray-700 leading-relaxed">RoboGenesis 시뮬레이션 엔진으로 구성한 데모로 학습된 LabVLA가 LabUtopia 벤치마크에서 분포 내·외 모두 기존 베이스라인 대비 최고 평균 성공률을 보고한다. 실험실 자동화 로봇 제어에 VLA 모델을 적용한 방법론으로, 실세계 전이 가능성이 검증의 관건이다. <a href="https://github.com/zjunlp/LabVLA" class="underline text-indigo-700" target="_blank">code</a> · <a href="https://arxiv.org/abs/2606.13578" class="underline text-indigo-700" target="_blank">arXiv:2606.13578</a></p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 py-4 border-b border-gray-100 last:border-0">
+          <div class="flex-1">
+            <p class="text-[15px] font-semibold text-gray-900 mb-1">W3. 게놈·AI로 예측적 가상 배아 만들기 </p>
+            <p class="text-[14px] text-gray-700 leading-relaxed">· <strong>peer-reviewed</strong> (Nature Methods, 2026) — 단일세포·공간 데이터를 AI와 통합해 포유류 배아 발생을 다중 스케일로 모델링하는 예측적 가상 배아 시스템의 가능성과 과제를 제시하는 리뷰·전망 논문. 장기적으로 발생 독성 예측(developmental toxicity)과 신약 안전성 평가 영역에 연결될 수 있으나 현재는 로드맵 성격이다. <a href="https://www.nature.com/articles/s41592-026-03055-4" class="underline text-indigo-700" target="_blank">DOI: 10.1038/s41592-026-03055-4</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Threads to Follow</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <ul class="space-y-3 list-disc list-inside">
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>범용 LLM vs 임상 AI 후속 논쟁</strong>: OpenEvidence·Wolters Kluwer의 반박 연구가 나올 가능성이 높다. 이 비교가 다른 국가·의료 시스템(한국어 EMR, 유럽 다기관)에서 재현되는지 추적한다. 할루시네이션 발생률 비교 데이터가 보충자료에 담겼는지 원문 확인이 필요하다.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>문헌 마이닝 leakage 통제 후 OR 재추정</strong>: Victoria Paterson 연구에서 문헌 마이닝 증거를 완전히 제거했을 때 OR이 어느 수준인지가 이 분야 후속 질문의 핵심이다. Open Targets 기반 대규모 타깃 분석에서 시간 분리 설계를 더 엄격하게 적용한 연구가 뒤따를 가능성이 있다.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>DeepBD 코드·외부 검증 모니터링</strong>: 코드 공개와 다기관 코호트 검증 결과가 나오기 전까지 성능 수치를 인용하지 않는다. 미해결 사례 포함 시 Recall@1 변화가 가장 중요한 후속 지표다. 희귀질환 에이전트 진단 공간(OpenAI o3 기반·Hygieia·Berrylyzer 등)과의 경쟁 구도를 함께 추적한다.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>Stable-Shift 세포주 확장 검증</strong>: ACM-BCB 2026 발표 이후 K562 이외 세포 타입(iPSC·1차 세포·오가노이드)으로의 확장 검증 논문이 나오는지 주시한다. 코드가 공개돼 있으므로 자체 Perturb-seq 데이터가 있다면 즉시 테스트 가능하다.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>W25→W26 임상 AI 연속 흐름</strong>: W25의 EHR 추론 실패(hop count 실증) → W26의 FDA 승인 도구 성능 역전으로 흐름이 이어진다. 두 논문을 함께 읽으면 "LLM의 임상 한계"와 "전문 도구의 성능 한계" 양쪽을 동시에 포착할 수 있다. 다음 단계로는 실제 환자 결과와 LLM 답변 품질을 연결하는 전향 연구가 이 분야에서 풀어야 할 물음으로 남아 있다.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>Robin 재창출 사례 추적</strong>: Nature 게재 자율 에이전트 약물 재창출(W1 와이드)이 만들어 낼 산업 반응을 주시한다. ripasudil의 건성 황반변성 임상시험 가능성, 유사 에이전트 플랫폼의 후속 논문 여부가 이 흐름의 분기점이다.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Sources</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <ul class="space-y-2 text-[13.5px]">
+              <li><a href="https://www.nature.com/articles/s41591-026-04431-5" class="text-indigo-600 underline" target="_blank">1 — 범용 LLM vs 임상 AI (NYU Nature Medicine)</a></li>
+              <li><a href="https://github.com/nyuolab/clinical-llm-benchmarks" class="text-indigo-600 underline" target="_blank">1 코드 — clinical-llm-benchmarks (GNU AGPL v3)</a></li>
+              <li><a href="https://arxiv.org/abs/2606.14823" class="text-indigo-600 underline" target="_blank">2 — 유전 증거-승인 연관성 (26,278 타깃-질환 쌍)</a></li>
+              <li><a href="https://arxiv.org/abs/2606.24779" class="text-indigo-600 underline" target="_blank">3 — DeepBD (유전성 출생결함 변이 우선순위화)</a></li>
+              <li><a href="https://arxiv.org/abs/2606.24940" class="text-indigo-600 underline" target="_blank">4 — Stable-Shift (유전자 교란 전사 반응 예측)</a></li>
+              <li><a href="https://github.com/Sajib-006/PerturbGraph" class="text-indigo-600 underline" target="_blank">4 코드 — PerturbGraph (seed 42 고정, 스크립트 포함)</a></li>
+              <li><a href="https://arxiv.org/abs/2606.25865" class="text-indigo-600 underline" target="_blank">5 — Molexar (다중모달 분자 파운데이션 모델)</a></li>
+              <li><a href="https://www.nature.com/articles/s41586-026-10652-y" class="text-indigo-600 underline" target="_blank">W1 — Robin (과학적 발견 자동화 다중에이전트)</a></li>
+              <li><a href="https://arxiv.org/abs/2505.13400" class="text-indigo-600 underline" target="_blank">W1 arXiv — Robin preprint</a></li>
+              <li><a href="https://arxiv.org/abs/2606.13578" class="text-indigo-600 underline" target="_blank">W2 — LabVLA (실험실 로봇 VLA 모델)</a></li>
+              <li><a href="https://github.com/zjunlp/LabVLA" class="text-indigo-600 underline" target="_blank">W2 코드 — LabVLA GitHub</a></li>
+              <li><a href="https://www.nature.com/articles/s41592-026-03055-4" class="text-indigo-600 underline" target="_blank">W3 — 예측적 가상 배아 (Nature Methods 리뷰)</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="border-t border-gray-200 pt-8 pb-10 text-center">
+      <p class="text-sm text-gray-500 mt-4">paper-radar · 2026-W26</p>
+      <p class="text-xs text-gray-400 mt-1">바이오인포·임상ML·신약AI 논문 주간 요약. preprint 분석 포함.</p>
+    </footer>
+  </div>
+</body>
+</html>
