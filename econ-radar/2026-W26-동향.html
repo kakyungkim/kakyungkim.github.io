@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🧭 econ-radar 2026년 26주 동향 리포트</title>
+<style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+:root{--ink:#1e293b;--indigo:#4338ca;--indigo-deep:#3730a3;--soft:#eef2ff;--line:#c7d2fe;--muted:#64748b;--pop:#c026d3;}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Pretendard',-apple-system,'Noto Sans KR',sans-serif;color:var(--ink);background:#f6f7fb;margin:0;line-height:1.78;font-size:16px;}
+.wrap{max-width:780px;margin:0 auto;padding:30px 20px 80px;}
+.head{background:linear-gradient(135deg,#4f46e5,#3730a3);color:#eef2ff;border-radius:18px;padding:26px 28px;margin-bottom:28px;box-shadow:0 12px 40px rgba(49,46,129,.28);}
+.head .kicker{font-size:13px;letter-spacing:.08em;color:#c7d2fe;font-weight:700;}
+.head h1{font-size:25px;margin:8px 0 6px;line-height:1.35;color:#fff;}
+.head .range{font-size:14px;color:#c7d2fe;}
+.tags{margin-top:12px;}
+.tags span{display:inline-block;font-size:12px;background:rgba(255,255,255,.14);color:#e9d5ff;border-radius:999px;padding:2px 11px;margin:3px 4px 0 0;}
+h2{color:var(--indigo);font-size:21px;margin:34px 0 12px;padding-bottom:8px;line-height:1.4;background:linear-gradient(90deg,var(--indigo) 0,var(--pop) 44px,var(--line) 44px) bottom left/100% 3px no-repeat;}
+h2[id]{scroll-margin-top:74px;}
+h3{color:var(--indigo-deep);font-size:17px;margin:22px 0 8px;}
+p{margin:10px 0;}
+strong{color:var(--indigo-deep);}
+a{color:var(--indigo);text-decoration:none;border-bottom:1px solid var(--line);}
+a:hover{background:var(--soft);}
+ul{margin:10px 0;padding-left:20px;} li{margin:7px 0;}
+blockquote{border-left:4px solid var(--line);background:#fff;margin:12px 0;padding:10px 16px;border-radius:0 10px 10px 0;color:var(--muted);font-size:14px;}
+blockquote a{border:none;color:var(--muted);}
+.tablewrap{overflow-x:auto;margin:14px 0;-webkit-overflow-scrolling:touch;}
+table{border-collapse:collapse;width:100%;font-size:14px;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 18px rgba(67,56,202,.08);}
+th{background:linear-gradient(90deg,var(--indigo),#6d28d9);color:#fff;text-align:left;padding:11px 13px;font-weight:700;}
+td{padding:10px 13px;border-bottom:1px solid #eef0f7;vertical-align:top;}
+tr:nth-child(even) td{background:#fafbff;}
+hr{border:none;border-top:1px solid var(--line);margin:26px 0;}
+.back{display:inline-block;margin-bottom:18px;font-size:14px;color:var(--indigo);border:none;}
+/* 섹션 점프 목차 — 스크롤해도 상단 고정(데일리와 동일 스타일) */
+.toc{position:sticky;top:8px;z-index:40;display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 30px;padding:12px 16px;background:rgba(255,255,255,0.96);backdrop-filter:saturate(180%) blur(6px);border:1.5px solid var(--line);border-radius:14px;box-shadow:0 6px 22px rgba(67,56,202,0.16);}
+.toc .toc-label{font-size:13px;font-weight:800;color:var(--indigo);margin-right:4px;}
+.toc a{position:relative;font-size:12px;font-weight:600;padding:5px 12px;border-radius:999px;background:#eef2ff;color:var(--indigo);border:1px solid var(--line);text-decoration:none;transition:background .15s,color .15s;}
+.toc a:hover{background:var(--indigo);color:#fff;}
+.toc a[data-tip]::after{content:attr(data-tip);position:absolute;left:0;top:calc(100% + 9px);width:max-content;max-width:260px;white-space:normal;background:#1e293b;color:#fff;font-size:12px;font-weight:500;line-height:1.5;letter-spacing:0;padding:8px 11px;border-radius:9px;box-shadow:0 8px 22px rgba(15,23,42,0.28);opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .15s,transform .15s;pointer-events:none;z-index:60;}
+.toc a[data-tip]::before{content:"";position:absolute;left:16px;top:calc(100% + 3px);border:6px solid transparent;border-bottom-color:#1e293b;opacity:0;visibility:hidden;transition:opacity .15s;z-index:60;}
+.toc a[data-tip]:hover::after,.toc a[data-tip]:hover::before{opacity:1;visibility:visible;transform:translateY(0);}
+/* 맨 위로 버튼 */
+.to-top{position:fixed;right:18px;bottom:18px;width:44px;height:44px;border-radius:50%;background:var(--indigo);color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:20px;line-height:1;border:none;box-shadow:0 4px 16px rgba(67,56,202,0.42);z-index:50;transition:background .15s,transform .1s;}
+.to-top:hover{background:var(--indigo-deep);}
+.to-top:active{transform:scale(0.92);}
+/* 본문 끝 태그(footer 위) */
+.foottags{margin-top:34px;}
+.foottags span{display:inline-block;font-size:12px;background:var(--soft);color:var(--indigo-deep);border:1px solid var(--line);border-radius:999px;padding:3px 11px;margin:4px 5px 0 0;}
+.foot{margin-top:18px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);}
+@media(max-width:640px){body{font-size:15px;}.wrap{padding:18px 14px 60px;}.head{padding:20px;}.head h1{font-size:21px;}h2{font-size:19px;}h2[id]{scroll-margin-top:64px;}table{font-size:13px;}
+.toc{padding:8px 10px;gap:6px;margin:0 0 20px;}.toc .toc-label{font-size:11px;}.toc a{font-size:11px;padding:4px 10px;}.toc a[data-tip]::after,.toc a[data-tip]::before{display:none;}
+.to-top{width:40px;height:40px;right:12px;bottom:12px;font-size:18px;}}
+</style></head>
+<body><div class="wrap" id="top">
+<a class="back" href="/econ-radar/">← econ-radar 아카이브</a>
+<div class="head"><div class="kicker">WEEKLY · 주간 동향</div><h1>🧭 econ-radar 2026년 26주 동향 리포트</h1><div class="range">2026-06-22 ~ 2026-06-28</div></div>
+<nav class="toc" aria-label="섹션 바로가기"><span class="toc-label">📑 바로가기</span><a href="#sec-1" data-tip="지난 주를 관통한 핵심 메시지">핵심</a><a href="#sec-2" data-tip="지난 주 주요 흐름 4가지">흐름</a><a href="#sec-3" data-tip="투자 관점 시사점">투자</a><a href="#sec-4" data-tip="수요자 관점 시사점">수요</a><a href="#sec-5" data-tip="R&amp;D·전략 관점 노트">전략</a><a href="#sec-6" data-tip="이번 주 관전 포인트">관전 포인트</a></nav>
+<hr>
+<h2 id="sec-1">핵심 메시지 3가지</h2>
+<p>1. <strong>AI 랠리가 금리 충격에 급락 뒤 반등하며 변동성이 확대됐다</strong>: 코스피는 6월 22일 SK하이닉스의 시총 1위 등극으로 사상 첫 9,000선을 넘본 직후, 6월 23일 연준 워시(Warsh) 의장의 금리 인상 시사에 장중 -9.99%로 역대 최대 낙폭을 찍고 서킷브레이커가 발동됐다. 이후 이틀 연속 급등했다가 PCE 4.1% 충격에 다시 밀리는 흐름이 한 주 내내 이어졌다. AI 반도체 단일 테마에 쏠린 지수가 거시 충격 앞에서 얼마나 얇은 방어막에 의존하는지 드러난 한 주다.</p>
+<p>2. <strong>AI 경쟁의 무게추가 인재와 자본 단위로 옮겨갔고, AI 설계 신약이 임상 진입을 예고했다</strong>: AlphaFold 개발자 존 점퍼(John Jumper)가 Anthropic으로, Gemini 공동 리더 노엄 셰이저(Noam Shazeer)가 OpenAI로 며칠 새 잇따라 떠나면서 Alphabet 주가가 -7% 빠졌다. 빅테크가 독점하던 AI 역량이 전문 AI 랩으로 분화하고, AI를 신약개발에 직접 잇는 'AI-for-science'가 논의 단계를 넘어 실제 거래로 이어졌다. 주 후반 Isomorphic Labs가 AI 설계 항암 신약의 2026년 내 인간 임상 개시를 예고하면서 전산 단계를 넘어서는 첫 시험대가 가시권에 들어왔고, Micron 어닝 서프라이즈와 Qualcomm의 RISC-V 칩 인수 협상은 같은 인프라 사이클의 확장을 보여준다.</p>
+<p>3. <strong>RNA 치료제가 만성질환으로 영역을 넓히고, 신약 경쟁의 초점이 '전달·편의성'으로 옮겨가는 한편 모달리티 옥석가리기가 시작됐다</strong>: Ionis의 olezarsen이 PDUFA보다 5일 앞서 FDA 승인을 받으며 GalNAc-ASO 플랫폼이 300만 명 규모 만성질환에 처음 진입했다. AbbVie가 장기지속형 항체에 $109억을 들였고, 사이키델릭과 OX2R, KRAS, TYK2 신약이 잇따라 데이터를 내면서 '무엇을 표적하느냐'만큼이나 '어떻게 더 적게 더 편하게 전달하느냐'가 경쟁의 핵심으로 자리 잡았다. 동시에 유전자 편집 선구자 Sangamo의 Chapter 11 파산과 원천기술의 Lilly·Astellas 분할 인수는 자본 시장 냉각 속에 모달리티 옥석가리기가 본격화됐음을 보여준다.</p>
+<hr>
+<h2 id="sec-2">지난 주 주요 흐름</h2>
+<h3>흐름 1: 코스피 한 주 급등락, AI 단일 테마 지수가 거시 충격에 드러낸 취약성</h3>
+<p>지난 주 코스피는 한 주 안에 사상 최대 낙폭과 두 차례 급등을 모두 겪으며 변동성이 크게 확대됐다.</p>
+<p><strong>① SK하이닉스 시총 1위, 9,000선 첫 돌파 시도</strong>: 6월 22일 SK하이닉스가 25년 7개월 만에 삼성전자를 제치고 코스피 시총 1위에 올랐다. 6월 1~20일 수출이 전년 대비 60.4% 늘어난 620억달러(약 94조원)로 역대 최고를 찍으면서 AI 반도체 랠리가 정점에 이른 듯 보였다.</p>
+<p><strong>② 워시 발언에 서킷브레이커, 역대 최대 낙폭</strong>: 6월 23일 워시 의장이 다음 회의에서 금리 인상을 검토할 수 있다고 시사하자 외국인이 하루 4조6,700억원을 팔고 나갔다. 코스피는 장중 -9.99%까지 밀려 역대 최대 낙폭으로 서킷브레이커가 발동됐고, 삼성전자와 SK하이닉스도 각각 -12%대로 급락했다.</p>
+<p><strong>③ 반등 뒤 PCE 재하락, 변동성 지속</strong>: 6월 24일 삼성전자 자사주 90조원 검토 보도에 +3.26%, 6월 25일 Micron 어닝 서프라이즈에 +4.19%로 이틀 연속 급등하며 9,000선을 다시 넘봤다. 그러나 6월 25일 발표된 미국 5월 PCE(개인소비지출물가지수)가 4.1%로 3년 만에 4%선을 넘으면서 6월 26일 -5.81%(종가 8,411.21)로 되밀렸다. BofA는 6월 27일 연준이 9·10·12월 세 차례(75bp) 인상한다는 가정으로 기존 동결 전망을 철회했고, 같은 주 원달러 환율은 1,540원대로 17년 만의 고점 수준을 이어갔다. MSCI는 이번에도 한국을 선진국 관찰 대상에 올리지 않았다.</p>
+<p><strong>핵심 의미</strong>: 한국 수출에서 반도체 비중이 41%를 넘는 집중 구조는 수익성 면에선 강점이지만, 사이클 리스크가 한 곳에 몰린다는 약점도 함께 안고 있다. 외국인이 빠지면 완충 없이 급락하고 자사주·실적 같은 이벤트 한 건에 급반등하는 변동성 장세가 당분간 이어질 가능성이 높다. 방향을 가를 변수는 9월 FOMC의 실제 금리 결정과 삼성전자 3분기 가이던스, SK하이닉스 ADR 상장(7월 10일) 초기 수급이다.</p>
+<p><strong>양면 시각</strong>: HBM4 수요 사이클 자체는 훼손되지 않았다는 판단에서 이번 조정을 매수 기회로 보는 시각과, 금리 인상이 현실화되면 할인율 상승으로 성장주 밸류에이션이 구조적으로 재조정된다는 시각이 맞선다. 글로벌 피어 Micron 대비 한국 반도체주의 PBR 디스카운트가 해소되지 않은 점은 저평가 논거가 되지만, MSCI 선진국 편입 지연이 그 디스카운트를 구조적으로 묶어두는 요인으로 남는다.</p>
+<hr>
+<h3>흐름 2: AI 경쟁이 인재와 자본, 생태계 단위로 재편되다</h3>
+<p>AI 경쟁의 단위가 모델 벤치마크에서 인재와 자본, 공급망으로 옮겨간 한 주였다.</p>
+<p><strong>① 핵심 인재가 빅테크에서 전문 AI 랩으로 옮겨가고, AI 설계 신약이 임상 진입을 예고했다</strong>: AlphaFold 2·3를 이끌고 2024년 노벨화학상을 받은 존 점퍼가 Anthropic으로, Gemini 공동 리더이자 Transformer 논문 공동저자인 노엄 셰이저가 OpenAI로 며칠 새 잇따라 떠났다. 두 사람의 이탈 소식에 6월 22일 Alphabet 주가는 -7% 빠지며 하루에 약 2,500억달러(약 384조5,000억원)가 증발했다. Anthropic은 점퍼 합류와 동시에 신약 후보 발굴 AI 스타트업 Coefficient Bio 인수와 웹랩(웹 기반 과학 실험 자동화) 출범을 발표하며, 단백질 구조예측 역량을 신약개발 워크플로우 안으로 끌어들이는 'AI-for-science' 전략을 구체화했다. 같은 줄기에서 DeepMind 스핀오프 Isomorphic Labs는 AI가 설계한 항암 후보물질의 인간 임상을 2026년 말까지 개시하겠다고 밝혔다. 자체 IsoDDE 확산 모델이 단백질-리간드 결합 구조 예측에서 AlphaFold 3 대비 두 배 이상 정확도를 자체 보고했고, Lilly($4,500만 선급+최대 $17억 마일스톤)·Novartis($3,750만 선급+최대 $12억 마일스톤)와 파트너십을 맺고 있어, AI 설계 분자를 빅파마가 임상으로 잇는 분업 모델이 굳어지는 모습이다.</p>
+<p><strong>② Micron 어닝 서프라이즈로 AI 메모리 수요가 구조적으로 확인됐다</strong>: Micron은 FY2026 3분기에 매출 $415억(약 57조5,000억원, 컨센서스 +16%)·총마진 84.6%로 전 항목 역대 최고를 냈고, 4분기 가이던스를 $500억으로 컨센서스보다 $60~70억 높게 제시했다. "메모리 공급이 수요를 따라잡을 시점이 보이지 않는다"는 경영진 발언과 84.6%의 총마진은 HBM이 범용 DRAM 가격 경쟁에서 분리된 프리미엄 품목으로 자리 잡았음을 수치로 보여줬다. SK하이닉스는 곧이어 최대 $294억(약 45조4,534억원) 규모 Nasdaq ADR 발행 서류를 제출하며 자본 구조를 한국·미국 이중 조달로 넓혔고, 삼성전자도 HBM4 출하 130일 만에 누적 매출 $10억(약 1조4,000억원)을 넘겼다.</p>
+<p><strong>③ 칩 생태계가 둘로 갈리고, 탈Nvidia 진영이 넓어졌다</strong>: 중국 NDRC가 2조 위안(약 428조원) 규모 AI 국가망 5개년 계획을 세우고 신규 데이터센터 장비의 80% 이상을 국내 조달하도록 의무화했다. Nvidia의 1분기 중국 데이터센터 매출은 이미 0으로 집계됐고, 화웨이 어센드가 그 수요를 독점하고 있다. 미국 쪽에서도 Qualcomm이 RISC-V 기반 AI 칩 스타트업 Tenstorrent(짐 켈러 CEO)를 $80~100억에 인수하는 협상을 진행 중이라는 보도가 나왔다. 같은 날 AI 소프트웨어 스타트업 Modular를 약 $39억에 별도 인수한다고 밝혀 전략 투입이 $140억을 넘는데, Amazon Trainium·Google TPU·Microsoft Maia에 이어 Qualcomm까지 Nvidia가 80~90%를 쥔 데이터센터 시장에 독자 칩으로 도전하는 대열에 합류했다. 글로벌 AI 칩 시장이 "화웨이 어센드 생태계"와 "Nvidia CUDA 생태계"로 갈리는 동시에, CUDA 진영 안에서도 RISC-V 같은 대안 아키텍처가 비집고 들어오는 흐름이다.</p>
+<p><strong>핵심 의미</strong>: AlphaFold급 인력이 내부에 있다는 사실은 소프트웨어 라이선스 판매와 차원이 다른 협상 레버리지다. 빅테크가 배포 인프라와 고객 기반으로 만회하고, 전문 랩이 신약·과학 같은 특정 분야를 먼저 치고 나가는 두 층위 구도가 당분간 이어질 전망이다. Isomorphic Labs의 2026년 말 IND 제출과 적응증 공개는 AI 신약개발 플랫폼 전체의 신뢰도를 가르는 첫 관문이 된다. Nvidia는 중국 손실을 비중국 수요로 메우는 전략을 가속하고, 그 비중국 수주에 SK하이닉스·삼성전자 HBM이 동반 상승하는 연결 고리는 유지되지만, RISC-V 진영이 커질수록 가속기 단일 의존을 줄이려는 압력도 함께 커진다.</p>
+<hr>
+<h3>흐름 3: RNA 치료제의 만성질환 진입과 '투여 편의성'으로 옮겨간 신약 경쟁</h3>
+<p>신약 데이터와 M&amp;A가 한 주에 몰리면서, 경쟁의 무게중심이 효능이라는 단일 기준에서 '전달 방식과 투여 편의성'으로 넓어지는 흐름이 뚜렷해졌다. 동시에 자본 시장 냉각 속에 모달리티 옥석가리기도 함께 진행됐다.</p>
+<p><strong>① RNA 치료제가 대형 만성질환에 처음 발을 디뎠다</strong>: Ionis의 olezarsen(제품명 Tryngolza)이 PDUFA(6월 30일)보다 닷새 앞선 6월 24일 FDA 승인을 받았다. 중증 고중성지방혈증(sHTG)에서 급성 췌장염 위험을 85%(두 용량·두 임상 통합) 낮춘 데이터를 근거로, '급성 췌장염 위험 감소'를 FDA가 명시한 최초 치료제가 됐다. 적응증이 희귀질환(FCS, 환자 3만~7만 명)에서 sHTG 약 300만 명으로 넓어지며 환자 풀이 수십 배로 커졌다. GalNAc-ASO 플랫폼이 희귀 유전질환을 벗어나 심혈관·대사 만성질환으로 확장하는 첫 제도적 선례다.</p>
+<p><strong>② '얼마나 덜 맞아도 되느냐'가 M&amp;A 가격을 결정했다</strong>: AbbVie가 장기지속형(half-life extended) 항체 플랫폼을 보유한 Apogee Therapeutics를 $109억(약 16조8,000억원)에 인수했다. 주력 후보 zumilokibart는 2주마다 자가 주사해야 하는 두픽센트(2025년 매출 $178억, 약 27조4,000억원)와 달리 3~6개월 1회 투여 가능성을 임상에서 확인했다. 효능 우위가 아니라 투여 횟수 축소를 경쟁의 승부처로 삼아 이미 검증된 시장에 진입하는 전략이다.</p>
+<p><strong>③ 여러 모달리티가 동시다발로 데이터를 쏟아냈고, 옥석가리기가 시작됐다</strong>: 사이키델릭 의약품 DT120이 우울증 3상에서 위약 대비 MADRS 8.1점 차(p&lt;0.0001)의 양성 결과를 냈고, MAPS의 MDMA 실패 이후 FDA 표준 경로로 우울증 양성 데이터를 확보한 첫 사례로 기록됐다. Eli Lilly는 OX2R 작용제를 보유한 Centessa를 최대 $78억(약 10조8,000억원)에 인수해 CNS·수면장애를 다음 성장 동력으로 잡았고, Revolution Medicines의 KRAS G12D 억제제 졸돈라시브는 전이성 췌장암 1차 병용(화학요법 병용)에서 ORR 82%를 보고했다. Takeda의 차세대 경구 TYK2 억제제 자소시티닙은 BMS 데우크라바시티닙과의 직접 비교 3상에서 PASI 100 달성률이 2.5배 높았다고 발표했다. 반대편에서는 유전자 편집 선구자 Sangamo Therapeutics가 가용 현금 $550만(약 76억원)을 남긴 채 6월 23일 Chapter 11 파산을 신청했고, 30년 축적한 아연손가락단백질(ZFP) 플랫폼과 AAV 캡시드 등 원천기술을 Lilly($5,000만)가, 파브리병 후보물질 ST-920을 Astellas($2,500만+마일스톤 $2,500만)가 스토킹호스 입찰로 나눠 가져가게 됐다. CRISPR에 밀린 모달리티가 독립 기업으로 살아남지 못하고 빅파마 내재화 자산으로 흡수되는, 옥석가리기의 한 단면이다.</p>
+<p><strong>핵심 의미</strong>: 같은 표적·기전이라도 전달 방식에 따라 시장 접근성과 환자 편의성, 보험 급여 경로가 달라진다. 파이프라인을 평가할 때 '표적-기전'만이 아니라 '전달 플랫폼·투여 편의성'까지 함께 따져야 하는 시대가 됐다. olezarsen의 급여 협상 결과는 Alnylam·Arrowhead로 이어질 RNA 모달리티 전체의 약가 프레임을 정하는 선례가 된다. 한편 Sangamo의 파산과 원천기술 분할 인수는 자본 시장이 냉각될 때 원천기술이 "독립 기업 성공"보다 "파산 경매를 거친 빅파마 흡수"로 이동하는 경로를 보여주며, 모달리티별 옥석가리기가 본격화됐다는 신호로 읽힌다.</p>
+<p><strong>양면 시각</strong>: 파산 경매가 빅파마에는 10년 이상의 플랫폼 개발비를 우회하는 저비용 인수 기회라는 시각과, 그만큼 임상 초기~중기 독립 바이오텍의 자본 고갈 하방 리스크가 현실화됐다는 시각이 맞선다. Sangamo 원천기술을 $5,000만에 사들인 Lilly와 자본이 바닥난 Sangamo는 같은 거래의 양면이다.</p>
+<p><strong>수요 렌즈</strong>:</p>
+<ul><li>환자: 주사 기피·복약 탈락·입원 회피 → 경구화·장기지속·단회 투여 수요. olezarsen 월 1회 자가주사, zumilokibart 3~6개월 1회, DT120 단회 투여, 파브리병 ST-920의 1회 투여 유전자치료가 모두 이 공백을 겨냥한다.</li><li>처방의: 외래 처방 가능 범위 확대와 직접 비교 데이터(자소시티닙 PASI 100)가 처방 전환의 근거가 된다.</li><li>지불자: 입원·합병증 비용 절감을 ICER 근거로 활용하되, 희귀질환 수준의 약가를 대형 만성질환에 그대로 적용할지가 급여 등재의 핵심 쟁점이 된다. olezarsen의 FCS·sHTG 약가 차등이 그 첫 시험대다. 1회 투여 유전자치료(ST-920)는 평생 ERT 누적 비용 대비 총비용 논리가 통하면 급여 근거가 선다.</li></ul>
+<hr>
+<h3>흐름 4: K바이오의 자본화 가속과 CMO 제조 결함이라는 새 변수</h3>
+<p>BIO USA 2026(6월 22~25일)을 무대로 K바이오의 자본 조달과 글로벌 파트너십이 구체화됐고, 동시에 '공장'이 신약 허가의 숨은 관문으로 떠올랐다.</p>
+<p><strong>① 라이선싱 13조원과 SK바이오팜 딜</strong>: SK바이오팜과 Insilico Medicine이 중추신경계(CNS) 신경면역 AI 신약 발굴에서 최대 $25.7억(약 3조9,700억원) 규모 협력을 체결하며 아태 최대 AI 신약 딜 기록을 세웠다. 2026년 상반기 한국 제약·바이오의 해외 기술이전 누계는 약 13조원에 달해 역대 최고 경신이 가시권에 들어왔다. 단일 딜이 아니라 BBB 셔틀·AI 신약·RNA·ADC 등 여러 모달리티에서 복수 기업이 동시에 계약을 성사시킨 점이 구조적 변화로 읽혔다.</p>
+<p><strong>② Roche의 한국 투자</strong>: Roche가 한국에 4억8,000만달러(약 7,100억원)를 투자해 임상 생태계를 구축하겠다고 밝혔다. 미·중 바이오 디커플링 속에서 한국을 대안 거점으로 지목한 흐름과 맞닿아 있다.</p>
+<p><strong>③ CMO 제조 결함이 허가를 막는 패턴</strong>: 같은 주에 제조 문제가 임상 성공을 가로막는 패턴이 또 반복됐다. Sobi의 난치성 통풍 치료제 NASP가 PDUFA 하루 전 완전회신서(CRL)를 받았는데, FDA는 효능·안전성에는 문제가 없다고 밝히면서도 위탁 제조(CMO) 시설 결함을 이유로 승인을 미뤘다. 6월 28일에는 Lantheus의 SSTR+ 신경내분비종양 PET 진단 키트 LNTH-2501(Ga-68 edotreotide)이 PDUFA(6월 29일) 사흘 전 같은 사유로 CRL을 받았다. 임상 데이터가 흠 없이 통과하고도 공장 기준 미달로 허가가 밀린 사례가 올해 거듭됐고(앞서 Achieve cytisinicline, Sobi NASP, Replimune RP1), 이제 Lantheus까지 더해졌다. Replimune RP1은 세 번째 BLA 재제출이 지난 주 수리되며 8월 2일 PDUFA 날짜를 받았다.</p>
+<p><strong>핵심 의미</strong>: K바이오가 저분자 제네릭 의존에서 플랫폼·모달리티 경쟁력으로 옮겨가는 신호가 라이선싱 수치로 확인됐지만, 아웃라이선싱 총액의 선급금 비율이 1~5%에 불과해 실제 현금은 임상 마일스톤 현실화 속도가 좌우한다. 한편 CMO 제조 결함으로 허가가 밀리는 일이 잇따르면서, 삼성바이오로직스·Lonza 같은 고품질 CDMO에 웃돈을 얹는 수요로 직결되는 흐름이 뚜렷해졌다. 빅파마가 NDA 제출 12~18개월 전부터 CMO 선정과 사전 허가 심사(PAI) 일정을 챙기는 까닭이 여기 있다.</p>
+<p><strong>양면 시각</strong>: BIOSECURE Act 이후 탈중국 전환 수요가 K-CDMO에 구조적 수혜로 작동한다는 시각과, BIO USA 회의 결과가 실제 계약으로 전환되는 비율이 낮고 아일랜드·싱가포르 등 경쟁 CDMO의 증설이 단가 협상력을 누른다는 시각이 공존한다.</p>
+<hr>
+<h2 id="sec-3">투자 시사점</h2>
+<div class="tablewrap"><table><thead><tr><th>테마</th><th>관점</th><th>지켜볼 촉매</th></tr></thead><tbody><tr><td><strong>코스피 반도체</strong></td><td>AI 단일 테마 집중 구조가 금리 충격에 취약함이 실증됐다. HBM4 수요 사이클은 유효하나 외국인 수급은 환율·금리에 종속. 글로벌 피어 대비 PBR 디스카운트는 저평가 논거이자 MSCI 지연으로 묶인 구조.</td><td>9월 FOMC 실제 결정 / 삼성전자 3분기 가이던스 / SK하이닉스 ADR 7월 10일 상장 초기 수급</td></tr><tr><td><strong>HBM 공급 구도</strong></td><td>SK하이닉스가 HBM4 램프를 늦추고 DDR5 마진을 택한 사이 삼성전자가 Nvidia 물량 30%+ 재진입 협의. 삼성 HBM4 출하 130일 만에 $10억 돌파로 교두보 확보. 독점→복점 전환 시 단가 협상력이 Nvidia로 이동.</td><td>Nvidia 16단 HBM4 수주 결론 / 삼성 의미 있는 물량 풀리는 3분기</td></tr><tr><td><strong>AI 칩 생태계</strong></td><td>Qualcomm+Tenstorrent($80~100억)·Modular($39억) 협상으로 RISC-V 탈Nvidia 진영 확대. CUDA 전환 비용·생태계 미성숙이 채택 관문. 협상 미확정.</td><td>Qualcomm 협상 완결 여부 / RISC-V 툴체인 성숙도 / 삼성·현대·LG 공급 협의</td></tr><tr><td><strong>AI 신약개발</strong></td><td>Isomorphic Labs 2026년 말 IND가 AI 설계 신약의 첫 임상 시험대. Lilly·Novartis 선급금이 빅파마 구매 의향 확인. 자체 보고 정확도라 독립 재현 미확보.</td><td>2026년 말 IND 실제 제출·적응증 공개 / 임상 1상 안전성·약동학</td></tr><tr><td><strong>RNA 치료제</strong></td><td>olezarsen 조기 승인으로 GalNAc-ASO가 만성질환 진입. 급여 협상 결과가 RNA 모달리티 전체 약가 선례. 경쟁 siRNA(Arrowhead plozasiran) 추격.</td><td>7월 미국 시판 후 처방 전환율·사전승인 통과율 / 약가 공시</td></tr><tr><td><strong>투여 편의성·면역학</strong></td><td>AbbVie-Apogee $109억은 장기지속형 항체 밸류에이션의 참고점. 2상 자산 프리미엄 인수 구조는 3상 실패 리스크를 인수인이 부담.</td><td>zumilokibart 3상 설계(두픽센트 head-to-head 포함 여부)</td></tr><tr><td><strong>KRAS·종양</strong></td><td>Revolution Medicines가 다락소라시브(3상 OS 2배)+졸돈라시브(ORR 82%) 두 자산 동시 성숙으로 G12D 선두. Phase 1/2 소규모라 3상 확인 필수.</td><td>7월 1~4일 ESMO GI 구연 DOR·PFS·안전성 / 빅파마 파트너십</td></tr><tr><td><strong>바이오 M&amp;A·파산</strong></td><td>상반기 누적 $1,340억(약 195조원)으로 연간 최대 경신. 특허 절벽 대응 수요가 구조적 매수자. 동시에 Sangamo·ADC Therapeutics처럼 임상 초기~중기 독립사는 자본 고갈로 파산·구조조정 진입. 생명과학 도구도 Merck KGaA+Bio-Techne $113억으로 M&amp;A 확산.</td><td>하반기 딜 플로우 / 파산 경매 낙찰가 / BofA 75bp 인상 시 할인율 상방 압력</td></tr><tr><td><strong>거시·환율</strong></td><td>PCE 4.1%·BofA 75bp 전망으로 매파 재부각. 달러 강세→원화 약세→외국인 이탈 경로.</td><td>9월 FOMC 선반영 정도 / 원달러 1,540~1,560원대 추가 이탈 여부</td></tr></tbody></table></div>
+<hr>
+<h2 id="sec-4">수요 시사점</h2>
+<p><strong>1. RNA 치료제: 만성질환 진입의 진짜 관문은 약가다</strong> olezarsen은 기존 피브레이트·오메가-3로 중성지방 조절에 실패한 sHTG 고위험군의 미충족 수요를 겨냥한다. 처방의에게는 급성 췌장염 예방 최초 허가 근거가, 환자에게는 월 1회 자가주사 편의가 채택 동인이다. 다만 지불자가 FCS 수준 약가를 300만 명 시장에 그대로 받아들이지 않을 가능성이 높아, 췌장염 입원 비용 대비 비용효과성(ICER) 수량화가 처방 확산 속도를 좌우한다.</p>
+<p><strong>2. 투여 편의성: 치료를 미루던 층과 복약 탈락층을 연다</strong> 두픽센트의 효능은 인정하면서도 2주 1회 자가 주사 부담으로 치료를 중단하는 아토피·천식 환자가 zumilokibart의 주 수요층이다. 연간 주사 횟수가 26회에서 2~4회로 줄면 순응도가 곧바로 개선된다. 사이키델릭 DT120의 단회 투여도 SSRI 실패·복약 탈락 우울증 환자의 같은 공백을 노린다. 파브리병 ST-920의 1회 투여 유전자치료도 평생 ERT 정맥주사를 유지해야 하는 환자의 부담을 겨냥한다.</p>
+<p><strong>3. AI 신약 B2B: 자본 효율의 대안으로 떠오른다</strong> BIO USA에서 K바이오의 핵심 과제가 '자본 조달'로 진단된 가운데, SK바이오팜-Insilico처럼 선급금을 최소화하고 마일스톤에 무게를 싣는 딜이 역량을 빌려 쓰는 모델로 주목받았다. 빅파마 R&amp;D팀이 단백질 구조예측·후보 발굴 AI를 사들이려는 수요는 Anthropic의 AI-for-science 재편, Isomorphic Labs의 Lilly·Novartis 파트너십과 맞물린다. 다만 플랫폼의 투자 대비 성과는 후보물질이 전임상·임상을 통과해야 드러나는, 2~3년이 걸리는 검증 구조다.</p>
+<p><strong>4. HBM: 최종 수요자는 AI 가속기를 얹은 데이터센터다</strong> 빅테크 5사의 2026년 AI 자본지출 합계가 6,600억~6,900억달러(약 1,018조~1,064조원)로 추정되는 가운데, NVIDIA가 스펙을 정하면 메모리 제조사가 맞추는 구조다. AI 추론 워크로드가 퍼지면서 메모리 대역폭 수요가 선형 이상으로 늘고 있고, 고객사가 삼성전자 비중을 높이려는 움직임은 SK하이닉스 한 곳에 쏠린 공급 위험을 분산하려는 수요에서 나온다. RISC-V 같은 대안 가속기 진영이 커지는 것도 같은 분산 수요의 연장선이다.</p>
+<hr>
+<h2 id="sec-5">전략 노트</h2>
+<p>*R&amp;D 의사결정 관점에서 지난 주 가장 눈에 띈 세 가지를 정리한다.*</p>
+<p><strong>'제조 준비도'가 임상 설계만큼 중요한 변수가 됐다.</strong> Sobi NASP와 Lantheus LNTH-2501을 비롯해 임상 데이터가 흠 없이 통과하고도 CMO 제조 결함으로 허가가 밀리는 사례가 올해 잇따랐다. 생물의약품과 방사성의약품은 살아있는 세포 공정이나 짧은 반감기 핵종 관리, 저온 유통, 특수 원자재처럼 실사 항목이 많아 구조적으로 CRL 위험이 높은 편이다. 파이프라인을 설계하는 쪽이라면 NDA 제출 12~18개월 전부터 CMO를 확정하고 FDA와 사전 CMC 협의를 시작해, 임상 일정 옆에 제조 준비도를 나란히 두는 결정이 필요해졌다. 이 흐름이 고품질 CDMO 수요를 끌어올리는 방향으로 작동한다는 점은 K-CDMO 투자 논거와도 맞닿는다.</p>
+<p><strong>AI-for-science가 논의 단계를 넘어 실제 임상으로 향한다.</strong> Anthropic의 점퍼 영입과 Coefficient Bio 인수는 단백질 구조예측을 약물 후보 발굴·최적화와 직접 잇겠다는 선언이고, Isomorphic Labs의 2026년 말 인간 임상 예고는 AI 설계 분자가 전산 단계를 넘어 환자에게 닿는 첫 시험대를 가시권에 들였다. 빅파마 R&amp;D 파트너십 협상에서 'AlphaFold급 인력이 내부에 있다'는 사실은 라이선스 판매와는 다른 레버리지가 된다. SK바이오팜-Insilico 딜처럼 K바이오의 AI 신약 B2B 모델도 같은 흐름 위에 있어, AI 도구를 외부에서 조달할지 안에서 키울지를 지금부터 염두에 둘 만하다.</p>
+<p><strong>모달리티 옥석가리기가 자본 시장 냉각 속에 본격화됐다.</strong> Sangamo의 Chapter 11 파산과 ZFP 원천기술의 Lilly·Astellas 분할 인수는 CRISPR에 밀린 모달리티가 독립 기업으로 살아남지 못하고 빅파마 자산으로 흡수되는 경로를 보여줬다. 빅파마에는 10년 이상의 플랫폼 개발비를 $5,000만대로 우회하는 저비용 인수 기회이지만, 자본이 바닥난 소형 바이오텍에는 하방 리스크가 현실화된 결말이다. R&amp;D 자산을 직접 키울지, 저평가·파산 자산에서 인수할지를 자본 효율 관점에서 함께 저울질해야 하는 국면이다.</p>
+<hr>
+<h2 id="sec-6">이번 주 관전 포인트</h2>
+<ul><li><strong>ESMO GI Cancers Congress(7월 1~4일, 뮌헨)</strong>: Revolution Medicines 졸돈라시브의 전체 데이터(DOR·PFS·안전성)가 공개된다. 확인 ORR 53%와 비확인 82%의 격차를 어떻게 해석하느냐가 빅파마 파트너십·M&amp;A 논의의 무게를 가른다.</li><li><strong>SK하이닉스 Nasdaq ADR 상장(7월 10일)</strong>: 글로벌 기관투자자 청약 수요와 상장 초기 프리미엄·디스카운트가 추가 자본조달 여력을 가늠하는 잣대가 된다. 신주 오버행 우려를 실제로 눌러줄 수 있을지가 관건이다.</li><li><strong>9월 FOMC 선반영</strong>: BofA의 75bp 인상 전망 이후 시장이 9·10·12월 인상 경로를 가격에 어떻게 반영하는지가 관전 포인트다. 원달러 환율이 1,540~1,560원대에서 더 이탈하는지도 함께 본다.</li><li><strong>삼성전자 Nvidia HBM4 수주 결론·3분기 가이던스</strong>: 삼성전자가 Nvidia 물량 30%+를 따내면 HBM 공급이 독점에서 복점으로 전환된다. 의미 있는 물량은 3분기부터 풀릴 전망이다.</li><li><strong>Qualcomm-Tenstorrent 협상 완결 여부</strong>: $80~100억 RISC-V AI 칩 인수가 확정되면 탈Nvidia 진영이 공식화된다. 삼성·현대·LG 공급 협의가 사실로 확인되는지가 국내 AI 인프라 수요와 직결된다.</li><li><strong>Sangamo 파산 경매 낙찰가</strong>: Lilly·Astellas 스토킹호스 입찰에 경쟁 입찰이 붙어 최종 낙찰가가 $5,000만·$2,500만을 넘어서는지가 원천기술의 실거래 가치를 보여준다. 기존 BMS·Biogen 라이선스 계약 처리도 변수다.</li><li><strong>Replimune RP1 자문위(7월 말)·PDUFA(8월 2일)</strong>: 세 번째 CMC 보완을 FDA가 최종 수용하는지가 종양용해바이러스와 면역관문억제제 병용의 첫 승인 여부를 가른다.</li><li><strong>Moderna mFLUSIVA FDA 결정(8월 5일)·ACIP 정족수</strong>: 자문위 9-0으로 승인 가능성은 높으나, ACIP 정족수 공백이 길어지면 급여 경로가 막혀 매출 실현이 2027~2028 시즌으로 밀릴 수 있다.</li><li><strong>olezarsen 7월 미국 시판 첫 데이터</strong>: 처방 전환율과 보험 사전승인 통과율, 약가 책정이 Ionis 독자 상업화의 첫 실전 검증이자 RNA 모달리티 약가의 선례가 된다.</li></ul>
+
+<div class="foot">econ-radar 주간 동향 · 매일의 분석을 한 주 흐름으로 엮은 리포트. 투자·기업 언급은 정보·시나리오이며 매수·매도 권유가 아닙니다.</div>
+</div>
+<a href="#top" class="to-top" aria-label="맨 위로" title="맨 위로">&uarr;</a>
+</body></html>
