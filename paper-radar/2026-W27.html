@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>paper-radar — 2026-W27</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+    body { font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; font-size:16px; line-height:1.78; }
+    .badge { font-size:11px; font-weight:700; padding:2px 9px; border-radius:9999px; display:inline-block; margin-right:4px; }
+    .badge-genome   { background:#dcfce7; color:#166534; }
+    .badge-clinical { background:#dbeafe; color:#1e40af; }
+    .badge-drug     { background:#ede9fe; color:#5b21b6; }
+    .badge-protein  { background:#fce7f3; color:#9d174d; }
+    .badge-llmbio   { background:#fef9c3; color:#713f12; }
+    .badge-other    { background:#f3f4f6; color:#374151; }
+    .badge-preprint { background:#fef3c7; color:#92400e; }
+    .badge-peer     { background:#d1fae5; color:#065f46; }
+    .badge-insilico { background:#e0e7ff; color:#3730a3; }
+    .badge-retro    { background:#fef9c3; color:#713f12; }
+    .badge-prosp    { background:#d1fae5; color:#065f46; }
+    .badge-multi    { background:#dbeafe; color:#1e40af; }
+    .badge-rct      { background:#dcfce7; color:#166534; }
+    .badge-nocode   { background:#fee2e2; color:#991b1b; }
+    .key-point { border-left:4px solid #4338ca; padding:10px 16px; background:#f5f3ff; border-radius:0 10px 10px 0; margin-top:12px; }
+    .key-point .label { font-size:11px; font-weight:700; letter-spacing:0.06em; color:#4338ca; margin-bottom:4px; }
+    .key-point .text { font-size:15px; font-weight:500; color:#312e81; line-height:1.7; }
+    .insight { border-left:4px solid #14b8a6; padding:10px 16px; background:#f0fdfa; border-radius:0 10px 10px 0; margin-top:10px; }
+    .insight .label { font-size:11px; font-weight:700; letter-spacing:0.06em; color:#0f766e; margin-bottom:4px; }
+    .insight .text { font-size:15px; color:#134e4a; line-height:1.7; }
+    .lens-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+    .lens-item { font-size:13.5px; color:#374151; padding:4px 10px; background:#f9fafb; border:1px solid #e5e7eb; border-radius:8px; }
+    .lens-demand { font-size:13.5px; color:#92400e; padding:4px 10px; background:#fef3c7; border:1px solid #fde68a; border-radius:8px; }
+    .verify-tag { font-size:12px; color:#6b7280; margin-top:8px; }
+</style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <div class="max-w-3xl mx-auto px-4 py-10">
+    <header class="mb-8">
+      <div class="flex items-center gap-3 mb-2">
+        <img src="logo-64.png" alt="paper-radar" class="w-9 h-9 rounded-xl" onerror="this.style.display='none'">
+        <span class="text-2xl font-bold tracking-tight text-gray-900">paper-radar 주간 다이제스트</span>
+        <span class="text-lg text-gray-500 font-medium">2026-W27</span>
+      </div>
+      <p class="text-xs text-gray-400">바이오인포·임상ML·신약AI 논문 주간 요약. 모든 해석은 preprint 단계에서의 분석임.</p>
+    </header>
+
+    <section class="mb-8">
+      <h2 class="text-xs font-bold tracking-widest text-indigo-600 uppercase mb-3">At a Glance</h2>
+      <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-5 space-y-3">
+        <p class="text-[15px] leading-relaxed text-gray-800">이번 주 다섯 편을 관통하는 신호 하나: "왔 이 예측이 나왔나"를 설계 단계에서 내장하는 방향으로 무게중심이 이동하고 있다 — MLP-GNN 덧셈 분해, 구조화 GP(Gaussian Process) 불확실성 정량화, Affinage 증거 출처 추적 모두 사후 해석 추가가 아닌 아키텍처 수준의 선택이다.</p>
+        <p class="text-[15px] leading-relaxed text-gray-800">CNS 종양 DNA 메틸화 분류는 독립 코호트 1104건 후향 검증을 포함해 이번 주 유일하게 신경병리 임상 워크플로에 직접 닿는 논문이며, 이미 상업화된 Heidelberg Epignostix 플랫폼의 공개 대안을 제시하는 경쟁 구도를 형성한다.</p>
+        <p class="text-[15px] leading-relaxed text-gray-800">LLM의 역할이 예측 모델에서 지식 추출·합성 파이프라인으로 이동하는 흐름이 Affinage(게놈 규모 유전자 주석)와 Active-GRPO(분자 최적화 강화학습)에서 동시에 포착됐다. 코드 공개는 5편 중 Affinage 한 편믰으로, 재현성 격차는 이번 주도 뜨럽하다.</p>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">This Week's Top 5</h2>
+      <div class="space-y-6">
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#1</span>
+            <span class="badge badge-preprint ">preprint</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">게놈 규모 메커니즘 유전자 주석: 발표 문헌으로부터 (Affinage: genome-scale mechanistic gene annotation from the published literature)</h3>
+          <p class="text-[13px] text-gray-500 mb-3">출처: arXiv · 2026-07-02 · <a href="https://arxiv.org/abs/2607.02217" class="underline text-indigo-700" target="_blank">preprint(미동료심사)</a> · <a href="https://github.com/cheeseman-lab/affinage" class="underline text-indigo-700" target="_blank">code</a>(접근 미확인 — 검증 시점 404) · <a href="https://affinage.wi.mit.edu" class="underline text-indigo-700" target="_blank">data/API</a></p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">1차 문헌에서 직접 실험 증거만 추출하는 읽기 패스(reading pass)와 그 증거만으로 추론하는 합성 패스(synthesis pass)를 분리함으로써 외부 지식 오염을 차단하는 LLM 파이프라인이다. 크로스-패밀리 LLM 판사 기준 UniProt 기능 항목 대비 99.1%에서 Affinage 주석이 우위를 기록했다고 보고한다(초록 기준 수치).</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">기능 미상으로 배제되던 dark genome 유전자들이 타깃 후보로 재검토될 수 있게 똀다 — 단, 99.1% 수치는 LLM이 LLM을 채점한 in silico 평가 결과임을 감안해야 한다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: 읽기·합성 패스 분리로 RAG(Retrieval-Augmented Generation) 대비 오염 제어 측면에서 설계상 진보; 결과물을 REST API + MCP 서버로 오픈 배포해 기존 워크플로 삽입 용이.</span> <span class="lens-item">🩺 Clinical: 임상 유전체 VUS(불확실한 의미의 변이체, variant of uncertain significance) 해석 보조 잠재력이 있으나, 할루시네이션 빈도·임상 정확도는 이 논문에서 검증되지 않았다. 현재는 연구 도구(RUO) 수준.</span> <span class="lens-item">🏭 Industry: 타깃 발굴 0단계 인프라 — 기능 미상 유전자 재진입으로 경쟁이 덜한 타갓 후보군에 접근할 수 있다; 빅파마 트랜슬레이셔널 팀과 AI 신약개발 플랫폼 기업의 인하우스 통합 수요가 가장 클 것.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-insilico ">in silico</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#2</span>
+            <span class="badge badge-preprint ">preprint</span> <span class="badge badge-nocode ">코드 미공개 — 재현 불가</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">DNA 메틸화 기반 중추신경계 종양 91클래스 분류 (A Novel Machine Learning Approach for Central Nervous System Tumor Classification from DNA Methylation)</h3>
+          <p class="text-[13px] text-gray-500 mb-3">출처: arXiv · 2026-07-01 · <a href="https://arxiv.org/abs/2607.01307" class="underline text-indigo-700" target="_blank">preprint(미동료심사)</a> · 코드 미공개 — 재현 불가</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">드문 랜덤 투영(Sparse Random Projection, SRP)으로 고차원 메틸화 배열을 압축한 뒤 다항 로지스틱 회싴로 분류한다. 참조 코호트(N=2801) 층화 3-fold 교차검증 정확도 96%, 독립 임상 평가 코호트(N=1104)에서 91클래스 수준 86%, 메틸화 클래스 패밀리 수준 93%를 달성했으며, 기존 참조 수치 대비 각각 +4, +5 퍼센트포인트 절대 개선이라고 보고한다(초록 기준; 추정: 역산 기준값 82%/88% — 초록에 직접 명시 여부 미확인).</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">복잡한 딥러닝 없이 SRP + 로지스틱 회귀만으로 참조 시스템을 넘어세과는 결과는 고차원 오믹스 분류에서 경량 파이프라인의 재현·배포 이점을 다시 즧게 한다 — 단, 코드가 공개되지 않아 현재 독립 재현이 불가하다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: SRP(Johnson-Lindenstrauss 보조정리 기반 차원 축소) + 다항 로지스틱 회귀 조합; 내부 교차검증과 독립 코호트 평가를 분리한 방법론적 설계.</span> <span class="lens-item">🩺 Clinical: WHO 2021 CNS 종양 분류의 분자 마커 필수화 이후 91클래스 정밀 분류 과제를 다룬다; 독립 코호트 포함으로 신뢰도가 단일 교차검증보다 높으나 단일 기관 가능성과 최신 184 서브클래스 체계와의 격차는 미확인.</span> <span class="lens-item">🏭 Industry: Heidelberg Epignostix 상업 플랫폼의 직접 공개 대안 포지션; 경량 알고리즘으로 임상 실험실 도입 진입장벽 낙음.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-retro ">후향</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#3</span>
+            <span class="badge badge-preprint ">preprint</span> <span class="badge badge-nocode ">코드 미공개 — 재현 불가</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">LLM 기반 분자 최적화를 위한 능동적 모방-자기발견 강화학습 (Active-GRPO: Adaptive Imitation and Self-Improving Reasoning for Molecular Optimization)</h3>
+          <p class="text-[13px] text-gray-500 mb-3">출처: arXiv · 2026-07-01 · <a href="https://arxiv.org/abs/2607.00531" class="underline text-indigo-700" target="_blank">preprint(미동료심사)</a> · 코드 미공개 — 재현 불가</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">정책(policy)이 인스턴스별로 참조가 현재 정책 후보보다 우수할 때만 모방하고(active imitate-reinforce), 정책이 참조를 넘어서면 참조를 새 최고 후보로 갱신하는(active referencing) 두 메커니즘을 결합한다. TOMG-Bench MOLOPT에서 평균 SRxSim이 GRPO 0.0959, RePO 0.1665에서 Active-GRPO 0.1773으로 향상됐으며, LogP·MR·QED에서 통계적으로 유의한 개선을 보고한다(초록 기준, 3-seed 평균).</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">참조 갱신과 동적 전환의 결합은 분자 최적화에 국한되지 않고 참조 품질 의존 문제가 발생하는 다른 RL 학습 루프에도 이식 가능한 설계 원리다 — 다만 단일 벤치마크와 코드 미공개 상태에서는 아직 아이디어 수준이다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: GRPO 기반 강화학습에 active imitate-reinforce + active referencing 추가; TOMG-Bench MOLOPT 3-seed 평가; 기반 LLM 명시 여부 초록 수준 미확인.</span> <span class="lens-item">🩺 Clinical: 신약 발견 파이프라인에서 가장 초기 단계(in silico 분자 생성). LogP·QED는 계산 지표로 in vitro 활성·독성과의 간극이 크고, 임상 접점까지 수년 거리.</span> <span class="lens-item">🏭 Industry: 리드 최적화 단계 LLM 생성 화학 도구; TOMG-Bench가 LLM 분자 최적화의 사실상 평가 기준으로 수렴하는 흐름 속에서 방법론 표준 경쟁의 신호.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-insilico ">in silico</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#4</span>
+            <span class="badge badge-preprint ">preprint</span> <span class="badge badge-nocode ">코드 미공개 — 재현 불가</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">생물학적 경로 구조 통합 가우시안 프로세스를 이용한 고차원·소표본 오믹스 분류 (Structured Gaussian Processes for Uncertainty-Aware Classification of High-Dimensional, Small-Sampled Omics Data)</h3>
+          <p class="text-[13px] text-gray-500 mb-3">출처: arXiv · 2026-07-02 · <a href="https://arxiv.org/abs/2607.02103" class="underline text-indigo-700" target="_blank">preprint(미동료심사)</a> · 코드 미공개 — 재현 불가</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">생물학적 경로 그래프를 GP 커널 구성에 직접 통합해 알려진 생물학적 상호작용 네트워크를 따라 정보를 전파하고, 풍부도(abundance) 파생 피쳐와 결합해 정량적 측정값과 위상적 맥락을 동시에 포착한다. 3개 공개 장·대변 마이크로바이즌(microbiome) 데이터셋에서 비구조화 베이스라인 대비 성능 향상을 보고하나, 구체 수치는 초록에 미제공.</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">"모른다고 말하는" 불확실성 정량화가 설계에 내장된 분류기는 소표본 임상 바이오마커 연구에서 규제 투명성 요건(FDA 임상의사결정지원 소프트웨어 가이던스)과 자연스럽게 연결된다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: 경로 그래프 → GP 커널 직접 통합(GNN 방식의 입력 피쳐 주입과 구조적으로 다름); 클래스 불균형 전략(리샘플링·임계값 보정·혼동행렬 보정) 비교 분석 포함.</span> <span class="lens-item">🩺 Clinical: 소표본 마이크로바이즌 분류에 특화; 전향 임상 코호트 검증 없음. 불확실성 정량화는 임상 적용에 필요한 안전장치이나 임상 검증 자체를 대신하지 않는다.</span> <span class="lens-item">🏭 Industry: 마이크로바이즌 치료제(live biotherapeutics) 개발사 및 희귀질환 임상 바이오마커 연구 — 소표본 고차원 데이터가 구조적으로 발생하는 두 영역에 닿는다.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-insilico ">in silico</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#5</span>
+            <span class="badge badge-preprint ">preprint</span> <span class="badge badge-nocode ">코드 미공개 — 재현 불가</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">수용해도 예측을 위한 화학·구조 기여 분리 MLP-GNN 프레임워크 (An Additive MLP-GNN Framework for Characterizing Chemical and Structural Contributions to Aqueous Solubility)</h3>
+          <p class="text-[13px] text-gray-500 mb-3">출처: arXiv · 2026-07-02 · <a href="https://arxiv.org/abs/2607.02212" class="underline text-indigo-700" target="_blank">preprint(미동료심사)</a> · 코드 미공개 — 재현 불가</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">물리화학적 기술자를 MLP(화학 브랜치)로, 분자 그래프 위상을 GNN(구조 브랜치)으로 각각 독립 학습하고 예측 단계에서만 덧셈 결합하는 구조다. 선택적 곱셈 상호작용 항을 추가해 화학-구조 결합 효과도 포착하고, GNNExplainer 마스크를 원자 수준으로 집계해 기능기(functional group)별 기여도를 시각화한다. AqSolDB 사전학습 + BigSolDB2 파인튀닝으로 정확도와 반복 안정성이 실질적으로 개선됐다고 보고한다(초록 기준; RMSE·R² 등 구체 수치는 원문 확인 필요).</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">"낙은 수용해도가 작용기 때문인가, 골격 때문인가"를 직접 물을 수 있는 구조는 medicinal chemist가 분자 수정 방향(작용기 치환 vs. 골격 변경)을 잡는 데 실용적 피드백을 제공한다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: MLP(화학 기술자) + GNN(그래프 위상) 독립 브랜치 덧셈 결합; AqSolDB → BigSolDB2 이단계 전이학습; GNNExplainer 원자 수준 기여도 시각화.</span> <span class="lens-item">🩺 Clinical: ADME 초기 스크리닝 보조 — 수용해도 in silico 예측과 in vivo 생체이용률(bioavailability)의 상관관계는 분자 특성·제형·식이 조건에 따라 달라지므로 수용해도 개선이 임상 효능 개선과 직결되지 않는다.</span> <span class="lens-item">🏭 Industry: ADME/formulation 과학자의 구조 수정 방향 설정에 유용; 화학·구조 기여 분리는 Schrödinger·ChemAxon 등 상업 CADD 툴 대비 차별점이 될 수 있다.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-insilico ">in silico</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Deep Dive</h2>
+      <div class="mb-6">
+        <h3 class="text-[16px] font-bold text-gray-800 mb-4">Affinage: 게놈 규모 유전자 주석, 파이프라인의 어디쉼인가</h3>
+        <div class="space-y-3">
+          <p class="text-[15px] text-gray-800 leading-relaxed"><strong>왔 지금 이 질문이 필요했나</strong></p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">PubMed에는 2,000만 편 이상의 논문이 쌓여 있지만, 그 안에서 "유전자 X가 어떤 메커니즘으로 기능하는가"를 구조화된 형태로 쾺내는 자동화된 수단은 없었다. UniProt의 기능 항목 큐레이션은 수작업이라 갱신 속도가 문헌 생산 속도를 따라가지 못하고, 수청 개 유전자는 기능 항목 자체가 비어 있다. Affinage는 이 간극을 1차 문헌에서 직접 채우려는 시도다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed"><strong>무엇이 기존 LLM 주석 시도와 다른가</strong></p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">기존 LLM 기반 유전자 주석은 모델 내부 파라미터 기억(parametric knowledge)에 의존하거나 범용 RAG를 적용해, 리븷·메타분석 같은 2차 자료와 직접 실험 증거를 섭었다. Affinage는 두 단계를 물리적으로 분리한다. 읽기 패스는 1차 문헌에서 직접 실험 증거만 추출하고(간접 추론·리뷷 제외), 합성 패스는 그 증거만을 입력으로 받는다. 오염 제어 면에서 RAG보다 명시적으로 진전된 설계다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed"><strong>평가 설계의 한계를 어떻게 읽을까</strong></p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">크로스-패밀리 LLM 판사 기준 UniProt 대비 99.1% 우위라는 수치는 인상적이다. 그런데 이 평가 구조에는 주의가 필요하다. AI 모델이 AI 모델의 결과를 채점하는 in silico 루프이고, UniProt 자체가 생물학적 사실의 금표준(gold standard)이 아니다. 읽기 패스가 간접 추론을 실제로 잘 걸러냈는지, 문헌이 3편 미만인 연구 공백 유전자에서 품질이 어떻게 저하되는지는 초록 수준에서 확인이 안 된다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed"><strong>내 연구에 어떻게 쓸까</strong></p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">코드(GitHub)와 데이터(affinage.wi.mit.edu), REST API까지 모두 열려 있다는 점에서 멀티오믹스 분석 파이프라인의 유전자 기능 주석 레이어에 UniProt/GO 보완 레이어로 즉시 삽입할 수 있다. 핵심 타겟 유전자는 원문 문헌을 교차 확인하는 것이 안전하고, LLM 판사 평가 한계를 인식한 채로 사용해야 한다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed"><strong>산업 관점 함의</strong></p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">유전자 기능이 알려지지 않아 "주석 없음"으로 자동 필터 아웃되던 dark genome 영역은, 경쟁이 덜한 타겟 공간이기도 하다. Affinage가 이 영역에 1차 문헌 근거 기반 기술을 제공한다면, 타겟 발굴 의사결정에서 후보 풀이 넓어지는 효과가 있다. 단, 주석의 생물학적 정확도가 실험 검증 없이 파이프라인 의사결정에 직결되면 오류가 후속 단계로 전파될 위험이 있다.</p>
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <h3 class="text-[16px] font-bold text-gray-800 mb-4">CNS 종양 메틸화 분류: 91클래스의 어려움과 경량 파이프라인의 가능성</h3>
+        <div class="space-y-3">
+          <p class="text-[15px] text-gray-800 leading-relaxed"><strong>왔 CNS 종양 분류가 어려운가</strong></p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">WHO 2021 분류 개정 이후 CNS 종양 진단은 형태학(morphology)만으로는 불완전하다. IDH 변이, CDKN2A 결실, DNA 메틸화 프로파일이 치료 선택과 예후를 결정하는 필수 마커가 똠다. 메틸화 기반 91클래스 분류는 그 핵심 도구인데, 2018년 Capper 등이 발표한 Heidelberg 분류기(랜덤 포레스트 기반)가 9년 가까이 사실상 표준으로 운영널다. 상업 스핀오프(Heidelberg Epignostix)로 이전되면서 접근성·비용 문제가 대두됨다, 이를 배경으로 개방형 재현 가능한 분류 알고리즘 개발이 활발해졌다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed"><strong>이 논문이 제안하는 경로</strong></p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">SRP(Sparse Random Projection)는 고차원 메틸화 배열(수십만 CpG 사이트)의 차원을 Johnson-Lindenstrauss 보조정리에 기반해 판별 정보를 보존하면서 압축하고, 다항 로지스틱 회귀가 분류를 담당한다. 딥러닝 없는 경량 구조다. 임상 실험실 입장에서 소프트웨어 배포와 유지관리 부담이 낙다는 실용적 장점이 있다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed"><strong>검증 설계를 어떻게 읽어야 하나</strong></p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">참조 코호트(N=2801) 교차검증과 독립 임상 평가 코호트(N=1104)를 분리한 설계는 단순 내부 교차검증보다 신뢰도가 높다. 독립 코호트에서 86%(91클래스)/93%(패밀리 수준), 기존 참조 대비 +4/+5 퍼센트포인트 절대 개선이다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">그러나 중요한 물음이 남는다. 1104건 독립 코호트가 브라질 단일 기관 데이터일 가능성이 있어, "독립" 검증의 지리적·민족적 다양성이 제한될 수 있다. 비교 기준인 "기존 참조 수치"가 정확히 어떤 분류기의 어떤 평가 조건에서 나온 것인지 초록에서 단정하기 어렵다. 그리고 이 논문의 91클래스는 Heidelberg v11 기준인데, v12.8은 이미 184 서브클래스로 확장됐다. 코드도 현재 미공개 상태다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed"><strong>발제 활용 가능성</strong></p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">SRP + 다항 로지스틱 회귀 파이프라인은 팀 스터디에서 "고차원 오믹스 분류에서 딥러닝보다 경량 모델이 더 실용적인가"라는 질문의 구체적 사례로 쓸 수 있다. 학계 관점(방법론 재현 가능성·클래스 수준 평가 설계)과 산업 관점(Heidelberg 플랫폼 대안·임상 실험실 배포 가능성)을 나눠 볼 수 있는 구조다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">🔭 Wide Angle</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm px-6 py-2">
+        <div class="flex items-start gap-3 py-4 border-b border-gray-100 last:border-0">
+          <div class="flex-1">
+            <p class="text-[15px] font-semibold text-gray-900 mb-1">반복적 메타-반추를 통한 자율 과학 발견 시스템 DiscoPER </p>
+            <p class="text-[14px] text-gray-700 leading-relaxed">(arXiv:2607.01131, 2026-07-01, preprint) — 사전 정의된 연구 목표 없이 데이터셋을 동적으로 탐색하는 자율 LLM 과학발견 프레임워크. 모든 발견에 통계 검증을 요구하고 주기적 메타-반추(meta-reflection)로 누적 발견을 2차 합성해 상호 연결된 현상을 포착한다고 보고한다. 자율 과학발견 에이전트를 설계할 때 구체적인 참고 사례가 된다. → <a href="https://arxiv.org/abs/2607.01131" class="underline text-indigo-700" target="_blank">https://arxiv.org/abs/2607.01131</a></p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 py-4 border-b border-gray-100 last:border-0">
+          <div class="flex-1">
+            <p class="text-[15px] font-semibold text-gray-900 mb-1">교환대수 학습 기반 단백질 유연성 분석 (CAL: Commutative Algebra Learning for Protein Flexibility Analysis) </p>
+            <p class="text-[14px] text-gray-700 leading-relaxed">(arXiv:2607.00879, 2026-07-01, preprint) — 교환대수(commutative algebra) 이론으로 다중 공간 스케일의 국소 대수 기술자를 구성해 단백질 B-팩터(유연성, B-factor) 예측. 364개 단백질 벤치마크에서 고전적 가우시안 네트워크 모델(GNM) 대비 34.5% 예측 정확도 향상을 보고한다. 단백질 구조 기반 신약설계에서 유연성 예측의 대안적 수학 프레임워크로 주목. → <a href="https://arxiv.org/abs/2607.00879" class="underline text-indigo-700" target="_blank">https://arxiv.org/abs/2607.00879</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Threads to Follow</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <ul class="space-y-3 list-disc list-inside">
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>해석 가능성의 설계 내장</strong> — MLP-GNN 덧셈 분해, 구조화 GP 불확실성, Affinage 증거 추적 세 편이 같은 방향을 가리킨다. 사후 해석(post-hoc explainability) 방법론과 설계 수준을 직접 비교해두면 방법론 포지셔닝이 뜨렴해진다.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>CNS 종양 분류 오픈소스 경쟁</strong> — Heidelberg v12.8(184 서브클래스)으로 확장 가능성, 코드 공개 여부, 다기관 검증이 이 논문의 후속 관전 포인트. 관련 논문(npj Precision Oncology 2024 비교 연구 계열)과 묶어볼 것.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>TOMG-Bench 표준화 경쟁</strong> — Active-GRPO 외에도 같은 주 arXiv에 TOMG-Bench 기반 LLM 분자 최적화 논문들이 집중 등장했다. 이 벤치마크가 사실상 표준으로 굳어지는 과정을 추적하면 "AI 신약 설계 방법론 표준 경쟁"의 구도가 보인다.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>Dark genome 타겟 발굴</strong> — Affinage가 기능 미상 유전자에 주석을 제공하기 시작한다면, 이를 활용한 타겟 발굴 연구가 후속으로 나올 가능성이 있다. Open Targets 등 기존 플랫폼과의 통합 사례를 주시할 것.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>소표본 오믹스 임상 바이오마커</strong> — 구조화 GP 논문이 다루는 고차원-소표본 문제는 마이크로바이즌 치료제 Phase 2 실패의 구조적 원인 중 하나와 연결된다. 이 방법론 계열이 희귀질환 임상시험 설계 도구로 수렴하는지 지켜볼 것.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Sources</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <ul class="space-y-2 text-[13.5px]">
+              <li><a href="https://arxiv.org/abs/2607.02217" class="text-indigo-600 underline" target="_blank">1 — Affinage (유전자 주석)</a></li>
+              <li><a href="https://arxiv.org/abs/2607.01307" class="text-indigo-600 underline" target="_blank">2 — CNS 종양 메틸화 분류</a></li>
+              <li><a href="https://arxiv.org/abs/2607.00531" class="text-indigo-600 underline" target="_blank">3 — Active-GRPO (분자 최적화)</a></li>
+              <li><a href="https://arxiv.org/abs/2607.02103" class="text-indigo-600 underline" target="_blank">4 — 구조화 GP 오믹스 분류</a></li>
+              <li><a href="https://arxiv.org/abs/2607.02212" class="text-indigo-600 underline" target="_blank">5 — MLP-GNN 수용해도</a></li>
+              <li><a href="https://arxiv.org/abs/2607.01131" class="text-indigo-600 underline" target="_blank">W1 — DiscoPER (자율 과학발견)</a></li>
+              <li><a href="https://arxiv.org/abs/2607.00879" class="text-indigo-600 underline" target="_blank">W2 — CAL 단백질 유연성</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="border-t border-gray-200 pt-8 pb-10 text-center">
+      <p class="text-sm text-gray-500 mt-4">paper-radar · 2026-W27</p>
+      <p class="text-xs text-gray-400 mt-1">바이오인포·임상ML·신약AI 논문 주간 요약. preprint 분석 포함.</p>
+    </footer>
+  </div>
+</body>
+</html>
