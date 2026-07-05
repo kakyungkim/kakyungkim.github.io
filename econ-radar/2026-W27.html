@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🧭 econ-radar 동향 리포트 · 2026-W27 (6/29–7/5)</title>
+<style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+:root{--ink:#1e293b;--indigo:#4338ca;--indigo-deep:#3730a3;--soft:#eef2ff;--line:#c7d2fe;--muted:#64748b;--pop:#c026d3;}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Pretendard',-apple-system,'Noto Sans KR',sans-serif;color:var(--ink);background:#f6f7fb;margin:0;line-height:1.78;font-size:16px;}
+.wrap{max-width:780px;margin:0 auto;padding:30px 20px 80px;}
+.head{background:linear-gradient(135deg,#4f46e5,#3730a3);color:#eef2ff;border-radius:18px;padding:26px 28px;margin-bottom:28px;box-shadow:0 12px 40px rgba(49,46,129,.28);}
+.head .kicker{font-size:13px;letter-spacing:.08em;color:#c7d2fe;font-weight:700;}
+.head h1{font-size:25px;margin:8px 0 6px;line-height:1.35;color:#fff;}
+.head .range{font-size:14px;color:#c7d2fe;}
+.tags{margin-top:12px;}
+.tags span{display:inline-block;font-size:12px;background:rgba(255,255,255,.14);color:#e9d5ff;border-radius:999px;padding:2px 11px;margin:3px 4px 0 0;}
+h2{color:var(--indigo);font-size:21px;margin:34px 0 12px;padding-bottom:8px;line-height:1.4;background:linear-gradient(90deg,var(--indigo) 0,var(--pop) 44px,var(--line) 44px) bottom left/100% 3px no-repeat;}
+h2[id]{scroll-margin-top:74px;}
+h3{color:var(--indigo-deep);font-size:17px;margin:22px 0 8px;}
+p{margin:10px 0;}
+strong{color:var(--indigo-deep);}
+a{color:var(--indigo);text-decoration:none;border-bottom:1px solid var(--line);}
+a:hover{background:var(--soft);}
+ul{margin:10px 0;padding-left:20px;} li{margin:7px 0;}
+blockquote{border-left:4px solid var(--line);background:#fff;margin:12px 0;padding:10px 16px;border-radius:0 10px 10px 0;color:var(--muted);font-size:14px;}
+blockquote a{border:none;color:var(--muted);}
+.tablewrap{overflow-x:auto;margin:14px 0;-webkit-overflow-scrolling:touch;}
+table{border-collapse:collapse;width:100%;font-size:14px;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 18px rgba(67,56,202,.08);}
+th{background:linear-gradient(90deg,var(--indigo),#6d28d9);color:#fff;text-align:left;padding:11px 13px;font-weight:700;}
+td{padding:10px 13px;border-bottom:1px solid #eef0f7;vertical-align:top;}
+tr:nth-child(even) td{background:#fafbff;}
+hr{border:none;border-top:1px solid var(--line);margin:26px 0;}
+.back{display:inline-block;margin-bottom:18px;font-size:14px;color:var(--indigo);border:none;}
+/* 섹션 점프 목차 — 스크롤해도 상단 고정(데일리와 동일 스타일) */
+.toc{position:sticky;top:8px;z-index:40;display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 30px;padding:12px 16px;background:rgba(255,255,255,0.96);backdrop-filter:saturate(180%) blur(6px);border:1.5px solid var(--line);border-radius:14px;box-shadow:0 6px 22px rgba(67,56,202,0.16);}
+.toc .toc-label{font-size:13px;font-weight:800;color:var(--indigo);margin-right:4px;}
+.toc a{position:relative;font-size:12px;font-weight:600;padding:5px 12px;border-radius:999px;background:#eef2ff;color:var(--indigo);border:1px solid var(--line);text-decoration:none;transition:background .15s,color .15s;}
+.toc a:hover{background:var(--indigo);color:#fff;}
+.toc a[data-tip]::after{content:attr(data-tip);position:absolute;left:0;top:calc(100% + 9px);width:max-content;max-width:260px;white-space:normal;background:#1e293b;color:#fff;font-size:12px;font-weight:500;line-height:1.5;letter-spacing:0;padding:8px 11px;border-radius:9px;box-shadow:0 8px 22px rgba(15,23,42,0.28);opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .15s,transform .15s;pointer-events:none;z-index:60;}
+.toc a[data-tip]::before{content:"";position:absolute;left:16px;top:calc(100% + 3px);border:6px solid transparent;border-bottom-color:#1e293b;opacity:0;visibility:hidden;transition:opacity .15s;z-index:60;}
+.toc a[data-tip]:hover::after,.toc a[data-tip]:hover::before{opacity:1;visibility:visible;transform:translateY(0);}
+/* 맨 위로 버튼 */
+.to-top{position:fixed;right:18px;bottom:18px;width:44px;height:44px;border-radius:50%;background:var(--indigo);color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:20px;line-height:1;border:none;box-shadow:0 4px 16px rgba(67,56,202,0.42);z-index:50;transition:background .15s,transform .1s;}
+.to-top:hover{background:var(--indigo-deep);}
+.to-top:active{transform:scale(0.92);}
+/* 본문 끝 태그(footer 위) */
+.foottags{margin-top:34px;}
+.foottags span{display:inline-block;font-size:12px;background:var(--soft);color:var(--indigo-deep);border:1px solid var(--line);border-radius:999px;padding:3px 11px;margin:4px 5px 0 0;}
+.foot{margin-top:18px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);}
+@media(max-width:640px){body{font-size:15px;}.wrap{padding:18px 14px 60px;}.head{padding:20px;}.head h1{font-size:21px;}h2{font-size:19px;}h2[id]{scroll-margin-top:64px;}table{font-size:13px;}
+.toc{padding:8px 10px;gap:6px;margin:0 0 20px;}.toc .toc-label{font-size:11px;}.toc a{font-size:11px;padding:4px 10px;}.toc a[data-tip]::after,.toc a[data-tip]::before{display:none;}
+.to-top{width:40px;height:40px;right:12px;bottom:12px;font-size:18px;}}
+</style></head>
+<body><div class="wrap" id="top">
+<a class="back" href="/econ-radar/">← econ-radar 아카이브</a>
+<div class="head"><div class="kicker">WEEKLY · 주간 동향</div><h1>🧭 econ-radar 동향 리포트 · 2026-W27 (6/29–7/5)</h1><div class="range">2026-06-29 ~ 2026-07-05</div></div>
+<nav class="toc" aria-label="섹션 바로가기"><span class="toc-label">📑 바로가기</span><a href="#sec-1" data-tip="지난 주를 관통한 핵심 메시지">핵심</a><a href="#sec-2" data-tip="흐름 1 — AI 컴퓨팅 내재화: 선언에서 계약으로">흐름 1 —</a><a href="#sec-3" data-tip="흐름 2 — 코스피 극변동과 HBM 수요 가시성 논쟁">흐름 2 —</a><a href="#sec-4" data-tip="흐름 3 — KRAS 세대교체와 새 모달리티 동시 개막">흐름 3 —</a><a href="#sec-5" data-tip="투자 관점 시사점">투자</a><a href="#sec-6" data-tip="수요(Demand) 시사점">수요(Dem</a><a href="#sec-7" data-tip="R&amp;D·전략 관점 노트">전략</a><a href="#sec-8" data-tip="다음 주 지켜볼 것">다음 주 지</a></nav>
+<h2 id="sec-1">핵심 메시지 3가지</h2>
+<p>1. <strong>AI 추론 레이어 자립화가 선언을 넘어 실행 단계로 들어갔다.</strong> OpenAI Jalapeño, Amazon Trainium $20B 런레이트, Meta의 잉여 컴퓨팅 외부 판매 선언, Anthropic-Samsung 2nm 협상이 한 주에 집중되면서 빅테크의 AI 칩 내재화가 구조 변화의 첫 주로 기록됐다.</p>
+<p>2. <strong>한국 반도체 수출이 월간 사상 처음 $100B를 돌파했지만, 같은 주 코스피는 두 차례 극단적 변동을 겪으며 실물과 금융이 정반대 방향을 가리켰다.</strong> Meta '잉여' 한 마디가 HBM 수요 가시성 전제를 흔들었고, 삼성 -9%·하이닉스 -14.5% 폭락 다음 날 NFP 57K 쇼크로 +5.76% V자 반등이 나왔다.</p>
+<p>3. <strong>KRAS 표적치료가 세대교체의 변곡점을 통과했고, Treg 세포치료와 GLP-1 MASH 확장으로 새 모달리티·새 적응증이 동시에 열렸다.</strong> 공백이 가장 컸던 두 암종(췌장·폐)에서 한 주에 두 이정표가 나왔다.</p>
+<hr>
+<h2 id="sec-2">흐름 1 — AI 컴퓨팅 내재화: 선언에서 계약으로</h2>
+<p>한 주 동안 빅테크 4사의 AI 칩 전략이 동시에 수면 위로 올라왔다. OpenAI와 Broadcom이 공동 설계한 추론 전용 칩 Jalapeño의 윤곽이 공개됐고 [[daily/2026-06-30]], Amazon Trainium은 연간 $20B 런레이트를 넘어섰다 [[daily/2026-06-30]]. Meta는 자사 AI 데이터센터의 잉여 컴퓨팅을 외부에 팔겠다고 선언해 클라우드 컴퓨팅 시장의 공급 변수로 올라섰다 [[daily/2026-07-02]]. 4일에는 Anthropic이 삼성과 2나노(nm) 커스텀 AI 추론 칩 공동 개발 협상을 시작했다는 보도가 나왔다 [[daily/2026-07-04]].</p>
+<p>개별 사건으로 보면 각각 다르지만, 주 단위로 보면 하나의 방향을 가리킨다. AI 추론 레이어의 하드웨어를 직접 통제하려는 흐름이 협상 단계까지 진입했다는 것이다. Google-Anthropic 간 $32억 TPU 계약도 같은 맥락에 놓인다 [[daily/2026-07-03]]. TSMC·NVIDIA 의존도를 낮추는 움직임이 자본 배분과 파트너십 모두에서 동시에 진행되고 있다는 분석이 나온다.</p>
+<hr>
+<h2 id="sec-3">흐름 2 — 코스피 극변동과 HBM 수요 가시성 논쟁</h2>
+<p>한국 수출이 6월 기준 사상 처음 $100B(1,022.5억 달러)를 넘어섰다. 반도체는 전년 대비 +199.5% 성장이었다 [[daily/2026-07-01]]. 같은 날 SK하이닉스는 26년 만에 코스피 시총 1위에 올랐다.</p>
+<p>그런데 다음 거래일인 7월 2일, 코스피는 6.25% 폭락하며 장중 서킷브레이커가 발동됐다. 삼성전자 -9.06%, SK하이닉스 -14.57%, 외국인 순매도 3.17조 원이었다 [[daily/2026-07-02]]. 방아쇠는 Meta Compute의 잉여 컴퓨팅 판매 선언이었다. "AI 수요가 우리 공급을 초과한다"는 전제에 기댔던 HBM 투자 논리가 한 줄에 흔들렸다. 여기에 NPS 리밸런싱 매도, 애플의 중국산 메모리 가격 타진 소식이 겹쳤다.</p>
+<p>7월 3일 나온 미국 NFP 57K는 예상(180K)을 크게 밑돌았다 [[daily/2026-07-03]]. 통상 경기 둔화 신호는 금리 하락·주가 상승으로 이어지는데, 10년물 금리가 오히려 올랐다. 스태그플레이션 신호라는 해석이 나왔다. 그러나 코스피는 이 혼란을 저가매수 기회로 읽어 +5.76% 반등했다. 이틀 사이 20%포인트 가까운 진폭이다.</p>
+<p>이 변동성은 숫자 한 개의 문제가 아니다. AI 수요 가시성에 대한 시장의 신뢰가 얼마나 취약한지를 드러낸 한 주였다. HBM이 진짜 공급 제약인지, 아니면 빅테크 내재화가 외부 수요를 점진적으로 대체할 것인지 — 이 질문에 대한 시장의 답이 아직 정해지지 않았다.</p>
+<hr>
+<h2 id="sec-4">흐름 3 — KRAS 세대교체와 새 모달리티 동시 개막</h2>
+<p>KRAS G12C 표적치료 영역에서 Roche의 divarasib(디바라시브)가 Krascendo 1 임상 데이터를 공개했다. 기존 sotorasib·adagrasib 대비 PFS와 OS 모두 개선됐다는 head-to-head 결과다 [[daily/2026-07-03]]. 이로써 G12C 1차 표준치료를 놓고 경쟁이 본격화됐다.</p>
+<p>더 큰 미충족 수요는 G12D였다. Mirati·Revolution Medicines의 zoldonrasib(졸돈라시브)는 ESMO GI에서 구두 발표를 마쳤다: ORR 82%, DCR 96%, n=41, 2차 PFS 9.6개월 [[daily/2026-07-02]], [[daily/2026-07-04]]. 같은 자리에서 3상 RASolute 305 첫 환자 등록도 확인됐다. 췌장암 2차 치료에서 화학항암제를 대체할 수 있는지를 가리는 시험이 시작됐다.</p>
+<p>새 모달리티도 한 주에 두 건이 열렸다. Orca Bio의 Tregzi가 최초 Treg 세포치료제로 FDA 승인을 받았다. 1년 GVHD 없는 생존율 78% vs 38%로, 동종 조혈모세포이식 후 cGVHD 예방에서 표준 면역억제 대비 유의미한 차이를 보였다 [[daily/2026-07-02]]. GLP-1 측에서는 Wegovy(semaglutide)가 영국 MHRA로부터 MASH(대사이상 관련 지방간염) 적응증 조건부 승인을 받았다 [[daily/2026-07-05]]. 비만·대사 질환에서 시작한 GLP-1 계열이 간섬유증·간질환으로 확장되는 첫 공식 인정이다.</p>
+<p>K-바이오 기술수출도 집중됐다. 알테오젠의 SC 플랫폼 ALT-B4가 사노피와의 계약으로 공개됐고, 유한양행 렉라자는 유럽 마일스톤을 받았으며, 한미약품은 Eli Lilly에 GLP-2 계열 물질을 $12.6억(약 1.7조 원) 규모로 기술이전했다 [[daily/2026-06-30]], [[daily/2026-07-01]].</p>
+<hr>
+<h2 id="sec-5">투자 시사점</h2>
+<p><strong>반도체/HBM</strong>: 수출 100B 달성은 실물 수요의 확인이지만, 주가는 내재화 리스크를 먼저 반영했다. Meta Compute 모델이 확산될 경우 외부 클라우드 HBM 수요가 정체될 수 있다. 단기 변동성이 높은 구간이며, HBM4 공급 시작 시점(2026년 하반기)과 빅테크 칩 설계 성숙도 간 타이밍이 핵심 변수다.</p>
+<p><strong>AI 인프라</strong>: Anthropic-Samsung 협상, Google-Anthropic TPU 계약, Meta Compute 외판 모두 NVIDIA 독점 구도의 균열 신호다. 파운드리(삼성·TSMC)와 패키징 체인에 미치는 영향이 분기별로 재검토될 필요가 있다.</p>
+<p><strong>바이오/제약</strong>: KRAS G12D zoldonrasib 3상 개시는 데이터 확인까지 수년이 걸리지만, 파이프라인 단계 진입 자체가 리스크-리워드 재평가의 계기다. Treg 세포치료는 시장이 작지만(cGVHD), 같은 플랫폼이 자가면역·장기이식 방향으로 확장되면 규모가 달라진다. GLP-1 MASH 확장은 Novo Nordisk·Eli Lilly 모두에 영향을 미치며, 경쟁사의 MASH 파이프라인(resmetirom·lanifibranor 등) 포지션을 재점검할 시점이다.</p>
+<p><strong>매크로</strong>: NFP 57K+금리 상승의 조합은 미국 연준의 선택지를 좁힌다. 한국-미국 관세 협상 마감(8월 1일, D-27)이 다음 주 최대 변수로 떠오른다 [[daily/2026-07-03]].</p>
+<hr>
+<h2 id="sec-6">수요(Demand) 시사점</h2>
+<p><strong>AI 컴퓨팅 수요</strong>: 기업 수요가 빅테크 내부로 이동하는 흐름이 확인됐다. Anthropic이 파운드리를 직접 선택하는 단계까지 왔다면, 클라우드 GPU 수요를 분석할 때 "빅테크 자체 수요"와 "외부 기업 수요"를 분리해서 봐야 한다. Google 데이터센터 전력이 2025년 +37% 증가했다는 수치는 AI 인프라 전력 수요가 기하급수가 아니라 선형이라는 기존 낙관론에 기름을 부었다 [[daily/2026-07-04]].</p>
+<p><strong>의약품 수요</strong>: Treg 세포치료의 1차 수요자는 GVHD 위험군 환자지만, 의사 결정권자인 종양혈액내과·이식 센터의 리스크 회피 성향이 채택 속도를 가른다. 고가 세포치료제의 지불자(보험사·NHS 등) 반응이 첫 분기 처방 데이터에서 드러날 것이다. GLP-1 MASH에서는 내분비내과·소화기내과의 처방 영역 경쟁이 새로 열린다.</p>
+<p><strong>한국 수출</strong>: $100B 반도체 수출의 실질 수요처는 AI 데이터센터 인프라 확장이다. 하지만 이 수요가 NVIDIA GPU용 HBM인지, 자체 칩용 메모리인지에 따라 공급망 구조가 달라진다. 삼성-Anthropic 협상이 성사된다면 삼성의 메모리 고객 다변화 효과가 있다.</p>
+<hr>
+<h2 id="sec-7">전략 노트</h2>
+<p>KRAS G12D 3상 개시는 췌장암 R&amp;D 전략에서 중요한 기준점이다. 기존 화학항암제 대비 OS 개선 입증이 목표인데, 이 시험이 성공하면 KRAS 변이 췌장암에서 표준치료를 처음부터 다시 설계해야 한다. G12C에서 G12D로 이어지는 KRAS 연구의 전환이 모달리티(소분자) 측면에서 어디까지 가능한지를 측정하는 벤치마크가 된다.</p>
+<p>Treg 세포치료는 면역 조절의 새 축으로 등장했다. 기존 면역억제제가 병원균 방어까지 희생시키는 것과 달리, 조절 T세포 증폭·이식 방식은 자가·동종 경계를 낮추는 방향으로 연구가 이어질 것이다. 자가면역·장기이식·CAR-T 과활성화 부작용 관리 등 다음 적응증에서 임상 설계 철학이 어떻게 전이되는지 추적할 필요가 있다.</p>
+<p>AI 지정학 측면에서, Anthropic-Alibaba 모델 증류 의혹(의회서한, 가짜계정 2.5만 개)은 AI 기술 통제 논쟁의 새 장을 열었다 [[daily/2026-07-05]]. 개방형 가중치 공개와 기술 확산 규제 사이의 긴장은 다음 AI 거버넌스 입법에 직접 영향을 미친다.</p>
+<hr>
+<h2 id="sec-8">다음 주 지켜볼 것</h2>
+<ul><li><strong>Vera (atacicept) PDUFA 7/7</strong> — IgA 신증 승인 여부. 이번 주 PDUFA D-3 상태로 마감 [[daily/2026-07-04]]</li><li><strong>Sarclisa SC PDUFA 7/23</strong> — Sanofi SC 제형 승인, 알테오젠 ALT-B4 수익화 첫 사례</li><li><strong>gedatolisib PDUFA 7/17</strong> — Celcuity, PI3Kα/δ 억제제, HR+/HER2- 유방암 [[daily/2026-07-05]]</li><li><strong>한국-미국 관세 협상</strong> — 8월 1일 마감까지 D-27. 협상 공개 여부·품목 조율 상황</li><li><strong>HBM4 출하 일정 업데이트</strong> — 삼성·SK하이닉스 분기 실적 가이던스 전 공급망 채널 체크</li><li><strong>NFP 후속 지표</strong> — 6월 CPI(7/10 예정)가 스태그플레이션 해석의 분수령</li><li><strong>Anthropic-Alibaba 의회 청문회 동향</strong> — 기술수출 규제 입법 속도</li></ul>
+
+<div class="foot">econ-radar 주간 동향 · 매일의 분석을 한 주 흐름으로 엮은 리포트. 투자·기업 언급은 정보·시나리오이며 매수·매도 권유가 아닙니다.</div>
+</div>
+<a href="#top" class="to-top" aria-label="맨 위로" title="맨 위로">&uarr;</a>
+</body></html>
