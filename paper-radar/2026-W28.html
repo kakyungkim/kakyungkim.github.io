@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>paper-radar — 2026-W28</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+    body { font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; font-size:16px; line-height:1.78; }
+    .badge { font-size:11px; font-weight:700; padding:2px 9px; border-radius:9999px; display:inline-block; margin-right:4px; }
+    .badge-genome   { background:#dcfce7; color:#166534; }
+    .badge-clinical { background:#dbeafe; color:#1e40af; }
+    .badge-drug     { background:#ede9fe; color:#5b21b6; }
+    .badge-protein  { background:#fce7f3; color:#9d174d; }
+    .badge-llmbio   { background:#fef9c3; color:#713f12; }
+    .badge-other    { background:#f3f4f6; color:#374151; }
+    .badge-preprint { background:#fef3c7; color:#92400e; }
+    .badge-peer     { background:#d1fae5; color:#065f46; }
+    .badge-insilico { background:#e0e7ff; color:#3730a3; }
+    .badge-retro    { background:#fef9c3; color:#713f12; }
+    .badge-prosp    { background:#d1fae5; color:#065f46; }
+    .badge-multi    { background:#dbeafe; color:#1e40af; }
+    .badge-rct      { background:#dcfce7; color:#166534; }
+    .badge-nocode   { background:#fee2e2; color:#991b1b; }
+    .key-point { border-left:4px solid #4338ca; padding:10px 16px; background:#f5f3ff; border-radius:0 10px 10px 0; margin-top:12px; }
+    .key-point .label { font-size:11px; font-weight:700; letter-spacing:0.06em; color:#4338ca; margin-bottom:4px; }
+    .key-point .text { font-size:15px; font-weight:500; color:#312e81; line-height:1.7; }
+    .insight { border-left:4px solid #14b8a6; padding:10px 16px; background:#f0fdfa; border-radius:0 10px 10px 0; margin-top:10px; }
+    .insight .label { font-size:11px; font-weight:700; letter-spacing:0.06em; color:#0f766e; margin-bottom:4px; }
+    .insight .text { font-size:15px; color:#134e4a; line-height:1.7; }
+    .lens-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+    .lens-item { font-size:13.5px; color:#374151; padding:4px 10px; background:#f9fafb; border:1px solid #e5e7eb; border-radius:8px; }
+    .lens-demand { font-size:13.5px; color:#92400e; padding:4px 10px; background:#fef3c7; border:1px solid #fde68a; border-radius:8px; }
+    .verify-tag { font-size:12px; color:#6b7280; margin-top:8px; }
+</style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <div class="max-w-3xl mx-auto px-4 py-10">
+    <header class="mb-8">
+      <div class="flex items-center gap-3 mb-2">
+        <img src="logo-64.png" alt="paper-radar" class="w-9 h-9 rounded-xl" onerror="this.style.display='none'">
+        <span class="text-2xl font-bold tracking-tight text-gray-900">paper-radar 주간 다이제스트</span>
+        <span class="text-lg text-gray-500 font-medium">2026-W28</span>
+      </div>
+      <p class="text-xs text-gray-400">바이오인포·임상ML·신약AI 논문 주간 요약. 모든 해석은 preprint 단계에서의 분석임.</p>
+    </header>
+
+    <section class="mb-8">
+      <h2 class="text-xs font-bold tracking-widest text-indigo-600 uppercase mb-3">At a Glance</h2>
+      <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-5 space-y-3">
+        <p class="text-[15px] leading-relaxed text-gray-800">이번 주 5편은 "계산 성능 개선"에서 "임상 근접성"으로 질문이 이동하는 흐름을 보여준다. cfDNA 메틸화 역분리(Syto)와 임상 약물 반응 예측(PREDIKTOR)이 실제 환자 데이터에 가장 근접해 있고, 아이소폼(isoform) 수준 CRISPR 스크린과 멀티오믹스 인과 발견(ASCEND)은 타깃 발굴 인프라를 한 단계 올리는 역할을 한다. Nature Genetics의 멀티오믹스 임상 도입 로드맵은 이 흐름이 임상 현장으로 이어지기 위해 넘어야 할 공통 관문—전처리 표준화, 규제, 윤리—을 한 문서에 체계화했다.</p>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">This Week's Top 5</h2>
+      <div class="space-y-6">
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#1</span>
+            
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">1. 멀티오믹스의 임상 도입 경로 지도 그리기 (Mapping the path to clinical implementation of multi-omics)</h3>
+          <p class="text-[13px] text-gray-500 mb-3">저자: Said I. Ismail (1저자), Chadi Saad, Wadha A. A. L. Muftah 외 | Qatar Genome Programme 외 다수 기관</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">멀티오믹스 임상 도입이 지연되는 원인이 데이터 부재가 아니라 전처리 표준화·계산 복잡도·규제 불명확·윤리 문제임을 네 층위 프레임워크로 체계화하고, explainable AI(XAI)를 규제 신뢰성 확보 수단으로 명시하는 등 완화 전략을 함께 제시한다. 새 알고리즘이 아니라 분야의 병목을 지도화한 Perspective이며, 자체 실험 검증은 없다.</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">Nature Genetics에서 이 수준의 임상 전환 로드맵이 나왔다는 것은 멀티오믹스 논의가 "연구 흥미"에서 "표준화 논의" 단계로 올라섰다는 신호다. 내부 멀티오믹스 파이프라인 프로젝트의 위험 평가 문서를 이 네 층위 프레임워크로 구성하면 IRB 계획서·연구비 제안서에 직접 인용할 수 있다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: 원방법론 제안 없음. XAI를 규제 신뢰성 확보 수단으로 강조하지만, 권고사항의 효과는 별도 논문에서 검증해야 한다.</span> <span class="lens-item">🩺 Clinical: 원저 실험 데이터 없는 전문가 의견 종합. "임상 도입이 가능하다"는 주장이 아니라 "무엇을 해결해야 하는가"를 정리한 문서다. Qatar Genome Programme 맥락이 배경이므로 국내 의료·규제 환경에 그대로 적용 시 별도 검토가 필요하다.</span> <span class="lens-item">🏭 Industry: R&amp;D 총괄이 멀티오믹스 전략 보고서를 작성할 때 인용 기준점으로 쓸 수 있다. 멀티오믹스 임상화 논의가 권위지 수준에서 종합된 지금, 제약사 IVD 전략팀·규제과학팀은 사업성 평가를 다시 들여다볼 시점이다.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">해당 없음 (Perspective — 원저 실험 데이터 없음</span> <span class="badge badge-other ">peer-reviewed)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#2</span>
+            
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">2. 단일세포 CRISPR 스크린에서 아이소폼 수준 해상도가 드러내는 숨겨진 기능적 결과 (Isoform-level resolution in single-cell CRISPR screens reveals hidden functional consequences of gene perturbation)</h3>
+          <p class="text-[13px] text-gray-500 mb-3">저자: Nathanael Andrews (1저자), Tuuli Lappalainen (교신저자) 외 Josie Gleeson, Jasper Panten, Sofia Oling, Sofia Lundqvist | 소속 미확인 — 원문 확인 필요</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">기존 단일세포 CRISPR 스크린(Perturb-seq)은 유전자 전체 발현량 변화만 읽기 때문에, 유전자 교란이 아이소폼 전환을 유발하더라도 그 신호가 평균화되어 사라진다. 이 논문은 아이소폼 수준 분석을 CRISPR 스크린에 통합해 gene-level에서는 탐지되지 않던 교란의 기능적 결과를 드러냈다(초록 기준). 구체적인 파이프라인(장거리 시퀀싱 활용 여부, 소프트웨어 선택)은 초록에 미제공이라 본문 확인이 필요하다.</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">"유전자 발현 변화 없음"이라는 기존 스크린의 음성 결과가 실제로는 아이소폼 비율 변화를 숨기고 있을 가능성이 열린다. 안티센스 올리고뉴클레오타이드(ASO)나 소분자 스플라이싱 조절제를 파이프라인에 보유한 팀이라면, 타깃 우선순위를 아이소폼 데이터로 재검토할 근거가 생긴다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: 아이소폼 정량화 방법(나노포어 장거리 시퀀싱 여부, MAJIQ·LeafCutter 등 splicing 정량화 도구 사용 여부)이 초록에 미제공. 세포당 시퀀싱 깊이가 결과 신뢰도의 핵심 변수다. preprint 단계라 방법 상세 동료심사 미완료.</span> <span class="lens-item">🩺 Clinical: 기초연구 단계. 아이소폼 수준 교란 확인 → 특정 질환 연관 아이소폼 검증 → 전임상 → 임상의 경로가 남아 있다. 현 단계에서 임상 처방과의 직접 연결은 없다.</span> <span class="lens-item">🏭 Industry: Recursion, Insitro, Genentech 등 CRISPR 스크린 기반 타깃 발굴 플랫폼이 아이소폼 해상도 분석을 서비스 메뉴에 추가하거나 내부 파이프라인 레이어로 통합하는 경로가 현실적이다. 코드 공개 여부가 채택 속도를 결정한다.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">in silico + 세포실험 수준 (임상 데이터 없음</span> <span class="badge badge-other ">preprint 미동료심사)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#3</span>
+            
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">3. 데이터 기반 소프트 레이블링으로 DNA 리드 분류를 전신 세포유형 역분리로 확장 (Data-Driven Soft Labeling Scales DNA Read Classification to Whole-Body Cell-Type Deconvolution)</h3>
+          <p class="text-[13px] text-gray-500 mb-3">저자: Dmytro Rizdvanetskyi (1저자), Pavlo Lutsik (교신저자), Nathan Roos | KU Leuven 종양학과</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">세포 유리 DNA(cfDNA, cell-free DNA) 메틸화 리드 하나가 여러 세포유형에 걸쳐 매핑되는 구조적 불일치 때문에, 기존 하드 레이블 분류기는 세포유형 수가 늘수록(39종 이상) 수렴에 실패한다. Syto는 각 DNA 리드에 대해 세포유형 조건부 확률 분포를 추정해 소프트 레이블로 변환하고, 검토필요: 360가지 모듈 조합(초록·웹 검색 미확인 — 본문 확인 필요)을 평가하는 프레임워크다. 인체 39개 세포유형 전신 역분리에서 기존 SOTA 대비 MSE 2.56배 감소, OOD(out-of-distribution) 16개 조직 전이 검증을 보고했다(초록 및 웹 검색 기준; 베이스라인 구체 구성·기반 분류기 아키텍처는 본문 확인 필요. 독립 재현 전 수치 직인용 주의).</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">소프트 레이블 발상 자체는 단순하지만, "하나의 신호가 여러 출처에 동시에 속하는" 구조적 문제를 안고 있는 분야라면 적용 범위가 cfDNA에 그치지 않는다. MCED(다중암 조기검진) 시장에서 알고리즘 정밀도 경쟁이 치열한 지금, 이 방법의 등장 시점 자체가 산업 관점에서 흘려보내기 어렵다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: 소프트 레이블 추정 방법과 기반 분류기 아키텍처(CNN·Transformer 등)는 초록에 미제공. 참조 아틀라스(reference atlas) 품질에 추정 정확도가 직접 의존한다는 핵심 가정이 있다. 아틀라스에 없는 세포유형이나 염증·노화로 인한 cfDNA 조성 변화에서의 강건성은 별도 검증 필요.</span> <span class="lens-item">🩺 Clinical: 레퍼런스 아틀라스 기반 계산 검증 단계. 실제 암 환자 혈장 cfDNA에서 진단 민감도·특이도를 측정한 임상 연구는 이 논문에 없다. MSE 개선은 세포유형 비율 추정 정확도이지, 암 탐지율 개선이 아니다.</span> <span class="lens-item">🏭 Industry: 1차 수요자는 MCED·MRD(잔존 암세포) 모니터링 제품 개발팀. Grail(Galleri), Guardant Health(Shield), Exact Sciences 등이 메틸화 기반 조직 기원(tissue-of-origin) 추적 기술을 핵심 IP로 운영한다. KU Leuven 메틸롬 연구그룹의 기술이전 또는 스핀아웃 경로도 배제하기 어렵다.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">in silico (레퍼런스 아틀라스 기반 계산 검증 + OOD 16개 조직 전이; 임상 코호트 검증 없음</span> <span class="badge badge-other ">preprint 미동료심사)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#4</span>
+            
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">4. Causal ASCEND: 고차원 멀티오믹스 데이터에서의 확장 가능한 이중 계층 인과 발견 (Causal ASCEND: Scalable Two-tier Causal Discovery on High Dimensional Multi-omics Data)</h3>
+          <p class="text-[13px] text-gray-500 mb-3">저자: Stephen Asiedu (1저자), David Watson (교신저자) | King's College London 정보학과</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">SNP·메틸화(상위층) → 유전자 발현(하위층)이라는 생물학적으로 알려진 이중 계층 구조를 인과 발견 알고리즘에 직접 내장한다. 기존 제약 기반(constraint-based) 방법은 모든 변수를 동등하게 조건화해 지수적 시간 복잡도 폭발을 겪었는데, ASCEND는 각 하위 변수에 대해 동적으로 갱신되는 조상 조건화 집합(ancestral conditioning set)을 유지하는 방식으로 조건부 독립(CI) 검정 횟수를 대폭 절감해 다항식 시간 복잡도를 달성한다고 주장한다(초록 및 웹 검색 기준; CI 검정 방법·복잡도 증명은 본문 확인 필요).</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">"생물학이 이미 방향을 알려주는 곳에서 알고리즘이 그걸 쓰지 않는" 불일치를 해소하는 방향이 명쾌하다. 다만 두 계층 가정이 성립하지 않는 맥락—피드백 루프, 환경-유전자 교호작용—에서의 강건성이 워크숍 논문에서는 아직 검증되지 않았다. 코드가 공개되면 기존 PC 알고리즘 대비 속도·정밀도를 직접 비교해 보고 싶은 논문이다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: PC 알고리즘 계열의 연장선. 구체적인 CI 검정 방법(Fisher Z·kernel 기반·permutation 등)과 복잡도 증명이 초록에 미제공. 8페이지 워크숍 논문이라 방법 설명의 완결성이 제한적일 수 있다.</span> <span class="lens-item">🩺 Clinical: 기초 계산 도구 단계. 관찰 오믹스 데이터의 인과 발견은 RCT 수준 인과 추론을 대체하지 못한다. 발견된 인과 구조의 생물학적 의미는 실험 검증이 별도로 필요하다.</span> <span class="lens-item">🏭 Industry: AstraZeneca, BenevolentAI, Recursion, GSK 등이 causal AI for target identification을 전략 투자 영역으로 운영 중이다. King's College London 학술 산출물이 기술이전·협업 경로로 진입하는 시나리오가 가장 현실적이며, 코드 공개 여부가 채택 속도를 좌우한다.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">in silico (시뮬레이션 + 기존 오믹스 데이터셋 기준; 임상 데이터 없음</span> <span class="badge badge-other ">preprint 미동료심사</span> <span class="badge badge-other ">워크숍 수준 검증)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#5</span>
+            
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">5. PREDIKTOR: 환자 맞춤 지식 그래프와 유전자 교란 표현 정렬을 통한 치료 결과 예측 (Predicting Therapeutic Outcome via Aligning Patient-Specific Knowledge Graph and Gene-Level Perturbation Representations)</h3>
+          <p class="text-[13px] text-gray-500 mb-3">저자: Dongmin Bang (1저자), Sun Kim (교신저자, 서울대학교 / AIGENDRUG Co., Ltd.), Sangseon Lee (공동교신, 인하대학교), Sugyun An, Inyoung Sung, Ilho Yun | 서울대학교 / AIGENDRUG Co., Ltd. / 인하대학교</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">종양 전처리 전사체 기반 환자별 유전자 조절망(DysRegNet + DrugBank 링크, GNN 인코더)을 뷰 1로, LINCS L1000 frozen 어텐션 모델의 약물 교란 후 전사체 시뮬레이션을 뷰 2로 삼아, drug-context hard negative를 활용한 CLIP 방식 대조 목적함수로 공유 잠재 공간에 정렬한다. TCGA 환자·약물·조직 분할 평가에서 기존 SOTA를 초과하고, I-SPY2 임상시험 제로샷 전이에서 AUROC +5.6% 개선을 보고했다(초록 기준; 절대값 AUROC, N수, 구체 베이스라인 모델은 본문 확인 필요).</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">소규모 코호트에서 파인튜닝 없이 전이된다는 점이 이 논문의 실용 설득력이다. 실제 임상 현장에서는 코호트가 작을 때 모델이 가장 먼저 무너지는데, PREDIKTOR의 설계가 그 구간을 표적한다. AIGENDRUG 공동저자 참여는 상업화 경로가 이미 내부적으로 검토 중임을 시사한다—COI(이해충돌) 공시 여부를 원문에서 확인할 것.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: CLIP 방식 대조 학습에서 hard negative 구성이 성능의 핵심 변수인데, 초록에 상세가 없다. LINCS L1000이 세포주 기반 교란 데이터라는 점이 근본 제약—종양 미세환경·면역 반응을 반영하지 못한다. DysRegNet 구성에 충분한 전사체 샘플이 필요해 소형 코호트에서 네트워크 품질이 급감할 수 있다.</span> <span class="lens-item">🩺 Clinical: TCGA 공개 코호트 후향 검증 + I-SPY2 임상시험 데이터 후향 적용. I-SPY2 AUROC +5.6%는 후향 데이터에서의 상대적 개선이지 전향 임상시험에서 환자 결과(전체생존율·무진행생존율)가 개선됐다는 의미가 아니다. 종양 전사체 시퀀싱이 전제돼야 한다는 점이 접근성을 제한한다.</span> <span class="lens-item">🏭 Industry: 추정: TRL 4~5 (이번 주 5편 중 임상 검증 성숙도 최고). Tempus AI, Exscientia, Insilico Medicine이 경쟁 공간. 임상 단계 온코 바이오텍의 바이오마커 전략팀이 1차 수요자다.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">후향 (TCGA 공개 코호트 + I-SPY2 임상시험 데이터 후향 적용; 전향 임상 검증 없음</span> <span class="badge badge-other ">preprint 미동료심사</span> <span class="badge badge-other ">워크숍 수준 검증)</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Deep Dive</h2>
+      <div class="mb-6">
+        <h3 class="text-[16px] font-bold text-gray-800 mb-4">PREDIKTOR — 왜 제로샷 전이가 이 논문의 진짜 주장인가</h3>
+        <div class="space-y-3">
+          <p class="text-[15px] text-gray-800 leading-relaxed">임상 약물 반응 예측 모델의 전통적 실패는 두 가지 경로를 따른다. 하나는 암 세포주(CCLE·GDSC) 약물 감수성 데이터로 학습한 모델이 실제 환자에게 일반화되지 않는 경우다—세포주는 종양 미세환경, 면역 반응, 비종양 세포의 기여를 원천적으로 배제한다. 다른 하나는 환자 데이터(TCGA 등)로 학습해도 다른 기관이나 임상시험 코호트에서 성능이 급락하는 경우다—코호트 편향, 치료 프로토콜 차이, 반응 정의 불일치가 겹쳐 작용한다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">PREDIKTOR는 이 두 번째 문제를 정면으로 다룬다. 해결 전략의 핵심은 두 독립 표현을 강제로 정렬하는 것이다. 뷰 1은 환자 개인의 종양 전처리 전사체(pre-treatment transcriptome)에서 DysRegNet으로 유전자 조절 이상망을 구성하고, 여기에 DrugBank의 약물-타깃 링크를 얹은 뒤 그래프 신경망(GNN)으로 약물 중심 임베딩을 만든다. 뷰 2는 같은 환자-약물 쌍을 LINCS L1000 frozen 어텐션 모델에 넣어 약물 교란 후 전사체 프로파일(perturbation signature)을 시뮬레이션한다. 두 뷰를 drug-context hard negative를 쓰는 CLIP 방식 대조 학습으로 공유 잠재 공간에 정렬한 다음, 정렬된 임베딩을 연결해 반응 분류기를 붙인다(웹 검색 기준; 구체 구현은 본문 확인 필요).</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">이 설계의 핵심 도박은 두 이질적 생물학 표현이 실제로 같은 잠재 공간에 정렬될 수 있다는 가정이다. 한쪽은 그래프 임베딩이고 다른 쪽은 전사체 프로파일이다. CLIP이 이미지-텍스트에서 성공한 이유는 두 모달리티가 같은 개념을 독립적으로 표현하기 때문인데, 유전자 조절망과 약물 교란 전사체가 그 정도로 체계적으로 연결돼 있는지가 이 방법의 근본 전제다. CLIP 대조 학습은 부정 샘플(hard negative) 선택에도 민감하다—drug-context hard negative의 구성 방식이 학습 품질을 좌우하는데 초록에서 상세를 확인할 수 없었다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed"><strong>검증 결과 어떻게 읽을까</strong>: TCGA 검증은 환자·약물·조직을 모두 분할해 평가했다는 점에서 표준 방식보다 엄격하다. 그러나 TCGA 약물 반응 레이블의 품질—반응 정의(CR/PR/SD/PD) 일관성, 치료 기간·병용 약물 정보의 완결성—이 결과 해석에 영향을 주는 숨은 변수다. I-SPY2 전이 결과가 이 논문의 가장 강한 주장이다. I-SPY2는 유방암 신보조 화학요법 반응을 추적한 적응적 임상시험으로, 전향적 설계 위에서 수집된 데이터다. 여기에 파인튜닝 없이 AUROC +5.6%를 보였다는 것은—수치는 초록 기준, 절대값과 N수는 본문 확인 필요—단순 in silico 벤치마크를 넘는 신호다. 그러나 "I-SPY2 데이터에 후향적으로 적용"한 것이지, 전향 임상시험에서 실시간으로 PREDIKTOR를 활용한 것이 아니다. 이 차이가 임상 주장의 강도를 결정한다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed"><strong>세 가지 관전 포인트</strong>: 첫째, 코드 공개 여부다. AIGENDRUG 소속 공동저자가 있어 상업화 관련 제한 가능성이 있다. 공개된다면 TCGA 재현부터 시작해 보유 코호트에 단계적으로 적용해 볼 수 있다. 둘째, hard negative 구성 방식의 상세다—이것이 확인되지 않으면 성능 재현성 자체를 판단하기 어렵다. 셋째, LINCS L1000 세포주 편향이 어떤 암종에서 가장 크게 나타나는지다. 면역 반응이 약물 반응을 좌우하는 암종에서 이 모델의 일반화는 가장 취약할 것으로 예측되며, 이 지점이 모델의 실질적 적용 범위를 결정한다.</p>
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <h3 class="text-[16px] font-bold text-gray-800 mb-4">Syto — cfDNA 역분리의 레이블 노이즈 문제를 어떻게 풀었나</h3>
+        <div class="space-y-3">
+          <p class="text-[15px] text-gray-800 leading-relaxed">cfDNA(세포 유리 DNA) 메틸화 기반 역분리(deconvolution)는 다중암 조기검진(MCED) 파이프라인의 핵심 알고리즘 부품이다. Grail의 Galleri, Guardant Health의 Shield 등이 이 파이프라인을 상업 제품으로 운영 중이며, 이들이 공통으로 안고 있는 문제가 바로 Syto가 공략하는 지점이다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">왜 기존 방법이 막히는가. 혈구, 상피, 내피, 신경세포는 메틸화 프로파일이 겹치는 구간이 넓다. 여기에 cfDNA는 단편화(fragmentation)로 이미 정보가 손실된 상태에서 분류를 시도해야 한다. 하나의 메틸화 리드를 특정 세포유형에 one-hot으로 할당하는 하드 레이블 방식은 이 many-to-many 구조와 정면으로 충돌한다. 세포유형이 39종을 넘어가면 분류기가 수렴에 실패하는 이유다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">Syto의 소프트 레이블 전략은 이 불일치를 "레이블 자체를 데이터에서 추정"하는 방식으로 우회한다. 각 DNA 리드에 대해 세포유형 조건부 확률 분포를 추정하고, 이를 분류 학습의 타깃으로 쓴다. 레이블을 고정하는 것이 아니라, "이 리드가 세포유형 A에 속할 확률 X, 세포유형 B에 속할 확률 Y"로 표현해 분류기에 입력한다(초록 및 웹 검색 기준; 기반 분류기 아키텍처는 미제공).</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">이 방법의 핵심 가정은 두 가지다. 참조 아틀라스(reference atlas)가 충분히 대표적이어야 소프트 레이블 추정이 정확하다는 것, 그리고 많은 비-판별적(non-discriminative) 리드가 소프트 레이블에 의해 안전하게 희석되어야 한다는 것. 아틀라스에 없는 세포유형, 또는 염증·노화·복수의 동반 질환이 cfDNA 조성을 바꾸는 상황에서 소프트 레이블 추정이 어떻게 틀어지는지가 임상 일반화의 핵심 질문이다. 이 부분은 레퍼런스 아틀라스 기반 벤치마크인 이 논문에서는 답할 수 없고, 실제 환자 혈장 코호트 검증에서 답해야 한다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">MSE 2.56배 감소는 실질적인 수치 향상이지만(초록 기준), 베이스라인으로 설정한 SOTA의 구체 구성이 초록에 명시되지 않았고 코드도 공개되지 않아 독립 재현이 불가한 상태다. 코드가 공개되면 이 분야 후속 벤치마킹 논문들이 즉시 베이스라인으로 삼을 가능성이 높다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">🔭 Wide Angle</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm px-6 py-2">
+        <div class="flex items-start gap-3 py-4 border-b border-gray-100 last:border-0">
+          <div class="flex-1">
+            <p class="text-[15px] font-semibold text-gray-900 mb-1">W1. AI 설계 DNA 라이브러리의 합성 장벽 돌파 (Breaking the Synthesis Barrier for AI-Designed DNA Libraries) </p>
+            <p class="text-[14px] text-gray-700 leading-relaxed"></p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 py-4 border-b border-gray-100 last:border-0">
+          <div class="flex-1">
+            <p class="text-[15px] font-semibold text-gray-900 mb-1">W2. LLM 강화학습 훈련 정책 최적화의 신기루 (The Mirage of Optimizing Training Policies) </p>
+            <p class="text-[14px] text-gray-700 leading-relaxed"></p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 py-4 border-b border-gray-100 last:border-0">
+          <div class="flex-1">
+            <p class="text-[15px] font-semibold text-gray-900 mb-1">W3. SMILES-그래프 번역을 통한 LLM 분자 이해 개선 (Back to Basics: Improving Molecular Understanding in LLMs via SMILES-Graph Translation) </p>
+            <p class="text-[14px] text-gray-700 leading-relaxed"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Threads to Follow</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <ul class="space-y-3 list-disc list-inside">
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>cfDNA 역분리 → MCED 임상 검증</strong>: Syto의 소프트 레이블 방법이 실제 환자 혈장 코호트에서 암 탐지 AUC로 연결되는지가 다음 관전 포인트. Grail·Guardant Health의 파이프라인이 이 방향으로 업데이트되는지도 추적 가치가 있다.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>아이소폼 수준 기능유전체 → 스플라이싱 조절 약물</strong>: 단일세포 CRISPR 스크린의 아이소폼 해상도 확장이 ASO·소분자 스플라이싱 조절제 파이프라인의 타깃 선정에 어떻게 반영되는지. Ionis Pharmaceuticals·PTC Therapeutics 같은 스플라이싱 조절 치료제 회사들의 타깃 우선순위 변화를 주시할 필요가 있다.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>약물 반응 예측의 전이 문제</strong>: PREDIKTOR의 I-SPY2 제로샷 전이가 전향 임상시험 설계로 이어지는지, LINCS L1000 세포주 편향을 실제 종양 내 환경으로 보정하는 후속 방법론이 나오는지가 핵심 후속 질문이다.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>멀티오믹스 규제 경로 표준화</strong>: Nature Genetics 로드맵이 제시한 네 층위 프레임워크(전처리·계산·규제·윤리)가 FDA Pre-Submission 전략이나 EMA 논의에서 구체적 기준으로 채택되는지 추적. 한국 식약처의 AI 의료기기 가이드라인과의 접점도 검토할 만하다.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>인과 추론 확장성 검증</strong>: ASCEND가 코드를 공개하고 GTEx·TCGA 등 실제 eQTL 데이터에서 GENIE3·PC 알고리즘 대비 정밀도와 속도를 직접 보여주는 후속 검증 논문이 나올지 주시한다. 코드 공개가 없으면 이 방법의 실질적 영향력은 제한적이다.</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="border-t border-gray-200 pt-8 pb-10 text-center">
+      <p class="text-sm text-gray-500 mt-4">paper-radar · 2026-W28</p>
+      <p class="text-xs text-gray-400 mt-1">바이오인포·임상ML·신약AI 논문 주간 요약. preprint 분석 포함.</p>
+    </footer>
+  </div>
+</body>
+</html>
