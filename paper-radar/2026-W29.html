@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>paper-radar — 2026-W29</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+    body { font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; font-size:16px; line-height:1.78; }
+    .badge { font-size:11px; font-weight:700; padding:2px 9px; border-radius:9999px; display:inline-block; margin-right:4px; }
+    .badge-genome   { background:#dcfce7; color:#166534; }
+    .badge-clinical { background:#dbeafe; color:#1e40af; }
+    .badge-drug     { background:#ede9fe; color:#5b21b6; }
+    .badge-protein  { background:#fce7f3; color:#9d174d; }
+    .badge-llmbio   { background:#fef9c3; color:#713f12; }
+    .badge-other    { background:#f3f4f6; color:#374151; }
+    .badge-preprint { background:#fef3c7; color:#92400e; }
+    .badge-peer     { background:#d1fae5; color:#065f46; }
+    .badge-insilico { background:#e0e7ff; color:#3730a3; }
+    .badge-retro    { background:#fef9c3; color:#713f12; }
+    .badge-prosp    { background:#d1fae5; color:#065f46; }
+    .badge-multi    { background:#dbeafe; color:#1e40af; }
+    .badge-rct      { background:#dcfce7; color:#166534; }
+    .badge-nocode   { background:#fee2e2; color:#991b1b; }
+    .key-point { border-left:4px solid #4338ca; padding:10px 16px; background:#f5f3ff; border-radius:0 10px 10px 0; margin-top:12px; }
+    .key-point .label { font-size:11px; font-weight:700; letter-spacing:0.06em; color:#4338ca; margin-bottom:4px; }
+    .key-point .text { font-size:15px; font-weight:500; color:#312e81; line-height:1.7; }
+    .insight { border-left:4px solid #14b8a6; padding:10px 16px; background:#f0fdfa; border-radius:0 10px 10px 0; margin-top:10px; }
+    .insight .label { font-size:11px; font-weight:700; letter-spacing:0.06em; color:#0f766e; margin-bottom:4px; }
+    .insight .text { font-size:15px; color:#134e4a; line-height:1.7; }
+    .lens-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+    .lens-item { font-size:13.5px; color:#374151; padding:4px 10px; background:#f9fafb; border:1px solid #e5e7eb; border-radius:8px; }
+    .lens-demand { font-size:13.5px; color:#92400e; padding:4px 10px; background:#fef3c7; border:1px solid #fde68a; border-radius:8px; }
+    .verify-tag { font-size:12px; color:#6b7280; margin-top:8px; }
+</style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <div class="max-w-3xl mx-auto px-4 py-10">
+    <header class="mb-8">
+      <div class="flex items-center gap-3 mb-2">
+        <img src="logo-64.png" alt="paper-radar" class="w-9 h-9 rounded-xl" onerror="this.style.display='none'">
+        <span class="text-2xl font-bold tracking-tight text-gray-900">paper-radar 주간 다이제스트</span>
+        <span class="text-lg text-gray-500 font-medium">2026-W29</span>
+      </div>
+      <p class="text-xs text-gray-400">바이오인포·임상ML·신약AI 논문 주간 요약. 모든 해석은 preprint 단계에서의 분석임.</p>
+    </header>
+
+    <section class="mb-8">
+      <h2 class="text-xs font-bold tracking-widest text-indigo-600 uppercase mb-3">At a Glance</h2>
+      <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-5 space-y-3">
+        <p class="text-[15px] leading-relaxed text-gray-800">단일세포 전사체 파운데이션 모델 경쟁에서 scVision이 비전 트랜스포머 방식을 처음으로 파운데이션 모델 규모로 적용했다 — 유전자를 언어 토큰이 아닌 2D 이미지 픽셀로 표현해 6개 독립 보류 연구에서 zero-shot SOTA를 보고했다. 이번 주 유일한 동료심사 논문인 Corgi는 RNA-seq만으로 후성유전체 신호를 예측하는 경로를 코드와 함께 공개해, 즉시 재현이 가능한 가장 완성도 높은 결과물이다. Evo 2 게놈 파운데이션 모델의 동결 레이어 프로빙으로 AMR ROC-AUC 0.977을 달성한 사례는, 범용 생물서열 파운데이션 모델이 임상·생물안전 문제에 직접 닿기 시작한 신호다.</p>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">This Week's Top 5</h2>
+      <div class="space-y-6">
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#1</span>
+            
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">공간 유전자 지도화를 통한 단일세포 비전 파운데이션 모델 (A vision foundation model for single-cell biology via spatial gene cartography)</h3>
+          <p class="text-[13px] text-gray-500 mb-3">저자: Ridvan Yesiloglu, Sakib Mostafa (공동 1저자); James Zou (교신저자 추정) | Stanford University (Adeli, Islam, Alizadeh, Wu, Xing 그룹)</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">최적전달(optimal transport)로 공발현 유전자를 pan-tissue 2D 공간에서 인접하게 배치하는 유전자 레이아웃을 학습하고, 비전 트랜스포머(ViT) + 마스크 이미지 모델링(MIM)으로 72M 인간 세포를 사전학습했다. 추론 시 인코더를 동결한 채 zero-shot으로 6개 독립 보류 연구에서 세포 유형 주석(cell-type annotation)과 유전자 프로그램 발굴 모두 기존 파운데이션 모델 및 고전 기준선 대비 최고 성능을 보고했다(초록 기준; 정량 AUC·F1 수치 미제공).</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">유전자 발현량(magnitude)이 토큰화 과정에서 사라지는 언어 모델의 구조적 한계를 우회한 이 설계는, 코드 공개와 외부 독립 재현이 확인된다면 scGPT·Geneformer 계열 언어 모델의 실질적 대안이 될 수 있다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: OT 기반 pan-tissue 2D 유전자 레이아웃 + ViT + MIM; 공발현 구조를 이미지 텍스처로 인코딩하는 새로운 표현 방식.</span> <span class="lens-item">🩺 Clinical: 세포 유형 주석 정확도 향상은 임상 단일세포 데이터(희귀 세포 유형, 이식 거부 반응 모니터링)에 간접 기여; 특정 질환 코호트·임상 검증 없음.</span> <span class="lens-item">🏭 Industry: 대규모 scRNA-seq 아틀라스 기반 타깃 발굴·CAR-T 품질 검사 자동화에서 세포 유형 주석 비용을 낮출 잠재력; 코드 미공개 상태로 채택 대기.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">in silico (6개 독립 보류 연구 zero-shot 평가; 임상 검증 없음; 동료심사 전)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#2</span>
+            
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">인간 유전자 조절의 컨텍스트 인식 서열-기능 모델 (Context-aware sequence-to-function model of human gene regulation)</h3>
+          <p class="text-[13px] text-gray-500 mb-3">저자: Ekin Deniz Aksu (1저자), Martin Vingron (교신저자) | Max Planck Institute for Molecular Genetics</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">기존 서열-기능 모델(Enformer, Borzoi 등)이 학습된 세포 유형에 고정된다는 병목을 해결하기 위해, 2,891개 트랜스-조절 인자(trans-regulator) 발현 벡터를 두 번째 입력으로 받아 FiLM(Feature-wise Linear Modulation) 레이어로 DNA 서열 표현에 결합한다. RNA-seq 데이터가 있으면 학습에서 본 적 없는 보류 세포 유형의 크로마틴 접근성·히스톤 변형·유전자 발현을 예측하며, 확장 모델 Corgi+는 RNA-seq 입력만으로 후성유전체 트랙 imputation SOTA를 달성한다(초록 기준; 보류 세포 유형 DNase-seq 예측 평균 Pearson r = 0.84 — 원문 결과 기준).</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">RNA-seq 보유 임상 샘플에서 ATAC-seq·ChIP-seq 없이도 에피게놈 프로파일을 소급 추정할 수 있는 이 경로는, 임상 샘플 활용 범위를 직접 넓힌다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: FiLM으로 trans-regulator 발현 컨텍스트를 DNA 서열 표현에 feature-wise 선형 변조; Corgi+는 RNA-seq → 후성유전체 트랙 imputation.</span> <span class="lens-item">🩺 Clinical: RNA-seq만 확보된 임상 조직에서 에피게놈 레이어를 소급 분석하는 경로 제공; 질환 코호트·환자 임상 결과와의 연결은 이번 논문에 없음.</span> <span class="lens-item">🏭 Industry: 제약사 계산생물학팀의 비코딩 변이 해석·유전자 치료(gene therapy) 인핸서 설계에 직접 적용 가능; epigenomics CRO에 간접 경쟁 압력 시나리오.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">in silico (보류 세포 유형 교차 예측; 동료심사 완료; 환자 데이터</span> <span class="badge badge-other ">임상 표현형 검증 없음)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#3</span>
+            
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">멀티모달 공간 오믹스 통합을 위한 그래프 자기지도 학습 (LATTICE: Graph Self-Supervised Learning for Multimodal Spatial Omics Integration)</h3>
+          <p class="text-[13px] text-gray-500 mb-3">저자: Jagan Mohan Reddy Dwarampudi (1저자), Tania Banerjee (교신저자 추정) | University of Houston + MD Anderson Cancer Center</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">Visium RNA·scMultiome RNA·scMultiome ATAC·공간 ATAC·공간 CUT&amp;Tag 5가지 모달리티를 공간 인접 그래프 위에 TransformerConv 인코더로 집약하고, 마스크 재구성·교차 모달 정렬·공간 평활도 세 목적함수로 자기지도 학습한다. 정량 벤치마크 수치는 초록에서 미제공이며, 코드 공개 여부도 원문 확인이 필요하다.</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">공간 에피게놈(ATAC, CUT&amp;Tag)을 전사체와 스팟 수준에서 동시에 보는 분석 틀은 면역항암 바이오마커 발굴에서 기존 방법으로 접근하기 어려웠던 해상도의 분석이 가능해질 수 있으나, 코드·수치 공개가 선행돼야 실제 영향력을 판단할 수 있다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: 공간 인접 그래프 + TransformerConv + 3목적함수 자기지도 학습; 5가지 이질 공간 오믹스 모달리티를 공통 임베딩으로 통합.</span> <span class="lens-item">🩺 Clinical: TME 공간 구조와 에피게놈 상태를 동시에 분석하는 틀은 면역항암제(checkpoint inhibitor) 반응 예측 바이오마커로 발전 가능; 임상 결과와 연결한 검증 없음.</span> <span class="lens-item">🏭 Industry: I/O 빅파마 바이오마커팀·공간 오믹스 플랫폼(10x Genomics) 수요와 직결; 5가지 모달리티 동시 실험이 고비용이어서 현 단계 적용 범위 제한적.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">in silico (계산 통합 평가; 정량 벤치마크 수치 미공개; 동료심사 전)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#4</span>
+            
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">Evo 2 프로브를 이용한 메타게노믹 데이터의 생물안전 특성 스크리닝 (Screening of Biosecurity Features in Metagenomic Data with Evo 2 Probes)</h3>
+          <p class="text-[13px] text-gray-500 mb-3">저자: Guntoro 외 (교신저자 미확인) | AIxBio Hackathon 2026 참가팀</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">Evo 2 26번째 레이어 활성화를 동결(frozen)한 채 선형 프로브(ROC-AUC 0.888)와 어텐션 프로브(ROC-AUC 0.977)로 항생제 내성(AMR, antimicrobial resistance) 유전자를 탐지하고, 독성 인자(virulence factor) 탐지에서는 ROC-AUC 0.833을 기록했다(초록 기준). 기존 데이터베이스 정렬 방식(CARD, ResFinder) 대비 직접 성능 비교는 이번 논문에서 제공되지 않는다.</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">어텐션 프로브가 선형 프로브보다 AUC 0.089 높다는 점은 중요 위치 가중 풀링이 AMR 신호 포착에 실질적 차이를 만들며, 프로브 구조 자체가 단순해 Evo 2 API를 통한 독립 재현 시도가 직접 가능하다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: 동결 Evo 2 26번째 레이어 + 경량 선형/어텐션 프로브; 파인튜닝 없는 표현 분석(probing analysis).</span> <span class="lens-item">🩺 Clinical: AMR 조기 탐지는 감염 환자 항생제 선택과 원내 감염 관리의 실질적 임상 수요; in silico 검증만 제공, 임상 메타게노믹 샘플 검증 미포함.</span> <span class="lens-item">🏭 Industry: 생물안전 감시 공공기관(CDC, ECDC)·감염증 신약 개발사의 내성 모니터링 도구로 단기 활용 가능성; 해커톤 출처로 방법론 엄밀성 추가 검증 필요.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">in silico (보류 메타게노믹 테스트셋; 전문 AMR 도구 직접 비교 없음; 동료심사 전)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#5</span>
+            
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">인간 세포의 방사선 반응 메커니즘에 대한 인과 발견 (Causal Discovery of Radiation Response Mechanisms in Human Cells)</h3>
+          <p class="text-[13px] text-gray-500 mb-3">저자: Ashka Shah (1저자), Rick Stevens (교신저자) | University of Chicago</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">방사선 선량률별 인간 세포 유전자 발현 데이터에 인과 발견 알고리즘(추정: NOTEARS/DAGMA 계열 — 원문 확인 필요)을 적용해 방향성 비순환 그래프(DAG)를 복원하고, 알려진 방사선 반응 경로(pathway)가 이 네트워크에서 유의하게 농축됨을 확인했다(초록 기준; 구체적 농축 배수·p-value 미제공). 고 out-degree 유전자가 전사인자, 고 in-degree 유전자가 하우스키핑 유전자에 대응해 조절 위계 구조와 일치한다.</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">교란 데이터(perturbation data)를 인과 발견에 활용하는 방법론은 방사선 반응에 국한되지 않고 CRISPR KO·약물 처리 유전자 발현 데이터 전반에 적용 가능한 방향이지만, 생물학적 네트워크에서 잠재 교란인자(latent confounder) 문제가 심각해 방향성 복원의 신뢰도는 독립 검증 없이 제한적이다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: 인과 발견 알고리즘 + 방사선 선량률별 교란 유전자 발현 데이터; 경로 농축 분석으로 생물학적 타당성 1차 검증.</span> <span class="lens-item">🩺 Clinical: 방사선치료 반응 바이오마커 발굴의 기초 연구; 임상 코호트·방사선치료 결과와의 연결 없음.</span> <span class="lens-item">🏭 Industry: 방사선감작제(radiosensitizer) 타깃 발굴에 대한 잠재 기여; 현 단계는 기초 연구로 직접 산업 연결 거리가 멀다.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">in silico (계산 네트워크 분석 + 경로 농축; 외부 검증 데이터셋 없음; 동료심사 전)</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Deep Dive</h2>
+      <div class="mb-6">
+        <h3 class="text-[16px] font-bold text-gray-800 mb-4">Corgi/Corgi+: 서열-기능 모델이 처음 세포 유형 장벽을 넘은 방식</h3>
+        <div class="space-y-3">
+          <p class="text-[15px] text-gray-800 leading-relaxed"><strong>왜 지금 이 문제인가</strong></p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">DNA 서열로부터 유전자 조절 신호를 예측하는 서열-기능 모델은 Enformer(DeepMind, 2021), Borzoi(2024)를 거치며 예측 정확도가 빠르게 높아졌다. 그러나 이 모델들은 공통적으로 학습에 쓰인 세포 유형에 묶인다는 근본 제약을 벗어나지 못했다. 새로운 세포 유형의 크로마틴 접근성(chromatin accessibility)이나 히스톤 변형(histone modification)을 예측하려면 그 세포의 ATAC-seq·ChIP-seq 실험이 반드시 선행돼야 했다. 희귀 세포 유형, 환자 고유의 세포 상태, 임상 샘플처럼 실험이 제한된 환경에서는 이 모델들이 작동하지 않았다. "기존 서열-기능 모델은 세포 유형을 학습 데이터 안에 고정해 넣는다"는 문제의식에서 Corgi가 출발했다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed"><strong>핵심 설계 아이디어: FiLM과 trans-regulator 컨텍스트</strong></p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">Corgi는 이 병목을 트랜스-조절 인자(trans-regulator) 발현 벡터를 두 번째 입력으로 받는 방식으로 우회한다. 2,891개의 전사인자·공활성인자·크로마틴 수식 효소·RNA 결합 단백질 발현값으로 구성된 컨텍스트 벡터를, FiLM(Feature-wise Linear Modulation) 레이어를 통해 DNA 서열 표현에 feature-wise로 곱하고 더하는 선형 변조로 결합한다. 세포 유형의 정체성을 레이어 안에 하드코딩하는 대신, RNA-seq에서 얻은 trans-regulator 발현 프로파일로 추론 시점에 조건을 건다. 학습에서 한 번도 본 적 없는 세포 유형이라도 RNA-seq 데이터만 있으면 크로마틴 접근성·히스톤 변형·유전자 발현 커버리지를 예측할 수 있다. 보류 세포 유형 기준 DNase-seq 예측 평균 Pearson r = 0.84라는 수치가 이 접근법의 성능을 뒷받침한다(원문 결과 기준).</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed"><strong>Corgi+: 실험 없이 에피게놈 트랙을 얻는 경로</strong></p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">확장 모델 Corgi+는 여기서 한 발 더 나간다. RNA-seq 입력만으로 후성유전체 트랙을 대리(imputation)하는 기능을 추가해 기존 방법 중 SOTA를 달성했다고 보고했다. ATAC-seq·ChIP-seq 없이 RNA-seq 데이터만 보유한 연구자가 크로마틴 프로파일을 1차 스크리닝할 수 있는 경로가 Nature Communications 게재와 코드 공개로 즉시 활용 가능해졌다. `pip install .` 수준의 설치, 단일 서열 추론 스크립트, BigWig 출력 예시가 GitHub에 포함돼 있어 NVIDIA Ampere 이상 GPU만 있으면 재현 장벽이 낮다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed"><strong>핵심 가정과 한계</strong></p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">Corgi가 작동하는 전제는 세포 유형의 기능적 정체성이 2,891차원 trans-regulator 발현 프로파일로 충분히 표현된다는 것이다. 이 가정이 상피·면역처럼 극단적으로 다른 세포 유형 사이에서도 성립하는지, 낮은 감도의 scRNA-seq에서 trans-regulator 입력 품질 저하가 예측 성능에 언제부터 영향을 주는지는 이번 논문에서 체계적으로 다루지 않는다. 3D 크로마틴 구조(enhancer-promoter looping) 같은 공간 게놈 정보가 모델 입력에 포함되지 않는다는 구조적 한계도 있다. 임상적으로 중요한 특정 조절 요소(enhancer)의 예측 정확도는 genome-wide bins 수준 지표와 다를 수 있어 별도 확인이 필요하다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed"><strong>R&amp;D 관점 관전 포인트</strong></p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">외부 맥락: 유전자 치료 분야(BioMarin, uniQure, Spark Therapeutics)는 조직 특이적 인핸서 선택에 서열-기능 모델을 이미 탐색 중이다. Corgi의 세포 유형 일반화 능력은 이 방향과 직접 닿는다. 또한 임상 2·3상 샘플에 에피게놈 레이어를 소급 추가하는 레트로스펙티브 바이오마커 분석이 실질적인 적용 시나리오가 될 수 있다 — 기존에 bulk RNA-seq만 확보된 샘플에서 Corgi+로 에피게놈 신호를 1차 복원하고, 비반응 환자의 에피게놈 특성을 사후 분석하는 방향이다. Max Planck Institute 비상업 학술기관 산출물로 코드가 오픈소스이므로, 제약사 계산생물학팀의 내부 파이프라인 통합이 직접 상업화보다 현실적인 도입 경로다. 추정: Corgi+의 imputation 성능이 외부 코호트에서 지속적으로 재현된다면, 고비용 ATAC-seq·ChIP-seq 서비스의 일부 수요가 계산 방법으로 대체되는 경쟁 압력이 생길 수 있다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">🔭 Wide Angle</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm px-6 py-2">
+        <div class="flex items-start gap-3 py-4 border-b border-gray-100 last:border-0">
+          <div class="flex-1">
+            <p class="text-[15px] font-semibold text-gray-900 mb-1">Inkling — 오픈웨이트 975B 멀티모달 MoE 모델 (Thinking Machines Lab) </p>
+            <p class="text-[14px] text-gray-700 leading-relaxed"></p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 py-4 border-b border-gray-100 last:border-0">
+          <div class="flex-1">
+            <p class="text-[15px] font-semibold text-gray-900 mb-1">SEED — 에이전트 강화학습을 위한 자기 진화 온-폴리시 증류 (Tsinghua · Zhejiang · CUHK 외) </p>
+            <p class="text-[14px] text-gray-700 leading-relaxed"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Threads to Follow</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <ul class="space-y-3 list-disc list-inside">
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>단일세포 파운데이션 모델 경쟁</strong>: scGPT·Geneformer의 언어 모델 방식에서 scVision의 비전 모델 방식으로의 전환 시도. 코드 공개 및 독립 재현 결과가 나오면 채택 여부 재평가가 필요하다.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>서열-기능 모델 세대 교체</strong>: Enformer → Borzoi → Corgi 흐름에서 "세포 유형 컨텍스트 조건화"가 다음 경쟁 축으로 자리 잡고 있다. Corgi+ RNA-seq → 후성유전체 imputation이 외부 코호트에서 재현되는지 추적.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>공간 멀티오믹스 통합</strong>: LATTICE가 코드·벤치마크 수치를 공개하면 STAGATE·Seurat WNN 대비 실제 개선 폭 판단이 가능해진다. 10x Genomics 플랫폼과의 연동 여부가 채택 속도를 결정한다.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>게놈 파운데이션 모델의 응용 확장</strong>: Evo 2 프로브가 AMR 스크리닝에 적용된 것처럼, 파운데이션 모델의 동결 레이어 표현이 어느 생물학적 태스크까지 커버하는지 probing 분석이 이어질 전망.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>교란 데이터 기반 인과 발견</strong>: 방사선 반응 연구에서 시작됐지만, CRISPR KO·약물 처리 전사체 데이터에 동일 방법론을 적용하는 연구가 누적될 경우 유전자 조절망 연구의 방향이 달라질 수 있다.</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="border-t border-gray-200 pt-8 pb-10 text-center">
+      <p class="text-sm text-gray-500 mt-4">paper-radar · 2026-W29</p>
+      <p class="text-xs text-gray-400 mt-1">바이오인포·임상ML·신약AI 논문 주간 요약. preprint 분석 포함.</p>
+    </footer>
+  </div>
+</body>
+</html>
