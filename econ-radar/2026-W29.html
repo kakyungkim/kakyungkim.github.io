@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-W29 주간 동향 (2026-07-13 ~ 2026-07-19)</title>
+<style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+:root{--ink:#1e293b;--indigo:#4338ca;--indigo-deep:#3730a3;--soft:#eef2ff;--line:#c7d2fe;--muted:#64748b;--pop:#c026d3;}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Pretendard',-apple-system,'Noto Sans KR',sans-serif;color:var(--ink);background:#f6f7fb;margin:0;line-height:1.78;font-size:16px;}
+.wrap{max-width:780px;margin:0 auto;padding:30px 20px 80px;}
+.head{background:linear-gradient(135deg,#4f46e5,#3730a3);color:#eef2ff;border-radius:18px;padding:26px 28px;margin-bottom:28px;box-shadow:0 12px 40px rgba(49,46,129,.28);}
+.head .kicker{font-size:13px;letter-spacing:.08em;color:#c7d2fe;font-weight:700;}
+.head h1{font-size:25px;margin:8px 0 6px;line-height:1.35;color:#fff;}
+.head .range{font-size:14px;color:#c7d2fe;}
+.tags{margin-top:12px;}
+.tags span{display:inline-block;font-size:12px;background:rgba(255,255,255,.14);color:#e9d5ff;border-radius:999px;padding:2px 11px;margin:3px 4px 0 0;}
+h2{color:var(--indigo);font-size:21px;margin:34px 0 12px;padding-bottom:8px;line-height:1.4;background:linear-gradient(90deg,var(--indigo) 0,var(--pop) 44px,var(--line) 44px) bottom left/100% 3px no-repeat;}
+h2[id]{scroll-margin-top:74px;}
+h3{color:var(--indigo-deep);font-size:17px;margin:22px 0 8px;}
+p{margin:10px 0;}
+strong{color:var(--indigo-deep);}
+a{color:var(--indigo);text-decoration:none;border-bottom:1px solid var(--line);}
+a:hover{background:var(--soft);}
+ul{margin:10px 0;padding-left:20px;} li{margin:7px 0;}
+blockquote{border-left:4px solid var(--line);background:#fff;margin:12px 0;padding:10px 16px;border-radius:0 10px 10px 0;color:var(--muted);font-size:14px;}
+blockquote a{border:none;color:var(--muted);}
+.tablewrap{overflow-x:auto;margin:14px 0;-webkit-overflow-scrolling:touch;}
+table{border-collapse:collapse;width:100%;font-size:14px;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 18px rgba(67,56,202,.08);}
+th{background:linear-gradient(90deg,var(--indigo),#6d28d9);color:#fff;text-align:left;padding:11px 13px;font-weight:700;}
+td{padding:10px 13px;border-bottom:1px solid #eef0f7;vertical-align:top;}
+tr:nth-child(even) td{background:#fafbff;}
+hr{border:none;border-top:1px solid var(--line);margin:26px 0;}
+.back{display:inline-block;margin-bottom:18px;font-size:14px;color:var(--indigo);border:none;}
+/* 섹션 점프 목차 — 스크롤해도 상단 고정(데일리와 동일 스타일) */
+.toc{position:sticky;top:8px;z-index:40;display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 30px;padding:12px 16px;background:rgba(255,255,255,0.96);backdrop-filter:saturate(180%) blur(6px);border:1.5px solid var(--line);border-radius:14px;box-shadow:0 6px 22px rgba(67,56,202,0.16);}
+.toc .toc-label{font-size:13px;font-weight:800;color:var(--indigo);margin-right:4px;}
+.toc a{position:relative;font-size:12px;font-weight:600;padding:5px 12px;border-radius:999px;background:#eef2ff;color:var(--indigo);border:1px solid var(--line);text-decoration:none;transition:background .15s,color .15s;}
+.toc a:hover{background:var(--indigo);color:#fff;}
+.toc a[data-tip]::after{content:attr(data-tip);position:absolute;left:0;top:calc(100% + 9px);width:max-content;max-width:260px;white-space:normal;background:#1e293b;color:#fff;font-size:12px;font-weight:500;line-height:1.5;letter-spacing:0;padding:8px 11px;border-radius:9px;box-shadow:0 8px 22px rgba(15,23,42,0.28);opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .15s,transform .15s;pointer-events:none;z-index:60;}
+.toc a[data-tip]::before{content:"";position:absolute;left:16px;top:calc(100% + 3px);border:6px solid transparent;border-bottom-color:#1e293b;opacity:0;visibility:hidden;transition:opacity .15s;z-index:60;}
+.toc a[data-tip]:hover::after,.toc a[data-tip]:hover::before{opacity:1;visibility:visible;transform:translateY(0);}
+/* 맨 위로 버튼 */
+.to-top{position:fixed;right:18px;bottom:18px;width:44px;height:44px;border-radius:50%;background:var(--indigo);color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:20px;line-height:1;border:none;box-shadow:0 4px 16px rgba(67,56,202,0.42);z-index:50;transition:background .15s,transform .1s;}
+.to-top:hover{background:var(--indigo-deep);}
+.to-top:active{transform:scale(0.92);}
+/* 본문 끝 태그(footer 위) */
+.foottags{margin-top:34px;}
+.foottags span{display:inline-block;font-size:12px;background:var(--soft);color:var(--indigo-deep);border:1px solid var(--line);border-radius:999px;padding:3px 11px;margin:4px 5px 0 0;}
+.foot{margin-top:18px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);}
+@media(max-width:640px){body{font-size:15px;}.wrap{padding:18px 14px 60px;}.head{padding:20px;}.head h1{font-size:21px;}h2{font-size:19px;}h2[id]{scroll-margin-top:64px;}table{font-size:13px;}
+.toc{padding:8px 10px;gap:6px;margin:0 0 20px;}.toc .toc-label{font-size:11px;}.toc a{font-size:11px;padding:4px 10px;}.toc a[data-tip]::after,.toc a[data-tip]::before{display:none;}
+.to-top{width:40px;height:40px;right:12px;bottom:12px;font-size:18px;}}
+</style></head>
+<body><div class="wrap" id="top">
+<a class="back" href="/econ-radar/">← econ-radar 아카이브</a>
+<div class="head"><div class="kicker">WEEKLY · 주간 동향</div><h1>2026-W29 주간 동향 (2026-07-13 ~ 2026-07-19)</h1><div class="range"></div></div>
+<nav class="toc" aria-label="섹션 바로가기"><span class="toc-label">📑 바로가기</span><a href="#sec-1" data-tip="지난 주를 관통한 핵심 메시지">핵심</a><a href="#sec-2" data-tip="흐름 1. AI 인프라 투자 사이클 — 3중 수렴 확인">흐름 1. </a><a href="#sec-3" data-tip="흐름 2. KOSPI — 이중 시장 구조와 레버리지 증폭">흐름 2. </a><a href="#sec-4" data-tip="흐름 3. 호르무즈 에스컬레이션 — 단기 스파이크인가, 구조 변화인가">흐름 3. </a><a href="#sec-5" data-tip="흐름 4. 오픈소스 AI 프런티어 진입 — Kimi K3">흐름 4. </a><a href="#sec-6" data-tip="흐름 5. RNA·경구화 혁신 — 투여 방식 변화가 시장을 새로 연다">흐름 5. </a><a href="#sec-7" data-tip="흐름 6. 한은 긴축 사이클 개시 — 성장-긴축의 역설">흐름 6. </a><a href="#sec-8" data-tip="투자 관점 시사점">투자</a><a href="#sec-9" data-tip="수요자 관점 시사점">수요</a><a href="#sec-10" data-tip="R&amp;D·전략 관점 노트">전략</a><a href="#sec-11" data-tip="다음 주 지켜볼 것 (2026-07-20 ~ 2026-07-26)">다음 주 지</a></nav>
+<h2 id="sec-1">핵심 메시지 3가지</h2>
+<p>1. <strong>AI CapEx 사이클은 여전히 초입이다</strong> — ASML·Morgan Stanley·TSMC가 동일 주에 같은 방향의 수치를 내놓으며 AI 인프라 투자 경로를 수치 기반으로 재확인했다. 다만 Kimi K3가 독립 벤치마크에서 최선두권에 진입하면서, 투자 규모가 기술 우위를 보장한다는 전제가 흔들리기 시작했다.</p>
+<p>2. <strong>한국 시장은 구조적 변동성 국면에 접어들었다</strong> — 블랙먼데이(-8.95%)에서 +6.24% 반등, 다시 -6.37% 급락이 한 주 안에 이어졌다. SK하이닉스 이중 상장(서울-나스닥)과 레버리지 ETF가 맞물려 가격 발견이 하루 단위로 역방향 증폭되는 구조가 뚜렷해졌다.</p>
+<p>3. <strong>약의 투여 방식이 바뀌면 시장이 새로 열린다</strong> — siRNA·경구 PCSK9·경구 GLP-1·온바디 인젝터(OBI)가 동일 주에 집중됐다. 공통점은 기존 환자가 아니라 치료를 회피하거나 접근하지 못했던 수요층을 새로 끌어들인다는 것이다.</p>
+<hr>
+<h2 id="sec-2">흐름 1. AI 인프라 투자 사이클 — 3중 수렴 확인</h2>
+<p>7월 셋째 주, AI CapEx 사이클의 진행 상황을 가늠할 수 있는 수치 세 개가 동시에 나왔다.</p>
+<p>ASML은 2026년 연간 매출 가이던스를 기존 €360~400억(약 53~59조 원)에서 €430~450억(약 64~66조 원)으로 상향했다. 같은 날 Morgan Stanley는 "AI 인프라 투자 사이클이 10~15% 진행됐다"며 전체 경로를 $8,500억(약 1,250조 원) → $1조 3,000억(약 1,900조 원) → $1조 5,000억(약 2,200조 원)으로 제시했다. [[daily/2026-07-16]] 다음 날 TSMC는 2분기 AI·HPC(고성능 컴퓨팅) 매출 비중이 전체의 66%에 달했다고 밝혔으며, 젠슨 황의 Vera Rubin 세대 HBM4 수요를 근거로 연간 설비투자를 $600~640억(약 88~94조 원)으로 유지했다. [[daily/2026-07-17]]</p>
+<p>세 수치는 공급망의 서로 다른 위치(장비→설계→파운드리)에서 나왔기 때문에 방향성이 일치한다는 점에서 의미가 있다. ASML의 수주 개선이 실제 생산 증가로 이어지기까지는 통상 12~18개월의 시차가 있으므로, 현재 시점은 투자 사이클의 초입이라는 분석이 나온다.</p>
+<p>다만 같은 주에 Kimi K3가 EDA(전자설계자동화) 소프트웨어 없이 48시간 칩 설계를 시연하고, 독립 벤치마크(Artificial Analysis)에서 57점을 기록해 Claude Opus 4.8 수준을 넘어섰다. [[daily/2026-07-18]], [[daily/2026-07-19]] Cadence와 Synopsys 주가가 각각 -9% 하락하고 SOX(필라델피아 반도체지수)가 주간 기준 -11% 떨어졌다. 거대한 투자 사이클이 진행 중이라는 신호와, 그 투자로 쌓은 기술 해자가 오픈웨이트 모델로 빠르게 공개될 수 있다는 신호가 동시에 나온 한 주였다.</p>
+<p><strong>강세 요인</strong> — TSMC CEO의 "수요가 공급을 초과한다"는 발언이 유지됐고, 3분기에도 HBM·CoWoS 공급 병목이 이어질 것으로 예상된다.</p>
+<p><strong>관찰 포인트</strong> — 7월 27일 Kimi K3 가중치 전체 공개 시 독립 재현 결과가 1차 검증이 된다. EDA 관련 주의 추가 반응도 주시할 필요가 있다.</p>
+<hr>
+<h2 id="sec-3">흐름 2. KOSPI — 이중 시장 구조와 레버리지 증폭</h2>
+<p>7월 13일(월) 블랙먼데이(-8.95%)에서 시작된 코스피 변동성은 7월 15일 +6.24%(7,284), 7월 16일 -6.37%로 이어졌다. [[daily/2026-07-13]], [[daily/2026-07-15]], [[daily/2026-07-16]]</p>
+<p>변동성의 구조적 원인은 두 가지다. 첫째, SK하이닉스가 나스닥 ADR(미국 주식예탁증서)을 통해 서울과 뉴욕에서 동시에 거래되면서 가격 발견이 이원화됐다. 원화 약세 구간에서는 달러 기준 차익실현 유인이 구조화되어 있다. 둘째, SK하이닉스 ADR을 추종하는 레버리지 ETF가 같은 수요 기반을 역방향으로 하루 단위 증폭한다. 7월 15일 ADR 급등(+27%) 다음 날 서울 시장이 -6.37% 하락한 것은 이 메커니즘이 작동한 결과로 풀이된다.</p>
+<p>추가로 외국인·기관 동반 대규모 순매도가 지수를 끌어내리는 패턴이 반복됐다. 코스피가 7,284까지 반등했음에도 시장 심리 자체는 안정됐다고 보기 어려운 이유다.</p>
+<p>7월 22일 SK하이닉스 2분기 실적 발표는 이 구조의 다음 사이클을 결정하는 이진(binary) 이벤트로 작용할 전망이다. 컨센서스 기준 약 65조 원 수준으로 시장 기대가 높게 형성됐기 때문에, 실적이 예상에 부합해도 ADR 레버리지 포지션의 차익실현 매물이 나올 가능성이 있다는 분석이 나온다. [[daily/2026-07-19]]</p>
+<hr>
+<h2 id="sec-4">흐름 3. 호르무즈 에스컬레이션 — 단기 스파이크인가, 구조 변화인가</h2>
+<p>7월 13일 이란이 민간 유조선 2척을 직접 공격했고, 같은 날 트럼프 행정부가 호르무즈 해협 통행료 부과를 선언했다. 브렌트유는 주간 기준 $79.22(7/13)에서 $88.00(7/18)으로, 5거래일 만에 +11% 상승했다. [[daily/2026-07-14]], [[daily/2026-07-18]]</p>
+<p>기존 중동 리스크 패턴(2019년 드론 공격, 2024년 해협 긴장)과 이번의 차이는 민간 선박에 대한 직접 물리적 타격이 확인됐다는 점이다. 이란·쿠웨이트 간 교전까지 확대됐다는 보도가 나오면서 지정학적 에스컬레이션 경로가 달라질 수 있다는 분석이 있다.</p>
+<p>동시에 미국 6월 CPI가 3.5%를 기록하며 컨센서스(3.8%)를 하회했는데, 에너지 항목이 전월 대비 -5.7% 하락한 것이 주요 요인이었다. [[daily/2026-07-15]] 7월분 CPI에서는 이 에너지 착시가 역전될 가능성이 있고, 유가 상승이 시차를 두고 물가에 반영되는 만큼 연준의 경로에 상방 압력이 가중될 수 있다는 전망이 나온다.</p>
+<p>FOMC의 7월 동결 확률은 주 후반 87~96% 수준을 유지했지만, 이란 긴장 지속 시 이 수치는 빠르게 바뀔 수 있다.</p>
+<hr>
+<h2 id="sec-5">흐름 4. 오픈소스 AI 프런티어 진입 — Kimi K3</h2>
+<p>중국 Moonshot AI가 7월 18일(현지시간) Kimi K3를 공개했다. 2.8조 파라미터 규모의 MoE(Mixture of Experts, 혼합 전문가) 구조 오픈웨이트 모델이며, 코딩·수학·추론 벤치마크에서 Claude Fable 5와 동급 또는 상회하는 결과를 제시했다. [[daily/2026-07-18]] 7월 19일 독립 평가 기관 Artificial Analysis가 57점을 측정해 Claude Opus 4.8(약 56점)을 상회하는 것으로 공개 확인됐다. [[daily/2026-07-19]]</p>
+<p>DeepSeek R1 이후 두 번째의 구조적 충격으로 볼 수 있는 이유는 세 가지다. 첫째, EDA 소프트웨어 없이 48시간 칩 설계 시연이 공개됐다는 점이 기존 EDA 업체(Cadence, Synopsys)의 해자에 직접 의문을 제기했다. 둘째, 7월 27일 전체 가중치 공개가 예고되어 있어 독립 재현이 가능해지면 일반 적용이 빠르게 확산될 수 있다. 셋째, 대형 AI 기업 간 격차(Anthropic, Google DeepMind)가 오픈웨이트 모델로 추격되는 속도가 시장 예상보다 빠르다는 점이다.</p>
+<p>같은 주에 Google DeepMind 고참 연구자 4명이 Anthropic으로 이직했고, Gemini 3.5 Pro 출시가 세 번째 지연됐다. [[daily/2026-07-18]] 이는 미국 AI 선두 기업 내부에서도 인력과 로드맵 압박이 동시에 나타나고 있음을 보여준다.</p>
+<p><strong>관찰 포인트</strong> — 7/27 가중치 공개 후 커뮤니티 재현 속도, 중국 AI 모델의 미국 시장 접근 규제 여부, SOX와 반도체 설계 소프트웨어 주의 추가 반응.</p>
+<hr>
+<h2 id="sec-6">흐름 5. RNA·경구화 혁신 — 투여 방식 변화가 시장을 새로 연다</h2>
+<p>동일 주(7/14~7/19)에 투여 방식·모달리티가 다른 다섯 건의 바이오 이벤트가 집중됐다. 치료 접근성과 환자 편의를 높이는 방향으로의 혁신이 수렴된 한 주였다.</p>
+<p><strong>올릭스 OLX501A(siRNA)</strong> [[daily/2026-07-14]] — ALK7 타겟 siRNA 후보 물질이 R&amp;D Day를 통해 ALK7 mRNA 84% 억제 및 GLP-1 병용 시 지방 감소 효과를 공개했다. 피하주사 방식이지만 투여 횟수가 6개월에 1회 수준으로 설계된 것이 특징이다.</p>
+<p><strong>Biogen diranersen(ASO)</strong> [[daily/2026-07-14]] — CELIA Phase 2 결과에서 1차 평가변수(운동 기능 개선)는 미달했으나 tau 단백질 감소가 확인됐다. ASO(안티센스 올리고뉴클레오타이드) 모달리티의 한계와 가능성이 동시에 드러난 사례다.</p>
+<p><strong>Merck LIPFENDRA(경구 PCSK9 억제제)</strong> [[daily/2026-07-17]] — 환형 펩타이드 기전의 경구용 PCSK9 억제제가 FDA 승인을 받았다. 기존 주사 PCSK9 억제제(에볼로쿠맙, 알리로쿠맙)는 처방률이 낮은데, 이는 주사에 대한 거부감과 보험 급여 장벽이 주요 원인으로 꼽혀왔다. 경구화가 이 장벽을 얼마나 낮출지가 상업적 성패의 관건이다.</p>
+<p><strong>경구 GLP-1 신환 데이터</strong> [[daily/2026-07-19]] — 신규 GLP-1 처방의 3분의 2가 주사제 미경험자인 것으로 집계됐다. 경구화가 기존 주사제 시장을 대체하는 것이 아니라 치료를 기피하던 수요층을 새로 끌어들이고 있다는 것을 보여주는 데이터다.</p>
+<p><strong>Sarclisa Escena(OBI 항암제)</strong> [[daily/2026-07-19]] — 항암제 최초 온바디 인젝터(On-Body Injector) 형태로 FDA 승인을 받았다. 병원 방문 없이 자가 투여가 가능해지면서 다발성 골수종 환자의 치료 지속성에 영향을 미칠 수 있다.</p>
+<p><strong>공통 패턴</strong> — 다섯 건 모두 "기존 치료를 받고 있던 환자"가 아니라 "접근하지 못하거나 회피하던 수요층"을 겨냥한다. 시장 규모 추산에서 기존 환자 전환율과 신규 수요층 유입률을 구분하는 것이 중요해졌다.</p>
+<hr>
+<h2 id="sec-7">흐름 6. 한은 긴축 사이클 개시 — 성장-긴축의 역설</h2>
+<p>한국은행이 7월 16일 기준금리를 2.75%로 25bp 인상하며 3년 6개월 만의 첫 인상에 나섰다. [[daily/2026-07-16]] 다음 날 공개된 통화정책 방향문에는 "인상 기조 지속 필요"가 처음으로 명시됐다. [[daily/2026-07-17]] 이는 단발 인상이 아닌 긴축 사이클 개시를 공식화한 것으로 읽힌다.</p>
+<p>배경은 수출 주도 명목 성장률 급등이다. 반도체 수출이 전년 대비 +193%로 급증하며 6월 기준 수출 총액이 $112억(약 16.5조 원)에 달했고, 이 결과로 명목 GDP 성장률이 약 +12.3%(30년 최고 수준)까지 올라간 것이 한은에 긴축 명분을 제공했다. [[daily/2026-07-13]]</p>
+<p>역설적인 지점은, 반도체 수출 호조가 국내 실물 소비로 골고루 분배되는 것이 아니라 특정 대기업 밸류체인에 집중된다는 사실이다. 금리 인상이 수출 경쟁력에 미치는 영향은 제한적이지만, 가계 부채 부담과 내수 소비를 직접 억제할 수 있다. 성장과 긴축의 공존은 반도체 수출 모멘텀이 유지되는 동안만 가능하다는 분석이 나온다.</p>
+<p>다음 인상 시점은 9월 회의가 유력하게 거론되나, 코스피 변동성 확대와 가계 부채 지표가 속도 조절 압력으로 작용할 가능성이 있다.</p>
+<hr>
+<h2 id="sec-8">투자 시사점</h2>
+<p><strong>반도체·AI 인프라</strong> — AI CapEx 사이클 자체는 여전히 구조적으로 진행 중이나, Kimi K3가 EDA 해자를 흔들 경우 설계 소프트웨어 관련 종목의 추가 하락 압력이 이어질 수 있다. 소프트웨어·설계 도구보다 파운드리(TSMC)·HBM(SK하이닉스) 밸류체인이 상대적으로 안정적이라는 분석이 있지만, 7/22 SK하이닉스 실적 발표가 단기 방향을 결정한다.</p>
+<p><strong>에너지·물가</strong> — 브렌트 $88 수준이 지속될 경우 7월 CPI에서 에너지 항목이 반등할 수 있다. 연준의 9월 동결 기대가 흔들리는 시나리오는 아직 지배적이지 않지만, 이란 긴장 확대 시 빠르게 재평가될 수 있다.</p>
+<p><strong>바이오·제약</strong> — Merck LIPFENDRA, 경구 GLP-1 신환 데이터, Sarclisa OBI 세 건 모두 "투여 편의 개선 → 미충족 수요 유입" 경로를 실적으로 확인하는 데이터가 2~3분기 내 나올 것으로 예상된다. Otsuka centanafadine PDUFA(7/24), 코오롱티슈진 TG-C 결과(7/20)가 다음 주 주요 이벤트다.</p>
+<p><strong>한국 금리</strong> — 한은 긴축 사이클 공식화로 국내 채권 단기물 금리 상승 기조가 이어질 전망이다. 2금융권·카드사 등 조달 비용 민감 업종과 고배당 리츠의 밸류에이션 재평가가 진행될 수 있다.</p>
+<p>*투자 판단은 정보·시나리오로만 제시. 매수·매도 권유가 아니다.*</p>
+<hr>
+<h2 id="sec-9">수요 시사점 (Demand)</h2>
+<p><strong>경구 GLP-1 — 신환 2/3 주사 미경험자</strong> — 이 데이터는 GLP-1 시장 추산 방식을 바꾸는 신호다. 기존 주사제 시장을 빼앗아 오는 경쟁이 아니라, 비만·당뇨 치료를 기피하거나 포기한 환자층이 경구 제형을 계기로 처음 처방을 받고 있다. 환자(투여 거부감 해소), 처방의(복약 순응도 기대 상승), 지불자(주사제 대비 동등한 비용효과 필요) 세 주체 모두의 태도 변화가 확인돼야 상업적 성패가 결정된다.</p>
+<p><strong>Merck LIPFENDRA(경구 PCSK9)</strong> — PCSK9 억제제는 LDL 강하 효과가 강력함에도 주사 거부감과 보험 급여 장벽으로 처방률이 낮았다. 경구화가 처방 장벽을 낮춘다면 잠재 수요층이 넓다. 다만 지불자(보험사) 입장에서는 기존 스타틴 대비 비용효과(ICER) 검증이 급여 등재의 핵심 관문이다.</p>
+<p><strong>Kimi K3 오픈웨이트</strong> — 기업 고객(엔터프라이즈) 관점에서 오픈웨이트 프런티어 모델의 등장은 클로즈드 API 의존도와 전환 비용을 동시에 낮춘다. 7/27 가중치 공개 후 실제 온프레미스 도입 사례가 나오면 엔터프라이즈 AI 수요의 플랫폼 분산이 가속될 수 있다.</p>
+<hr>
+<h2 id="sec-10">전략 노트 (R&amp;D 관점)</h2>
+<p><strong>RNA 모달리티 집중 현상</strong> — 동일 주에 siRNA(올릭스)·ASO(Biogen)·경구 펩타이드(Merck)·OBI(사노피)가 한꺼번에 나온 것은 우연이 아니다. RNA 및 단백질 분해(TPD) 기반 모달리티가 기존 소분자·항체 치료제가 커버하지 못했던 타겟(전사인자, 비구조 단백질, 반복 유전질환)을 향하고 있다. R&amp;D 의사결정에서 "타겟 선택"과 "모달리티 선택"이 동시에 이루어져야 하는 국면이다.</p>
+<p><strong>경구화 혁신의 R&amp;D 함의</strong> — Merck LIPFENDRA의 환형 펩타이드 기전은 펩타이드 구조 안정성과 위장관 흡수 장벽을 동시에 극복한 사례다. 경구 GLP-1에서 노보노디스크·화이자·아스트라제네카가 각각 다른 접근법(소분자 GLP-1RA, 지방산 콘쥬게이트 등)을 쓰는 것과 마찬가지로, 경구화 자체가 하나의 차별화 축이 됐다. 파이프라인 전략에서 "동일 타겟, 다른 투여 방식"의 경쟁 구도가 본격화되고 있다.</p>
+<p><strong>Biogen CELIA 실패의 교훈</strong> — 1차 평가변수 미달에도 tau 감소가 확인됐다. 이는 바이오마커와 임상 기능 지표 사이의 괴리, 즉 "표적을 쳤지만 환자가 좋아지지 않는" 문제를 다시 드러낸다. 이런 경우 트라이얼 설계 재검토(평가변수 선택, 환자군 계층화)가 다음 개발 단계의 핵심이다.</p>
+<hr>
+<h2 id="sec-11">다음 주 지켜볼 것 (2026-07-20 ~ 2026-07-26)</h2>
+<div class="tablewrap"><table><thead><tr><th>날짜</th><th>이벤트</th><th>무엇을 볼 것인가</th></tr></thead><tbody><tr><td>7/20(월)</td><td>KOSPI 재개장</td><td>3중 충격(한은 인상·AI 충격·유가) 소화 여부; TG-C 임상 결과 동시 발표 시 코오롱티슈진 주가</td></tr><tr><td>7/22(화)</td><td>SK하이닉스 2분기 실적</td><td>컨센서스(약 65조 원) 대비 실적; HBM4 Vera Rubin 공급 일정 언급 여부</td></tr><tr><td>7/24(목)</td><td>Otsuka centanafadine PDUFA</td><td>NDSRI 계열 최초 승인 여부; 승인 시 ADHD 시장 재편 시그널</td></tr><tr><td>7/27(일)</td><td>Kimi K3 가중치 전체 공개</td><td>독립 재현 성능; 온프레미스 배포 사례 속도; 미국 규제 대응 여부</td></tr><tr><td>7/28~</td><td>FOMC 회의(7/29~30) 전후</td><td>이란 긴장·유가 반영 여부; 9월 인하 기대 유지 여부</td></tr></tbody></table></div>
+<hr>
+<p>*이 리포트는 자동화 루틴(3층 주간 종합)으로 생성됐다. 리포트는 vault 커밋까지만 — 블로그 등 외부 발행은 사람이 보고 판단한다.*</p>
+
+<div class="foot">econ-radar 주간 동향 · 매일의 분석을 한 주 흐름으로 엮은 리포트. 투자·기업 언급은 정보·시나리오이며 매수·매도 권유가 아닙니다.</div>
+</div>
+<a href="#top" class="to-top" aria-label="맨 위로" title="맨 위로">&uarr;</a>
+</body></html>
