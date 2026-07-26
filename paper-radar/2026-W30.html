@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>paper-radar — 2026-W30</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+    body { font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; font-size:16px; line-height:1.78; }
+    .badge { font-size:11px; font-weight:700; padding:2px 9px; border-radius:9999px; display:inline-block; margin-right:4px; }
+    .badge-genome   { background:#dcfce7; color:#166534; }
+    .badge-clinical { background:#dbeafe; color:#1e40af; }
+    .badge-drug     { background:#ede9fe; color:#5b21b6; }
+    .badge-protein  { background:#fce7f3; color:#9d174d; }
+    .badge-llmbio   { background:#fef9c3; color:#713f12; }
+    .badge-other    { background:#f3f4f6; color:#374151; }
+    .badge-preprint { background:#fef3c7; color:#92400e; }
+    .badge-peer     { background:#d1fae5; color:#065f46; }
+    .badge-insilico { background:#e0e7ff; color:#3730a3; }
+    .badge-retro    { background:#fef9c3; color:#713f12; }
+    .badge-prosp    { background:#d1fae5; color:#065f46; }
+    .badge-multi    { background:#dbeafe; color:#1e40af; }
+    .badge-rct      { background:#dcfce7; color:#166534; }
+    .badge-nocode   { background:#fee2e2; color:#991b1b; }
+    .key-point { border-left:4px solid #4338ca; padding:10px 16px; background:#f5f3ff; border-radius:0 10px 10px 0; margin-top:12px; }
+    .key-point .label { font-size:11px; font-weight:700; letter-spacing:0.06em; color:#4338ca; margin-bottom:4px; }
+    .key-point .text { font-size:15px; font-weight:500; color:#312e81; line-height:1.7; }
+    .insight { border-left:4px solid #14b8a6; padding:10px 16px; background:#f0fdfa; border-radius:0 10px 10px 0; margin-top:10px; }
+    .insight .label { font-size:11px; font-weight:700; letter-spacing:0.06em; color:#0f766e; margin-bottom:4px; }
+    .insight .text { font-size:15px; color:#134e4a; line-height:1.7; }
+    .lens-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+    .lens-item { font-size:13.5px; color:#374151; padding:4px 10px; background:#f9fafb; border:1px solid #e5e7eb; border-radius:8px; }
+    .lens-demand { font-size:13.5px; color:#92400e; padding:4px 10px; background:#fef3c7; border:1px solid #fde68a; border-radius:8px; }
+    .verify-tag { font-size:12px; color:#6b7280; margin-top:8px; }
+</style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <div class="max-w-3xl mx-auto px-4 py-10">
+    <header class="mb-8">
+      <div class="flex items-center gap-3 mb-2">
+        <img src="logo-64.png" alt="paper-radar" class="w-9 h-9 rounded-xl" onerror="this.style.display='none'">
+        <span class="text-2xl font-bold tracking-tight text-gray-900">paper-radar 주간 다이제스트</span>
+        <span class="text-lg text-gray-500 font-medium">2026-W30</span>
+      </div>
+      <p class="text-xs text-gray-400">바이오인포·임상ML·신약AI 논문 주간 요약. 모든 해석은 preprint 단계에서의 분석임.</p>
+    </header>
+
+    <section class="mb-8">
+      <h2 class="text-xs font-bold tracking-widest text-indigo-600 uppercase mb-3">At a Glance</h2>
+      <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-5 space-y-3">
+        <p class="text-[15px] leading-relaxed text-gray-800">불확실성 정량화(uncertainty quantification)가 이번 주 가장 선명한 방법론 흐름으로 떠올랐다. 단백질-리간드 결합 친화도 예측(RELIABLE-BA)과 의료 AI 에이전트(베이즈 UQ) 두 편이 각자 독립적으로 "언제 AI를 믿을 수 있나"에 실용적 답을 제시했으며, 특히 후자는 불확실성 전달 형식이 에이전트 행동을 결정한다는 사실을 통제 실험으로 확인했다. 동시에 단일세포·공간 전사체 파운데이션 모델 벤치마크와 구조 기반 약물 설계(SBDD) LLM 비교 평가가 각자의 분야에서 "단일 모델로 전 과제를 풀 수 없다"는 결론을 처음 체계화했고, 이는 모델 하나로 R&amp;D를 해결하겠다는 단순화된 조달 전략에 대한 데이터 기반 반론이 됐다.</p>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">This Week's Top 5</h2>
+      <div class="space-y-6">
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#1</span>
+            <span class="badge badge-preprint ">preprint</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">1. 단일세포·공간 전사체 파운데이션 모델 조화 벤치마크: 맥락 의존적 일반화 (Harmonised benchmarking of foundation models for single-cell and spatial transcriptomics reveals context-dependent generalisation)</h3>
+          <p class="text-[13px] text-gray-500 mb-3">출처 · 2026-07-21 · preprint(미동료심사) · <a href="https://arxiv.org/abs/2607.17227" class="underline text-indigo-700" target="_blank">arXiv:2607.17227</a> · 코드 미확인</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">Nicheformer, CellPLM, scGPT-spatial, GenePT, scELMo, Novae 6종 모델을 공통 전처리·평가 파이프라인에 올려 클러스터링(제로샷·지속학습), 세포 유형 어노테이션, 마커 유전자 일치도, 교란 반응 예측 네 범주를 평가했다. 어떤 단일 모델도 전 과제에서 우위를 보이지 않았으며, 성능 순위는 모달리티·전처리·평가지표 선택에 따라 뒤집혔다. 세포 정체성 과제에서는 발현 기반 세포 수준 트랜스포머가, 조직 구조 보존에서는 공간·그래프 인식 모델이 각각 우위를 보였다(초록·검색 결과 기준, 과제별 구체 수치 미명시).</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">"어떤 파운데이션 모델이 최고인가"보다 "어떤 과제에서 어떤 모델인가"가 맞는 질문임을 데이터로 확인했다. 공통 전처리 파이프라인이 모델별 최적 조건 차이를 무시한다는 점이 이 벤치마크의 핵심 가정이다. 그 가정이 흔들리면 순위 자체가 설계 아티팩트가 된다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: 조화 프레임워크(harmonised framework)로 전처리·토크나이저·평가지표를 공통 파이프라인에 고정해 제로샷 조건과 지속학습(continual pretraining) 조건을 분리 평가했다. 저자 스스로 메트릭 선택에 따라 순위가 달라진다고 밝혔다 — 방법론의 핵심 제약이다.</span> <span class="lens-item">🩺 Clinical: 직접 임상 데이터 없음. 임상 연구에서 도구 선택이 잘못되면 단일세포 분석 결론 자체가 오염될 수 있다는 점에서 임상 연구 품질과 간접 연결된다. 현재는 연구자 도구 선택 단계에서의 기여다.</span> <span class="lens-item">🏭 Industry: "단일 파운데이션 모델로 전부 해결한다"는 조달 전략은 현재 이 벤치마크 결과와 맞지 않는다. 과제별(클러스터링·어노테이션·교란 예측) 최적 모델을 선택하고 지속학습·앙상블을 조합하는 다층 구조가 현실적이다.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">in silico (표준 공개 벤치마크)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#2</span>
+            <span class="badge badge-preprint ">preprint</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">2. 신뢰 가능한 단백질-리간드 결합 친화도 예측: 신뢰도 인식 다중엔진 융합 (Trustworthy Protein-Ligand Binding Affinity Prediction via Reliability-Aware Multi-Engine Fusion)</h3>
+          <p class="text-[13px] text-gray-500 mb-3">출처 · 2026-07-20 · preprint(미동료심사) · <a href="https://arxiv.org/abs/2607.17601" class="underline text-indigo-700" target="_blank">arXiv:2607.17601</a> · <a href="https://github.com/yongchand/RELIABLE-BA" class="underline text-indigo-700" target="_blank">코드 공개</a></p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">GNINA v1.3, BIND v1.4, FlowDock v0.0.3, DynamicBind v1.0 4종 도킹 엔진을 각각 Normal-Inverse-Gamma(NIG) 분포 기반 증거 전문가(evidential expert)로 모델링하고, 분자 맥락에서 학습된 신뢰도 스케일러로 인식론적 불확실성을 조정한 뒤 폐쇄형(closed-form) 집계로 융합했다. PDBBind·BDB2020+ 벤치마크에서 경쟁적 점 예측 성능을 유지하면서 불확실성 보정이 실질적으로 개선됐으며, 고신뢰 쌍(pair)만 선별 시 예측 오류가 최대 25% 감소했다(초록·검색 결과 기준). SARS-CoV-2 Mpro·5HT2A 수용체에서도 적용 가능성을 시연했다.</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">"어느 도킹 결과를 믿어야 하나"는 계산화학자가 매일 직관으로 해결해온 조용한 병목이었다. NIG 기반 신뢰도 레이어를 기존 엔진에 래핑(wrapping)해 도킹 판단을 정량화하는 것이 이 방법의 실용적 핵심이다. 다만 NIG 분포가 비표준 리간드의 오차 분포를 충분히 근사하는지는 검증되지 않았다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: 기존 MC Dropout·Deep Ensembles가 동질적 집계인 것과 달리 엔진 간 이질성(heterogeneity)과 의견 불일치를 공분산 항으로 포착하며, 추가 학습 비용 없이 폐쇄형으로 계산된다. 베이스라인은 결정론적 MLP, 단일 NIG, MC Dropout, Deep Ensembles, SWAG, SVGP를 포함한다(검색 결과 기준).</span> <span class="lens-item">🩺 Clinical: 신약 발굴 파이프라인 최상류(hit identification)에 위치하며, 임상과의 직접 연결고리는 없다. 후속 전임상·임상 단계가 수년~수십 년 필요하다.</span> <span class="lens-item">🏭 Industry: 특정 도킹 엔진 대체재가 아닌 메타-레이어(meta-layer)로서 Schrödinger·Cadence 같은 기존 플랫폼에 통합되는 경로가 현실적이다. 코드가 공개됐으므로(<a href="https://github.com/yongchand/RELIABLE-BA" class="underline text-indigo-700" target="_blank">github.com/yongchand/RELIABLE-BA</a>) 즉시 재현 및 파이프라인 통합 가능성 검토 가능하다.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">in silico (PDBBind</span> <span class="badge badge-other ">BDB2020+</span> <span class="badge badge-other ">SARS-CoV-2 Mpro</span> <span class="badge badge-other ">5HT2A 수용체 벤치마크)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#3</span>
+            <span class="badge badge-preprint ">preprint</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">3. LLM은 결합 분자를 꿈꾸는가? 공간적 제약 하의 LLM 벤치마크 (Do Language Models Dream of Binding Molecules? Benchmarking LLMs under Spatial Constraints)</h3>
+          <p class="text-[13px] text-gray-500 mb-3">출처 · 2026-07-20 · preprint(미동료심사) · <a href="https://arxiv.org/abs/2607.18144" class="underline text-indigo-700" target="_blank">arXiv:2607.18144</a> · 코드 미확인</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">3D 단백질 포켓 조건부 분자 생성이라는 기본 과제에 앵커 단편(anchor fragments), 파마코포어 포인트(pharmacophore points), 필수 포켓-리간드 상호작용이라는 세 종류의 추가 공간 제약을 더한 총 4개 시나리오에서 범용 LLM과 확산 기반 특화 모델을 체계 비교했다. 범용 LLM은 복잡한 3D 공간 추론에서 확산 기반 특화 모델에 크게 미치지 못했다(초록 기준, 비교 대상 구체 모델명·수치는 초록 미명시).</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">Insilico Medicine이 자사 도메인에서 LLM 한계를 직접 공개 벤치마킹한 행위는 자사 특화 플랫폼(Chemistry42)의 차별성을 간접 부각하는 효과도 있다. 벤치마크 기준선 선택에 이해상충(COI) 가능성이 있으므로, 독립 재현 결과가 나오기 전까지 결론은 잠정적으로 남는다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: 기존 SBDD 벤치마크가 포켓 조건부 생성 하나에 집중한 것과 달리 현실 약물 설계에 더 가까운 3D 제약 조건 3종을 추가해 평가 공간을 확장한 점이 방법론적 기여다. 평가에 사용된 범용 LLM의 종류와 프롬프팅 방식이 초록에 명시되지 않아 재현 가능성이 낮다.</span> <span class="lens-item">🩺 Clinical: 직접 임상 데이터 없음. 오히려 임상 적용까지의 거리가 이전 기대보다 멀다는 부정적 결과가 주된 기여이며, 검증 없는 도구 채택이 신약 품질에 미칠 위험을 간접 경고한다.</span> <span class="lens-item">🏭 Industry: 현 시점 SBDD에서는 확산 기반 특화 모델이 범용 LLM보다 실용적이라는 구체적 근거가 생겼다. 3D 좌표 인식 LLM이나 파인튜닝된 SBDD 특화 LLM은 이 벤치마크에 포함되지 않았으므로 별도 평가가 필요하다(추정: 2~4년 내 재평가 시점 도달 가능).</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">in silico (SBDD 표준 벤치마크)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#4</span>
+            <span class="badge badge-preprint ">preprint</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">4. GatorPrism: 공간 멀티오믹스 통합을 위한 연합 그래프 전문가의 프로토타입 조건부 라우팅 (GatorPrism: Prototype-Conditioned Routing across Coalition Graph Experts for Spatial Multi-Omics Integration)</h3>
+          <p class="text-[13px] text-gray-500 mb-3">출처 · 2026-07-24 · preprint(미동료심사) · <a href="https://www.biorxiv.org/content/10.64898/2026.07.23.739930" class="underline text-indigo-700" target="_blank">DOI:10.64898/2026.07.23.739930</a> · 코드 미확인</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">세포 및 공간 패턴에 따라 오믹스 모달리티별 그래프 전문가(graph expert)를 선택적으로 활성화하는 프로토타입 조건부 라우팅(prototype-conditioned routing)과 연합 그래프 전문가(coalition graph experts) 구조를 결합했다. 원문 직접 접근이 제한돼 성능 수치·비교 베이스라인은 원문 확인이 필요하다(초록 기준 이하의 서술은 추정). 선행 연구인 GatorSC(단일세포 MoE 그래프, 2025-12)와 GatorDuo(공간 전사체 듀얼 그래프, 2026-05)의 연장선으로 추정된다.</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">"모달리티별 전문가 + 공간 패턴 기반 라우팅"이라는 설계는 직관적이지만, 희귀 세포 유형이나 드문 공간 구조에서 프로토타입 신호가 노이즈에 가까워지면 라우팅 자체가 임의적이 될 수 있다. 저자 기관·코드 공개 여부가 미확인이어서 채택 가능성 판단이 현재 불가능하다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: 원문 접근 제한으로 방법 세부 수치 미확인(추정). 단일 모달리티 인코더보다 각 전문가가 독립 학습해 모달리티 간 간섭을 줄이는 MoE 구조가 핵심 설계 방향으로 보인다.</span> <span class="lens-item">🩺 Clinical: 종양 미세환경(tumor microenvironment) 이해와 타깃 발굴에 중기적으로 기여 가능하나, 현재는 방법론 개발 단계이며 임상 데이터 없음.</span> <span class="lens-item">🏭 Industry: 공간 전사체 플랫폼(10x Genomics, Nanostring)과 분석 소프트웨어 생태계가 교차하는 지점에 위치한다. 코드 공개·외부 검증이 선행되어야 채택 경로가 열린다.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">in silico (추정</span> <span class="badge badge-other ">원문 직접 확인 필요)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#5</span>
+            <span class="badge badge-preprint ">preprint</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">5. 베이즈 불확실성 추정이 의료 AI 에이전트의 임상 의사결정을 개선한다 (Bayesian uncertainty estimation improves clinical decision making in medical AI agents)</h3>
+          <p class="text-[13px] text-gray-500 mb-3">출처 · 2026-07-22 · preprint(미동료심사) · <a href="https://arxiv.org/abs/2607.20582" class="underline text-indigo-700" target="_blank">arXiv:2607.20582</a> · <a href="https://github.com/TruhnLab/BayesianCXRAgent" class="underline text-indigo-700" target="_blank">code</a></p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">흉부 X선 8종 소견 분류 모델(훈련 이미지 137,593장)에 몬테카를로 드롭아웃(MC dropout)을 적용해 인식론적 불확실성(epistemic uncertainty)을 추출했으며, 오류 탐지 AUROC가 0.74에서 0.77로 향상됐다(초록 기준, 95% CI [+0.014, +0.033]). 2×2 요인설계 통제 실험에서 불확실성을 이진 오류-위험 플래그(binary error-risk flag)로 제공했을 때만 임상 의사결정 AI 에이전트가 이를 실제 활용해 자신감 있는 오진율을 8.5%에서 2.7%로 낮췄다(초록 기준). 원시 점수(raw score)로 제공하면 에이전트는 사실상 이 신호를 무시했다.</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">"불확실성을 원시 확률값으로 줄까, 이진 플래그로 줄까"라는 UX 결정이 알고리즘 성능 지표만큼 임상 결과에 영향을 준다는 실험적 근거가 생겼다. 단, 이 실험에서 의사결정 주체는 인간 의사가 아닌 AI 에이전트이며 환자 결과(patient outcome)는 측정되지 않았다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: (불확실성 신호 제공 여부) × (원시 점수 vs. 이진 플래그)로 구성된 2×2 요인설계 통제 실험이 핵심 방법론 기여다. MC dropout은 기술적으로 성숙한 베이즈 근사이나, 단일 기관 데이터 기반 보정(calibration)이 분포 이동(distribution shift)에 견고한지는 미검증이다(추정: 단일 기관 흉부 X선 데이터).</span> <span class="lens-item">🩺 Clinical: 인간 영상의학과 의사를 포함한 사용자 연구, 다기관 외부 코호트 검증, 전향적 임상 연구가 추가로 필요하다. 현재 증거는 AI 에이전트 시스템 실험 수준이다.</span> <span class="lens-item">🏭 Industry: 의료 AI 규제 경로(FDA 510(k)·CE 마킹)에서 불확실성 표시 요구가 강화되는 추세이므로, 이진 플래그 방식의 UX를 제품에 선점하는 회사가 규제 심사와 파트너십 협상에서 유리해질 수 있다(추정). Lunit·Aidoc·Viz.ai 등 영상 AI 회사들에게 직접 참고 가능한 제품 설계 자료다(외부 맥락).</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-insilico ">in silico</span> <span class="badge badge-other ">통제 실험 (흉부 X선</span> <span class="badge badge-other ">단일 기관 추정)</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Deep Dive</h2>
+      <div class="mb-6">
+        <h3 class="text-[16px] font-bold text-gray-800 mb-4">Paper 5 심층: 불확실성은 어떻게 전달되어야 임상 AI를 바꾸는가</h3>
+        <div class="space-y-3">
+          <p class="text-[15px] text-gray-800 leading-relaxed">의료 AI가 틀린다는 사실은 이미 알려져 있다. 그보다 어렵고 실용적인 질문은 언제 틀릴지 알 수 있는가, 그리고 그 정보를 누구에게 어떻게 전달해야 실제 행동이 바뀌는가다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed"><strong>왜 이 질문인가</strong></p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">불확실성 정량화(UQ)는 2016년 Gal &amp; Ghahramani의 MC dropout 이론화 이후 꾸준히 연구됐다. 대부분의 연구는 "불확실성을 추가했더니 오류 탐지가 개선됐다"는 형태로 마무리됐다. 그러나 정량화된 불확실성이 다운스트림 의사결정 에이전트에서 실제로 활용되는지, 활용된다면 어떤 인터페이스 조건에서 그런지는 블랙박스로 남아 있었다. 이 논문의 방법론적 기여는 그 공백을 2×2 요인설계 통제 실험으로 채운 데 있다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed"><strong>실험 설계: 무엇을 분리했나</strong></p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">독립변수는 두 가지다. (a) 불확실성 신호 제공 여부, (b) 그 신호의 표현 형식(원시 확률 점수 vs. 이진 오류-위험 플래그). 종속변수는 임상 의사결정 AI 에이전트가 신뢰도 낮은 소견에서 실제로 행동을 바꾸는지 여부다. 흉부 X선 8종 소견 분류기(137,593장)에 MC dropout을 적용해 인식론적 불확실성을 추출했고, 오류 탐지 AUROC는 0.74에서 0.77로 향상됐다(초록 기준, 95% CI [+0.014, +0.033]).</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">결과는 조건 간 비교에서 나왔다. 원시 점수로 불확실성을 줬을 때 에이전트는 이 신호를 사실상 무시했다. 이진 플래그로 바꿨을 때만 에이전트가 신뢰도 낮은 소견에서의 자신감 있는 오진율을 8.5%에서 2.7%로 낮췄다(초록 기준). 이 논문의 핵심 주장은 인터페이스 설계가 알고리즘 성능보다 행동 변화에 더 결정적으로 작용한다는 것이다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed"><strong>메커니즘의 핵심 가정</strong></p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">이 방법이 작동하기 위한 전제는 두 가지다. 첫째, MC dropout이 실제 인식론적 불확실성을 대리할 수 있어야 한다. 이 가정은 훈련·추론 드롭아웃 사이의 확률 해석이 일관할 때 성립하는데, 단일 기관 데이터에서 훈련된 모델을 다른 장비·인구집단에 적용하면 이 보정이 무너질 수 있다. 둘째, AI 에이전트의 의사결정 구조가 이진 플래그를 입력받아 행동을 바꿀 수 있도록 설계되어야 한다. 에이전트의 구체적 아키텍처(LLM 기반인지, 규칙 기반인지)가 초록에 명시되지 않아 이 전제의 일반화 범위는 불명확하다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed"><strong>읽을 때 주의할 두 가지</strong></p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">첫째, "임상 의사결정을 개선한다"는 제목이 실제 임상 시험처럼 읽힐 수 있다. 이 연구의 의사결정 주체는 AI 에이전트이며 인간 의사의 행동 변화나 환자 결과(patient outcome)는 측정되지 않았다. 8.5%→2.7% 수치는 통제된 시스템 실험 내의 수치다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">둘째, 위양성률(false positive rate) 변화가 보고되지 않았다. 오진율이 줄어드는 대신 "이 소견을 믿지 말라"는 플래그가 과도하게 발생하는지는 이 논문으로 알 수 없다. 에이전트가 플래그를 올바르게 사용했더라도 과경보가 늘었다면 다른 문제가 생긴다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed"><strong>실용적 처방</strong></p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">처방은 간단하고 구체적이다. 임상 ML 파이프라인에서 불확실성을 다운스트림 에이전트나 의사에게 전달할 때, 원시 확률값보다 임계값 기반 이진 플래그가 행동 변화를 이끌어 낸다. MC dropout 구현은 기술적으로 성숙해 있으므로 기존 모델에 이진 플래그 출력 레이어를 추가하는 공학적 비용은 낮다. 다만 어떤 임계값을 '위험' 경계로 설정할지는 기관·질환별 캘리브레이션이 필수다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">코드: <a href="https://github.com/TruhnLab/BayesianCXRAgent" class="underline text-indigo-700" target="_blank">TruhnLab/BayesianCXRAgent</a></p>
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <h3 class="text-[16px] font-bold text-gray-800 mb-4">Paper 2 심층 보충: 도킹 엔진이 충돌할 때 누구 말을 들을 것인가</h3>
+        <div class="space-y-3">
+          <p class="text-[15px] text-gray-800 leading-relaxed"><strong>RELIABLE-BA가 겨냥하는 문제</strong></p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">가상 스크리닝에서 GNINA가 A를 최우선 후보로, FlowDock이 B를 1위로, DynamicBind가 둘 다 낮은 점수를 줄 때, 실험실에 보낼 후보를 고르는 결정은 결국 연구자의 직관에 맡겨진다. RELIABLE-BA는 이 판단을 정량화하는 메타-레이어를 제안한다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed"><strong>방법의 핵심 가정</strong></p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">4종 도킹 엔진 각각을 NIG 분포 기반 증거 전문가로 취급한다. 각 전문가는 결합 친화도 예측값(point estimate)과 그 예측의 불확실성을 동시에 출력하며, 분자 맥락에서 학습된 신뢰도 스케일러가 엔진별 가중치를 조정한다. 최종 집계는 폐쇄형 수식으로 계산되므로 앙상블 추가 학습이 필요 없다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">이 방법이 작동하려면 두 전제가 성립해야 한다. 첫째, 4종 엔진이 서로 다른 귀납적 편향(inductive bias)을 가져 앙상블 신뢰도가 단일 엔진보다 높다는 것. 둘째, NIG 분포가 결합 친화도 예측 오차의 실제 분포를 충분히 근사한다는 것. 두 번째 가정이 비표준 리간드나 희귀 결합 포즈에서 깨지면 보정 지표가 좋아 보여도 실제 위험한 예측이 필터링되지 않는 상황이 생길 수 있다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed"><strong>성능과 한계</strong></p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">PDBBind·BDB2020+ 벤치마크에서 고신뢰 쌍 선별 시 예측 오류가 최대 25% 감소했다고 보고한다(초록·검색 결과 기준, 전체 RMSE·Pearson r 수치는 미명시). 4종 엔진 조합이 최적인지, 다른 엔진 집합에서도 같은 결과가 나오는지는 검증되지 않았다. 추론 시간(latency) 비교도 제공되지 않아 실시간 스크리닝 파이프라인 도입 적합성을 판단하기 어렵다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">코드가 <a href="https://github.com/yongchand/RELIABLE-BA" class="underline text-indigo-700" target="_blank">github.com/yongchand/RELIABLE-BA</a>에 공개됐다. 상업화 경로로는 독립 도구보다 기존 도킹 플랫폼에 신뢰도 레이어를 통합하는 방식이 현실적으로 보인다(추정).</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">🔭 Wide Angle</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm px-6 py-2">
+        <div class="flex items-start gap-3 py-4 border-b border-gray-100 last:border-0">
+          <div class="flex-1">
+            <p class="text-[15px] font-semibold text-gray-900 mb-1">W1. 오류 국소화를 통한 추론 시간 스케일링 (Test-Time Scaling via Error Localization) <span class="badge badge-preprint ">preprint</span></p>
+            <p class="text-[14px] text-gray-700 leading-relaxed">Rajiv Shailesh Chitale et al. · arXiv · 2026-07-23. 추론 시 오류 발생 토큰을 조건부 확률 비교로 국소화해 유효 전위(valid prefix)만 재사용하고 그 시점에서 경로를 분기, 별도 학습 없이 순차 추론 도메인에서 기존 대비 Pareto 우위를 보고한다(초록 기준). 생물학 직접 평가는 없으나 임상 AI 에이전트·문헌 분석 파이프라인에 적용 시 추론 효율 개선 방향을 시사. <a href="https://arxiv.org/abs/2607.21453" class="underline text-indigo-700" target="_blank">arXiv:2607.21453</a></p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 py-4 border-b border-gray-100 last:border-0">
+          <div class="flex-1">
+            <p class="text-[15px] font-semibold text-gray-900 mb-1">W2. 사이클릭 펩타이드 앙상블의 그래프 학습 (Graph Learning on Ensembles of Cyclic Peptides) <span class="badge badge-preprint ">preprint</span></p>
+            <p class="text-[14px] text-gray-700 leading-relaxed">Aaron Feller, Kris Deibler, Maxim Secor · arXiv · 2026-07-23 · ICML 2026 Graph Foundation Models 워크숍 채택. EnsembleEGNN이 공유 EGNN으로 각 형태를 인코딩하고 Set Attention Block으로 앙상블 전체를 풀링, CREMP 데이터셋 사전학습 시 R²=0.477/Pearson r=0.699(스크래치 학습 R²=0.005 대비). 거대 고리형 분자 신약 파이프라인에서 단일 구조 입력의 한계를 극복하는 방법론 기여. <a href="https://arxiv.org/abs/2607.21561" class="underline text-indigo-700" target="_blank">arXiv:2607.21561</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Threads to Follow</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <ul class="space-y-3 list-disc list-inside">
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>불확실성 정량화 실용화 흐름</strong>: RELIABLE-BA(도킹)와 베이즈 UQ(의료 에이전트)가 같은 주에 각자 독립적으로 UQ를 파이프라인에 통합하는 실용 방법을 제안했다. 이진 플래그 임계값을 기관별로 어떻게 캘리브레이션하는지, 단일 기관 결과가 다기관 외부 코호트에서 재현되는지가 다음 관심 지점이다.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>파운데이션 모델 벤치마크 표준화 경쟁</strong>: 단일세포 조화 벤치마크가 평가 프레임워크를 제안했으나 코드 공개가 미확인이다. 평가 도구가 재현 가능한 오픈소스로 공개되는지 확인이 필요하다. GatorPrism의 코드 공개 여부도 같은 맥락에서 지켜봐야 한다.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>SBDD에서 LLM의 재도전 타이밍</strong>: Insilico Medicine 벤치마크는 현 아키텍처 기준으로 범용 LLM의 한계를 측정했다. 3D 좌표 인식 LLM이나 SBDD 파인튜닝 LLM이 등장하면 이 수치가 달라질 것이다. 재평가 시점을 트래킹해야 한다.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>사이클릭 펩타이드 형태 앙상블 학습</strong>: EnsembleEGNN이 형태 앙상블 학습의 가능성을 보였다. 실제 약물 특성(막 투과성·용해도·독성) 예측과 통합되면 산업 의미가 커진다. ICML 2026 워크숍 채택 논문이므로 향후 저널 투고 결과를 확인 권장.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>의료 AI 규제와 불확실성 표시 표준화</strong>: FDA·EMA가 AI 신뢰성 근거를 요구하는 추세에서, 이진 플래그 방식의 불확실성 표현이 어떻게 규제 사양(specification)으로 공식화될지가 의료 AI 제품 개발사에게 핵심 관전 포인트다.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Sources</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <ul class="space-y-2 text-[13.5px]">
+              <li><a href="https://arxiv.org/abs/2607.17227" class="text-indigo-600 underline" target="_blank">arXiv:2607.17227 — 단일세포·공간 전사체 파운데이션 모델 조화 벤치마크</a></li>
+              <li><a href="https://arxiv.org/abs/2607.17601" class="text-indigo-600 underline" target="_blank">arXiv:2607.17601 — RELIABLE-BA 단백질-리간드 결합 친화도 UQ</a></li>
+              <li><a href="https://github.com/yongchand/RELIABLE-BA" class="text-indigo-600 underline" target="_blank">github.com/yongchand/RELIABLE-BA — RELIABLE-BA 코드</a></li>
+              <li><a href="https://arxiv.org/abs/2607.18144" class="text-indigo-600 underline" target="_blank">arXiv:2607.18144 — LLM vs. 확산 모델 SBDD 공간 제약 벤치마크</a></li>
+              <li><a href="https://www.biorxiv.org/content/10.64898/2026.07.23.739930" class="text-indigo-600 underline" target="_blank">DOI:10.64898/2026.07.23.739930 — GatorPrism 공간 멀티오믹스 통합</a></li>
+              <li><a href="https://arxiv.org/abs/2607.20582" class="text-indigo-600 underline" target="_blank">arXiv:2607.20582 — 베이즈 불확실성 추정 의료 AI 에이전트</a></li>
+              <li><a href="https://github.com/TruhnLab/BayesianCXRAgent" class="text-indigo-600 underline" target="_blank">github.com/TruhnLab/BayesianCXRAgent — BayesianCXRAgent 코드</a></li>
+              <li><a href="https://arxiv.org/abs/2607.21453" class="text-indigo-600 underline" target="_blank">arXiv:2607.21453 — TTEL 오류 국소화 추론 시간 스케일링 (와이드)</a></li>
+              <li><a href="https://arxiv.org/abs/2607.21561" class="text-indigo-600 underline" target="_blank">arXiv:2607.21561 — EnsembleEGNN 사이클릭 펩타이드 앙상블 (와이드)</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="border-t border-gray-200 pt-8 pb-10 text-center">
+      <p class="text-sm text-gray-500 mt-4">paper-radar · 2026-W30</p>
+      <p class="text-xs text-gray-400 mt-1">바이오인포·임상ML·신약AI 논문 주간 요약. preprint 분석 포함.</p>
+    </footer>
+  </div>
+</body>
+</html>
