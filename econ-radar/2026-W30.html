@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🧭 econ-radar 동향 리포트 · 2026-W30 (7/20–7/26)</title>
+<style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+:root{--ink:#1e293b;--indigo:#4338ca;--indigo-deep:#3730a3;--soft:#eef2ff;--line:#c7d2fe;--muted:#64748b;--pop:#c026d3;}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Pretendard',-apple-system,'Noto Sans KR',sans-serif;color:var(--ink);background:#f6f7fb;margin:0;line-height:1.78;font-size:16px;}
+.wrap{max-width:780px;margin:0 auto;padding:30px 20px 80px;}
+.head{background:linear-gradient(135deg,#4f46e5,#3730a3);color:#eef2ff;border-radius:18px;padding:26px 28px;margin-bottom:28px;box-shadow:0 12px 40px rgba(49,46,129,.28);}
+.head .kicker{font-size:13px;letter-spacing:.08em;color:#c7d2fe;font-weight:700;}
+.head h1{font-size:25px;margin:8px 0 6px;line-height:1.35;color:#fff;}
+.head .range{font-size:14px;color:#c7d2fe;}
+.tags{margin-top:12px;}
+.tags span{display:inline-block;font-size:12px;background:rgba(255,255,255,.14);color:#e9d5ff;border-radius:999px;padding:2px 11px;margin:3px 4px 0 0;}
+h2{color:var(--indigo);font-size:21px;margin:34px 0 12px;padding-bottom:8px;line-height:1.4;background:linear-gradient(90deg,var(--indigo) 0,var(--pop) 44px,var(--line) 44px) bottom left/100% 3px no-repeat;}
+h2[id]{scroll-margin-top:74px;}
+h3{color:var(--indigo-deep);font-size:17px;margin:22px 0 8px;}
+p{margin:10px 0;}
+strong{color:var(--indigo-deep);}
+a{color:var(--indigo);text-decoration:none;border-bottom:1px solid var(--line);}
+a:hover{background:var(--soft);}
+ul{margin:10px 0;padding-left:20px;} li{margin:7px 0;}
+blockquote{border-left:4px solid var(--line);background:#fff;margin:12px 0;padding:10px 16px;border-radius:0 10px 10px 0;color:var(--muted);font-size:14px;}
+blockquote a{border:none;color:var(--muted);}
+.tablewrap{overflow-x:auto;margin:14px 0;-webkit-overflow-scrolling:touch;}
+table{border-collapse:collapse;width:100%;font-size:14px;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 18px rgba(67,56,202,.08);}
+th{background:linear-gradient(90deg,var(--indigo),#6d28d9);color:#fff;text-align:left;padding:11px 13px;font-weight:700;}
+td{padding:10px 13px;border-bottom:1px solid #eef0f7;vertical-align:top;}
+tr:nth-child(even) td{background:#fafbff;}
+hr{border:none;border-top:1px solid var(--line);margin:26px 0;}
+.back{display:inline-block;margin-bottom:18px;font-size:14px;color:var(--indigo);border:none;}
+/* 섹션 점프 목차 — 스크롤해도 상단 고정(데일리와 동일 스타일) */
+.toc{position:sticky;top:8px;z-index:40;display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 30px;padding:12px 16px;background:rgba(255,255,255,0.96);backdrop-filter:saturate(180%) blur(6px);border:1.5px solid var(--line);border-radius:14px;box-shadow:0 6px 22px rgba(67,56,202,0.16);}
+.toc .toc-label{font-size:13px;font-weight:800;color:var(--indigo);margin-right:4px;}
+.toc a{position:relative;font-size:12px;font-weight:600;padding:5px 12px;border-radius:999px;background:#eef2ff;color:var(--indigo);border:1px solid var(--line);text-decoration:none;transition:background .15s,color .15s;}
+.toc a:hover{background:var(--indigo);color:#fff;}
+.toc a[data-tip]::after{content:attr(data-tip);position:absolute;left:0;top:calc(100% + 9px);width:max-content;max-width:260px;white-space:normal;background:#1e293b;color:#fff;font-size:12px;font-weight:500;line-height:1.5;letter-spacing:0;padding:8px 11px;border-radius:9px;box-shadow:0 8px 22px rgba(15,23,42,0.28);opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .15s,transform .15s;pointer-events:none;z-index:60;}
+.toc a[data-tip]::before{content:"";position:absolute;left:16px;top:calc(100% + 3px);border:6px solid transparent;border-bottom-color:#1e293b;opacity:0;visibility:hidden;transition:opacity .15s;z-index:60;}
+.toc a[data-tip]:hover::after,.toc a[data-tip]:hover::before{opacity:1;visibility:visible;transform:translateY(0);}
+/* 맨 위로 버튼 */
+.to-top{position:fixed;right:18px;bottom:18px;width:44px;height:44px;border-radius:50%;background:var(--indigo);color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:20px;line-height:1;border:none;box-shadow:0 4px 16px rgba(67,56,202,0.42);z-index:50;transition:background .15s,transform .1s;}
+.to-top:hover{background:var(--indigo-deep);}
+.to-top:active{transform:scale(0.92);}
+/* 본문 끝 태그(footer 위) */
+.foottags{margin-top:34px;}
+.foottags span{display:inline-block;font-size:12px;background:var(--soft);color:var(--indigo-deep);border:1px solid var(--line);border-radius:999px;padding:3px 11px;margin:4px 5px 0 0;}
+.foot{margin-top:18px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);}
+@media(max-width:640px){body{font-size:15px;}.wrap{padding:18px 14px 60px;}.head{padding:20px;}.head h1{font-size:21px;}h2{font-size:19px;}h2[id]{scroll-margin-top:64px;}table{font-size:13px;}
+.toc{padding:8px 10px;gap:6px;margin:0 0 20px;}.toc .toc-label{font-size:11px;}.toc a{font-size:11px;padding:4px 10px;}.toc a[data-tip]::after,.toc a[data-tip]::before{display:none;}
+.to-top{width:40px;height:40px;right:12px;bottom:12px;font-size:18px;}}
+</style></head>
+<body><div class="wrap" id="top">
+<a class="back" href="/econ-radar/">← econ-radar 아카이브</a>
+<div class="head"><div class="kicker">WEEKLY · 주간 동향</div><h1>🧭 econ-radar 동향 리포트 · 2026-W30 (7/20–7/26)</h1><div class="range"></div></div>
+<nav class="toc" aria-label="섹션 바로가기"><span class="toc-label">📑 바로가기</span><a href="#sec-1" data-tip="지난 주를 관통한 핵심 메시지">핵심</a><a href="#sec-2" data-tip="흐름 1 — 에너지 지정학 위기와 코스피 극변동">흐름 1 —</a><a href="#sec-3" data-tip="흐름 2 — AI 추론 가격 해체와 오픈 웨이트 임계점 도달">흐름 2 —</a><a href="#sec-4" data-tip="흐름 3 — FDA 규제 이벤트 집중과 K-바이오 분기점">흐름 3 —</a><a href="#sec-5" data-tip="투자 관점 시사점">투자</a><a href="#sec-6" data-tip="수요(Demand) 시사점">수요(Dem</a><a href="#sec-7" data-tip="R&amp;D·전략 관점 노트">전략</a><a href="#sec-8" data-tip="다음 주 지켜볼 것">다음 주 지</a></nav>
+<h2 id="sec-1">핵심 메시지</h2>
+<p>1. <strong>이란 호르무즈 봉쇄 선언으로 Brent $100 돌파</strong> — 에너지 지정학이 구조 충격 국면으로 이행했고, 코스피는 일주일에 다섯 차례 ±4% 이상 급등락했다. FOMC 금리 인상 확률이 10%대에서 35%까지 치솟아 연준 경로 불확실성이 재부상했다. 2. <strong>AI 모델 레이어의 범용화가 임계점을 넘었다</strong> — Claude Opus 5, Gemini 3.6 Flash, Kimi K3(2.8T 오픈 웨이트)가 같은 주에 나오면서 추론 가격이 해체 수준으로 낮아졌다. Google Cloud +82%, ServiceNow AI ACV $1B으로 수익화는 이미 실물 통계로 증명됐다. 3. <strong>FDA 규제 이벤트가 한 주에 집중됐다</strong> — centanafadine(SIMTRIYO)이 24년 만의 ADHD 신기전으로 승인됐고, 7/29 RP1·deramiocel AdCom이 동시에 대기 중이다. K-바이오는 코오롱 Study 1 실패 이후 ADC 3사 파트너십 가속·HLB 이중 파이프라인 정상화라는 상반된 신호를 동시에 내보냈다.</p>
+<hr>
+<h2 id="sec-2">흐름 1 — 에너지 지정학 위기와 코스피 극변동</h2>
+<p>이란 혁명수비대(IRGC)가 7월 24일 호르무즈 해협 "완전 통제"를 선언하면서 Brent 원유가 $88대에서 $100.69까지 수직 상승했다. 후티의 사우디 유조선 공격(7/23), CENTCOM의 14연속 이란 공습(7/26 기준)이 맞물리면서 단순 위험 프리미엄이 아니라 공급 경로 자체를 둘러싼 구조 불안으로 번졌다. Goldman Sachs는 $120 경보를 발령했다. [[daily/2026-07-24]]</p>
+<p>코스피는 한 주 동안 6,516 → 6,747 → 7,096 → 6,690 → (7/27 재개 대기) 순으로 일간 등락률이 -4.46%, +3.56%, +4.40%, -5.72%, +5.8%로 요동쳤다. 7/20에는 매도 사이드카가 발동됐고 7/24에도 재발동됐다. 외국인과 기관이 7/21(~2.2조 순매수)·7/23(2.1조 순매수) 두 차례 대규모 복귀하면서 지수를 끌어올렸으나, 에너지·관세(미국의 강제노동 관세 12.5%, 7/25 한국 발효) 복합 충격에 매번 저항선이 깨졌다. [[daily/2026-07-20]] [[daily/2026-07-21]] [[daily/2026-07-23]] [[daily/2026-07-24]] [[daily/2026-07-25]]</p>
+<p>한국의 2분기 GDP는 전기비 +0.6%로 시장 전망치(+0.2%)의 세 배를 기록했고, GDI는 전년비 +15.6%(38년 만의 최고)로 뛰었다. 1~20일 수출이 549억 달러(역대 최고), 반도체 221억 달러(+180.6%)로 HBM 사이클이 실물 통계로 확인됐다. 거시 펀더멘털과 금융시장 간 괴리가 이례적으로 확대되는 주였다. [[daily/2026-07-23]] [[daily/2026-07-21]]</p>
+<p>7/26 기준 FOMC 금리 인상 확률은 34.7%까지 올라왔다. ECB는 7/23 동결을 결정했으나 9월 인상 확률은 73%로 상승했다. 일본 JGB 40년물 금리가 4.01%를 넘어서면서 글로벌 장기채 금리 상승 흐름이 지속됐다. 달러-원 경로는 유가와 연준 경로 사이에서 방향을 못 잡는 상태다. [[daily/2026-07-26]] [[daily/2026-07-23]] [[daily/2026-07-24]]</p>
+<p><strong>Why it matters</strong>: 이란·후티 복합 공세가 일시적 위험 프리미엄이 아니라 호르무즈 항로 차단 위협으로 격상됐다. Brent $100 돌파는 에너지 인플레 재귀 시나리오를 현실화시키고, 연준의 금리 인하 경로를 그대로 막는다. 한국은 HBM 수출 호황과 에너지 수입 비용 급등이라는 극단적 이중 노출 구조에 있다.</p>
+<hr>
+<h2 id="sec-3">흐름 2 — AI 추론 가격 해체와 오픈 웨이트 임계점 도달</h2>
+<p>Claude Opus 5가 7/25 출시됐다. FrontierBench 43.3%로 Fable 5·GPT-5.6 Sol을 상회하면서도 가격은 동일 수준으로 유지됐다. 같은 날 Gemini 3.6 Flash는 토큰 당 가격을 17% 인하해 $7.50/M(입력 기준)으로 낮아졌고, DeepSWE 점수 49%를 기록했다. [[daily/2026-07-25]] [[daily/2026-07-23]]</p>
+<p>Kimi K3(파라미터 2.8T)는 역대 최대 규모의 오픈 웨이트 MoE 모델로 7/27 공개 예정이었으며, 구동에 1.4TB VRAM이 요구된다. DeepSeek V4는 GA를 선언하면서 SWE-bench 80.6%를 제시했다. 프런티어 모델 성능이 오픈 웨이트로 수렴하는 속도가 예상보다 빠르다. [[daily/2026-07-24]] [[daily/2026-07-25]] [[daily/2026-07-26]]</p>
+<p>수익화는 이미 실물 통계로 진입했다. Alphabet Q2 Google Cloud가 전년비 +82%($24.8B)를 기록했고, 연간 capex 가이던스를 $205B으로 올렸다. ServiceNow는 AI 수주 누적(ACV)이 $1B을 넘어섰다고 공시했다. Nvidia는 SIGGRAPH에서 Cosmos 3 Edge를 공개하며 물리 AI 엣지 확장을 공식화했고, 삼성전자는 CEO 직속 RX(로봇·물리AI) 사업부를 신설했다. [[daily/2026-07-24]] [[daily/2026-07-25]] [[daily/2026-07-21]]</p>
+<p>EU AI Act GPAI 규정은 7/26 기준 D-7 발효를 앞두고 있고, Chai Discovery가 $400M 시리즈 C를 마무리하며 AI 신약 개발 자금 조달 열기가 계속됐다. [[daily/2026-07-26]]</p>
+<p><strong>Why it matters</strong>: 모델 레이어가 범용재로 전락하는 속도가 임계점을 넘었다는 신호가 한 주 안에 세 곳에서 동시에 왔다. 차별화 경쟁은 데이터·수직 통합·엣지 하드웨어·도메인 특화 응용으로 완전히 이동했다. 클라우드·SaaS 수익화 증거가 실물 데이터로 확인된 이상, AI 테마의 "수익화 불확실성" 논리는 점점 설득력을 잃는다.</p>
+<hr>
+<h2 id="sec-4">흐름 3 — FDA 규제 이벤트 집중과 K-바이오 분기점</h2>
+<p>centanafadine(SIMTRIYO)이 7/26 FDA 승인을 받았다. 24년 만에 나온 새 기전의 ADHD 치료제(NDSRI — 노르에피네프린·도파민·세로토닌 삼중 재흡수 억제제)다. 스티뮬란트 비적합 환자군(심질환·물질남용 위험)을 겨냥하는 비스티뮬란트 계열이어서 처방 접근성 확대 잠재력이 있다. [[daily/2026-07-26]]</p>
+<p>7/29에는 Replimune RP1(종양용해바이러스, 흑색종 3차라인 3년 OS 83.5%)과 Capricor deramiocel(DMD 심근병증 알로제닉 세포치료, PDUFA 8/22) AdCom이 동시에 열린다. OV와 세포치료 두 모달리티가 같은 날 규제 심문대에 오르는 드문 일정이다. BridgeBio encaleret(부갑상선기능저하증 칼슘수용체 작용제)는 AdCom 없이 NDA가 수락됐고 PDUFA는 2027-05-08이다. [[daily/2026-07-26]] [[daily/2026-07-23]] [[daily/2026-07-25]]</p>
+<p>K-바이오는 희비가 엇갈렸다. 코오롱 TG-C(골관절염 유전자치료)는 Study 1 1차 평가변수가 실패했다. 위약 반응 과잉이 원인으로 지목됐고, 10월 Study 2 결과가 사실상 마지막 기회다. 코오롱 그룹주 4종이 하한가(-30%)를 기록했다. [[daily/2026-07-20]] [[daily/2026-07-21]]</p>
+<p>반면 ADC 생태계는 가속됐다. 리가켐 LCB71이 ORR 77%를 발표하고 LCB84는 Janssen 계약, ABL Bio ABL209는 FDA IND 신청, 삼성바이오에피스-인투셀은 SBE303 ADC 상업화 본계약을 마무리했다. HLB는 리라퓨그라티닙 FDA LCM 협의에서 이견 없음을 확인받아 PDUFA 9/25가 정상 궤도에 올랐고, 리보세라닙 CAPA 서류를 7/25 제출했다. 앞선 3차 CRL(7/20) 충격 이후 이중 파이프라인이 빠르게 복원 신호를 냈다. [[daily/2026-07-20]] [[daily/2026-07-21]] [[daily/2026-07-23]] [[daily/2026-07-25]]</p>
+<p>Dyne Therapeutics z-rostudirsen(뒤시엔느 엑손 55 스키핑)은 BLA 우선심사를 받아 PDUFA 2027-01-21로 설정됐다. RNA 치료 플랫폼의 규제 경로 개척 사례로 추적 가치가 있다. [[daily/2026-07-21]]</p>
+<p><strong>Why it matters</strong>: SIMTRIYO 승인은 단일 기전 혁신보다 스티뮬란트 처방 장벽을 돌아가는 새 세그먼트 개척이라는 점에서 상업적 시사점이 더 크다. K-바이오는 플랫폼 기술(ADC 링커·페이로드)이 글로벌 파트너십 채널로 전환되는 속도가 빨라지는 반면, 임상 실패 리스크는 여전히 집중돼 있다.</p>
+<hr>
+<h2 id="sec-5">투자 시사점</h2>
+<p><strong>에너지</strong>: Brent $100 돌파가 일시적 스파이크가 아니라 호르무즈 구조 충격 우려라면 에너지 수입국(한국 포함)의 교역조건 악화가 지속될 수 있다. 정유·에너지 인프라 관련 헤지 포지션 검토가 유효하다. Goldman $120 시나리오는 금리 인하 경로를 닫아버릴 수 있다.</p>
+<p><strong>코스피</strong>: 7,000선을 두 차례 탈환 후 밀렸다. HBM 수출 호황이 실물로 확인된 반면 금융시장 변동성은 지속된다. 반도체·수출 대형주는 펀더멘털 우위가 유지되나 에너지·환율 이중 리스크를 할인해야 한다. 7/27 재개 시 방향이 이번 주의 핵심 체크포인트다.</p>
+<p><strong>AI 인프라</strong>: Google Cloud, ServiceNow 수익화 데이터가 실물로 확인됐다. 모델 레이어 수익성이 압축되는 환경에서 클라우드 인프라·AI 수직통합 플레이어가 수혜 중심에 있다. 엣지 AI(삼성 RX, Nvidia Cosmos 3 Edge)는 중기 성장 테마로 모니터링 가치가 있다.</p>
+<p><strong>바이오</strong>: HLB는 PDUFA 9/25 전후 이벤트 드리븐 관점에서 리라퓨그라티닙 단독으로도 평가 재정립 가능성이 있다. 리가켐 LCB71 ORR 77%는 ADC 링커 플랫폼 가치를 재확인했고, Janssen 계약이 동반돼 있어 상업화 가시성이 높아졌다. 코오롱 TG-C는 Study 2 결과(10월)까지 투자 판단 보류 권고.</p>
+<hr>
+<h2 id="sec-6">수요(Demand) 시사점</h2>
+<p><strong>SIMTRIYO(centanafadine)</strong>: 처방의 입장에서는 스티뮬란트 금기 환자(심질환·물질남용력)에게 제시할 수 있는 첫 번째 새 기전 옵션이다. 지불자(보험사) 관점에서는 남용·전용 리스크가 낮아 포뮬러리 협상에서 유리하게 작용할 가능성이 있다. 환자 수요는 기존 스티뮬란트 치료 불만족군과 비스티뮬란트 선호군으로 나뉜다.</p>
+<p><strong>ADC(리가켐·ABL Bio·인투셀)</strong>: 수요 측 핵심은 종양학자의 처방 신뢰도다. ORR·OS 데이터 축적 속도와 독성 프로파일(특히 링커 안정성)이 처방 채택률을 결정한다. 지불자는 기존 항체치료제 대비 가격 프리미엄 정당화 근거로 반응률·내구성 데이터를 요구한다.</p>
+<p><strong>한국 수출·GDP</strong>: 반도체 수출 급등의 실질 수요처는 AI 데이터센터다. 클라우드사들의 capex 사이클(Google $205B, Microsoft·Meta 어닝즈 주)이 이어지는 한 한국 HBM 수출 수요는 지지된다. 유가 급등이 수입 물가를 자극하면 가계 소비 여력이 줄어 내수 수요 쪽에 역풍이 된다.</p>
+<hr>
+<h2 id="sec-7">전략 노트</h2>
+<p>이번 주 FDA 이벤트에서 주목할 방법론 논점이 두 가지였다. 코오롱 TG-C Study 1 실패의 원인으로 지목된 "위약 반응 과잉"은 만성통증·기능 회복 지표를 주 평가변수로 쓰는 임상에서 반복적으로 나타나는 문제다. 위약 반응률을 예측·통제하는 설계(adaptive enrichment, 바이오마커 계층화)가 만성질환 유전자치료 임상의 표준 과제로 떠오르고 있다.</p>
+<p>centanafadine의 승인 심사 과정에서 FDA가 AdCom을 요구하지 않고 표준 심사로 수락한 것은 NDSRI 계열의 안전 데이터 축적이 충분하다는 신호로 읽힌다. Capricor deramiocel(7/29 AdCom)은 알로제닉 세포치료의 면역 프로파일과 PDUFA 대비 규제 불확실성을 실시간으로 보여줄 사례다.</p>
+<p>AI 신약 개발(Chai Discovery $400M)이 계속 대규모 자금을 유치하는 가운데, 구조 예측·리드 최적화 이후의 임상 전환율이 업계의 다음 검증 관문이다.</p>
+<hr>
+<h2 id="sec-8">다음 주 지켜볼 것</h2>
+<div class="tablewrap"><table><thead><tr><th>일정</th><th>항목</th><th>포인트</th></tr></thead><tbody><tr><td>7/27</td><td>코스피 재개</td><td>유가·관세 이중 충격 이후 방향 확인</td></tr><tr><td>7/27</td><td>Kimi K3 오픈 웨이트 공개</td><td>2.8T 규모·성능·라이선스·데이터 주권 조건</td></tr><tr><td>7/29</td><td>Replimune RP1 AdCom</td><td>흑색종 3차라인 종양용해바이러스 FDA 의견</td></tr><tr><td>7/29</td><td>Capricor deramiocel AdCom</td><td>DMD 심근병증 알로제닉 세포치료 FDA 의견</td></tr><tr><td>7/29</td><td>Microsoft Q2 어닝즈</td><td>Azure AI 매출 성장률·Copilot 채택률</td></tr><tr><td>7/29</td><td>Meta Q2 어닝즈</td><td>AI 광고 기여·LLaMA 전략 업데이트</td></tr><tr><td>7/30</td><td>Apple·Amazon Q2 어닝즈</td><td>Apple Intelligence 채택·AWS AI 수익화</td></tr><tr><td>7/30</td><td>FOMC 결정</td><td>금리 동결 확률 65% vs 인상 35% — 유가 영향 반영 여부</td></tr><tr><td>8/1</td><td>EU AI Act GPAI 발효</td><td>모델 출시·서비스 요건 공식화</td></tr><tr><td>9/25</td><td>HLB 리라퓨그라티닙 PDUFA</td><td>리보세라닙 CAPA 병행 진행 상황</td></tr><tr><td>10월</td><td>코오롱 TG-C Study 2 결과</td><td>사실상 마지막 기회 — 위약 설계 개선 여부</td></tr></tbody></table></div>
+
+<div class="foot">econ-radar 주간 동향 · 매일의 분석을 한 주 흐름으로 엮은 리포트. 투자·기업 언급은 정보·시나리오이며 매수·매도 권유가 아닙니다.</div>
+</div>
+<a href="#top" class="to-top" aria-label="맨 위로" title="맨 위로">&uarr;</a>
+</body></html>
