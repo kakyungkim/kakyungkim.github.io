@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>paper-radar — 2026-W31</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+    body { font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; font-size:16px; line-height:1.78; }
+    .badge { font-size:11px; font-weight:700; padding:2px 9px; border-radius:9999px; display:inline-block; margin-right:4px; }
+    .badge-genome   { background:#dcfce7; color:#166534; }
+    .badge-clinical { background:#dbeafe; color:#1e40af; }
+    .badge-drug     { background:#ede9fe; color:#5b21b6; }
+    .badge-protein  { background:#fce7f3; color:#9d174d; }
+    .badge-llmbio   { background:#fef9c3; color:#713f12; }
+    .badge-other    { background:#f3f4f6; color:#374151; }
+    .badge-preprint { background:#fef3c7; color:#92400e; }
+    .badge-peer     { background:#d1fae5; color:#065f46; }
+    .badge-insilico { background:#e0e7ff; color:#3730a3; }
+    .badge-retro    { background:#fef9c3; color:#713f12; }
+    .badge-prosp    { background:#d1fae5; color:#065f46; }
+    .badge-multi    { background:#dbeafe; color:#1e40af; }
+    .badge-rct      { background:#dcfce7; color:#166534; }
+    .badge-nocode   { background:#fee2e2; color:#991b1b; }
+    .key-point { border-left:4px solid #4338ca; padding:10px 16px; background:#f5f3ff; border-radius:0 10px 10px 0; margin-top:12px; }
+    .key-point .label { font-size:11px; font-weight:700; letter-spacing:0.06em; color:#4338ca; margin-bottom:4px; }
+    .key-point .text { font-size:15px; font-weight:500; color:#312e81; line-height:1.7; }
+    .insight { border-left:4px solid #14b8a6; padding:10px 16px; background:#f0fdfa; border-radius:0 10px 10px 0; margin-top:10px; }
+    .insight .label { font-size:11px; font-weight:700; letter-spacing:0.06em; color:#0f766e; margin-bottom:4px; }
+    .insight .text { font-size:15px; color:#134e4a; line-height:1.7; }
+    .lens-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+    .lens-item { font-size:13.5px; color:#374151; padding:4px 10px; background:#f9fafb; border:1px solid #e5e7eb; border-radius:8px; }
+    .lens-demand { font-size:13.5px; color:#92400e; padding:4px 10px; background:#fef3c7; border:1px solid #fde68a; border-radius:8px; }
+    .verify-tag { font-size:12px; color:#6b7280; margin-top:8px; }
+</style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <div class="max-w-3xl mx-auto px-4 py-10">
+    <header class="mb-8">
+      <div class="flex items-center gap-3 mb-2">
+        <img src="logo-64.png" alt="paper-radar" class="w-9 h-9 rounded-xl" onerror="this.style.display='none'">
+        <span class="text-2xl font-bold tracking-tight text-gray-900">paper-radar 주간 다이제스트</span>
+        <span class="text-lg text-gray-500 font-medium">2026-W31</span>
+      </div>
+      <p class="text-xs text-gray-400">바이오인포·임상ML·신약AI 논문 주간 요약. 모든 해석은 preprint 단계에서의 분석임.</p>
+    </header>
+
+    <section class="mb-8">
+      <h2 class="text-xs font-bold tracking-widest text-indigo-600 uppercase mb-3">At a Glance</h2>
+      <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-5 space-y-3">
+        <p class="text-[15px] leading-relaxed text-gray-800">이번 주 논문들이 공유하는 구조는 하나다. 생물학 데이터의 고유한 복잡성—긴 DNA 서열, 비정규 펩타이드 잔기, 다중 세포 반응 모달리티, 분석 선택 민감성, 시간적으로 이질적인 임상 기록—을 정면으로 다루는 전용 아키텍처들이 한 주에 집중됐다.</p>
+        <p class="text-[15px] leading-relaxed text-gray-800">CENO는 Mamba·Attention·MoE 하이브리드와 다중 종 MSA 후처리로 긴 DNA를 이해하는 게놈 스케일 세계 모델을 열었다. Vilya-2는 공진화 통계 기반 구조 예측이 닿지 못했던 비정규 잔기와 거대고리화 펩타이드의 계면 모델링을 확산 트랜스포머로 돌파했다. PMRD는 화학 구조·유전자 발현·세포 형태 세 모달리티에서 기전 신호를 노이즈와 분리하는 도메인 분리 프레임워크를 KDD 2026에 발표한다. SCTA는 scRNA-seq 표적 발굴의 재현성 문제를 에이전트 역할 전문화와 교차 실행 안정성 기준으로 풀었다. 다중모달 EHR 파운데이션 모델은 구조화 이벤트 코드에 ECG·흉부 X선·임상 노트를 게이트 교차 어텐션으로 붙여 자기회귀 EHR 모델의 입력 경계를 확장했다.</p>
+        <p class="text-[15px] leading-relaxed text-gray-800">게놈에서 분자 계면, 세포 반응, 임상 기록까지—각 레이어의 고유 문제를 맞춤 설계로 푸는 논문들이 이번 주 시야를 채운다.</p>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">This Week's Top 5</h2>
+      <div class="space-y-6">
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#1</span>
+            
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">1. CENO: 진화적 서열 해석과 프로그래밍 가능한 조절 서열 설계를 위한 게놈 스케일 세계 모델</h3>
+          <p class="text-[13px] text-gray-500 mb-3">저자: Mingqian Ma, Yucheng Wu, Xin Chen, Feifei Jiang, Peijun Lin, Dongxin Ye, Yidi Sun, Yijing Zhang, Tianqiong Shi, Yu Zhao, Wanli Ouyang, Bowen Zhou, Lei Bai, Yuchen Ren | Shanghai Artificial Intelligence Laboratory</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">기존 DNA 언어 모델은 짧은 서열이나 특정 다운스트림 태스크에 특화된 반면, CENO는 Mamba(선형 어텐션)·Self-Attention·MoE(Mixture of Experts) 하이브리드 백본에 다중 종 다중 서열 정렬(MSA) 데이터로 사후 훈련하여 (1) 긴 DNA 맥락의 진화적 보존 패턴 이해, (2) 변이 효과 점수(Variant Effect Prediction, VEP) 계산, (3) 새로운 조절 서열(regulatory sequence) 생성이라는 세 태스크를 하나의 모델로 처리한다. HuggingFace trust_remote_code, TraitGym 예시를 포함한 VEP 파이프라인, vLLM 오프라인 추론 데모가 공개됐다(초록 기준; 구체 벤치마크 수치 미명시).</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">게놈 세계 모델 개념은 환경의 다음 상태를 예측하는 RL 세계 모델에서 빌려왔다. 진화적 MSA 정보를 "다음 게놈 상태"의 지도 신호로 쓴다는 발상은 DNA의 진화적 제약을 언어 모델의 컨텍스트 학습과 접속시키는 시도다. 완전 공개 코드가 실용성을 높인다. 다만 성능 수치가 초록에서 명시되지 않아 독립 재현 전까지 주장의 크기는 불명확하다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: Mamba 블록이 긴 서열의 선형 복잡도 연산을 담당하고, MoE가 태스크별 전문화를 지원하는 이중 효율 구조. MSA 기반 사후 훈련은 단일 종 학습에 비해 희귀 변이·비코딩 조절 영역의 진화적 시그널을 강화한다. 핵심 가정: 다중 종 진화 정렬이 규제 서열의 기능적 제약을 충분히 반영한다는 것. 이 가정이 깨지면 생성 서열이 기능적으로 무의미할 수 있다.</span> <span class="lens-item">🩺 Clinical: 직접 임상 연결 없음. VEP 능력이 고도화되면 인간 유전체 변이의 임상적 해석(ACMG 등급 자동화)에 장기적으로 기여할 수 있으나, 현재는 기초 연구 도구 수준이다.</span> <span class="lens-item">🏭 Industry: 조절 서열 신규 설계는 유전자 요법·합성 생물학 플랫폼의 핵심 병목이다. 코드 완전 공개로 Recursion·Insitro 등 게놈 AI 기업의 내부 파이프라인 통합 벤치마크가 가능하다(추정). VEP 파이프라인은 희귀 유전 질환 타깃 발굴에 즉시 활용 가능하다.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-insilico ">in silico</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#2</span>
+            
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">2. Vilya-2: 화학적으로 다양한 분자 계면의 정확한 구조 모델링</h3>
+          <p class="text-[13px] text-gray-500 mb-3">저자: Pascal Sturmfels, Naozumi Hiranuma, Milad Salem, Benjamin D. Sellers, Stephen Rettie, CJ San Felipe, Chase A. P. Wood, Jeffrey K. Holden, Adam P. Moyer, Patrick J. Salveson, Ivan Anishchanka | Vilya Research</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">AlphaFold 계열 공진화 통계 기반 구조 예측은 표준 단백질에서 성과를 거뒀으나, 비정규 아미노산 잔기·거대고리화(macrocyclization)·이황화 결합 스테이플 등 복잡한 화학을 가진 펩타이드 치료제의 수용체 결합 계면에서는 정확도가 확장되지 않는다. Vilya-2는 Vilya-1의 전원자(all-atom) 분자 표현을 단독 구조 예측에서 단백질 표적과의 복합체 계면 모델링으로 확장한 확산 트랜스포머다. 초록 기준: 펩타이드-단백질 계면의 59.1%를 backbone RMSD 2Å 미만으로 회복하며, 수용체를 템플릿으로 제공해도 대표적 공동-폴딩(co-folding) 모델을 크게 상회하고, 훈련에서 보지 못한 거대고리 및 이황화 결합 스테이플 미니단백질에도 일반화된다.</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">펩타이드 치료제 시장은 현재 100조 원 규모이지만 구조 기반 설계(structure-based design) 도구가 소분자 대비 현저히 뒤처져 있다. Vilya-2가 비정규 잔기 계면을 2Å 이하로 푼다면, 펩타이드 신약 발굴에서 RFdiffusion·AF3이 소분자 SBDD에 미친 것과 유사한 영향을 기대할 수 있다(추정: 독립 재현 전 크기 불명확). Riptides 벤치마크가 공개됐으므로 다른 그룹들이 직접 비교할 수 있다는 점이 중요하다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: 전원자 표현은 비정규 잔기를 표준 아미노산 FASTA 시퀀스로 표현하는 방법이 근본적으로 실패하는 문제를 우회한다. 확산 기반 생성은 계면 공간의 다중 모드 분포를 자연스럽게 모델링한다. 핵심 가정: 훈련 데이터의 펩타이드 화학 다양성이 테스트 시 비정규 잔기 공간을 충분히 포괄한다는 것. 모델 추론 코드 공개 여부는 현재 미확인이다.</span> <span class="lens-item">🩺 Clinical: 직접 임상 연결 없음. 구조 기반 펩타이드 설계가 전임상 단계를 통과하려면 결합 친화도 측정·ADMET 프로파일링·동물 모델 단계가 독립적으로 필요하다.</span> <span class="lens-item">🏭 Industry: Bicycle Therapeutics·Protagonist Therapeutics·Entrada Therapeutics 등 비정규 화학 구조 펩타이드에 집중하는 기업이 직접 이해관계자다(추정). Riptides 벤치마크 공개가 업계 내 빠른 비교 기반을 형성한다.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">in silico (Riptides 벤치마크 및 내부 데이터셋)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#3</span>
+            
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">3. PMRD: 세포 반응에서 약리학적 도메인으로 — 다중모달 제로샷 약물 표현 학습</h3>
+          <p class="text-[13px] text-gray-500 mb-3">저자: Jintao Huang, Lu Leng, Ziyuan Yang | 소속 기관 미확인</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">화학 구조·유전자 발현(CMAP L1000 등)·세포 형태(Cell Painting 등) 세 모달리티를 직접 융합하거나 인스턴스 수준 대조 정렬(contrastive alignment)로 통합하면, 기전 관련 신호가 모달리티별 노이즈와 분리되지 않아 구조적으로 다르지만 생물학적으로 유사한 scaffold-hop 화합물을 잘못 분리할 수 있다. PMRD(Pharmacological Response Domain-guided)는 세 모달리티에 공통된 메커니즘 일치 인자(mechanism-consistent factors)를 도메인 분리로 추출하고 합의 반응 도메인(consensus response domain)을 구성해 제로샷 특성 예측에 활용한다. 메커니즘 후보 증강(mechanism candidate augmentation)이 국소 안정 인자를 식별하고, 검색-기하 귀인(retrieval-geometry attribution)이 정렬·증강 목표 가중치를 동적으로 조정한다(초록 기준; 구체 수치 미명시).</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">JUMP-CP(Cell Painting) 데이터가 공개되면서 세포 형태를 약물 표현의 입력으로 쓰는 연구가 늘고 있다. PMRD는 "모달리티를 더 쌓으면 예측이 나아진다"는 단순 직관을 넘어, 어떤 정보가 약리적 기전을 반영하는지 명시적으로 분리한다는 점에서 방법론적으로 한 단계 앞서 있다. 다만 코드·구체 수치가 공개되지 않아 독립 재현이 아직 불가능하다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: 도메인 분리는 VAE/β-VAE 계열에서 콘텐츠-스타일 분리로 확립된 아이디어를 약물 멀티모달에 이식한 것이다. 핵심 가정: 다중 모달리티에 공통되는 잠재 인자가 약리 기전에 선택적으로 민감하다는 것. 배치 효과가 기전 신호를 덮으면 합의 도메인이 배치를 학습할 위험이 있다.</span> <span class="lens-item">🩺 Clinical: 직접 임상 연결 없음. 제로샷 예측 정확도가 실제 히트-투-리드(hit-to-lead) 과정에서의 유효성과 같은 뜻이 아니다.</span> <span class="lens-item">🏭 Industry: JUMP-CP·RxRx 등 멀티모달 약물 프로파일링 데이터를 대규모로 수집한 Recursion Pharmaceuticals·Insitro가 직접 이해관계자다(추정). KDD 2026 채택이 방법론 신뢰도를 높인다.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">in silico (공개 약물 특성 예측 벤치마크)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#4</span>
+            
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">4. SCTA: 단일세포 RNA 시퀀싱에서 안정적이고 해석 가능한 표적 유전자 발굴을 위한 에이전트 프레임워크</h3>
+          <p class="text-[13px] text-gray-500 mb-3">저자: Shuyu Chen, Chen Zhu, Ye Zhang, Yang Li, Qiqi Xie, Haohan Wang | 소속 기관 미확인</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">scRNA-seq는 이질적 세포 상태와 희귀 하위집단을 포착하지만, 전처리·세포 집단 선택·차등 발현 분석 각 결정점에서 분석 선택에 민감해 재현성이 낮다. SCTA(Single-Cell Target Agent)는 단일 범용 에이전트 대신 파이프라인 결정점마다 전문 에이전트(cell-type triage, candidate filtering, evidence aggregation)를 배치하고 구조화된 생물학적 증거로 추론을 제약한다. 표적 우선순위화를 단일 실행 그럴듯함 대신 교차 실행 안정성으로 평가한다. 유전성 만성 췌장염 절제 연구 데이터에서 전체 증거 통합 시 독립 실행 간 안정적인 표적 선택과 선행 연구에서 검증된 생물학적 일관 기전을 회복했다(초록 기준; 구체 수치 미명시).</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">"안정적으로 발굴된 표적"이 "올바른 표적"과 같은 뜻은 아니다. 재현성이 높아져도 생물학적 유효성은 별도 검증이 필요하다. 그러나 표적 발굴의 재현성 자체가 암묵적 블랙박스로 남겨져 있었다는 점에서 이 방향은 공학적으로 의미 있는 첫걸음이다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: 파이프라인 결정점 분해가 각 에이전트 설계에 데이터별 적합성을 요구한다. 핵심 가정: 전문 에이전트 분해가 각 결정점의 불확실성을 독립적으로 제어 가능하다는 것. 깨지면 안정적으로 틀릴(consistently wrong) 위험이 있다.</span> <span class="lens-item">🩺 Clinical: 임상 직접 연결 없음. 표적 발굴 품질이 높아져도 전임상·임상 개발이라는 독립 관문이 남는다.</span> <span class="lens-item">🏭 Industry: 제약사 내부 표적 발굴의 재현성은 조용한 병목이다. 코드 공개와 대형 데이터셋 검증이 선행되면 Recursion·Altos Labs 등의 내부 파이프라인 개선 도구로 검토 가능하다(추정).</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">in silico (scRNA-seq 공개 데이터셋</span> <span class="badge badge-other ">워크숍 논문)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#5</span>
+            
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">5. 다중모달 입력을 갖춘 자기회귀 EHR 파운데이션 모델</h3>
+          <p class="text-[13px] text-gray-500 mb-3">저자: Yuxuan Liu, Joshua Placidi, Jinpei Han, Alfred John Balston, Marek Rei, A. Aldo Faisal | Imperial College London</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">자기회귀 EHR 파운데이션 모델은 토크나이즈된 전자건강기록으로 훈련해 제로샷 임상 예측을 지원하지만, 대부분 구조화 이벤트 코드만 사용하고 ECG·영상·노트 등 다중 모달리티를 원칙적으로 통합하지 못한다. 이 연구는 모달리티별 잠재 압축(latent compression)과 게이트 교차 어텐션(gated cross-attention)으로 ECG 파형·흉부 X선·임상 노트를 시간 정렬하여 자기회귀 EHR 모델에 조건화하는 프레임워크를 제안하고, (1) 긴 모달리티별 시퀀스의 압축 방법, (2) 각 모달리티의 사전 훈련 인코더 선택이라는 두 핵심 설계 선택지를 체계적으로 비교한다. MIMIC-IV 제어 절제 실험에서 최적 잠재 압축이 비압축 교차 어텐션과 평균 풀링 모두를 상회했다(초록 기준; 구체 AUC 수치 미명시).</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">구조화 EHR의 자기회귀 모델링(GPT-계열)은 Next Token Prediction이 임상 시퀀스에서 자연스럽게 작동하지만, 실제 임상 현장의 데이터는 언제나 텍스트+파형+영상의 혼합이다. 이 연구는 그 간극을 좁히는 설계를 체계적으로 비교했다는 점에서 임상 ML의 실용적 확장선이다. 다만 후향 단일기관(MIMIC-IV) 검증이므로 다기관 일반화는 별도 검증이 필요하다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: 게이트 교차 어텐션이 각 시간 스텝에서 해당 시점 비정형 데이터를 선택적으로 참조하도록 설계된다. 잠재 압축은 긴 ECG 파형이나 X선 이미지 패치를 EHR 토큰 시퀀스에 연결할 때 연산 부담을 제어한다. 핵심 가정: 모달리티별 사전 훈련 인코더가 임상 EHR 도메인에서도 충분히 의미 있는 표현을 추출한다는 것.</span> <span class="lens-item">🩺 Clinical: 이번 주 논문 중 임상과 가장 가까운 위치. MIMIC-IV 임상 데이터를 직접 활용한 후향 검증이 이뤄졌다. 다중모달 EHR 모델이 단순 구조화 데이터 모델보다 유의미하게 나은지 확인하는 실용적 물음에 답한다. 다기관 전향 검증과 공정성 하위집단 분석이 임상 배포 전 필수 단계다.</span> <span class="lens-item">🏭 Industry: Tempus·Flatiron Health·Epic 등 EHR 분석 기업과 임상 AI 플랫폼이 이해관계자다(추정). 다중모달 EHR 모델링의 설계 결정 기준을 체계화한 점이 내부 모델 개발 방향 설정에 참고가 된다.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">후향 (MIMIC-IV 임상 데이터베이스)</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Deep Dive</h2>
+      <div class="mb-6">
+        <h3 class="text-[16px] font-bold text-gray-800 mb-4">CENO와 Vilya-2: 게놈에서 분자 계면까지, 설계 공간의 확장</h3>
+        <div class="space-y-3">
+          <p class="text-[15px] text-gray-800 leading-relaxed">이번 주 가장 주목할 두 논문은 분자 생물학의 서로 다른 레이어에서 기존 방법이 손대지 못한 영역을 직접 공략한다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed"><strong>CENO의 도전</strong> — DNA 언어 모델은 Evo, Nucleotide Transformer 등 이미 수십억 파라미터 규모로 발전했지만, 긴 게놈 서열 이해·VEP·조절 서열 생성을 하나의 자기회귀 모델로 통합하는 시도는 드물었다. CENO는 Mamba의 선형 복잡도가 긴 DNA를 처리하는 문제를 다루고, MoE가 태스크별 전문화를 지원하는 이중 구조를 취한다. 그리고 다중 종 MSA 사후 훈련이 단일 종 훈련보다 진화적 제약이 약한 비코딩 조절 영역의 기능적 시그널을 강화한다는 가설 위에 설계됐다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">이 설계가 유효하다면, CENO는 희귀 유전 변이 해석과 맞춤 조절 서열 설계라는 두 병목을 동시에 건드린다. 특히 유전자 요법의 페이로드 설계나 CRISPRi 표적 선정에서 규제 서열 생성 능력이 요구되는 상황과 직접 연결된다(해석: 원문 밖 적용 추론). 코드 전체 공개는 이 가설을 직접 검증할 수 있는 기반을 제공한다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed"><strong>Vilya-2의 도전</strong> — AlphaFold2/3 기반 공동-폴딩 모델들이 표준 단백질-단백질, 단백질-소분자 계면에서 성과를 거두는 동안, 비정규 잔기·거대고리·이황화 결합 스테이플을 포함하는 펩타이드 치료제의 수용체 계면은 독특한 화학적 복잡성 때문에 동일 파이프라인으로 처리하기 어려웠다. Vilya-2의 전원자 표현은 FASTA 시퀀스로 표현할 수 없는 비정규 화학을 그래프/좌표 수준에서 직접 모델링한다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">59.1% sub-2Å 회복률이라는 수치 자체보다 중요한 것은, 이 모델이 훈련에서 보지 못한 거대고리와 미니단백질까지 일반화된다고 주장한다는 점이다. 이 일반화 주장이 독립 재현으로 확인된다면, 비정규 펩타이드 SBDD(structure-based drug design) 워크플로가 실질적으로 열린다(추정: Riptides 벤치마크 독립 재현 후 확인 필요).</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">두 논문 모두 공개 코드나 벤치마크를 제공한다는 점에서 커뮤니티 검증 경로가 열려 있다. 성능 수치가 구체적으로 명시된 정도는 Vilya-2(59.1% sub-2Å)가 CENO보다 높다. 두 연구 모두 독립 재현 전까지는 주장의 크기를 잠정적으로 유지해야 한다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">🔭 Wide Angle</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm px-6 py-2">
+        <div class="flex items-start gap-3 py-4 border-b border-gray-100 last:border-0">
+          <div class="flex-1">
+            <p class="text-[15px] font-semibold text-gray-900 mb-1">W1. Q-Steer: 분자 정책 최적화를 위한 행동-가치 유도 <span class="badge badge-preprint ">preprint</span></p>
+            <p class="text-[14px] text-gray-700 leading-relaxed">arXiv:2607.26391 · 2026-07-29. SMILES 분자 최적화의 지연 피드백 문제를 오프라인 PAVS-Q로 해결. 파인튜닝 없이 기존 분자 LM에 래핑 가능한 추론-시점 조향 방식. 2개 백본 × 4개 옵티마이저 8가지 조합에서 일관된 개선 보고(초록 기준; +0.033~+0.049 매크로 평균은 arXiv 검색 요약 기준, 원문 직접 확인 권장). PMO23 벤치마크 활용. in silico.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 py-4 border-b border-gray-100 last:border-0">
+          <div class="flex-1">
+            <p class="text-[15px] font-semibold text-gray-900 mb-1">W2. 딥러닝이 단일세포 클러스터링에 도움이 되는 조건은? <span class="badge badge-preprint ">preprint</span></p>
+            <p class="text-[14px] text-gray-700 leading-relaxed">arXiv:2607.25288 · ISRSD 2026 채택 · 2026-07-28. 9개 파이프라인 × 10개 데이터셋(세포 수 90~5,685개, 유전자 수 19,046~41,480개, 세포 유형 4~11종)에서 Sobol 전체차수 민감도 분석·TOST 등가성 검정 조합으로 딥 표현 학습이 PCA를 유의미하게 상회하는 조건을 처음 정량화. 세포 수 상한 5,685개로 대용량 아틀라스 규모는 포함하지 않는다. in silico.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 py-4 border-b border-gray-100 last:border-0">
+          <div class="flex-1">
+            <p class="text-[15px] font-semibold text-gray-900 mb-1">W3. FEV 프레임워크: 기능·증거·검증을 통한 에이전트 바이오인포매틱스 평가 <span class="badge badge-preprint ">preprint</span></p>
+            <p class="text-[14px] text-gray-700 leading-relaxed">arXiv:2607.27556 · 2026-07-30. 에이전트 바이오인포매틱스 109개 시스템·28개 벤치마크 포괄 리뷰. Function·Evidence·Validation 3축으로 LLM 에이전트의 과학적 신뢰성 평가 프레임워크 제시. 워크플로 아키텍처나 최종 출력 대신 검사 가능한 궤적을 분석 단위로 삼는다. 리뷰 논문.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Threads to Follow</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <ul class="space-y-3 list-disc list-inside">
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>게놈 스케일 DNA 세계 모델</strong>: CENO → 이전 Evo-1/Evo-2, Nucleotide Transformer, HyenaDNA. 게놈 파운데이션 모델이 VEP와 기능 서열 생성을 단일 모델로 통합하는 방향이 가속되고 있다. 다음 체크포인트: TraitGym 독립 재현 결과.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>비정규 펩타이드 구조 기반 설계</strong>: Vilya-2 → RFdiffusion, AlphaFold3, BindCraft. 소분자에서 시작한 구조 기반 신약 설계 도구들이 거대고리·비천연 잔기 펩타이드 모달리티로 확장되는 흐름. Riptides 벤치마크가 공통 평가 기준 역할을 할 수 있다.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>세포 반응 기반 멀티모달 약물 표현</strong>: PMRD → JUMP-CP·RxRx 데이터 생태계. Cell Painting 데이터를 활용한 멀티모달 약물 표현이 화학 구조 단독 예측보다 일관되게 우월한지에 대한 증거가 누적되는 중. 다음 체크포인트: 코드 공개 후 CMAP 재현.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>scRNA-seq 표적 발굴의 재현성 위기</strong>: SCTA → FEV 프레임워크의 에이전트 바이오인포 신뢰성 논의. 단일 실행 타당성에서 교차 실행 안정성으로 평가 기준이 이동하는 추세가 SCTA에서 처음 명시됐다. 이 기준 전환이 표준화될지 주목.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>다중모달 EHR 파운데이션 모델의 설계 선택</strong>: EHR FM → ETHOS, NYUTron 계열. 구조화 EHR 자기회귀 모델이 다중 모달리티를 통합하는 방식(교차 어텐션 vs. 얼리 퓨전 vs. 레이트 퓨전)에 대한 체계적 비교가 이제 시작됐다. MIMIC-IV 이외 코호트 재현이 다음 단계다.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>에이전트 바이오인포매틱스의 과학적 책임</strong>: FEV 프레임워크 → SCTA의 재현성 설계. LLM 에이전트가 생물학 분석을 수행할 때 그 신뢰성을 어떻게 평가하느냐는 표준이 없다. FEV가 제시하는 궤적 기반 감사가 커뮤니티 기준으로 자리 잡을지 주목할 만하다.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Sources</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <ul class="space-y-2 text-[13.5px]">
+              <li><a href="https://www.biorxiv.org/content/10.64898/2026.07.28.741284" class="text-indigo-600 underline" target="_blank">DOI:10.64898/2026.07.28.741284 — CENO 게놈 스케일 세계 모델 (bioRxiv)</a></li>
+              <li><a href="https://github.com/CladeTeam/CENO" class="text-indigo-600 underline" target="_blank">github.com/CladeTeam/CENO — CENO 코드 (오픈소스)</a></li>
+              <li><a href="https://arxiv.org/abs/2607.25156" class="text-indigo-600 underline" target="_blank">arXiv:2607.25156 — Vilya-2 분자 계면 확산 트랜스포머</a></li>
+              <li><a href="https://github.com/VilyaPublic/Riptides" class="text-indigo-600 underline" target="_blank">github.com/VilyaPublic/Riptides — Riptides 벤치마크 (Vilya-2)</a></li>
+              <li><a href="https://arxiv.org/abs/2607.25322" class="text-indigo-600 underline" target="_blank">arXiv:2607.25322 — PMRD 다중모달 제로샷 약물 표현</a></li>
+              <li><a href="https://arxiv.org/abs/2607.23821" class="text-indigo-600 underline" target="_blank">arXiv:2607.23821 — SCTA 에이전트 표적 발굴</a></li>
+              <li><a href="https://arxiv.org/abs/2607.22264" class="text-indigo-600 underline" target="_blank">arXiv:2607.22264 — EHR FM 다중모달 자기회귀 파운데이션 모델</a></li>
+              <li><a href="https://arxiv.org/abs/2607.26391" class="text-indigo-600 underline" target="_blank">arXiv:2607.26391 — Q-Steer 분자 정책 최적화 (와이드)</a></li>
+              <li><a href="https://arxiv.org/abs/2607.25288" class="text-indigo-600 underline" target="_blank">arXiv:2607.25288 — 단일세포 클러스터링 민감도 벤치마크 (와이드)</a></li>
+              <li><a href="https://arxiv.org/abs/2607.27556" class="text-indigo-600 underline" target="_blank">arXiv:2607.27556 — FEV 에이전트 바이오인포매틱스 프레임워크 (와이드)</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="border-t border-gray-200 pt-8 pb-10 text-center">
+      <p class="text-sm text-gray-500 mt-4">paper-radar · 2026-W31</p>
+      <p class="text-xs text-gray-400 mt-1">바이오인포·임상ML·신약AI 논문 주간 요약. preprint 분석 포함.</p>
+    </footer>
+  </div>
+</body>
+</html>
