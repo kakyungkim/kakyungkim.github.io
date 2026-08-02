@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🧭 econ-radar 동향 리포트 · 2026-W31</title>
+<style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+:root{--ink:#1e293b;--indigo:#4338ca;--indigo-deep:#3730a3;--soft:#eef2ff;--line:#c7d2fe;--muted:#64748b;--pop:#c026d3;}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Pretendard',-apple-system,'Noto Sans KR',sans-serif;color:var(--ink);background:#f6f7fb;margin:0;line-height:1.78;font-size:16px;}
+.wrap{max-width:780px;margin:0 auto;padding:30px 20px 80px;}
+.head{background:linear-gradient(135deg,#4f46e5,#3730a3);color:#eef2ff;border-radius:18px;padding:26px 28px;margin-bottom:28px;box-shadow:0 12px 40px rgba(49,46,129,.28);}
+.head .kicker{font-size:13px;letter-spacing:.08em;color:#c7d2fe;font-weight:700;}
+.head h1{font-size:25px;margin:8px 0 6px;line-height:1.35;color:#fff;}
+.head .range{font-size:14px;color:#c7d2fe;}
+.tags{margin-top:12px;}
+.tags span{display:inline-block;font-size:12px;background:rgba(255,255,255,.14);color:#e9d5ff;border-radius:999px;padding:2px 11px;margin:3px 4px 0 0;}
+h2{color:var(--indigo);font-size:21px;margin:34px 0 12px;padding-bottom:8px;line-height:1.4;background:linear-gradient(90deg,var(--indigo) 0,var(--pop) 44px,var(--line) 44px) bottom left/100% 3px no-repeat;}
+h2[id]{scroll-margin-top:74px;}
+h3{color:var(--indigo-deep);font-size:17px;margin:22px 0 8px;}
+p{margin:10px 0;}
+strong{color:var(--indigo-deep);}
+a{color:var(--indigo);text-decoration:none;border-bottom:1px solid var(--line);}
+a:hover{background:var(--soft);}
+ul{margin:10px 0;padding-left:20px;} li{margin:7px 0;}
+blockquote{border-left:4px solid var(--line);background:#fff;margin:12px 0;padding:10px 16px;border-radius:0 10px 10px 0;color:var(--muted);font-size:14px;}
+blockquote a{border:none;color:var(--muted);}
+.tablewrap{overflow-x:auto;margin:14px 0;-webkit-overflow-scrolling:touch;}
+table{border-collapse:collapse;width:100%;font-size:14px;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 18px rgba(67,56,202,.08);}
+th{background:linear-gradient(90deg,var(--indigo),#6d28d9);color:#fff;text-align:left;padding:11px 13px;font-weight:700;}
+td{padding:10px 13px;border-bottom:1px solid #eef0f7;vertical-align:top;}
+tr:nth-child(even) td{background:#fafbff;}
+hr{border:none;border-top:1px solid var(--line);margin:26px 0;}
+.back{display:inline-block;margin-bottom:18px;font-size:14px;color:var(--indigo);border:none;}
+/* 섹션 점프 목차 — 스크롤해도 상단 고정(데일리와 동일 스타일) */
+.toc{position:sticky;top:8px;z-index:40;display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 30px;padding:12px 16px;background:rgba(255,255,255,0.96);backdrop-filter:saturate(180%) blur(6px);border:1.5px solid var(--line);border-radius:14px;box-shadow:0 6px 22px rgba(67,56,202,0.16);}
+.toc .toc-label{font-size:13px;font-weight:800;color:var(--indigo);margin-right:4px;}
+.toc a{position:relative;font-size:12px;font-weight:600;padding:5px 12px;border-radius:999px;background:#eef2ff;color:var(--indigo);border:1px solid var(--line);text-decoration:none;transition:background .15s,color .15s;}
+.toc a:hover{background:var(--indigo);color:#fff;}
+.toc a[data-tip]::after{content:attr(data-tip);position:absolute;left:0;top:calc(100% + 9px);width:max-content;max-width:260px;white-space:normal;background:#1e293b;color:#fff;font-size:12px;font-weight:500;line-height:1.5;letter-spacing:0;padding:8px 11px;border-radius:9px;box-shadow:0 8px 22px rgba(15,23,42,0.28);opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .15s,transform .15s;pointer-events:none;z-index:60;}
+.toc a[data-tip]::before{content:"";position:absolute;left:16px;top:calc(100% + 3px);border:6px solid transparent;border-bottom-color:#1e293b;opacity:0;visibility:hidden;transition:opacity .15s;z-index:60;}
+.toc a[data-tip]:hover::after,.toc a[data-tip]:hover::before{opacity:1;visibility:visible;transform:translateY(0);}
+/* 맨 위로 버튼 */
+.to-top{position:fixed;right:18px;bottom:18px;width:44px;height:44px;border-radius:50%;background:var(--indigo);color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:20px;line-height:1;border:none;box-shadow:0 4px 16px rgba(67,56,202,0.42);z-index:50;transition:background .15s,transform .1s;}
+.to-top:hover{background:var(--indigo-deep);}
+.to-top:active{transform:scale(0.92);}
+/* 본문 끝 태그(footer 위) */
+.foottags{margin-top:34px;}
+.foottags span{display:inline-block;font-size:12px;background:var(--soft);color:var(--indigo-deep);border:1px solid var(--line);border-radius:999px;padding:3px 11px;margin:4px 5px 0 0;}
+.foot{margin-top:18px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);}
+@media(max-width:640px){body{font-size:15px;}.wrap{padding:18px 14px 60px;}.head{padding:20px;}.head h1{font-size:21px;}h2{font-size:19px;}h2[id]{scroll-margin-top:64px;}table{font-size:13px;}
+.toc{padding:8px 10px;gap:6px;margin:0 0 20px;}.toc .toc-label{font-size:11px;}.toc a{font-size:11px;padding:4px 10px;}.toc a[data-tip]::after,.toc a[data-tip]::before{display:none;}
+.to-top{width:40px;height:40px;right:12px;bottom:12px;font-size:18px;}}
+</style></head>
+<body><div class="wrap" id="top">
+<a class="back" href="/econ-radar/">← econ-radar 아카이브</a>
+<div class="head"><div class="kicker">WEEKLY · 주간 동향</div><h1>🧭 econ-radar 동향 리포트 · 2026-W31</h1><div class="range"></div></div>
+<nav class="toc" aria-label="섹션 바로가기"><span class="toc-label">📑 바로가기</span><a href="#sec-1" data-tip="지난 주를 관통한 핵심 메시지">핵심</a><a href="#sec-2" data-tip="흐름 1 · AI 인프라 수요 확인 → HBM 공급망 고착">흐름 1 ·</a><a href="#sec-3" data-tip="흐름 2 · FDA 단독군 임상 설계 기준 명문화 — 바이오 이진 이벤트 클러스터">흐름 2 ·</a><a href="#sec-4" data-tip="흐름 3 · AI 규제 다층화 + 모델 레이어 상품화 가속">흐름 3 ·</a><a href="#sec-5" data-tip="투자 관점 시사점">투자</a><a href="#sec-6" data-tip="수요(Demand) 시사점">수요(Dem</a><a href="#sec-7" data-tip="R&amp;D·전략 관점 노트">전략</a><a href="#sec-8" data-tip="다음 주 지켜볼 것">다음 주 지</a></nav>
+<p><strong>2026-07-27 ~ 2026-08-02</strong></p>
+<hr>
+<h2 id="sec-1">핵심 메시지 3가지</h2>
+<p>1. <strong>AI 수요가 공급망 전체를 끌어당겼다.</strong> 한-미 협약 → HBM4 양산 → 빅테크 어닝 → 한국 반도체 수출 역대 최고까지, 한 주 안에 수요가 공급망을 당기는 순서가 완성됐다. "수요 증거가 있으면 CapEx를 보상하고, 없으면 징벌한다"는 시장 기준도 이번 주 명확해졌다.</p>
+<p>2. <strong>단독군 임상 허가의 경계선이 같은 주에 그려졌다.</strong> Capricor deramiocel 9:3 부결과 Replimune RP1 10:3 찬성이 나란히 나왔다. 통계 계획서(SAP) 충돌이냐 미충족 수요 논거냐가 갈랐다. FDA가 단독군 설계를 허가할 조건이 이번 주만큼 구체적으로 드러난 적이 없었다.</p>
+<p>3. <strong>AI 산업 구조가 규제와 상품화 두 방향에서 동시에 재편됐다.</strong> EU AI Act GPAI 집행이 발효된 날, OpenAI는 API 가격을 80% 낮췄다. 규제는 모델을 제도 안에 가두고, 상품화는 모델의 마진을 바닥으로 밀어내는 중이다.</p>
+<hr>
+<h2 id="sec-2">흐름 1 · AI 인프라 수요 확인 → HBM 공급망 고착</h2>
+<p><strong>한 주 동안 수요가 공급망을 순서대로 확인했다.</strong></p>
+<p>7월 27일 한-미 정상이 $950B 규모 AI 칩 협력 협약에 서명했다. [[daily/2026-07-27]] 같은 날 Nvidia는 Naver에 $10억 지분 투자를 발표했다. 단순한 외교 이벤트가 아니라, 미국이 동맹국 AI 인프라를 묶어두는 공급망 정치가 본격화됐다는 신호였다.</p>
+<p>7월 29일 SK하이닉스가 Q2 실적을 내놓으며 HBM4 양산을 공식 확인했다. [[daily/2026-07-29]] 매출은 60조 5,426억 원으로 컨센서스를 5.4% 하회했지만, 시장이 집중한 건 HBM4 로드맵이었다. 수요가 이미 잡혀 있으니 생산을 시작한다는 구조다.</p>
+<p>7월 30일과 31일에 빅테크 어닝이 그 수요를 숫자로 뒷받침했다. Azure는 매출 $100B을 넘으며 +43% 성장했고, AWS는 18분기 만에 최고 성장률(+37%)을 기록했다. [[daily/2026-07-30]] [[daily/2026-07-31]] Meta와 Alphabet은 반대로 징벌받았다. 이번 주 시장이 학습한 기준: "AI 수요 증거가 있는 CapEx는 보상하고, 없는 CapEx는 벤다."</p>
+<p>8월 2일 한국 7월 수출이 $98.9B으로 역대 최고를 찍으며 마무리됐다. [[daily/2026-08-02]] 반도체 비중이 41%($41.01B, +178.8%)였다. HBM이 한국 수출 구조를 바꿔놓고 있다.</p>
+<p><strong>코스피 충격은 이 집중의 그림자였다.</strong> 7월 27일 CXMT 코스피 상장(-4%)이 AI 반도체 수급 경쟁에 균열을 예고했고, 28일 -10.84%(서킷브레이커), 29일 연속 서킷브레이커로 이틀 합산 -18%를 넘었다. [[daily/2026-07-28]] [[daily/2026-07-29]] 7월 31일 외국인이 7.25조 원을 사들이며 하루 +17.91%로 반등했다. [[daily/2026-07-31]] 수급이 하나의 섹터에 집중된 구조는 변동성의 진폭도 같이 키운다는 것을 이번 주가 증명했다.</p>
+<hr>
+<h2 id="sec-3">흐름 2 · FDA 단독군 임상 설계 기준 명문화 — 바이오 이진 이벤트 클러스터</h2>
+<p><strong>같은 주, 같은 AdCom 세팅에서 정반대 결과가 나왔다.</strong></p>
+<p>7월 30일 Capricor deramiocel(DMD 엑소좀 치료제)이 AdCom에서 9:3으로 부결됐다. [[daily/2026-07-30]] 전문가 패널이 문제 삼은 건 효능 데이터가 아니라 통계 계획서(SAP) 버전 충돌이었다. 허가 신청에 쓴 분석이 사전에 고정된 계획과 달랐고, 위원들은 이를 사후 조작 가능성으로 봤다. 치료제 자체의 가능성은 인정하면서도 부결한 이례적 케이스였다.</p>
+<p>7월 31일 Replimune RP1(종양용해바이러스 + PD-1, 흑색종)이 AdCom에서 10:3으로 찬성을 받았다. [[daily/2026-07-31]] RP1의 단독군 임상 데이터는 통계적으로 완벽하지 않았다. FDA와 패널이 찬성한 논거는 미충족 의료 수요였다. 기존 치료를 소진한 전이 흑색종 환자에게 선택지가 없다는 점이, 불완전한 통계를 넘어섰다. 8월 2일이 PDUFA 당일이었다. [[daily/2026-08-02]]</p>
+<p>두 케이스를 같이 놓으면 FDA의 단독군 허가 조건이 보인다: 통계 계획서는 사전에 고정돼 있어야 하고, 그 위에서 미충족 수요 논거를 쌓아야 한다. 계획서 결함이 있으면 수요 논거가 있어도 부결이다.</p>
+<p>Moderna mRNA-1010(mRNA 독감 백신)은 PDUFA가 8월 5일이다. [[daily/2026-07-27]] 이번 주 AdCom 이진 결과를 보면, 플루 백신의 기존 허가 기반 vs mRNA 플랫폼 신규성이 어떻게 충돌하는지가 다음 주 관전 포인트다.</p>
+<hr>
+<h2 id="sec-4">흐름 3 · AI 규제 다층화 + 모델 레이어 상품화 가속</h2>
+<p><strong>규제와 상품화가 같은 방향으로 밀었다 — AI 모델의 마진을 압박하는 방향으로.</strong></p>
+<p>7월 27일 중국 Moonshot AI가 Kimi K3를 공개했다. [[daily/2026-07-27]] 2.8조 파라미터 MoE 모델로, 오픈웨이트로 풀렸다. 파운데이션 모델이 오픈소스화되는 속도가 빨라지고 있다.</p>
+<p>7월 31일 OpenAI가 Luna API 가격을 80% 낮췄다. [[daily/2026-07-31]] 구독 모델이 아니라 API 레이어에서의 가격 전쟁이다.</p>
+<p>8월 2일 EU AI Act GPAI(범용 AI) 조항이 집행에 들어갔고, 같은 날 캘리포니아 SB 942가 시행됐다. [[daily/2026-08-02]] GPAI는 GPT-4급 이상 모델에 투명성·위험 평가·저작권 준수 의무를 부과한다. 두 규제가 같은 날 발효된 건 우연이 아니다 — AI 공급자들은 이제 미국 주법과 EU 연방법을 동시에 맞춰야 한다.</p>
+<p>규제가 모델 운영 비용을 올리는 방향이라면, 상품화는 모델 판매 단가를 낮추는 방향이다. 두 힘이 동시에 작용하면 모델 레이어의 마진은 좁아진다. 애플리케이션 레이어와 인프라 레이어(GPU, HBM)가 상대적으로 유리해지는 구조다.</p>
+<hr>
+<h2 id="sec-5">투자 시사점</h2>
+<p><strong>HBM 공급망 집중 리스크는 확인됐다.</strong> SK하이닉스·삼성전자가 AI 메모리 수요를 독점에 가깝게 가져가고 있지만, 이번 주 코스피 -18% 충격이 보여준 것처럼 수급 쏠림은 양방향으로 움직인다. 한국 반도체 수출 $41B, +178.8%가 지속 가능한지는 CXMT 같은 중국 경쟁자의 진입 속도에 달렸다.</p>
+<p><strong>빅테크 CapEx 선별이 이번 주부터 기준이 생겼다.</strong> "AI 수요 증거 있는 CapEx는 보상, 없으면 징벌"이 어닝 시즌을 통해 시장에 학습됐다. MS Azure와 AWS는 보상받았고, Meta와 Alphabet은 징벌받았다. 다음 분기 CapEx 발표 때 이 기준이 반복 적용될 가능성이 높다.</p>
+<p><strong>FOMC 매파 + 스태그플레이션 경고는 계속된다.</strong> 7월 29일 FOMC 5회 연속 동결이었지만, Warsh 의장은 매파 기자회견에서 9월 인상을 시사했다. [[daily/2026-07-29]] Q2 GDP +1.5%, PCE +5.1%는 스태그플레이션 조합이다. [[daily/2026-07-31]] 이탈표가 3명이었다. [[daily/2026-07-30]] 금리 인상이 현실화되면 성장주, 바이오, 신흥시장 전반에 압박이 온다.</p>
+<hr>
+<h2 id="sec-6">수요(Demand) 시사점</h2>
+<p><strong>GLP-1 경구제가 대중화 임계점을 넘었다.</strong> 8월 2일부터 GLP-1 경구제가 Medicare $50/월 급여에 포함됐다. [[daily/2026-08-02]] 비만 치료제의 접근성 장벽이 낮아지는 구조적 전환이다. 보험 적용이 확대될수록 처방 볼륨이 커지고, 제약사 입장에서는 단가 압박과 볼륨 증가가 동시에 온다. Eli Lilly, Novo Nordisk의 경구 파이프라인 진행 속도가 중요해졌다.</p>
+<p><strong>단독군 바이오 치료제의 수요자 논리가 규제 결정에 영향을 미쳤다.</strong> RP1 찬성 논거("기존 치료 소진한 전이 흑색종 환자에게 선택지 없음")는 환자·처방의·지불자 세 수요자의 미충족 수요를 한꺼번에 표현한 것이다. FDA AdCom이 수요자 논리를 받아들였다는 점은, 미충족 수요가 큰 희귀·난치 영역에서 통계적으로 불완전한 단독군 임상도 허가 경로가 열릴 수 있다는 의미다.</p>
+<p><strong>AI 모델 수요자(기업·개발자)는 가격 인하의 직접 수혜자다.</strong> OpenAI Luna 80% 인하와 Kimi K3 오픈웨이트 공개는 API 수요자에게 유리한 환경을 만들었다. 규제 비용이 모델 공급자에게 전가되면 수요자 부담은 낮아진다.</p>
+<hr>
+<h2 id="sec-7">전략 노트</h2>
+<p>*R&amp;D 의사결정 관점에서 이번 주 재료를 보면:*</p>
+<p>FDA AdCom 두 케이스(Capricor 부결, RP1 찬성)는 단독군 임상 설계에서 사전 통계 계획서(SAP) 고정의 중요성을 재확인했다. 단독군을 선택할 때 SAP를 임상 시작 전에 FDA와 함께 확정해두는 것이 허가 리스크를 낮추는 가장 직접적인 방법이다.</p>
+<p>AI 규제 다층화(EU GPAI + CA SB 942)는 AI 기반 신약 플랫폼을 운용하는 R&amp;D 조직에도 적용된다. 내부 AI 모델이 GPAI 기준 파라미터 규모에 해당하면 투명성·위험 평가 의무가 생긴다. 적용 범위 확인이 필요하다.</p>
+<p>GLP-1 급여 확대와 mRNA 플랫폼의 독감 허가 심사(8/5)는 플랫폼 기술의 규제 경로가 실적으로 증명되는 국면이다. 모달리티 선택의 기준이 "기술 가능성"에서 "규제·보험 현실성"으로 이동하고 있다.</p>
+<hr>
+<h2 id="sec-8">다음 주 지켜볼 것</h2>
+<div class="tablewrap"><table><thead><tr><th>이벤트</th><th>날짜</th><th>포인트</th></tr></thead><tbody><tr><td>Moderna mRNA-1010 PDUFA</td><td>2026-08-05</td><td>mRNA 플랫폼 첫 독감 허가 여부, 단독군 논거 vs 기존 표준 충돌</td></tr><tr><td>RP1 최종 허가 결정</td><td>2026-08-02 이후</td><td>PDUFA 당일 후 FDA 공식 발표 확인</td></tr><tr><td>FOMC 의사록 공개</td><td>2026-08-중순 예정</td><td>이탈표 3명의 근거, 9월 인상 구체화 여부</td></tr><tr><td>CXMT 코스피 상장 후 HBM 가격 동향</td><td>지속</td><td>중국 메모리 경쟁자 실질 생산 진입 속도</td></tr><tr><td>EU AI Act GPAI 첫 집행 사례</td><td>발효 이후</td><td>어느 모델이 첫 번째 조사 대상이 되는지, 처벌 기준 구체화</td></tr><tr><td>빅테크 Q3 CapEx 가이던스</td><td>어닝 시즌</td><td>"수요 증거 있는 CapEx" 기준 유지 여부</td></tr></tbody></table></div>
+<hr>
+<p>*자동 생성 · econ-radar trend-synthesizer · 2026-08-02*</p>
+
+<div class="foot">econ-radar 주간 동향 · 매일의 분석을 한 주 흐름으로 엮은 리포트. 투자·기업 언급은 정보·시나리오이며 매수·매도 권유가 아닙니다.</div>
+</div>
+<a href="#top" class="to-top" aria-label="맨 위로" title="맨 위로">&uarr;</a>
+</body></html>
