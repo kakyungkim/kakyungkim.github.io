@@ -12,8 +12,6 @@ excerpt: "Can an LLM stand in for an expert judge? I tested it on public data, m
 
 {% include lang-switch.html %}
 
-Hi, I'm Kakyung Kim, a data scientist working in biotech.
-
 I'm in a GPTers study group on reviewing AI output. Here's what I did in week one: I borrowed someone else's tool wholesale, and used the time it saved to re-measure a number another paper had published.
 
 ## The problem
@@ -100,7 +98,7 @@ When I signed up, my question was how to trust what an AI produces. After week o
 - I've asked the original authors for the full appendix data. With all 78 expert scores I can rerun the experiment properly instead of on a sample of eight.
 - I plan to run three different models as independent judges on a fixed rubric and measure how much they agree, to check whether one model's quirks are driving the result.
 
-[The next post](/en/2026/08/05/checking-my-own-manuscript/) covers what happened when I ran this on **my own manuscript**. In a paper about building a system that refuses to fabricate evidence, I found 27 numbers whose evidence I couldn't trace.
+[The next post](/en/2026/08/06/checking-my-own-manuscript/) covers what happened when I ran this on **my own manuscript**. In a paper about building a system that refuses to fabricate evidence, I found 27 numbers whose evidence I couldn't trace.
 
 ---
 
