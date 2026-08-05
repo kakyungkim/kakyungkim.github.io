@@ -58,7 +58,16 @@ Worth unpacking. At 1 the nine experts ranked everything identically; at 0 they 
 
 I missed my 0.70 target. But 0.642 is **86% of the human ceiling**.
 
-**Four, check the gap the paper claimed.** The same paper argued that public databases hold almost no negative results. I searched PLOS and PubMed for 50 negative-result papers on drug repurposing and **couldn't reach it.** I reproduced their claim with my own search.
+**Four, check the gap the paper claimed.** The same paper argued that public databases hold almost no negative results. I searched PLOS and PubMed six different ways.
+
+| Source | Query | Hits |
+|---|---|---|
+| PLOS | `drug repurposing` + `negative result` | 248 (raw) |
+| PLOS | strict filter (repurposing proper) | ~30 |
+| PubMed | `"Negative Results"[pt] AND "Drug Repositioning"[MeSH]` | **0** |
+| PubMed | `"drug repurposing"[tiab] AND (negative result*)` | 68 |
+
+Together that's roughly **50 to 60** strict negative-result papers, which just clears the target. It cleared, but not easily. It took six separate queries, and **the standard classification field returned zero**. The publication type "Negative Results" exists in PubMed, and almost nobody tags anything with it. The collection process itself demonstrated the gap the paper described.
 
 ## What I learned
 
@@ -66,10 +75,13 @@ I missed my 0.70 target. But 0.642 is **86% of the human ceiling**.
 
 I examined the rubric itself to see which dimensions actually tracked the experimental outcome.
 
-| Criterion | r | p |
-|---|---|---|
-| Grounding | 0.707 | 0.050 |
-| The other four | not significant | |
+| Criterion | r_pb | p | Reading |
+|---|---|---|---|
+| **Grounding** | **0.707** | **0.050** | the only significant one |
+| Specificity | 0.500 | 0.207 | right direction |
+| Non-triviality | 0.302 | 0.468 | right direction |
+| Novelty | **0.000** | 1.000 | **no discrimination at all** |
+| Feasibility | **-0.146** | 0.730 | **runs backwards** |
 
 Hypotheses with solid literature support also worked in the lab. Feasibility ran backwards: drugs withdrawn from market score low on feasibility, but withdrawal is often about side effects or economics rather than efficacy, so they can still work in a dish.
 
