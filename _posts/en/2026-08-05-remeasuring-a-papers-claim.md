@@ -107,7 +107,7 @@ When I signed up, my question was how to trust what an AI produces. After week o
 
 ## Next
 
-- I've asked the original authors for the full appendix data. With all 78 expert scores I can rerun the experiment properly instead of on a sample of eight.
+- I plan to ask the original authors for the full appendix data. With all 78 expert scores I could rerun the experiment properly instead of on a sample of eight. The email is drafted but not yet sent.
 - I plan to run three different models as independent judges on a fixed rubric and measure how much they agree, to check whether one model's quirks are driving the result.
 
 [The next post](/en/2026/08/06/checking-my-own-manuscript/) covers what happened when I ran this on **my own manuscript**. In a paper about building a system that refuses to fabricate evidence, I found 27 numbers whose evidence I couldn't trace.
