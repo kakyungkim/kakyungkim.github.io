@@ -44,9 +44,11 @@ Four steps.
 
 **Two, turn the top seven into notes.** One rule: nothing goes in without a source. An LLM summary reads smoothly, which is exactly the problem — smooth prose is hard to audit. So every claim had to carry a page or figure number.
 
-This is where the baseline came from. The paper's appendix contained nine experts scoring the same hypotheses, and their **agreement with each other was Spearman ρ = 0.745**.
+This is where the baseline came from. The paper's appendix records nine board-certified hematologists and oncologists **split into two groups**, scoring 78 hypotheses, with **agreement between the two groups at Spearman ρ = 0.745** (p < 0.001).
 
-Worth unpacking. At 1 the nine experts ranked everything identically; at 0 they were unrelated. So 0.745 is strong but imperfect. **The key point is that this is a ceiling.** If humans only agree with each other at 0.745, an LLM in the same seat can't meaningfully exceed it.
+Worth unpacking. At 1 the two groups ranked everything identically; at 0 they were unrelated. So 0.745 is strong but imperfect. **The key point is that this is a ceiling.** If humans only agree with each other at 0.745, an LLM in the same seat can't meaningfully exceed it.
+
+One caveat worth stating: this is agreement *between groups*, not between individuals. And the paper does not say **how the nine raters were split, nor how scores were combined within a group** — not the sizes, not the basis for the split, not whether both groups rated all 78 hypotheses. That matters. Averaging within a group cancels individual noise and pushes the figure up; consensus pushes it up further; splitting the 78 between groups would mean the correlation was computed on an overlap of unknown size. **Whether 0.745 can serve as a ceiling depends on which of these it was.** I use it as a reference point, not as a settled ceiling.
 
 **Three, put the LLM in the judge's chair.** It scored hypotheses on five criteria: novelty, feasibility, specificity, non-triviality, grounding. The subjects were eight drugs evaluated for repurposing in acute myeloid leukemia, and I compared the scores against the wet-lab results in the paper.
 
@@ -54,7 +56,7 @@ Worth unpacking. At 1 the nine experts ranked everything identically; at 0 they 
 |---|---|---|---|
 | LLM scores vs wet-lab (binary) | 8 | 0.447 | 0.267 |
 | LLM scores vs wet-lab (continuous) | 11 | 0.642 | 0.033 |
-| Human-to-human ceiling | 78 | 0.745 | < 0.001 |
+| Between the two expert groups | 78 | 0.745 | < 0.001 |
 
 I missed my 0.70 target. But 0.642 is **86% of the human ceiling**.
 
