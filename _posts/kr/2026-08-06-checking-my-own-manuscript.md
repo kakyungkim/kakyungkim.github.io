@@ -1,18 +1,16 @@
 ---
 layout: single
 title: "지어내지 말라고 만든 시스템의 논문을, 그 규칙으로 검사했습니다"
-date: 2026-08-05 18:00:00 +0900
+date: 2026-08-06 09:00:00 +0900
 lang: kr
 ref: checking-my-own-manuscript
 categories: [AI & Tooling]
 tags: [Claude Code, AI Agents, 재현성, 논문검수, 하네스, GPTers]
-permalink: /kr/2026/08/05/checking-my-own-manuscript/
+permalink: /kr/2026/08/06/checking-my-own-manuscript/
 excerpt: "원고에 적힌 숫자 120개를 저장된 실험 결과와 대조했습니다. 27개는 어디서 나온 값인지 추적할 수 없었습니다."
 ---
 
 {% include lang-switch.html %}
-
-안녕하세요. 바이오텍에서 데이터 분석하는 김가경입니다.
 
 [앞선 글](/kr/2026/08/05/remeasuring-a-papers-claim/)에서 남의 논문이 내놓은 숫자를 재봤습니다. 그러면서 질문이 하나 생겼습니다. 남의 숫자를 재보는 방법을 익혔으면 내 숫자도 같은 방법으로 재봐야 하지 않을까.
 

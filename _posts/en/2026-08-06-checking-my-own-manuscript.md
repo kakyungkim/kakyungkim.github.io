@@ -1,18 +1,16 @@
 ---
 layout: single
 title: "I Checked My Own Manuscript With Its Own Rule"
-date: 2026-08-05 18:00:00 +0900
+date: 2026-08-06 09:00:00 +0900
 lang: en
 ref: checking-my-own-manuscript
 categories: [AI & Tooling]
 tags: [Claude Code, AI Agents, Reproducibility, Manuscript Review, Harness, GPTers]
-permalink: /en/2026/08/05/checking-my-own-manuscript/
+permalink: /en/2026/08/06/checking-my-own-manuscript/
 excerpt: "I reconciled all 120 numbers in my manuscript against committed results. For 27 of them I couldn't trace where the value came from."
 ---
 
 {% include lang-switch.html %}
-
-Hi, I'm Kakyung Kim, a data scientist working in biotech.
 
 [In the previous post](/en/2026/08/05/remeasuring-a-papers-claim/) I re-measured a number from someone else's paper. That left me with a question: if I've learned how to re-measure someone else's number, shouldn't I run the same check on my own?
 
