@@ -126,6 +126,7 @@ ul,ol{margin:0;padding:0;list-style:none}
   transition:color .18s ease,border-color .18s ease;
 }
 .masthead nav a:hover{color:var(--ink);border-bottom-color:var(--accent)}
+.masthead nav a.nav-cv{color:var(--ink)}   /* 내려받기 항목은 한 톤 밝게 — 섹션 링크와 구분 */
 .nav-hide-sm{display:inline}
 
 .langtoggle,.themetoggle{
@@ -341,6 +342,7 @@ html{scroll-behavior:smooth}
   }
   .masthead nav::-webkit-scrollbar{display:none}
   .masthead nav a{white-space:nowrap}
+  .masthead nav a.nav-cv{order:-1}   /* 가로 스크롤 줄에서 끝에 두면 잘린다 — 맨 앞으로 */
   .nav-hide-sm{display:inline}
 }
 @media (max-width:640px){
