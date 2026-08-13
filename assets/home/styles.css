@@ -132,6 +132,13 @@ html[data-lang="kr"] .masthead nav a{
   font-family:'Pretendard KR',var(--serif);
   font-size:0.9375rem;letter-spacing:-0.01em;text-transform:none;
 }
+/* 같은 이유로 한국어 문장이 들어가는 mono 요소도 본문 서체로 되돌린다.
+   숫자·날짜·영문 라벨의 mono 는 그대로 둔다. */
+html[data-lang="kr"] .hero__badge,
+html[data-lang="kr"] .facts .l{
+  font-family:'Pretendard KR',var(--serif);letter-spacing:-0.005em;text-transform:none;
+}
+html[data-lang="kr"] .hero__badge{font-size:0.8125rem}
 .masthead nav a.nav-cv{color:var(--ink)}   /* 내려받기 항목은 한 톤 밝게 — 섹션 링크와 구분 */
 .nav-hide-sm{display:inline}
 
