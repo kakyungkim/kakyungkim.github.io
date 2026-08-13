@@ -126,6 +126,12 @@ ul,ol{margin:0;padding:0;list-style:none}
   transition:color .18s ease,border-color .18s ease;
 }
 .masthead nav a:hover{color:var(--ink);border-bottom-color:var(--accent)}
+/* 한국어 메뉴: 영문용 mono·대문자·넓은 자간은 한글에 맞지 않아 작고 흐리게 보인다.
+   본문 서체로 바꾸고 키운다. 영문은 원래의 소문자 대문자화 스타일을 유지한다. */
+html[data-lang="kr"] .masthead nav a{
+  font-family:'Pretendard KR',var(--serif);
+  font-size:0.9375rem;letter-spacing:-0.01em;text-transform:none;
+}
 .masthead nav a.nav-cv{color:var(--ink)}   /* 내려받기 항목은 한 톤 밝게 — 섹션 링크와 구분 */
 .nav-hide-sm{display:inline}
 
