@@ -430,3 +430,11 @@ html{scroll-behavior:smooth}
 /* 배지는 연락 섹션으로 가는 링크 — 평소 모양은 그대로, 손을 올렸을 때만 드러난다 */
 .hero__badge:hover{border-color:var(--accent);color:var(--ink)}
 .hero__badge:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* ---- 요즘(Now) 블록 — 소개 섹션 말미 ---- */
+.nowlist{border-top:1px solid var(--rule-soft)}
+.nowlist li{display:grid;grid-template-columns:minmax(0,6rem) minmax(0,1fr);gap:clamp(0.6rem,1.6vw,1.25rem);padding-block:calc(var(--unit)*1.5);border-bottom:1px solid var(--rule-soft)}
+.nowlist .k{font-family:var(--mono);font-size:0.625rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);padding-top:0.35em}
+html[data-lang="kr"] .nowlist .k{font-family:'Pretendard KR',var(--serif);font-size:0.8125rem;letter-spacing:0;text-transform:none;color:var(--accent)}
+.nowlist .d{color:var(--ink-2);font-size:0.9375rem;line-height:1.6}
+@media (max-width:640px){.nowlist li{grid-template-columns:1fr;gap:0.2rem}}
