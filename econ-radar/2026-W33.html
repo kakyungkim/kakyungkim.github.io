@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🧭 econ-radar 동향 리포트 · 2026-W33 (8/10–8/16)</title>
+<style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+:root{--ink:#1e293b;--indigo:#4338ca;--indigo-deep:#3730a3;--soft:#eef2ff;--line:#c7d2fe;--muted:#64748b;--pop:#c026d3;}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Pretendard',-apple-system,'Noto Sans KR',sans-serif;color:var(--ink);background:#f6f7fb;margin:0;line-height:1.78;font-size:16px;}
+.wrap{max-width:780px;margin:0 auto;padding:30px 20px 80px;}
+.head{background:linear-gradient(135deg,#4f46e5,#3730a3);color:#eef2ff;border-radius:18px;padding:26px 28px;margin-bottom:28px;box-shadow:0 12px 40px rgba(49,46,129,.28);}
+.head .kicker{font-size:13px;letter-spacing:.08em;color:#c7d2fe;font-weight:700;}
+.head h1{font-size:25px;margin:8px 0 6px;line-height:1.35;color:#fff;}
+.head .range{font-size:14px;color:#c7d2fe;}
+.tags{margin-top:12px;}
+.tags span{display:inline-block;font-size:12px;background:rgba(255,255,255,.14);color:#e9d5ff;border-radius:999px;padding:2px 11px;margin:3px 4px 0 0;}
+h2{color:var(--indigo);font-size:21px;margin:34px 0 12px;padding-bottom:8px;line-height:1.4;background:linear-gradient(90deg,var(--indigo) 0,var(--pop) 44px,var(--line) 44px) bottom left/100% 3px no-repeat;}
+h2[id]{scroll-margin-top:74px;}
+h3{color:var(--indigo-deep);font-size:17px;margin:22px 0 8px;}
+p{margin:10px 0;}
+strong{color:var(--indigo-deep);}
+a{color:var(--indigo);text-decoration:none;border-bottom:1px solid var(--line);}
+a:hover{background:var(--soft);}
+ul{margin:10px 0;padding-left:20px;} li{margin:7px 0;}
+blockquote{border-left:4px solid var(--line);background:#fff;margin:12px 0;padding:10px 16px;border-radius:0 10px 10px 0;color:var(--muted);font-size:14px;}
+blockquote a{border:none;color:var(--muted);}
+.tablewrap{overflow-x:auto;margin:14px 0;-webkit-overflow-scrolling:touch;}
+table{border-collapse:collapse;width:100%;font-size:14px;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 18px rgba(67,56,202,.08);}
+th{background:linear-gradient(90deg,var(--indigo),#6d28d9);color:#fff;text-align:left;padding:11px 13px;font-weight:700;}
+td{padding:10px 13px;border-bottom:1px solid #eef0f7;vertical-align:top;}
+tr:nth-child(even) td{background:#fafbff;}
+hr{border:none;border-top:1px solid var(--line);margin:26px 0;}
+.back{display:inline-block;margin-bottom:18px;font-size:14px;color:var(--indigo);border:none;}
+/* 섹션 점프 목차 — 스크롤해도 상단 고정(데일리와 동일 스타일) */
+.toc{position:sticky;top:8px;z-index:40;display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 30px;padding:12px 16px;background:rgba(255,255,255,0.96);backdrop-filter:saturate(180%) blur(6px);border:1.5px solid var(--line);border-radius:14px;box-shadow:0 6px 22px rgba(67,56,202,0.16);}
+.toc .toc-label{font-size:13px;font-weight:800;color:var(--indigo);margin-right:4px;}
+.toc a{position:relative;font-size:12px;font-weight:600;padding:5px 12px;border-radius:999px;background:#eef2ff;color:var(--indigo);border:1px solid var(--line);text-decoration:none;transition:background .15s,color .15s;}
+.toc a:hover{background:var(--indigo);color:#fff;}
+.toc a[data-tip]::after{content:attr(data-tip);position:absolute;left:0;top:calc(100% + 9px);width:max-content;max-width:260px;white-space:normal;background:#1e293b;color:#fff;font-size:12px;font-weight:500;line-height:1.5;letter-spacing:0;padding:8px 11px;border-radius:9px;box-shadow:0 8px 22px rgba(15,23,42,0.28);opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .15s,transform .15s;pointer-events:none;z-index:60;}
+.toc a[data-tip]::before{content:"";position:absolute;left:16px;top:calc(100% + 3px);border:6px solid transparent;border-bottom-color:#1e293b;opacity:0;visibility:hidden;transition:opacity .15s;z-index:60;}
+.toc a[data-tip]:hover::after,.toc a[data-tip]:hover::before{opacity:1;visibility:visible;transform:translateY(0);}
+/* 맨 위로 버튼 */
+.to-top{position:fixed;right:18px;bottom:18px;width:44px;height:44px;border-radius:50%;background:var(--indigo);color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:20px;line-height:1;border:none;box-shadow:0 4px 16px rgba(67,56,202,0.42);z-index:50;transition:background .15s,transform .1s;}
+.to-top:hover{background:var(--indigo-deep);}
+.to-top:active{transform:scale(0.92);}
+/* 본문 끝 태그(footer 위) */
+.foottags{margin-top:34px;}
+.foottags span{display:inline-block;font-size:12px;background:var(--soft);color:var(--indigo-deep);border:1px solid var(--line);border-radius:999px;padding:3px 11px;margin:4px 5px 0 0;}
+.foot{margin-top:18px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);}
+@media(max-width:640px){body{font-size:15px;}.wrap{padding:18px 14px 60px;}.head{padding:20px;}.head h1{font-size:21px;}h2{font-size:19px;}h2[id]{scroll-margin-top:64px;}table{font-size:13px;}
+.toc{padding:8px 10px;gap:6px;margin:0 0 20px;}.toc .toc-label{font-size:11px;}.toc a{font-size:11px;padding:4px 10px;}.toc a[data-tip]::after,.toc a[data-tip]::before{display:none;}
+.to-top{width:40px;height:40px;right:12px;bottom:12px;font-size:18px;}}
+</style></head>
+<body><div class="wrap" id="top">
+<a class="back" href="/econ-radar/">← econ-radar 아카이브</a>
+<div class="head"><div class="kicker">WEEKLY · 주간 동향</div><h1>🧭 econ-radar 동향 리포트 · 2026-W33 (8/10–8/16)</h1><div class="range"></div></div>
+<nav class="toc" aria-label="섹션 바로가기"><span class="toc-label">📑 바로가기</span><a href="#sec-1" data-tip="지난 주를 관통한 핵심 메시지">핵심</a><a href="#sec-2" data-tip="흐름 1 — 세 플랫폼, 한 주의 규제 선례">흐름 1 —</a><a href="#sec-3" data-tip="흐름 2 — 한국 자본시장의 구조 재평가">흐름 2 —</a><a href="#sec-4" data-tip="흐름 3 — AI 인프라: 수요 장기 계약화 + 공급 병목 이동">흐름 3 —</a><a href="#sec-5" data-tip="투자 관점 시사점">투자</a><a href="#sec-6" data-tip="수요(Demand) 시사점">수요(Dem</a><a href="#sec-7" data-tip="R&amp;D·전략 관점 노트">전략</a><a href="#sec-8" data-tip="다음 주 지켜볼 것">다음 주 지</a></nav>
+<h2 id="sec-1">핵심 메시지 3가지</h2>
+<p>1. <strong>바이오 규제가 단 한 주에 세 플랫폼의 역사적 선례를 확립했다</strong> — CELMoD(iberdomide) 최초 상업화, 타우 PET 진단제(TAUKLARIFY) 승인으로 알츠하이머 진단 양축 완성, 사이키델릭 신약(리세르자이드)의 연속 Phase 3 성공이 이틀 간격으로 겹쳤다. 서로 다른 모달리티가 동시에 규제 선례를 쌓는 밀도는 전례가 없다.</p>
+<p>2. <strong>글로벌 기관이 한국 주식을 동시에 발견했다</strong> — BlackRock의 알테오젠 5% 지분 확대(8/10)와 Temasek의 삼성·SK하이닉스 최초 직접 투자(8/12)가 나흘 간격으로 나왔다. 외국인 순매수 3.15조원이 5거래일 연속으로 유입됐고, KOSPI는 7/30 저점 대비 +22%로 기술적 강세장에 진입한 뒤 장중 7,000p를 처음 넘었다.</p>
+<p>3. <strong>AI 인프라 수요의 병목이 GPU에서 전력·냉각으로 옮겨갔다</strong> — CoreWeave 수주잔고 1,040억달러(+112% YoY)와 미국 AI 데이터센터 전력 신청량 1,066GW 중 28%만 현실화된다는 분석이 같은 주에 공개됐다. 수요는 장기 계약으로 잠겨 있지만 공급 병목이 달라졌다는 신호다.</p>
+<hr>
+<h2 id="sec-2">흐름 1 — 세 플랫폼, 한 주의 규제 선례</h2>
+<p>이번 주 바이오 달력은 며칠 간격으로 세 개의 역사적 이정표를 찍었다.</p>
+<p>8월 13일(8/14 발표) BMS의 <strong>iberdomide(ZENBEXUS)</strong>가 FDA 가속승인을 받았다. PDUFA일보다 4일 앞당겨졌다. 재발·불응성 다발성골수종(RRMM)에서 다라투무맙·덱사메타손과 병용 시 MRD 음성 완전관해율 41%를 달성한 결과다. 이는 CELMoD(세레블론 E3 리가제 조절제) 계열 약물 — 레날리도마이드·포말리도마이드와 같은 IMiD 계열을 진화시킨 분자 접착제 설계 — 의 최초 상업화이자, 표적단백질분해(TPD) 플랫폼이 처음으로 규제 관문을 통과한 사례다. [[daily/2026-08-14]]</p>
+<p>8월 14일 Lantheus의 <strong>TAUKLARIFY(florquinitau F-18)</strong>가 FDA 승인을 받으면서 알츠하이머 진단 인프라의 양축이 처음으로 모두 공인됐다. 2023년 아밀로이드 PET 승인에 이어 타우 PET이 추가된 것이다. 아밀로이드 양성 환자 중 타우 진행 단계를 영상으로 구분할 수 있게 됐다는 뜻이다 — 항타우 치료제 임상의 환자 층화 기준이 달라질 수 있다. [[daily/2026-08-15]]</p>
+<p>8월 16일에는 Definium Therapeutics의 <strong>리세르자이드(DT120, LSD 유도체)</strong>가 범불안장애(GAD) Phase 3 VOYAGE에서 두 번째 연속 양성 결과를 냈다. HAM-A 위약 대비 -5.4점(Cohen's d=0.81)이다. 사이키델릭 계열 신약이 연속 Phase 3에서 유의미한 결과를 낸 것은 역사상 처음이다. BLA 제출의 과학적 근거는 확보됐고, 이제 FDA의 심사 프레임이 어떻게 설정되느냐가 이 플랫폼 전체의 다음 변수가 됐다. [[daily/2026-08-16]]</p>
+<p>세 승인·성공의 공통점은 '플랫폼'이라는 점이다. 단일 약물이 아니라 CRBN 결합 설계(CELMoD), 아밀로이드-타우 이중 진단 체계(알츠하이머), 미세투여 사이키델릭 약리학이 각각 규제 근거를 갖췄다. 8월은 지난 W32의 mRNA·OV에 이어 이번 W33의 세 플랫폼까지, 2개월 연속으로 복수 모달리티 선례가 누적되는 달로 기록될 가능성이 높다.</p>
+<hr>
+<h2 id="sec-3">흐름 2 — 한국 자본시장의 구조 재평가</h2>
+<p>지난 W32(8/3~8/9)에 코스피가 7주 연속 하락이라는 이례적 흐름을 기록했다면, W33은 그 반전의 주였다.</p>
+<p>8월 10일 코스닥이 하루에 +7% 뛰며 매수 사이드카가 발동됐다. 트리거는 세 가지였다 — 미중 관세 90일 재연장 서명, BOJ 9월 인상 기정사실화에 따른 엔화 강세 기대(한국 수출 경쟁력 상대 우위), 미국 반도체 주식 반등. 같은 날 알테오젠은 BlackRock Fund Advisors의 지분이 4.98%에서 5.03%로 확대된 공시와 상반기 순이익 +108%가 겹쳐 14% 급등했다. [[daily/2026-08-10]]</p>
+<p>8월 12일에는 싱가포르 국부펀드 Temasek이 설립 이래 처음으로 삼성전자·SK하이닉스에 직접 투자한다는 보도가 나왔다. KOSPI가 +3.68%로 반응했고, 외국인 순매수가 2조원을 넘겼다. 삼성전자가 6.68%, SK하이닉스가 5.54% 올랐다. [[daily/2026-08-12]]</p>
+<p>8월 14일까지 5거래일 연속 외국인 순매수가 이어졌고 누적 3.15조원을 기록했다. KOSPI는 7/30 저점 대비 +22%를 기록하며 기술적 강세장에 진입했고, 장중 7,010p를 처음 넘었다. [[daily/2026-08-13]], [[daily/2026-08-14]]</p>
+<p>이 흐름을 만든 구조적 배경은 세 가지다. 첫째, 한국 8월 1~10일 반도체 수출이 99억5,000만달러(+155% YoY)로 역대 최고를 기록해 실물 경기 근거가 뒷받침됐다. 둘째, 미 7월 CPI(3.4%), PPI(0.0%), 소매판매(-0.6%)가 연속으로 Fed 동결 기대를 강화하며 달러 약세 환경을 만들었다. 셋째, 알테오젠과 같이 글로벌 플랫폼 수익 모델이 수치로 검증된 기업에 대한 기관 투자자의 인식이 달라졌다 — BlackRock의 5% 공시는 알테오젠이 반복 수익 구조를 가진 플랫폼 기업으로 재분류됐다는 신호다.</p>
+<p>다음 주의 핵심 변수는 잭슨홀(8/27~29)이다. Warsh Fed 의장이 취임 5개월 만에 첫 기조연설을 하는 자리다. 그전에 FOMC 7월 의사록(8/20)이 9-3 동결 표결에서 매파 3인의 논거를 공개한다. BOK 금통위(8/28 예정)의 25bp 추가 인상 여부도 같은 주에 결정된다 — Fed 동결·BOK 인상의 역행이 확정되면 한미 금리 역전 축소 방향이 열리지만, 원화 강세 압력이 반도체·자동차 수출주에 환율 부담으로 작용할 수 있다. [[daily/2026-08-16]]</p>
+<hr>
+<h2 id="sec-4">흐름 3 — AI 인프라: 수요 장기 계약화 + 공급 병목 이동</h2>
+<p>AI 인프라 수요가 '일시적인가'라는 시장의 의구심은 이번 주 데이터로 사실상 해소됐다.</p>
+<p>8월 13일 CoreWeave는 Q2 매출 26억달러(+112% YoY)와 함께 수주잔고 1,040억달러를 공개했다. 장기 계약(3~5년)으로 묶인 구조다. 같은 날 Super Micro는 "AI 인프라의 다음 병목은 GPU가 아니라 전력과 냉각"이라고 공개 발언했다. [[daily/2026-08-13]]</p>
+<p>8월 15일에는 미국 AI 데이터센터 전력 신청량이 1,066GW에 달하지만 실제 현실화 가능한 양은 28%에 불과하다는 분석이 나왔다. 같은 날 OpenAI 런레이트가 연간 400억달러를 넘었고, Anthropic은 기업가치 2조달러를 전제로 IPO를 추진 중이라는 보도가 나왔다 — AI 모델 기업의 수익화가 임계점을 지났다는 신호다. [[daily/2026-08-15]]</p>
+<p>8월 11일에는 Anthropic이 Macquarie·GIC와 미국 AI 전용 데이터센터 합작법인을 꾸렸다. 모델 기업이 인프라 CapEx를 별도 법인으로 분리하는 구조다 — Microsoft(OpenAI)-Brookfield, NAVER-NVIDIA-Brookfield에 이은 세 번째 대형 자본 분리 선례다. [[daily/2026-08-11]]</p>
+<p>한국 연결고리는 명확하다. 반도체 수출 +155% YoY와 SK하이닉스 HBM4 Vera Rubin 공급 60~70% 선점은 이 수요가 실물 주문으로 전환됐음을 보여준다. 다음 주 Hot Chips 2026(8/23~25)에서 삼성 HBM5 2nm GAA와 SK하이닉스 HBM4E '생각하는 메모리(PIM)' 로드맵이 처음 공개된다. 8월 26일 NVIDIA Q2 실적에서 Blackwell 램프업 속도가 처음으로 공식 수치에 잡힌다 — 가이던스(910억달러 ±2%)가 컨센서스(930~950억달러)를 상회하면 HBM 수혜주 전체에 재평가 신호가 된다. [[daily/2026-08-16]]</p>
+<hr>
+<h2 id="sec-5">투자 시사점</h2>
+<div class="tablewrap"><table><thead><tr><th>테마</th><th>시나리오</th><th>리스크</th></tr></thead><tbody><tr><td>KOSPI 강세 지속</td><td>잭슨홀 비둘기·NVIDIA 실적 서프라이즈 동시 발화 시 7,000p 재안착; 외국인 수급 구조 개선</td><td>Warsh 매파 서프라이즈·BOK 25bp 인상으로 한미 역행 확대 시 원화 강세 압력 → 수출주 환율 부담</td></tr><tr><td>HBM(SK하이닉스·삼성전자)</td><td>Hot Chips(8/23~25) 기술 로드맵 + NVIDIA 가이던스 상회 시 HBM4E·HBM5 사이클 재평가</td><td>삼성 HBM5 수율 불확실, 전력 병목이 데이터센터 증설 속도를 늦출 경우 HBM 수요 속도 조정</td></tr><tr><td>AI 전력·냉각 인프라</td><td>공급 현실화율 28% → 전력·냉각 설비 기업 장기 수혜 구간; 핵전력·SMR 수요 재조명</td><td>규제 승인 지연, 용지 확보 지연이 병목 해소 속도 낮춤</td></tr><tr><td>CELMoD(TPD 플랫폼)</td><td>iberdomide 상업화 → BMS RRMM 이후 추가 적응증 확장; 경쟁 CELMoD 파이프라인 재평가</td><td>가속승인 조건부 — 확증임상 OS 데이터 미달 시 취소 리스크; RRMM 시장 내 이미 CAR-T·ADC 경쟁 치열</td></tr><tr><td>알테오젠 Hybrozyme</td><td>Keytruda SC 로열티 수입 레버리지 지속; 추가 빅파마 딜 체결 시 밸류 재산정</td><td>Halozyme 특허 분쟁 결과 불확실; Keytruda 특허 만료(2028~2030) 이후 수익 구조 변화</td></tr><tr><td>사이키델릭 신약</td><td>DT120 BLA 제출 → FDA 심사 기준 설정 → 계열 전반 재평가(Atai 등)</td><td>FDA가 전통적 신경정신과 약물 기준을 그대로 적용할 경우 승인 경로 불확실</td></tr></tbody></table></div>
+<p>정보·시나리오 제공 목적. 매수·매도 권유 아님.</p>
+<hr>
+<h2 id="sec-6">수요(Demand) 시사점</h2>
+<p><strong>알츠하이머 진단-치료 연속체</strong>: TAUKLARIFY 승인으로 아밀로이드(lecanemab/donanemab 투여 자격 판단)와 타우(진행 단계 층화) 양축이 처음으로 갖춰졌다. 이제 알츠하이머 환자를 "아밀로이드 양성인가"뿐 아니라 "타우 진행이 어느 단계인가"로 나눌 수 있다. 항타우 치료제 임상을 준비하는 기업들에게는 환자 선별 기준이 달라지는 것이고, 처방의에게는 치료 결정 전 진단 단계가 한 층 더 늘어나는 것이다. 지불자(보험) 입장에서는 타우 PET 급여 인정 여부가 진단 인프라 확산 속도를 결정하는 관문이 된다.</p>
+<p><strong>CELMoD 수요 구조</strong>: RRMM 환자 중 레날리도마이드·포말리도마이드 내성이 생긴 군이 1차 타깃이다. 처방의 입장에서 iberdomide의 채택 기준은 "기존 IMiD 대비 데이터가 얼마나 더 나은가"다 — MRD 음성 CR 41%는 강력한 신호지만, CAR-T·ADC 대비 순서(sequence) 결정은 아직 임상 데이터가 더 필요하다. 지불자가 가속승인 상황에서 약가 협상에 어떤 위험 분담 조건을 요구하느냐가 초기 상업화 속도를 좌우할 전망이다.</p>
+<p><strong>AI 인프라 수요-공급 갭</strong>: 전력 신청 1,066GW 대비 현실화 28%라는 수치는 AI 기업(수요자)과 전력 공급사(공급자) 사이의 구조적 불균형이 가시화됐음을 보여준다. 수요자(AI 기업)는 장기 계약(CoreWeave 3~5년)으로 공급을 선점하려 하고, 공급자(전력사·부동산)는 규제·부지·냉각 인프라 제약에 부딪혀 있다. 이 갭이 좁혀지지 않을 경우 데이터센터 용량이 모델 규모 확장보다 느리게 늘어나는 AI 성장의 물리적 상한이 된다.</p>
+<hr>
+<h2 id="sec-7">전략 노트</h2>
+<p>iberdomide의 FDA 가속승인은 표적단백질분해(TPD) 분야 전체에서 처음으로 임상-규제-상업 세 단계를 한꺼번에 넘은 사례다. 분자 글루(molecular glue) 설계는 단백질-단백질 상호작용 계면에 결합해 새 기능 복합체를 만드는 방식이라, 기존 공유결합 PROTAC과 경로가 다르다. iberdomide가 CRBN E3 리가제를 통해 Ikaros·Aiolos를 분해하는 경로는 같은 CRBN 축에서 더 선택적인 네오-기질(neo-substrate)을 발굴하는 다음 라운드를 자극한다 — BMS 내부 파이프라인(mezigdomide 등)과 경쟁사의 CELMoD 자산 모두 이 틀 안에 있다.</p>
+<p>알츠하이머 진단 인프라의 완성은 치료제 임상 설계에서 의미가 구체적이다. 아밀로이드 PET이 항아밀로이드 치료제(lecanemab)의 적격 환자 선별 기준이 됐듯, 타우 PET은 항타우 치료제(tau aggregation inhibitor, ASO 등)의 임상에서 "이 환자가 타우 진행 단계인가"를 미리 걸러주는 생물지표가 된다. 임상 설계자 입장에서 환자 층화 도구가 추가됐다는 것은 효능 신호를 희석시키는 바이오마커 음성 환자군을 임상에서 제외할 수 있다는 뜻이다 — 성공 확률을 높이는 실용적 함의가 있다.</p>
+<p>사이키델릭 신약의 연속 Phase 3 성공은 규제 프레임 측면에서 선례가 없는 영역이다. FDA는 MDMA 보조 심리치료(2024년 거절)와 psilocybin(2024년 브레이크다운 유도형 시험 디자인 논쟁) 이후 사이키델릭 심사에 신중한 입장이었다. 리세르자이드가 GAD라는 불안장애 적응증에서 HAM-A 감소라는 명확한 계량 지표를 두 번 연속 달성한 것은 심사 기준 수립에 유리한 증거다 — 다만 FDA가 "의식 변화를 유발하는 약물"에 REMS 요건이나 감독 투여 의무를 얼마나 강하게 요구하느냐에 따라 실제 상업화 프로파일이 크게 달라진다.</p>
+<hr>
+<h2 id="sec-8">다음 주 지켜볼 것</h2>
+<div class="tablewrap"><table><thead><tr><th>날짜</th><th>이벤트</th><th>의미</th></tr></thead><tbody><tr><td>8/19~20</td><td>Walmart·Target Q2 실적</td><td>미국 소비 둔화 신호(소매판매 -0.6%) 실물 확인 — 9월 FOMC 판단 입력값</td></tr><tr><td>8/20</td><td>FOMC 7월 의사록 공개</td><td>9-3 동결에서 매파 3인의 논거 드러남 — 잭슨홀 발언 방향 선행 신호</td></tr><tr><td>8/22</td><td>Capricor deramiocel PDUFA (DMD 심근병증→상지 골격근 피벗)</td><td>BLA 심사 중 적응증 피벗의 규제 가능성 — 드문 절차라 전례가 없음</td></tr><tr><td>8/23</td><td>Ultragenyx DTX401 PDUFA (간당원병 IIb 유전자치료)</td><td>희귀대사질환 유전자치료의 급여 협상 트리거 — W32·W33 연속 이슈</td></tr><tr><td>8/23~25</td><td>Hot Chips 2026</td><td>삼성 HBM5 2nm GAA·SK하이닉스 HBM4E PIM '생각하는 메모리' 세계 첫 공개 — HBM 기술 경쟁 재평가</td></tr><tr><td>8/26</td><td>NVIDIA FY2027 Q2 실적</td><td>Blackwell 수요 사이클 첫 공식 수치 — 가이던스 상회 시 AI 인프라 수혜주 동반 상승 촉매</td></tr><tr><td>8/27~29</td><td>잭슨홀 심포지엄</td><td>Warsh 의장 취임 첫 기조연설 — 9월 16일 FOMC 결정 19일 전; 채권·달러·주식 동시 방향 결정 변수</td></tr><tr><td>8/28</td><td>한국은행 금통위 (예정)</td><td>25bp 추가 인상 시 기준금리 3.0% — Fed 동결·BOK 인상 역행 시나리오 확정</td></tr><tr><td>8/31</td><td>garetosmab PDUFA (Regeneron, FOP 최초 치료제)</td><td>섬유이형성증 골화증 최초 치료제 승인 여부 — W33 내내 다음 주 주목 이슈로 언급됨</td></tr></tbody></table></div>
+
+<div class="foot">econ-radar 주간 동향 · 매일의 분석을 한 주 흐름으로 엮은 리포트. 투자·기업 언급은 정보·시나리오이며 매수·매도 권유가 아닙니다.</div>
+</div>
+<a href="#top" class="to-top" aria-label="맨 위로" title="맨 위로">&uarr;</a>
+</body></html>
