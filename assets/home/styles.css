@@ -249,6 +249,13 @@ html[data-lang="kr"] .hero__badge{font-size:0.8125rem}
 .pubs .j{display:block;margin-top:0.3rem;font-size:0.8125rem;color:var(--ink-2);font-style:italic}
 .pubs .j b{font-style:normal;font-weight:500;font-variant:small-caps;letter-spacing:0.04em;color:var(--ink)}
 .pubs .role{display:inline-block;margin-inline-start:0.5rem;font-family:var(--mono);font-size:0.5625rem;letter-spacing:0.08em;color:var(--accent);text-transform:uppercase}
+.pubs .lnk{display:flex;flex-wrap:wrap;gap:0.75rem;margin-top:0.35rem}
+.pubs .lnk a{
+  font-family:var(--mono);font-size:0.625rem;letter-spacing:0.06em;text-transform:uppercase;
+  color:var(--ink-3);border-bottom:1px solid transparent;padding-block:1px;
+  transition:color .16s ease,border-color .16s ease;
+}
+.pubs .lnk a:hover{color:var(--ink);border-bottom-color:var(--accent)}
 .morewrap{margin-top:1.25rem;display:flex;flex-wrap:wrap;gap:1.25rem;align-items:center}
 .btn{
   font-family:var(--mono);font-size:0.6875rem;letter-spacing:0.09em;text-transform:uppercase;
