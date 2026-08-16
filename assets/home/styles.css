@@ -249,6 +249,12 @@ html[data-lang="kr"] .hero__badge{font-size:0.8125rem}
 .pubs .j{display:block;margin-top:0.3rem;font-size:0.8125rem;color:var(--ink-2);font-style:italic}
 .pubs .j b{font-style:normal;font-weight:500;font-variant:small-caps;letter-spacing:0.04em;color:var(--ink)}
 .pubs .role{display:inline-block;margin-inline-start:0.5rem;font-family:var(--mono);font-size:0.5625rem;letter-spacing:0.08em;color:var(--accent);text-transform:uppercase}
+/* 섹션 안 소제목 — 경력 아래 '맡은 프로그램' 처럼 한 섹션을 두 덩이로 나눌 때 */
+.sec .sub{
+  margin:calc(var(--unit)*5) 0 calc(var(--unit)*2);
+  padding-top:calc(var(--unit)*2);border-top:1px solid var(--rule);
+  font-size:0.9375rem;font-weight:600;letter-spacing:-0.01em;color:var(--ink);
+}
 .pubs .lnk{display:flex;flex-wrap:wrap;gap:0.75rem;margin-top:0.35rem}
 .pubs .lnk a{
   font-family:var(--mono);font-size:0.625rem;letter-spacing:0.06em;text-transform:uppercase;
