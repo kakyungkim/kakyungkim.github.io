@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>paper-radar — 2026-W34</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+    body { font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; font-size:16px; line-height:1.78; }
+    .badge { font-size:11px; font-weight:700; padding:2px 9px; border-radius:9999px; display:inline-block; margin-right:4px; }
+    .badge-genome   { background:#dcfce7; color:#166534; }
+    .badge-clinical { background:#dbeafe; color:#1e40af; }
+    .badge-drug     { background:#ede9fe; color:#5b21b6; }
+    .badge-protein  { background:#fce7f3; color:#9d174d; }
+    .badge-llmbio   { background:#fef9c3; color:#713f12; }
+    .badge-other    { background:#f3f4f6; color:#374151; }
+    .badge-preprint { background:#fef3c7; color:#92400e; }
+    .badge-peer     { background:#d1fae5; color:#065f46; }
+    .badge-insilico { background:#e0e7ff; color:#3730a3; }
+    .badge-retro    { background:#fef9c3; color:#713f12; }
+    .badge-prosp    { background:#d1fae5; color:#065f46; }
+    .badge-multi    { background:#dbeafe; color:#1e40af; }
+    .badge-rct      { background:#dcfce7; color:#166534; }
+    .badge-nocode   { background:#fee2e2; color:#991b1b; }
+    .key-point { border-left:4px solid #4338ca; padding:10px 16px; background:#f5f3ff; border-radius:0 10px 10px 0; margin-top:12px; }
+    .key-point .label { font-size:11px; font-weight:700; letter-spacing:0.06em; color:#4338ca; margin-bottom:4px; }
+    .key-point .text { font-size:15px; font-weight:500; color:#312e81; line-height:1.7; }
+    .insight { border-left:4px solid #14b8a6; padding:10px 16px; background:#f0fdfa; border-radius:0 10px 10px 0; margin-top:10px; }
+    .insight .label { font-size:11px; font-weight:700; letter-spacing:0.06em; color:#0f766e; margin-bottom:4px; }
+    .insight .text { font-size:15px; color:#134e4a; line-height:1.7; }
+    .lens-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+    .lens-item { font-size:13.5px; color:#374151; padding:4px 10px; background:#f9fafb; border:1px solid #e5e7eb; border-radius:8px; }
+    .lens-demand { font-size:13.5px; color:#92400e; padding:4px 10px; background:#fef3c7; border:1px solid #fde68a; border-radius:8px; }
+    .verify-tag { font-size:12px; color:#6b7280; margin-top:8px; }
+</style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <div class="max-w-3xl mx-auto px-4 py-10">
+    <header class="mb-8">
+      <div class="flex items-center gap-3 mb-2">
+        <img src="logo-64.png" alt="paper-radar" class="w-9 h-9 rounded-xl" onerror="this.style.display='none'">
+        <span class="text-2xl font-bold tracking-tight text-gray-900">paper-radar 주간 다이제스트</span>
+        <span class="text-lg text-gray-500 font-medium">2026-W34</span>
+      </div>
+      <p class="text-xs text-gray-400">바이오인포·임상ML·신약AI 논문 주간 요약. 모든 해석은 preprint 단계에서의 분석임.</p>
+    </header>
+
+    <section class="mb-8">
+      <h2 class="text-xs font-bold tracking-widest text-indigo-600 uppercase mb-3">At a Glance</h2>
+      <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-5 space-y-3">
+        <p class="text-[15px] leading-relaxed text-gray-800">이번 주의 축은 세 가지다. Horvath가 직접 나서 16종 DNA 메틸화 클럭을 51개 종단 연구에 걸쳐 '대리 끝점'으로 쓸 수 있는지 검증했고, EmitGCL은 7개 코호트·6개 암종의 멀티오믹스를 그래프 대조 학습으로 통합해 림프절 음성 유방암에서 보이지 않던 전이세포를 잡아냈다. 바이오분자 co-design 쪽에서는 frozen 폴딩 모델 위에 MCTS를 얹는 방식이 재학습 없이 단백질-RNA/DNA/리간드를 통합 처리하는 새 경로를 제시했다. 5편 모두 코드가 미공개이거나 공개 여부가 확인되지 않는다는 점이 이번 주 방법 렌즈의 공통 한계다.</p>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">This Week's Top 5</h2>
+      <div class="space-y-6">
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#1</span>
+            
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">에피제네틱 나이 시계 16종을 법정에 세우다 (Putting epigenetic aging clocks on trial)</h3>
+          <p class="text-[13px] text-gray-500 mb-3">저자: Steve Horvath (교신저자) | 추정: Altos Labs (Cambridge, UK) — 원문 확인 필요</p>
+
+
+<div class="lens-row"><span class="lens-item">🔬 Method: 방법 신규성보다 검증 설계의 신규성이 핵심. 예측 타당성(predictive validity)과 대리 끝점 타당성을 구분하는 분석 틀을 51개 종단 연구에 일관 적용했다. 분석 코드 미공개.</span> <span class="lens-item">🩺 Clinical: 노화 개입 임상시험 설계자에게 어느 클럭을 쓸지 선별 기준선을 제공한다. 대리 끝점 공식 인정(FDA Biomarker Qualification)까지는 개입 RCT 증거가 추가로 필요하다. 검토필요: Horvath가 교신저자이며 이해상충 섹션을 원문에서 직접 확인해야 한다.</span> <span class="lens-item">🏭 Industry: Altos Labs·Retro Biosciences·Calico 등 longevity 바이오텍 모두가 직면한 "단기 끝점 공백" 문제에 근거 지도를 제공한다. 메틸화 클럭의 한계를 공식화한 것은 단백질체 기반 노화 시계 같은 경쟁 바이오마커가 부각될 여지를 함께 열었다.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">(후향</span> <span class="badge badge-prosp ">전향</span> <span class="badge badge-other ">N=51 종단 연구)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#2</span>
+            
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">보이지 않던 전이세포를 잡다 — 멀티오믹스 그래프 대조 학습 (Deep-learning-enabled multi-omics analyses for prediction of future metastasis in cancer)</h3>
+          <p class="text-[13px] text-gray-500 mb-3">저자: (구체적 저자 목록 원문 확인 필요) | (소속 원문 확인 필요)</p>
+
+
+<div class="lens-row"><span class="lens-item">🔬 Method: 경로 사전 지식을 그래프 구조에 주입해 해석 가능성을 높인 설계가 핵심. 검토필요: "멀티오믹스"라는 제목이 실제 어떤 오믹스 레이어를 쓰는지 원문에서 확인 필요.</span> <span class="lens-item">🩺 Clinical: (후향, N=7 코호트, 6 암종). 전향 코호트·IVD 규제·임상 멀티오믹스 파이프라인 구축이 임상 도입까지 남은 관문. in vitro HSP90 결과를 동물 모델 없이 임상 함의로 확장하면 과대해석이다.</span> <span class="lens-item">🏭 Industry: CDx 경로(occult metastasis 선별)와 HSP90 억제제 재발굴(바이오마커-약물 co-development) 두 갈래를 동시에 연다. 코드 미공개가 due diligence 장애 요인.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">(후향</span> <span class="badge badge-other ">N=7 코호트</span> <span class="badge badge-other ">6 암종) + in vitro HSP90 억제 기능 확인</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#3</span>
+            
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">동결 모델 위에 MCTS — 바이오분자 통합 co-design (Leveraging generative hallucination and biophysics-informed modeling for unified biomolecular sequence-structure co-design)</h3>
+          <p class="text-[13px] text-gray-500 mb-3">저자: Xuefeng Liu, Rick Stevens (교신저자) | University of Chicago / Argonne National Laboratory</p>
+
+
+<div class="lens-row"><span class="lens-item">🔬 Method: Frozen 모델 의존 구조는 해당 모델의 도메인 편향을 그대로 상속한다. RNA·DNA co-design 성능이 단백질 파트만큼 신뢰할 수 있는지 별도 확인 필요.</span> <span class="lens-item">🩺 Clinical: (in silico). 신약설계 초기 계산 도구 단계. 임상 접점까지 전 과정이 남아 있다.</span> <span class="lens-item">🏭 Industry: 단백질-리간드/RNA/DNA 통합 설계 플랫폼으로의 포지셔닝 가능성. U. Chicago + Argonne 소속이므로 기술 이전·스핀아웃이 상용화 첫 단계로 보인다.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">(in silico)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#4</span>
+            
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">LLM은 에피토프를 이해하는가 — 항체 약물 개발 벤치마크 (EpiBench: Can LLMs Understand Epitopes for Antibody Drug Discovery?)</h3>
+          <p class="text-[13px] text-gray-500 mb-3">저자: Zirui Wang et al. | (소속 원문 확인 필요)</p>
+
+
+<div class="lens-row"><span class="lens-item">🔬 Method: 5가지 과제를 계층적으로 구성해 LLM의 어떤 능력이 부족한지 분리 진단 가능한 설계가 단순 정확도 비교보다 유익하다. 질문: 항체 특화 언어 모델(AntiBERTy, AbLang 등)과의 비교가 포함됐는지 원문 확인 필요.</span> <span class="lens-item">🩺 Clinical: (in silico — 벤치마크). 임상 접점은 간접적. 에피토프 이해 개선 → 항체 설계 → 임상시험의 전 경로가 남아 있다.</span> <span class="lens-item">🏭 Industry: 빅파마 계산생물학 팀과 항체 AI 스타트업 실사 중인 VC가 직접 활용할 벤치마크. Absci 등 특화 플랫폼의 기술 차별화 내러티브를 지지하는 방향으로 작용.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">(in silico — 벤치마크 평가)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#5</span>
+            
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-2">양자 커널로 폐암 조기 발견 탐색 (Quantum Kernel Estimation for the Discovery of Early Lung Cancer Detection)</h3>
+          <p class="text-[13px] text-gray-500 mb-3">저자: Hamed Javidi, Peter J. Mazzone (교신저자) | IBM Research; Cleveland Clinic</p>
+
+
+<div class="lens-row"><span class="lens-item">🔬 Method: 20개 특징이라는 좁은 저차원 설정에서 고전 SVM 대비 ~3pp AUC 향상을 보고했으나(검토필요: 원문 확인 필요), 통계적 유의성과 고차원 데이터로의 확장 가능성은 미검증. 실제 양자 하드웨어 실험 없음.</span> <span class="lens-item">🩺 Clinical: (in silico). 임상 도입까지 대규모 후향 코호트 → 전향 연구 → IVD 규제 경로가 필요하다.</span> <span class="lens-item">🏭 Industry: 근·중기 상용화 경로 불명확. IBM의 양자-바이오 생태계 확장 전략의 일환으로 장기 모니터링.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">(in silico — 정확한 상태 벡터 시뮬레이션)</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Deep Dive</h2>
+      <div class="mb-6">
+        <h3 class="text-[16px] font-bold text-gray-800 mb-4">에피제네틱 클럭: "예측력"과 "대리 끝점"은 다른 말이다</h3>
+        <div class="space-y-3">
+          <p class="text-[15px] text-gray-800 leading-relaxed">Steve Horvath의 2013년 DNA 메틸화 나이 시계 이후 10여 년이 지났다. GrimAge, PhenoAge를 포함한 클럭들이 나이와 상관하고 사망·질병 위험을 예측한다는 사실은 이제 반복 검증됐다. 그런데 longevity 바이오텍들이 실제로 필요로 하는 것은 다르다. "이 클럭 수치를 개선하면 환자가 더 오래 건강하게 산다"는 개입 증거다. 이것이 대리 끝점(surrogate endpoint)의 요건이며, 예측력과는 논리적으로 구별된다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">Horvath가 이번 논문에서 하려 한 것이 바로 그 구분이다. 16종 클럭 × 51개 종단 연구라는 보기 드문 규모로, 각 클럭이 Prentice 기준 혹은 이에 준하는 통계 기준을 만족하는지를 교차 검증했다. 결론은 "예측력 있는 클럭은 있지만, 대리 끝점으로 검증된 것은 제한적"이다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">이 결론은 업계에 두 방향으로 작용한다. Altos Labs, Retro Biosciences, Calico 같은 longevity 바이오텍 입장에서 이 논문은 FDA와의 대리 끝점 협의 테이블에 올릴 수 있는 가장 체계적인 근거 지도다. 동시에 "검증된 것이 제한적"이라는 결론은 메틸화 클럭 이외 바이오마커 — 단백질체 기반 노화 시계나 대사체 마커 — 에 상대적 기회를 열기도 한다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">임상 방법론 관점에서 한 가지 경계가 필요하다. 교신저자가 주요 클럭의 원저자라는 이해상충 가능성을 원문 COI 섹션에서 직접 확인해야 한다. 논문이 틀렸다는 말은 아니다. 독립적 재현 검증에 더 높은 가중치를 두어야 한다는 것이다. 검토필요: 분석 코드 공개 여부가 확인되지 않아 현재 독립 재현 가능 여부를 확인하기 어렵다는 것이 이 논문의 실질적 한계다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">질문: 51개 종단 연구에 아시아계 코호트가 충분히 포함됐는지 원문에서 확인이 필요하다. 메틸화 패턴의 인종 차이가 클럭 성능에 영향을 준다면, 한국 환자군에서의 별도 검증이 별개 연구로 필요하다.</p>
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <h3 class="text-[16px] font-bold text-gray-800 mb-4">EmitGCL: 그래프가 잡은 것, 외과의 눈이 놓친 것</h3>
+        <div class="space-y-3">
+          <p class="text-[15px] text-gray-800 leading-relaxed">림프절 음성(lymph node-negative) 유방암 진단은 예후가 좋다는 신호지만, 그 진단을 받은 환자 중 일부가 나중에 원격 전이를 보인다. 현재의 표준 영상 검사와 단일 마커로는 이 환자들을 사전에 잡아내기 어렵다. EmitGCL이 겨냥한 것이 바로 그 공백이다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">방법 설계는 두 단계로 나뉜다. 먼저 원발 종양과 전이 부위의 단세포 RNA 시퀀싱(scRNA-seq) 데이터를 세포-유전자 이질성 그래프로 표현하고, 전이 관련 경로(pathway) 사전 지식을 그래프 구조에 주입한다. 그 위에 같은 종양 계통의 원발 세포와 전이 세포 쌍 사이의 미묘한 차이를 대조 학습으로 포착한다. 출력은 세 가지다: 전이 부위의 은닉 전이세포 식별, 원발 종양의 전이 전구체 세포 식별, 미래 전이 바이오마커 발굴.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">6개 암종 7개 코호트에 걸쳐 검증한 범위는 이번 주 논문 중 방법론적 검증 수준이 가장 높다. 특히 HSP90AA1·HSP90AB1 바이오마커 발굴은 in vitro HSP90 억제 → 유방암 세포 이동 감소로 이어져, 순수 in silico 수준을 넘는 기능 확인이 더해졌다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">그러나 두 가지를 과대해석해서는 안 된다. 첫째, 모든 코호트가 후향(retrospective) 설계다. 이미 결과를 알고 있는 데이터로 모델을 평가했으므로 선택 편향 가능성이 내재한다. 전향 코호트에서의 재검증이 임상 적용의 필수 관문이다. 둘째, in vitro 세포 이동 감소가 in vivo 전이 억제와 같지 않다. HSP90 억제제는 과거 3상에서 독성 등으로 고전한 역사가 있고, 환자 선별 없는 투여 전략의 실패가 이 바이오마커로 해결되는지는 동물 모델부터 다시 확인이 필요하다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">코드 미공개 상태라 그래프 설계 아이디어 — 지식 인식 이질성 그래프 + 대조 학습 — 를 내 연구에 바로 적용하기 어렵다. 코드 릴리스 후에 scRNA-seq 기반 세포 상태 분류 문제에 유사 프레임워크를 적용하는 실험을 검토할 만하다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">🔭 Wide Angle</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm px-6 py-2">
+        <div class="flex items-start gap-3 py-4 border-b border-gray-100 last:border-0">
+          <div class="flex-1">
+            <p class="text-[15px] font-semibold text-gray-900 mb-1">신경영상 에이전트 AI에 분석 엄밀성을 더하다 </p>
+            <p class="text-[14px] text-gray-700 leading-relaxed">arXiv:2608.19902 (2026-08-19, NCTA/IJCCI 2026 accepted). "Brain Researcher" 플랫폼은 뇌영상 데이터 분석을 위한 에이전트 AI로, 도구 선택 정확도를 23.3%에서 93.6%로 끌어올렸다고 보고한다. 범용 AI 에이전트를 신경과학 도메인에 특화한 사례. <a href="https://arxiv.org/abs/2608.19902" class="underline text-indigo-700" target="_blank">링크</a></p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 py-4 border-b border-gray-100 last:border-0">
+          <div class="flex-1">
+            <p class="text-[15px] font-semibold text-gray-900 mb-1">생의학 논문 90%에 AI 흔적 </p>
+            <p class="text-[14px] text-gray-700 leading-relaxed">Nature d41586-026-02551-z (2026-08). PubMed Central 분석에서 2025년 출판 논문의 상당수에 LLM 사용 흔적이 발견됐다는 Nature 뉴스 피처. 과학 글쓰기의 AI 전면화가 재현성·신뢰성에 미치는 함의를 다룬다. 주의: 뉴스 기사(2차 출처), 원저 연구 별도 추적 필요. <a href="https://www.nature.com/articles/d41586-026-02551-z" class="underline text-indigo-700" target="_blank">링크</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Threads to Follow</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <ul class="space-y-3 list-disc list-inside">
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>에피제네틱 대리 끝점 레이스</strong>: 메틸화 클럭 이외 단백질체 기반 노화 시계(SomaScan/Olink 패널 등)가 대리 끝점 경쟁에서 어떻게 포지셔닝하는지 추적. FDA Biomarker Qualification 협의 동향.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>EmitGCL 전향 코호트</strong>: 후향 7코호트 성과를 전향 설계에서 재현하는 후속 연구 발표 여부 모니터링. CDx 경로 또는 HSP90 억제제 co-development 파트너십 신호.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>MCTH 코드 릴리스</strong>: 코드 공개 시 frozen 폴딩 모델 + MCTS 조합의 독립 재현 실험. 단백질-RNA/DNA co-design 성능 검증.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>EpiBench 표준화</strong>: 항체 특화 언어 모델(AntiBERTy, AbLang, IgBERT 등)과 범용 LLM 비교 후속 연구. 코드·데이터셋 공개 시 벤치마크 업계 표준화 속도.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>양자-바이오 협업 생태계</strong>: IBM Quantum + Cleveland Clinic 파트너십 이후 추가 의료기관 확장 신호. fault-tolerant 양자 컴퓨팅이 의료 적용 파이프라인을 바꾸는 시점.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Sources</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <ul class="space-y-2 text-[13.5px]">
+              <li><a href="https://arxiv.org/abs/2608.17381" class="text-indigo-600 underline" target="_blank">[C1] MCTH 바이오분자 co-design — [C1] MCTH 바이오분자 co-design</a></li>
+              <li><a href="https://doi.org/10.1038/s41591-026-04524-1" class="text-indigo-600 underline" target="_blank">[C2] Horvath 에피제네틱 클럭 — [C2] Horvath 에피제네틱 클럭</a></li>
+              <li><a href="https://doi.org/10.1038/s41467-026-76277-x" class="text-indigo-600 underline" target="_blank">[C3] EmitGCL 전이 예측 — [C3] EmitGCL 전이 예측</a></li>
+              <li><a href="https://www.biorxiv.org/content/10.1101/2025.05.16.654579v2" class="text-indigo-600 underline" target="_blank">[C3] EmitGCL bioRxiv 원본 — [C3] EmitGCL bioRxiv 원본</a></li>
+              <li><a href="https://arxiv.org/abs/2608.19304" class="text-indigo-600 underline" target="_blank">[C4] 양자 커널 폐암 — [C4] 양자 커널 폐암</a></li>
+              <li><a href="https://arxiv.org/abs/2608.06022" class="text-indigo-600 underline" target="_blank">[C5] EpiBench LLM 에피토프 — [C5] EpiBench LLM 에피토프</a></li>
+              <li><a href="https://arxiv.org/abs/2608.19902" class="text-indigo-600 underline" target="_blank">[W1] Brain Researcher 뇌영상 에이전트 — [W1] Brain Researcher 뇌영상 에이전트</a></li>
+              <li><a href="https://www.nature.com/articles/d41586-026-02551-z" class="text-indigo-600 underline" target="_blank">[W2] Nature 생의학 논문 AI 흔적 — [W2] Nature 생의학 논문 AI 흔적</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="border-t border-gray-200 pt-8 pb-10 text-center">
+      <p class="text-sm text-gray-500 mt-4">paper-radar · 2026-W34</p>
+      <p class="text-xs text-gray-400 mt-1">바이오인포·임상ML·신약AI 논문 주간 요약. preprint 분석 포함.</p>
+    </footer>
+  </div>
+</body>
+</html>
