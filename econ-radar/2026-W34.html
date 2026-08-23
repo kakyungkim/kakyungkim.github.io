@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🧭 econ-radar 동향 리포트 · 2026-W34 (8/17–8/23)</title>
+<style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+:root{--ink:#1e293b;--indigo:#4338ca;--indigo-deep:#3730a3;--soft:#eef2ff;--line:#c7d2fe;--muted:#64748b;--pop:#c026d3;}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Pretendard',-apple-system,'Noto Sans KR',sans-serif;color:var(--ink);background:#f6f7fb;margin:0;line-height:1.78;font-size:16px;}
+.wrap{max-width:780px;margin:0 auto;padding:30px 20px 80px;}
+.head{background:linear-gradient(135deg,#4f46e5,#3730a3);color:#eef2ff;border-radius:18px;padding:26px 28px;margin-bottom:28px;box-shadow:0 12px 40px rgba(49,46,129,.28);}
+.head .kicker{font-size:13px;letter-spacing:.08em;color:#c7d2fe;font-weight:700;}
+.head h1{font-size:25px;margin:8px 0 6px;line-height:1.35;color:#fff;}
+.head .range{font-size:14px;color:#c7d2fe;}
+.tags{margin-top:12px;}
+.tags span{display:inline-block;font-size:12px;background:rgba(255,255,255,.14);color:#e9d5ff;border-radius:999px;padding:2px 11px;margin:3px 4px 0 0;}
+h2{color:var(--indigo);font-size:21px;margin:34px 0 12px;padding-bottom:8px;line-height:1.4;background:linear-gradient(90deg,var(--indigo) 0,var(--pop) 44px,var(--line) 44px) bottom left/100% 3px no-repeat;}
+h2[id]{scroll-margin-top:74px;}
+h3{color:var(--indigo-deep);font-size:17px;margin:22px 0 8px;}
+p{margin:10px 0;}
+strong{color:var(--indigo-deep);}
+a{color:var(--indigo);text-decoration:none;border-bottom:1px solid var(--line);}
+a:hover{background:var(--soft);}
+ul{margin:10px 0;padding-left:20px;} li{margin:7px 0;}
+blockquote{border-left:4px solid var(--line);background:#fff;margin:12px 0;padding:10px 16px;border-radius:0 10px 10px 0;color:var(--muted);font-size:14px;}
+blockquote a{border:none;color:var(--muted);}
+.tablewrap{overflow-x:auto;margin:14px 0;-webkit-overflow-scrolling:touch;}
+table{border-collapse:collapse;width:100%;font-size:14px;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 18px rgba(67,56,202,.08);}
+th{background:linear-gradient(90deg,var(--indigo),#6d28d9);color:#fff;text-align:left;padding:11px 13px;font-weight:700;}
+td{padding:10px 13px;border-bottom:1px solid #eef0f7;vertical-align:top;}
+tr:nth-child(even) td{background:#fafbff;}
+hr{border:none;border-top:1px solid var(--line);margin:26px 0;}
+.back{display:inline-block;margin-bottom:18px;font-size:14px;color:var(--indigo);border:none;}
+/* 섹션 점프 목차 — 스크롤해도 상단 고정(데일리와 동일 스타일) */
+.toc{position:sticky;top:8px;z-index:40;display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 30px;padding:12px 16px;background:rgba(255,255,255,0.96);backdrop-filter:saturate(180%) blur(6px);border:1.5px solid var(--line);border-radius:14px;box-shadow:0 6px 22px rgba(67,56,202,0.16);}
+.toc .toc-label{font-size:13px;font-weight:800;color:var(--indigo);margin-right:4px;}
+.toc a{position:relative;font-size:12px;font-weight:600;padding:5px 12px;border-radius:999px;background:#eef2ff;color:var(--indigo);border:1px solid var(--line);text-decoration:none;transition:background .15s,color .15s;}
+.toc a:hover{background:var(--indigo);color:#fff;}
+.toc a[data-tip]::after{content:attr(data-tip);position:absolute;left:0;top:calc(100% + 9px);width:max-content;max-width:260px;white-space:normal;background:#1e293b;color:#fff;font-size:12px;font-weight:500;line-height:1.5;letter-spacing:0;padding:8px 11px;border-radius:9px;box-shadow:0 8px 22px rgba(15,23,42,0.28);opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .15s,transform .15s;pointer-events:none;z-index:60;}
+.toc a[data-tip]::before{content:"";position:absolute;left:16px;top:calc(100% + 3px);border:6px solid transparent;border-bottom-color:#1e293b;opacity:0;visibility:hidden;transition:opacity .15s;z-index:60;}
+.toc a[data-tip]:hover::after,.toc a[data-tip]:hover::before{opacity:1;visibility:visible;transform:translateY(0);}
+/* 맨 위로 버튼 */
+.to-top{position:fixed;right:18px;bottom:18px;width:44px;height:44px;border-radius:50%;background:var(--indigo);color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:20px;line-height:1;border:none;box-shadow:0 4px 16px rgba(67,56,202,0.42);z-index:50;transition:background .15s,transform .1s;}
+.to-top:hover{background:var(--indigo-deep);}
+.to-top:active{transform:scale(0.92);}
+/* 본문 끝 태그(footer 위) */
+.foottags{margin-top:34px;}
+.foottags span{display:inline-block;font-size:12px;background:var(--soft);color:var(--indigo-deep);border:1px solid var(--line);border-radius:999px;padding:3px 11px;margin:4px 5px 0 0;}
+.foot{margin-top:18px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);}
+@media(max-width:640px){body{font-size:15px;}.wrap{padding:18px 14px 60px;}.head{padding:20px;}.head h1{font-size:21px;}h2{font-size:19px;}h2[id]{scroll-margin-top:64px;}table{font-size:13px;}
+.toc{padding:8px 10px;gap:6px;margin:0 0 20px;}.toc .toc-label{font-size:11px;}.toc a{font-size:11px;padding:4px 10px;}.toc a[data-tip]::after,.toc a[data-tip]::before{display:none;}
+.to-top{width:40px;height:40px;right:12px;bottom:12px;font-size:18px;}}
+</style></head>
+<body><div class="wrap" id="top">
+<a class="back" href="/econ-radar/">← econ-radar 아카이브</a>
+<div class="head"><div class="kicker">WEEKLY · 주간 동향</div><h1>🧭 econ-radar 동향 리포트 · 2026-W34 (8/17–8/23)</h1><div class="range"></div></div>
+<nav class="toc" aria-label="섹션 바로가기"><span class="toc-label">📑 바로가기</span><a href="#sec-1" data-tip="지난 주를 관통한 핵심 메시지">핵심</a><a href="#sec-2" data-tip="흐름 1 — 이란 충격과 K반도체 자본 환원: 같은 주, 반대 방향">흐름 1 —</a><a href="#sec-3" data-tip="흐름 2 — Hot Chips 2026: AI 칩 세대 교체와 메모리 종속 구조의 공개">흐름 2 —</a><a href="#sec-4" data-tip="흐름 3 — 바이오 규제 클러스터: 선례 누적과 RNA 모달리티 재검토">흐름 3 —</a><a href="#sec-5" data-tip="투자 관점 시사점">투자</a><a href="#sec-6" data-tip="수요(Demand) 시사점">수요(Dem</a><a href="#sec-7" data-tip="R&amp;D·전략 관점 노트">전략</a><a href="#sec-8" data-tip="다음 주 지켜볼 것">다음 주 지</a></nav>
+<h2 id="sec-1">핵심 메시지 3가지</h2>
+<p>1. <strong>이란발 에너지 충격과 K반도체 자본 환원이 같은 주에 정면으로 충돌했다</strong> — UAE-이란 충돌로 KOSPI가 6.45% 폭락했다가, SK하이닉스 40조원·삼성전자 90~110조원 자사주 소각·환원 발표가 이틀 사이에 겹치면서 V자 반등이 나왔다. AI HBM 수요 사이클에 대한 경영진의 자신감이 지정학 리스크오프를 상쇄하는 힘이 됐다.</p>
+<p>2. <strong>Hot Chips 2026에서 AI 칩 경쟁의 단위가 GPU 카드에서 랙스케일 시스템으로 공식 격상됐다</strong> — AMD MI455X가 HBM4 용량에서 NVIDIA VR200 대비 50% 우위를 확보했으나, HBM4 대역폭이 출하 목표에 미달하면서 칩 설계사 스펙이 메모리 공급사 수율에 종속되는 구조적 리스크가 처음으로 공개 무대에서 드러났다.</p>
+<p>3. <strong>희귀질환 FDA 결정 3건이 5일 안에 연달아 나온 반면, eplontersen ATTR-CM 3상은 1차 종점을 충족하지 못했다</strong> — garetosmab(FOP 최초 치료제)·GENGLYCOS(GSDIa 가속승인)·Capricor BLA 수정이 각각 항체·AAV·세포치료 모달리티 선례를 쌓았고, eplontersen 실패는 RNA 억제제의 심혈관 적응증 전략 전체를 재검토 국면에 밀어 넣었다.</p>
+<hr>
+<h2 id="sec-2">흐름 1 — 이란 충격과 K반도체 자본 환원: 같은 주, 반대 방향</h2>
+<p>이번 주 코스피는 하나의 지정학 사건으로 시작해 하나의 자본 선언으로 방향을 바꿨다.</p>
+<p>8월 17일(월) KOSPI는 광복절 대체공휴일 휴장 뒤 8월 18일(화) 재개장했고, 같은 날 오후 미·이란 휴전 만료 소식이 확산되면서 유가가 급등했다. 8월 19일(수) UAE가 이란에 무기한 금수를 선언하자 KOSPI는 -6.45%로 폭락하며 올해 48번째 매도 사이드카가 발동됐다. Brent 유가는 $91을 돌파했고, 30년 국채 수익률은 5.31%까지 올랐다. 에너지 수입국인 한국이 에너지 비용 충격과 금리 상승 압력을 동시에 받는 이중 압박이었다. [[daily/2026-08-19]]</p>
+<p>그날 오후 늦게 SK하이닉스가 이사회를 열어 자기주식 40조원(약 $28.6B) 전량 소각을 결의했다. 메모리 기업이 재고 비축과 CAPEX 확대가 동시에 필요한 시점에 이 규모의 소각을 결정하려면 잉여현금흐름(FCF) 가시성이 매우 높아야 한다 — AI HBM 수요 사이클이 구조적으로 지속된다는 경영진의 내부 판단이 현금 배분으로 드러난 셈이었다. 8월 20일(목) KOSPI는 +5.9%로 반등했다. [[daily/2026-08-20]]</p>
+<p>이틀 후인 8월 22일(토) 삼성전자가 90~110조원 규모 주주환원을 이사회에서 공식 의결했다. SK하이닉스 발표(8/19) 이후 불과 사흘 만이었다. K반도체 대형주 두 곳의 주주환원 구조가 한 달 안에 동시에 바뀐 것은 한국 증시 역사상 처음이다. 두 회사의 환원 총액을 합산하면 최소 130조원 이상이다. [[daily/2026-08-22]]</p>
+<p>같은 주 거시 변수도 복잡하게 얽혔다. 8월 20일(목) FOMC 7월 의사록은 "인플레이션 경계 때문에 긴축 유지"를 시사했다. 같은 날 Bessent 재무장관은 국채 바이백을 두 배로 늘리겠다고 발표했다 — 연준이 채권 시장에서 공급을 유지하는 동안 재무부가 수요를 직접 보강하는 역방향 개입이었다. 두 기관의 방향이 엇갈린 것은 정책 공조의 균열 신호로 읽혔다. 8월 27일 잭슨홀(Jackson Hole) 심포지엄에서 Warsh 의장의 첫 기조연설이 이 갈등을 어떻게 정리할지가 다음 주의 핵심 변수가 됐다. [[daily/2026-08-20]]</p>
+<p>Brent 유가는 22일 $94까지 올랐고, Trump 대통령이 이란에 대해 "경제 D-Day"를 경고하며 8월 24일 2차 제재 세부안 발표를 예고했다. 중국과 인도가 이란 원유의 최대 흡수국이어서, 이들의 반응에 따라 실질 공급 충격의 규모가 결정되는 구도다. [[daily/2026-08-23]]</p>
+<hr>
+<h2 id="sec-3">흐름 2 — Hot Chips 2026: AI 칩 세대 교체와 메모리 종속 구조의 공개</h2>
+<p>8월 23일(토) Hot Chips 2026이 스탠퍼드에서 개막했다. AI 칩 세대 교체의 공식 스펙이 처음으로 동시에 공개되는 자리였다.</p>
+<p>NVIDIA는 Vera Rubin(VR200) GPU를 발표했다. NVFP4 포맷 기준 50PFLOPS로 Blackwell 대비 5배 수준이다. NVL72 랙 구성에서 HBM4 합산 20.7TB, 집계 대역폭 1.6PB/s를 제시했다. AMD는 MI455X·MI430X로 구성된 MI400 시리즈를 발표했다. 단일 칩 HBM4 용량이 432GB(23.3TB/s)로 NVIDIA VR200(288GB, 약 20TB/s)보다 메모리 용량에서 50% 우위다. Microsoft가 이미 고객으로 확정돼 있어 단순 기술 발표와 성격이 달랐다. 랙스케일 AI 시스템 수준에서 NVIDIA에 도전하는 AMD의 첫 공식 무대였다. [[daily/2026-08-23]]</p>
+<p>그런데 같은 발표에서 예상치 못한 리스크가 드러났다. HBM4 실제 공급 대역폭이 칩 설계사들의 출하 스펙 목표에 미달했다. 이는 칩 설계사의 출하 스펙이 메모리 공급사의 수율 역량에 종속됨을 처음으로 공개 무대에서 드러낸 사례다. SK하이닉스와 삼성·Micron이 칩 설계사의 출하 일정과 스펙에 공동 책임을 지는 구조가 굳어지고 있다. [[daily/2026-08-23]]</p>
+<p>이번 주 내내 Hot Chips 사전 예고 기간 동안 축적된 흐름은 이렇게 정리된다. AI 인프라 경쟁의 단위가 GPU 카드에서 전력·네트워킹·냉각을 통합한 랙스케일 시스템으로 이동했다. NVIDIA가 NVLink 기반 NVL72로 이 경쟁 단위를 먼저 정의했고, AMD가 이번에 처음으로 같은 단위에서 응수했다. 클라우드·하이퍼스케일러 입장에서 멀티벤더 조달 옵션이 생기는 첫 공식 무대였다. [[daily/2026-08-22]]</p>
+<p>SK하이닉스의 인디애나주 HBM 패키징 공장 착공식은 8월 27일로 예고됐다. AI 수요가 미국 내 제조를 끌어당기는 흐름 속에서 CHIPS Act 인센티브 활용·지정학 리스크 헤지·고객사 리드타임 단축의 세 논리가 겹쳤다. 2028년 가동이면 Rubin 세대 수요 피크와 시기가 맞물린다. NVIDIA의 8월 26일 Q2 실적 발표에서 Blackwell 수요 전환 속도와 Rubin 세대 수요 가이던스가 처음으로 공식 수치에 잡힐 예정이다. [[daily/2026-08-21]]</p>
+<hr>
+<h2 id="sec-4">흐름 3 — 바이오 규제 클러스터: 선례 누적과 RNA 모달리티 재검토</h2>
+<p>이번 주 바이오 섹터는 이틀 간격으로 규제 사건이 연달아 나왔다. 방향이 서로 달랐다.</p>
+<p>8월 19일(수) FDA가 Regeneron의 <strong>garetosmab(Pasatru)</strong>를 FOP(진행성 골화섬유이형성증) 치료제로 승인했다. FOP는 전 세계 환자가 900명 수준인 초희귀 질환으로, 근육과 결합조직이 외부 자극에 반응해 뼈로 변하는 병이다. FDA 승인 치료제가 없었고 코르티코스테로이드로 급성기를 버티는 것이 전부였다. OPTIMA 임상에서 두 용량 모두 통계적 유의성을 확보했다. 초희귀 적응증 최초 치료제로서 약가 설정 자유도가 가장 높은 시장이며, Activin A 차단 경로는 FOP 이외 섬유화 질환(fibrotic disease)으로 이어질 수 있다. [[daily/2026-08-19]]</p>
+<p>8월 21일(목) Ultragenyx의 <strong>GENGLYCOS(DTX401)</strong>가 당원병 IIb형(GSDIa)에 대한 FDA 가속승인을 받았다. 간에서 포도당-6-인산분해효소(G6Pase) 활성도 증가라는 대리 평가변수(surrogate endpoint)를 근거로 가속승인이 확정됐다. GSDIa 환자는 밤마다 옥수수전분 섭취로 저혈당을 막아야 했는데, 단회 정맥 투여로 그 루틴을 없앨 수 있다는 가치 제안이 핵심이다. 희귀 대사질환 영역에서 AAV 유전자치료제가 FDA 가속승인 경로를 실제로 통과한 최신 선례가 됐다. [[daily/2026-08-21]]</p>
+<p>Capricor의 <strong>deramiocel</strong> BLA는 이번 주 가장 복잡한 경로를 걸었다. 8월 22일 PDUFA 결정일에 승인도 CRL도 나오지 않고 BLA 수정(적응증 전환) 전략으로 경로가 바뀌었다. 7월 29일 CTGTAC 9-3 부결 이후 Capricor는 적응증 자체를 심근병증에서 상지 골격근 기능으로 전환하는 방식을 택했다. FDA가 이 수정을 중대 수정(major amendment)으로 분류하느냐 비중대로 보느냐에 따라 일정이 달라진다. 동종(allogeneic) 세포치료 허가 경로의 시험대는 아직 이어지고 있다. [[daily/2026-08-22]]</p>
+<p>8월 23일(토) ESC Congress 2026에서 AstraZeneca·Ionis의 <strong>eplontersen(Wainua)</strong> ATTR-CM 3상 결과가 공개됐다. RNA 억제(ASO) 모달리티가 TTR 단백질 생성을 줄이는 효과는 검증됐으나, 스타빌라이저(tafamidis)를 병용하는 환자에서 심혈관 사망·재발 감소라는 1차 종점을 충족하지 못했다. Pfizer의 tafamidis(Vyndamax) 표준요법 지위가 재확인된 결과다. 스타빌라이저 미경험 단독 코호트에서 HR 0.71의 잠재적 신호가 남아 있어 적응증 재설정 협의 여지는 있으나, RNA 억제제의 ATTR-CM 전략 전체가 재검토 국면에 들어섰다. 8월 10일 Wainua 심혈관 별도 임상 실패에 이어 같은 달 두 번째 부정적 신호다. [[daily/2026-08-23]]</p>
+<p>AI 신약개발 측면에서는 Chai Discovery가 시리즈 C 4억달러(약 5,560억원)를 유치하고 Pfizer·Eli Lilly·Novartis 3사와 동시에 제휴를 맺었다. 빅파마 3사가 같은 AI 항체 설계 플랫폼에 동시에 제휴한 것은 이 도구가 R&amp;D 표준 워크플로로 자리잡고 있다는 신호다. [[daily/2026-08-19]]</p>
+<hr>
+<h2 id="sec-5">투자 시사점</h2>
+<div class="tablewrap"><table><thead><tr><th>테마</th><th>시나리오</th><th>리스크</th></tr></thead><tbody><tr><td>KOSPI·K반도체</td><td>잭슨홀 비둘기 + NVIDIA 가이던스 상회 + BOK 동결 조합 시 외국인 수급 지속; 삼성·SK하이닉스 환원 집행 기간(8~11월) 수급 호재</td><td>이란 2차 제재 세부안 강경 → Brent $100 재부상 시 에너지 비용 충격; Warsh 매파 서프라이즈 → 달러 강세 전환</td></tr><tr><td>HBM(SK하이닉스·삼성전자)</td><td>NVIDIA 8/26 실적 가이던스 상회 시 HBM4 수요 사이클 재확인; SK하이닉스 HBM4E MR-MUF 공급 우위 구조 지속</td><td>HBM4 대역폭 목표 미달 문제가 양산 수율로 이어질 경우 출하 일정 지연; 삼성 HBM5 2nm GAA 수율 불확실</td></tr><tr><td>AI 인프라(미국)</td><td>AMD 멀티벤더 조달 옵션 가시화로 클라우드 업체 협상력 확보; NVIDIA 실적이 Rubin 세대 선수요 확인 시 AI 인프라 수혜 지속</td><td>ROCm 소프트웨어 생태계 미성숙으로 AMD 실채택 지연; HBM4 공급 리드타임 장기화</td></tr><tr><td>유가·이란 리스크</td><td>8/24 2차 제재 예외 조항 광범위 시 Brent 빠른 되돌림; 에너지 수입국 인도 우회 지속 시 실질 공급 충격 제한</td><td>2차 제재 강경 집행 + 중국·인도 위축 시 Brent $100 이상; 호르무즈 해협 봉쇄 위협 시 전 세계 해운 운임 구조적 상승</td></tr><tr><td>희귀질환 바이오</td><td>garetosmab Activin A 경로 → 섬유화 질환 확장; DTX401 PRV 조기 매각 후 현금 확보; Chai 플랫폼 빅파마 표준화 지속</td><td>Capricor 수정 BLA 수용 여부 불확실; eplontersen 실패로 RNA 억제제 ATTR-CM 전략 재설계 필요</td></tr><tr><td>GLP-1(Lilly)</td><td>경구 GLP-1 Foundayo 시장 선점; Novo CagriSema 실패로 경쟁 정리</td><td>미국 약가 협상(IRA) 리스크; retatrutide 소송 변수</td></tr></tbody></table></div>
+<p>정보·시나리오 제공 목적. 매수·매도 권유 아님.</p>
+<hr>
+<h2 id="sec-6">수요(Demand) 시사점</h2>
+<p><strong>에너지·가계 비용 연결</strong>: Brent $94는 에너지 수입 의존도가 높은 한국 가계와 기업에 비용 압박으로 직결된다. 유가가 이 수준을 지속하면 한국 무역수지 흑자 폭이 줄어들고, 산업계 에너지 비용이 원가 구조를 올리는 경로로 전이된다. 수요자(가계·기업) 관점에서 에너지 가격 충격이 소비 여력을 제한하는 방향이다.</p>
+<p><strong>garetosmab·FOP</strong>: FOP 환자(전 세계 약 900명) 입장에서 최초로 급성기 이후 진행을 늦출 수 있는 선택지가 생겼다. 처방의에게는 코르티코스테로이드 외 옵션이 처음으로 주어졌다. 지불자 입장에서는 초희귀 적응증 최초 치료제의 급여 협상 선례가 되는데, ICER 프레임워크 밖에서 약가가 결정될 가능성이 높다. PRV 가치(통상 1억~1억5,000만달러)와 단위당 약가 프리미엄이 맞물린다.</p>
+<p><strong>GENGLYCOS·GSDIa</strong>: GSDIa 환자의 "할 일(Job)"은 밤마다 저혈당을 막는 것이었다. DTX401은 이 루틴 자체를 없애는 가치 제안이다. 환자·보호자의 삶의 질 개선이 확실하나, 확증 임상 데이터가 나오기 전 완전 승인 전환의 불확실성이 지불자 급여 협상의 변수다.</p>
+<p><strong>deramiocel·DMD</strong>: DMD 심근병증 환자(처방의·부모)는 적응증 전환으로 다시 불확실성 구간에 들어갔다. Exon skipping ASO(사렙타)·유전자치료(Solid Biosciences)가 운동 기능 엔드포인트에서 데이터를 쌓는 동안, deramiocel의 적응증 재설정이 경쟁 구도에서 어느 공간을 겨냥하는지가 다음 제출의 관전 포인트다.</p>
+<p><strong>AI 신약 플랫폼(Chai)</strong>: AI 항체 설계 플랫폼의 수요자는 빅파마 R&amp;D 부서다. Pfizer·Lilly·Novartis 동시 채택은 플랫폼이 단일 벤더 파트너십을 넘어 표준 워크플로로 이동하는 신호다. 경쟁이 "어떤 플랫폼을 쓰느냐"로 바뀌면 Chai의 협상 지렛대가 커진다.</p>
+<hr>
+<h2 id="sec-7">전략 노트</h2>
+<p>이번 주 바이오 흐름에서 R&amp;D 의사결정 관점의 교훈은 두 가지다.</p>
+<p>첫째, <strong>모달리티별 규제 선례의 비대칭 속도</strong>다. 항체(garetosmab)와 AAV(DTX401)는 이번 주 안에 각각 선례를 쌓았다. 반면 알로제닉 세포치료(deramiocel)는 BLA 수정이라는 경로 전환으로 타임라인이 불확실해졌고, RNA 억제제(eplontersen)는 심혈관 적응증에서 1차 종점을 달성하지 못했다. 같은 주에 네 모달리티가 서로 다른 방향으로 움직였다는 것은, 모달리티 선택이 규제 전략의 첫 번째 결정 변수라는 점을 다시 확인시킨다.</p>
+<p>둘째, <strong>Capricor 사례가 남긴 SAP·버전 관리 교훈의 구체화</strong>다. 데이터 자체가 아니라 SAP(통계분석계획) 버전 불일치(v1.1 vs v3.0)가 AdCom 9-3 부결의 결정적 요인 중 하나로 지목됐다. FDA 심사에서 사전 등록·버전 관리가 유효성 데이터보다 먼저 완료돼야 한다는 원칙이 이 사건으로 다시 한번 기록됐다. 글로벌 희귀질환 개발 프로그램을 다루는 입장에서, 엔드포인트 선택과 SAP 고정 시점을 임상 개시 전 FDA와 공식 합의하는 프리뷰 단계가 사실상 필수 경로가 됐다는 점을 주목할 필요가 있다.</p>
+<p>eplontersen 실패의 함의는 더 넓다. RNA 억제제(ASO·siRNA) 모달리티가 TTR 단백질을 줄이는 분자 수준 효과는 증명됐지만, 스타빌라이저를 병용하는 환경에서 심혈관 사망·재발이라는 하드 엔드포인트로 이어지는 데 실패했다. 8월 10일 Wainua siRNA 심혈관 실패, 8월 23일 eplontersen ASO 실패가 같은 달에 겹쳤다. 이는 RNA 억제제를 도구로 TTR 수치를 낮추는 전략이 ATTR-CM 치료 목표(심혈관 사망·재발 감소) 달성의 충분조건이 아닐 수 있다는 가설을 제기한다. 스타빌라이저 미경험 환자 코호트 서브그룹(HR 0.71)이 어느 정도 크기와 신뢰구간으로 확인되느냐에 따라 적응증 재설정의 과학적 논거가 결정된다.</p>
+<hr>
+<h2 id="sec-8">다음 주 지켜볼 것</h2>
+<div class="tablewrap"><table><thead><tr><th>날짜</th><th>이벤트</th><th>의미</th></tr></thead><tbody><tr><td>8/24</td><td>이란 2차 제재 세부안 발표(Trump)</td><td>적용 범위·집행 시점에 따라 Brent $90 반락 vs $100 재돌파 시나리오 결정</td></tr><tr><td>8/25</td><td>Jazz Ziihera PDUFA (HER2+ 위식도암 1차)</td><td>이중파라토프 항체가 OS 개선 증명 시 위식도암 표준요법 교체; 아시아(한국·일본·중국) 시장 영향</td></tr><tr><td>8/26</td><td>NVIDIA FY2027 Q2 실적</td><td>Blackwell→Rubin 전환 수요 공백 여부; 가이던스 컨센서스(950억~1,000억달러) 달성 시 AI 인프라 수혜주 동반 재평가</td></tr><tr><td>8/27</td><td>SK하이닉스 인디애나 HBM 패키징 공장 착공식</td><td>HBM 공급망 미국·일본 이원화의 첫 현장 신호; Rubin 세대 수요 피크와 가동 시기 점검</td></tr><tr><td>8/27~29</td><td>잭슨홀 심포지엄 (Warsh 기조연설)</td><td>9월 FOMC 금리 경로 공식 신호 — "인플레이션 경계" 유지 vs 성장 균형 전환 여부; 채권·달러·코스피 동시 방향 결정</td></tr><tr><td>8/27</td><td>한국은행 금통위</td><td>25bp 추가 인상 시 기준금리 3.0%; Fed 동결·BOK 인상 역행 확정 시 원화·채권 복합 변수</td></tr><tr><td>8/28~31</td><td>ESC Congress 2026</td><td>eplontersen 스타빌라이저 미경험 서브그룹 전체 데이터; Pfizer tafamidis 표준요법 지위 재확인 여부</td></tr><tr><td>미정</td><td>Capricor BLA 수정 수용 여부</td><td>FDA가 중대 수정 여부 결정 — 알로제닉 세포치료 허가 경로 유연성 판단</td></tr></tbody></table></div>
+
+<div class="foot">econ-radar 주간 동향 · 매일의 분석을 한 주 흐름으로 엮은 리포트. 투자·기업 언급은 정보·시나리오이며 매수·매도 권유가 아닙니다.</div>
+</div>
+<a href="#top" class="to-top" aria-label="맨 위로" title="맨 위로">&uarr;</a>
+</body></html>
