@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>paper-radar — 2026-W36</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+    body { font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; font-size:16px; line-height:1.78; }
+    .badge { font-size:11px; font-weight:700; padding:2px 9px; border-radius:9999px; display:inline-block; margin-right:4px; }
+    .badge-genome   { background:#dcfce7; color:#166534; }
+    .badge-clinical { background:#dbeafe; color:#1e40af; }
+    .badge-drug     { background:#ede9fe; color:#5b21b6; }
+    .badge-protein  { background:#fce7f3; color:#9d174d; }
+    .badge-llmbio   { background:#fef9c3; color:#713f12; }
+    .badge-other    { background:#f3f4f6; color:#374151; }
+    .badge-preprint { background:#fef3c7; color:#92400e; }
+    .badge-peer     { background:#d1fae5; color:#065f46; }
+    .badge-insilico { background:#e0e7ff; color:#3730a3; }
+    .badge-retro    { background:#fef9c3; color:#713f12; }
+    .badge-prosp    { background:#d1fae5; color:#065f46; }
+    .badge-multi    { background:#dbeafe; color:#1e40af; }
+    .badge-rct      { background:#dcfce7; color:#166534; }
+    .badge-nocode   { background:#fee2e2; color:#991b1b; }
+    .key-point { border-left:4px solid #4338ca; padding:10px 16px; background:#f5f3ff; border-radius:0 10px 10px 0; margin-top:12px; }
+    .key-point .label { font-size:11px; font-weight:700; letter-spacing:0.06em; color:#4338ca; margin-bottom:4px; }
+    .key-point .text { font-size:15px; font-weight:500; color:#312e81; line-height:1.7; }
+    .insight { border-left:4px solid #14b8a6; padding:10px 16px; background:#f0fdfa; border-radius:0 10px 10px 0; margin-top:10px; }
+    .insight .label { font-size:11px; font-weight:700; letter-spacing:0.06em; color:#0f766e; margin-bottom:4px; }
+    .insight .text { font-size:15px; color:#134e4a; line-height:1.7; }
+    .lens-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+    .lens-item { font-size:13.5px; color:#374151; padding:4px 10px; background:#f9fafb; border:1px solid #e5e7eb; border-radius:8px; }
+    .lens-demand { font-size:13.5px; color:#92400e; padding:4px 10px; background:#fef3c7; border:1px solid #fde68a; border-radius:8px; }
+    .verify-tag { font-size:12px; color:#6b7280; margin-top:8px; }
+</style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <div class="max-w-3xl mx-auto px-4 py-10">
+    <header class="mb-8">
+      <div class="flex items-center gap-3 mb-2">
+        <img src="logo-64.png" alt="paper-radar" class="w-9 h-9 rounded-xl" onerror="this.style.display='none'">
+        <span class="text-2xl font-bold tracking-tight text-gray-900">paper-radar 주간 다이제스트</span>
+        <span class="text-lg text-gray-500 font-medium">2026-W36</span>
+      </div>
+      <p class="text-xs text-gray-400">바이오인포·임상ML·신약AI 논문 주간 요약. 모든 해석은 preprint 단계에서의 분석임.</p>
+    </header>
+
+    <section class="mb-8">
+      <h2 class="text-xs font-bold tracking-widest text-indigo-600 uppercase mb-3">At a Glance</h2>
+      <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-5 space-y-3">
+        <p class="text-[15px] leading-relaxed text-gray-800">Nature가 AI 설계 단백질로 만든 RNA 전달 비히클(STV-C8)을 게재하며 LNP 이후 전달 플랫폼 경쟁이 전임상 수준에서 구체화됐다. 같은 주 단일세포 파운데이션 모델(scFM)의 평가·한계·검증을 다루는 논문 세 편(PROSPECTor·세포소기관 임베딩·Nature Methods Perspective)이 동시에 등장해, scFM 신뢰성 논쟁이 2026년 하반기 분야의 핵심 긴장으로 올라서는 흐름을 확인했다. 코드를 공개한 DTI 예측 도구 ProbeMatchDTI는 이번 주 5편 중 신약 스크리닝 파이프라인에 즉시 연결 가능한 유일한 재현 가능 도구다.</p>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">This Week's Top 5</h2>
+      <div class="space-y-6">
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#1</span>
+            <span class="badge badge-peer ">peer-reviewed</span> <span class="badge badge-nocode ">코드 미공개 — 재현 불가</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-1">합성 단백질 어셈블리로부터 바텀업 RNA 전달 비히클 창제 (Creating bottom-up RNA transfer vehicles from synthetic protein assemblies)</h3>
+          <p class="text-[12px] text-gray-400 mb-1">Schuhmacher M.K. (1저자), 교신저자 미확인 | Helmholtz Munich · Technische Universität München (TUM)</p>
+          <p class="text-[13px] text-gray-500 mb-3">Nature · 2026-09-02 · [peer-reviewed] · <a href="https://doi.org/10.1038/s41586-026-10952-3" class="underline text-indigo-700" target="_blank">DOI</a> · 코드 미공개 — 전체 스크리닝 파이프라인 미확인; 스캐폴드 설계 기반 도구인 RFdiffusion은 오픈소스</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">생성형 AI(RFdiffusion)로 설계한 C8 사이클릭 대칭(cyclic symmetry) 합성 단백질 스캐폴드와 천연 단백질 도메인을 결합해 100종 이상의 합성 전달 비히클(STV, Synthetic Transfer Vehicle) 라이브러리를 구축하고 다차원 스크리닝으로 STV-C8을 선발했다. 세포 배양에서 LNP 대비 검토필요: 1,000배 이상의 형질감염율, 동일 단백질 발현 유도에 검토필요: 100,000배 이상 낮은 mRNA 용량을 보고하며, 계산 설계 펩타이드 바인더 기반 세포 유형별 표적 프로그래밍과 in vivo 동물 모델 검증을 함께 수행했다.</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">AI가 단백질 치료제 설계에서 나아가, 전달 시스템 자체를 처음부터 설계하는 단계에 이르렀음을 Nature 수준에서 확인한 연구다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: RFdiffusion으로 C8 대칭 스캐폴드 설계(단일 A100 GPU) → 합성 스캐폴드 + 천연 도메인 결합 → 100종 이상 STV 라이브러리 구축 → 다차원 스크리닝 → STV-C8 선발 → 계산 설계 펩타이드 바인더 통합. 스크리닝 지표·표적화 세포 유형 수는 본문 확인 필요.</span> <span class="lens-item">🩺 Clinical: ex vivo(세포 배양, 세포주 HEK293T 확인) + in vivo 마우스 모델 검증; 인간 임상 데이터 없음. 독성·면역원성 데이터는 스니펫에서 미확인 — 임상 전환의 핵심 미결 과제. 저자들이 "특정 세포 유형 특이적 유도·체내 분포 패턴 추가 연구가 필요하다"고 직접 명시.</span> <span class="lens-item">🏭 Industry: mRNA 치료제·RNAi·유전자 치료 파이프라인 보유 빅파마와 LNP 대체 전달 플랫폼을 탐색하는 바이오텍에 직접적 관심 대상. Helmholtz Munich·TUM 팀이 스핀오프 이전 계획 공개 — 향후 IND 신청 또는 라이선싱 딜 발표 시점이 이 플랫폼의 다음 관찰 포인트.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">ex vivo(세포 배양) + in vivo 동물 모델 (전임상)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#2</span>
+            <span class="badge badge-preprint ">preprint</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-1">약물-표적 상호작용 예측을 위한 탐침 기반 다중 척도 생화학적 패턴 매칭 (ProbeMatchDTI: Probe-Driven Multi-Scale Biochemical Pattern Matching for Drug-Target Interaction Prediction)</h3>
+          <p class="text-[12px] text-gray-400 mb-1">Quan Hao (1저자), Liguo Zhang (교신저자 추정) | 소속 미확인</p>
+          <p class="text-[13px] text-gray-500 mb-3">arXiv · 2026-09-02 · [preprint(미동료심사), SIGKDD 2027 채택(검색 스니펫 기준, 미확인)] · <a href="https://arxiv.org/abs/2609.02549" class="underline text-indigo-700" target="_blank">DOI</a> · <a href="https://github.com/developer-hq/ProbeMatchDTI" class="underline text-indigo-700" target="_blank">code</a></p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">기존 딥러닝 DTI 모델의 수동적 특징 집계가 기능기(functional group)·잔기 맥락(residue-context) 같은 약한 결합 신호를 억제한다는 문제를 제기하며, 학습 가능한 탐침(learnable probe)으로 기능기-국소 모티프-분자 스캐폴드 세 척도의 대응을 능동적으로 탐색하는 ProbeMatchDTI를 제안한다. BindingDB에서 AUC-ROC +2.0%, DrugBank에서 AUC-ROC +0.5% 향상(초록 기준).</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">AUC 수치 자체보다 "지배적 패턴이 약한 신호를 덮는다"는 문제 정의가 알로스테릭(allosteric) 타깃이나 단편 기반 스크리닝(FBDD)에서 더 직접적으로 읽힌다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: IterProbe + BindingProbe 두 모듈로 다중 척도 생화학적 대응 학습. 4개 공개 벤치마크(BindingDB, DrugBank, C. elegans, Human) 평가; 주요 비교 베이스라인은 MMDG-DTI(초록 기준). 분자·단백질 인코더 종류 및 학습/평가 분할 방법은 본문 확인 필요.</span> <span class="lens-item">🩺 Clinical: in silico 공개 벤치마크 성능 비교; 실험적(wet lab) 검증 없음. BindingDB·DrugBank는 기존에 알려진 결합 쌍 기반 데이터셋으로, 새로운 타깃·novel scaffold 예측 성능은 별도 검토 필요. 임상 적용까지 10년 이상의 단계가 남아 있다.</span> <span class="lens-item">🏭 Industry: 소분자 신약 발굴 히트 식별(hit identification) 파이프라인에 직접 연결 가능. 코드 공개로 내부 테스트 진입 장벽이 낮다. Schrödinger·Atomwise·Insilico Medicine 등 계산 신약 발굴 플랫폼 회사가 경쟁적 대조 대상.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">in silico (공개 벤치마크)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#3</span>
+            <span class="badge badge-preprint ">preprint</span> <span class="badge badge-nocode ">코드 미공개 — 재현 불가</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-1">단일세포 표현 공간에서 개방형 생물학적 발견의 운용화 (Operationalizing open-ended biological discovery across single-cell representations)</h3>
+          <p class="text-[12px] text-gray-400 mb-1">Ningxuan Zhang (1저자), Na Liu (교신저자 추정) | 소속 미확인</p>
+          <p class="text-[13px] text-gray-500 mb-3">arXiv · 2026-09-01 · [preprint(미동료심사)] · <a href="https://arxiv.org/abs/2609.00681" class="underline text-indigo-700" target="_blank">DOI</a> · 코드 미공개 — 재현 불가</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">PROSPECTor 프레임워크는 기존 발현 행렬과 scFM 임베딩 6종을 동시에 탐색해 재현 가능한 생물학적 구조를 추출하고 이를 정량적 검증 가설로 변환한다. 섬유아세포 세포외기질(ECM) 프로그램(독립 마우스 코호트)과 위암 T세포 프로그램(단일세포·벌크·공간 전사체 코호트 교차 검증)에서 재현성을 확인했다고 보고한다. 정량 지표는 초록에 미명시.</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">"어떤 scFM이 더 나은가"를 묻기 전에 "탐색 자체를 재현 가능하게 만드는 구조"가 필요하다는 인식 전환이 이 논문의 진짜 기여다. 그런데 코드를 공개하지 않은 채 "재현 가능한 탐색"을 주장하는 것은 자기모순에 가깝다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: 복수 표현(발현 행렬 + scFM 임베딩 6종) 동시 탐색 → 재현성 필터 → 가설 변환 → 보이지 않는 데이터셋에 투영해 일반화 스크리닝. 사용한 scFM 6종 이름, 재현성 기준치, 탐색 알고리즘 세부는 본문 확인 필요.</span> <span class="lens-item">🩺 Clinical: in silico 계산 검증(독립 코호트 재현성 평가). 환자 코호트 기반 임상 결과 연결 없음; 가설 생성 도구로 임상 활용까지 5년 이상의 다단계 검증이 필요한 단계.</span> <span class="lens-item">🏭 Industry: 단일세포 파운데이션 모델 선택 기준을 실증 데이터로 제공할 수 있는 평가 프레임 — scRNA-seq 대규모 데이터를 보유한 R&amp;D 팀의 분석 인프라 투자 결정에 간접 기여 가능. 코드 공개 전까지 산업 채택 경로 없음.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">in silico (독립 코호트 계산 교차 검증)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#4</span>
+            <span class="badge badge-preprint ">preprint</span> <span class="badge badge-nocode ">코드 미공개 — 재현 불가</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-1">전사체·단백질 구조·국소화 정보를 활용한 세포소기관 해상도 단일세포 임베딩 학습 (Subcellularly Resolved Single-Cell Embedding Learning with Transcriptomic data, Protein Structure and Localization Information)</h3>
+          <p class="text-[12px] text-gray-400 mb-1">Zhen Zhou (1저자), Hong-Bin Shen (교신저자) | 소속 미확인</p>
+          <p class="text-[13px] text-gray-500 mb-3">arXiv · 2026-09-02 · [preprint(미동료심사)] · <a href="https://arxiv.org/abs/2609.02344" class="underline text-indigo-700" target="_blank">DOI</a> · 코드 미공개 — 재현 불가</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">전사체, 단백질 서열 표현, 단백질 3D 구조 정보를 크로스-어텐션(cross-attention) 아키텍처로 세포소기관 구획별로 통합해 세포를 "세포소기관별 미세 조직"으로 표현하는 임베딩을 생성한다. 정량 지표는 초록에 미명시 — 기존 scVI·scGPT 대비 어느 다운스트림 태스크에서 얼마나 향상됐는지 본문 확인이 필요하다.</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">AlphaFold DB가 인간 단백질 구조를 대부분 공개한 덕분에 이런 멀티모달 통합이 이제는 실현 가능해졌다 — 가능성이 열렸다는 의미이지, 이 논문이 수치로 그 가치를 증명한 것은 아직 아니다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: 3 모달리티(전사체·단백질 서열·3D 구조) 크로스-어텐션 통합, 세포소기관 구획 단위 모델링. 아키텍처 세부(레이어·임베딩 차원), 학습 데이터 규모, 구조 DB 선택(AlphaFold DB vs. PDB), 데이터 분할·누수 방지 방법은 본문 확인 필요.</span> <span class="lens-item">🩺 Clinical: in silico 단계. 세포소기관 해상도 임베딩이 임상 관련 예측(치료 반응, 예후)에서 기존 방법 대비 부가 정보를 제공하는지 검증되지 않았다.</span> <span class="lens-item">🏭 Industry: 단일세포 멀티오믹스 플랫폼(단백질 + 전사체 통합)을 구축 중인 R&amp;D 팀의 기술 동향 모니터링 대상. 코드·정량 지표 미공개 상태에서는 채택 논의 불가.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-insilico ">in silico</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#5</span>
+            <span class="badge badge-peer ">peer-reviewed</span> <span class="badge badge-nocode ">코드 미공개 — 재현 불가</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-1">바이오메디컬 파운데이션 모델 벤치마킹 (Benchmarking biomedical foundation models)</h3>
+          <p class="text-[12px] text-gray-400 mb-1">Saez-Rodriguez J., Schäfer P.S.L., Kalavros N. 외 | 소속 미확인</p>
+          <p class="text-[13px] text-gray-500 mb-3">Nature Methods · 2026년 9월 (vol. 23, pp. 1724–1733) · [peer-reviewed] · <a href="https://doi.org/10.1038/s41592-026-03182-y" class="underline text-indigo-700" target="_blank">DOI</a> · 코드 미공개 (Perspective 논문)</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">파운데이션 모델의 인식론적 가치(반증 가능성·검증 가능성·효용 기반 평가), 벤치마킹 원칙(투명성·재현성·일반화), 커뮤니티 역할이라는 세 질문을 정식화한다. 단순 예후 예측보다 복잡한 평가 과제 설계를 핵심 권고로 제시하는 Perspective 논문으로, 신규 정량 데이터는 없다.</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">Saez-Rodriguez 그룹이 이 주제를 Nature Methods Perspective로 낸 것은 분야 전체에 대한 경고 신호다 — 기준 없이 파운데이션 모델을 임상 예측에 도입하면 과장된 성능이 오판의 근거가 된다는 메시지가 구체적 도구 없이도 규범 형성에 영향을 준다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: Perspective 논문으로 독자 아키텍처·데이터 없음. 벤치마킹 원칙의 구체적 체크리스트와 권장 평가 태스크는 본문 직접 확인 필요.</span> <span class="lens-item">🩺 Clinical: 직접 임상 연구 아님. 파운데이션 모델의 임상 예측 신뢰도를 높이는 평가 기준 제안으로 간접적으로 환자 안전과 연결된다.</span> <span class="lens-item">🏭 Industry: 파운데이션 모델을 구매·평가하는 빅파마 R&amp;D 팀의 내부 벤치마킹 기준으로 직접 활용 가능. 모델을 판매하는 AI 바이오텍은 이 기준을 충족하는 검증 데이터를 선제적으로 확보해야 영업 근거를 갖출 수 있다.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">Perspective (신규 데이터 없음)</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Deep Dive</h2>
+      <div class="mb-6">
+        <h3 class="text-[16px] font-bold text-gray-800 mb-4">STV-C8: AI가 RNA를 옮기는 법을 새로 설계했다</h3>
+        <div class="space-y-3">
+          <p class="text-[15px] text-gray-800 leading-relaxed">RNA 치료제의 역사에서 전달 시스템은 반복적으로 가장 단단한 벽이었다. 1990년대 antisense oligonucleotide 연구자들이 처음 이 벽에 부딪혔고, siRNA·mRNA 시대를 거쳐 Moderna와 BioNTech이 지질나노입자(LNP)로 이 벽을 처음 임상 수준에서 허물었다. 그러나 LNP도 완전한 해답이 아니었다. 간(liver) 외 조직 도달 효율이 낮고, 반복 투여 시 면역 반응이 지속적으로 지적됐다. 연구자들은 대안을 찾아왔다 — 세포외소포(EV), 폴리머 나노입자, 바이러스 유사 입자(VLP). 이 모든 접근은 자연에서 출발했다. Helmholtz Munich·TUM 팀은 다른 방향에서 시작했다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">이 팀이 선택한 출발점은 생성형 AI, 구체적으로 RFdiffusion이다. David Baker 그룹이 개발·공개한 확산 기반 단백질 구조 설계 도구로, 자연에 존재하지 않는 단백질 구조를 처음부터 설계할 수 있다. 이들은 RFdiffusion으로 C8 사이클릭 대칭 스캐폴드를 설계했다 — 8회 대칭을 가지는 고리 모양 비자연 구조물이다. 여기에 RNA 패키징 기능을 담당하는 천연 단백질 도메인을 결합해 100종 이상의 STV를 구축하고, 다차원 스크리닝으로 최종 선발한 것이 STV-C8이다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">성능 수치가 크게 언급된다. 세포 배양에서 LNP 대비 검토필요: 1,000배 이상의 형질감염율, 동일 단백질 발현 유도를 위한 mRNA 용량이 검토필요: 100,000배 이상 낮다는 보고다. 이 수치는 언론 보도와 초록 기준이며, 구체적 실험 조건(세포주·RNA 화물 종류·LNP 비교 대상)은 원문 결과 섹션에서 확인이 필요하다. 단일 세포주·단일 실험 조건에서의 결과일 가능성이 높고, 다양한 RNA 화물, 원발성 세포(primary cell), 면역 세포에서의 일관성은 아직 보고되지 않았다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">그럼에도 이 논문이 갖는 무게가 있다. AI 설계 단백질이 전달 플랫폼으로 기능한다는 개념 증명을, Nature 게재와 in vivo 동물 모델 검증 수준에서 처음으로 제시했다. 계산 설계 펩타이드 바인더로 세포 유형별 표적 프로그래밍이 가능하다는 시연도 포함됐다 — LNP의 간 집중 문제를 우회할 수 있는지를 묻는 첫 데이터다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">남은 과제는 저자들이 직접 명시했다. "임상 적용 전 특정 세포 유형 특이적 유도와 체내 분포 패턴 추가 연구가 필요하다"는 것이다. 면역원성 데이터가 스니펫에서 확인되지 않는 점, 합성 단백질 구조물의 GMP 규격 대량 생산 가능성, C8 대칭 구조의 장기 안정성 모두 임상 번역의 미결 사항이다. 스핀오프 이전 계획이 공개됐으므로, IND-enabling 연구 착수 발표와 독성 프로파일 데이터가 이 플랫폼을 추적하는 다음 관찰 포인트다.</p>
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <h3 class="text-[16px] font-bold text-gray-800 mb-4">ProbeMatchDTI: 모델이 놓치던 신호를 찾는 탐침</h3>
+        <div class="space-y-3">
+          <p class="text-[15px] text-gray-800 leading-relaxed">DTI 예측 분야는 오래 벤치마크 레이스의 성격을 띠어 왔다. DeepDTA, GraphDTA, MolTrans, DrugBAN이 차례로 BindingDB·DrugBank에서 AUC를 높여왔고, 이미 0.97~0.99 수준에서 포화가 시작됐다. 이 맥락에서 ProbeMatchDTI가 AUC-ROC +2.0%를 달성했다고 주장하면, "그게 임상적으로 무슨 의미인가"라는 질문이 즉시 따라온다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">이 논문에서 수치보다 먼저 주목할 부분은 문제 정의다. 저자들은 기존 딥러닝 DTI 모델이 분자 내 지배적 패턴을 선호하다 보니, 결합 포켓의 기능기(functional group)나 잔기 맥락(residue-context) 같은 약한 신호를 집계 과정에서 억제한다는 구체적 문제를 제기한다. 이 "약한 신호 억제" 문제는 알로스테릭(allosteric) 결합부위나 단편 기반 스크리닝(FBDD)처럼 작은 기능기의 결합력이 전체 분자 활성을 결정하는 상황에서 실질적으로 의미가 있다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">해법이 "탐침(probe)"이다. 학습 가능한 탐침으로 기능기-국소 모티프-분자 스캐폴드 세 척도의 생화학적 대응을 능동적으로 탐색한다. IterProbe 모듈이 문맥 상태를 보존하며 약한 신호를 추출하고, BindingProbe가 원자-잔기 수준의 미시적 대응과 분자 쌍 호환성의 거시적 수준을 연결한다. 4개 공개 벤치마크(BindingDB, DrugBank, C. elegans, Human)에서 일관된 향상을 보고하며, 코드를 GitHub에 공개했다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">실용적으로 접근할 때 체크해야 할 지점이 있다. BindingDB·DrugBank AUC가 0.99에 가까운 포화 상태라면 미세 향상의 실질적 의미는 별도 맥락이 필요하다. 이진 분류(결합/비결합) 벤치마크에만 집중하고 있어 결합 친화력(IC50·Kd) 예측으로의 확장성이 미확인 상태다. cold-start(신규 약물-표적 쌍) 설정에서의 성능도 별도 검토가 필요하다. 코드가 공개됐으므로 자체 화합물-단백질 데이터셋으로 파인튜닝하는 것이 가장 빠른 평가 경로다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">🔭 Wide Angle</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm px-6 py-2">
+        <div class="flex items-start gap-3 py-4 border-b border-gray-100 last:border-0">
+          <div class="flex-1">
+            <p class="text-[15px] font-semibold text-gray-900 mb-1">단백질 서열-구조 공동 설계를 위한 단순 결합 모델 (SimpleDesign: A Joint Model for Protein Sequence and Structure Codesign) </p>
+            <p class="text-[14px] text-gray-700 leading-relaxed">· arXiv:2609.03377 · TMLR(peer-reviewed) · <a href="https://arxiv.org/abs/2609.03377" class="underline text-indigo-700" target="_blank">DOI</a> · 코드 미확인</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 py-4 border-b border-gray-100 last:border-0">
+          <div class="flex-1">
+            <p class="text-[15px] font-semibold text-gray-900 mb-1">약물 재창출에 응용된 결합 텐서-텐서 완성 방법 (Coupled Tensor-Tensor Completion Method with Applications in Drug Repurposing) </p>
+            <p class="text-[14px] text-gray-700 leading-relaxed">· arXiv:2609.03190 · preprint(미동료심사) · <a href="https://arxiv.org/abs/2609.03190" class="underline text-indigo-700" target="_blank">DOI</a> · 코드 미확인</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 py-4 border-b border-gray-100 last:border-0">
+          <div class="flex-1">
+            <p class="text-[15px] font-semibold text-gray-900 mb-1">만성 신장 질환 조기 선별을 위한 LLM 활용 (LLM4CKD: Large Language Models for Early Stage Chronic Kidney Disease Screening) </p>
+            <p class="text-[14px] text-gray-700 leading-relaxed">· arXiv:2609.04013 · preprint(미동료심사, ICDM 2026 채택) · <a href="https://arxiv.org/abs/2609.04013" class="underline text-indigo-700" target="_blank">DOI</a> · 코드 미확인</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Threads to Follow</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <ul class="space-y-3 list-disc list-inside">
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>STV-C8 전임상 경로 추적</strong>: IND-enabling 연구(대동물 독성·면역원성·GMP 생산 가능성) 착수 발표 여부. Helmholtz Munich·TUM 스핀오프 공식화 시기. 세포 유형 특이적 표적화의 in vivo 특이도 데이터 발표 시점 모니터링.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>단일세포 파운데이션 모델 신뢰성 논쟁</strong>: C1(PROSPECTor)·C3(세포소기관 임베딩) 코드 공개 후 독립 재현 결과. C5(Nature Methods Perspective) 권고안이 저널 심사 기준에 반영되는지 여부. scFM 체계적 비교 결과가 실제 모델 선택 기준을 바꾸는 시점.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>ProbeMatchDTI 확장 테스트</strong>: cold-start 설정(신규 타깃)에서의 성능. 결합 친화력(IC50·Kd) 예측으로의 확장 시도. 알로스테릭 타깃 또는 FBDD 데이터셋 적용 결과 추적.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>W35와 연결 — mRNA 플랫폼 AI 이중 공략</strong>: W35의 IVT 수율 최적화(CNN + NGS 스크리닝)는 제조 공정을, W36의 STV-C8은 전달 시스템을 AI로 공략하는 흐름이다. 두 방향이 동일 파이프라인에서 통합되는 연구가 등장하는 시점을 주시.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Sources</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <ul class="space-y-2 text-[13.5px]">
+              <li><a href="https://arxiv.org/abs/2609.00681" class="text-indigo-600 underline" target="_blank">[C1] PROSPECTor 단일세포 개방형 발견 — [C1] PROSPECTor 단일세포 개방형 발견</a></li>
+              <li><a href="https://doi.org/10.1038/s41586-026-10952-3" class="text-indigo-600 underline" target="_blank">[C2] STV-C8 RNA 전달 비히클 (Nature) — [C2] STV-C8 RNA 전달 비히클 (Nature)</a></li>
+              <li><a href="https://arxiv.org/abs/2609.02344" class="text-indigo-600 underline" target="_blank">[C3] 세포소기관 해상도 단일세포 임베딩 — [C3] 세포소기관 해상도 단일세포 임베딩</a></li>
+              <li><a href="https://arxiv.org/abs/2609.02549" class="text-indigo-600 underline" target="_blank">[C4] ProbeMatchDTI DTI 예측 — [C4] ProbeMatchDTI DTI 예측</a></li>
+              <li><a href="https://github.com/developer-hq/ProbeMatchDTI" class="text-indigo-600 underline" target="_blank">[C4] ProbeMatchDTI 코드 — [C4] ProbeMatchDTI 코드</a></li>
+              <li><a href="https://doi.org/10.1038/s41592-026-03182-y" class="text-indigo-600 underline" target="_blank">[C5] 바이오메디컬 파운데이션 모델 벤치마킹 (Nature Methods) — [C5] 바이오메디컬 파운데이션 모델 벤치마킹 (Nature Methods)</a></li>
+              <li><a href="https://arxiv.org/abs/2609.03377" class="text-indigo-600 underline" target="_blank">[W1] SimpleDesign 단백질 서열-구조 공동 설계 — [W1] SimpleDesign 단백질 서열-구조 공동 설계</a></li>
+              <li><a href="https://arxiv.org/abs/2609.03190" class="text-indigo-600 underline" target="_blank">[W2] 결합 텐서-텐서 완성 약물 재창출 — [W2] 결합 텐서-텐서 완성 약물 재창출</a></li>
+              <li><a href="https://arxiv.org/abs/2609.04013" class="text-indigo-600 underline" target="_blank">[W3] LLM4CKD 만성 신장 질환 선별 — [W3] LLM4CKD 만성 신장 질환 선별</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="border-t border-gray-200 pt-8 pb-10 text-center">
+      <p class="text-sm text-gray-500 mt-4">paper-radar · 2026-W36</p>
+      <p class="text-xs text-gray-400 mt-1">바이오인포·임상ML·신약AI 논문 주간 요약. preprint 분석 포함.</p>
+    </footer>
+  </div>
+</body>
+</html>
