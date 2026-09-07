@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🧭 econ-radar 동향 리포트 · 2026-W36 (Sep 1–6)</title>
+<style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+:root{--ink:#1e293b;--indigo:#4338ca;--indigo-deep:#3730a3;--soft:#eef2ff;--line:#c7d2fe;--muted:#64748b;--pop:#c026d3;}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Pretendard',-apple-system,'Noto Sans KR',sans-serif;color:var(--ink);background:#f6f7fb;margin:0;line-height:1.78;font-size:16px;}
+.wrap{max-width:780px;margin:0 auto;padding:30px 20px 80px;}
+.head{background:linear-gradient(135deg,#4f46e5,#3730a3);color:#eef2ff;border-radius:18px;padding:26px 28px;margin-bottom:28px;box-shadow:0 12px 40px rgba(49,46,129,.28);}
+.head .kicker{font-size:13px;letter-spacing:.08em;color:#c7d2fe;font-weight:700;}
+.head h1{font-size:25px;margin:8px 0 6px;line-height:1.35;color:#fff;}
+.head .range{font-size:14px;color:#c7d2fe;}
+.tags{margin-top:12px;}
+.tags span{display:inline-block;font-size:12px;background:rgba(255,255,255,.14);color:#e9d5ff;border-radius:999px;padding:2px 11px;margin:3px 4px 0 0;}
+h2{color:var(--indigo);font-size:21px;margin:34px 0 12px;padding-bottom:8px;line-height:1.4;background:linear-gradient(90deg,var(--indigo) 0,var(--pop) 44px,var(--line) 44px) bottom left/100% 3px no-repeat;}
+h2[id]{scroll-margin-top:74px;}
+h3{color:var(--indigo-deep);font-size:17px;margin:22px 0 8px;}
+p{margin:10px 0;}
+strong{color:var(--indigo-deep);}
+a{color:var(--indigo);text-decoration:none;border-bottom:1px solid var(--line);}
+a:hover{background:var(--soft);}
+ul{margin:10px 0;padding-left:20px;} li{margin:7px 0;}
+blockquote{border-left:4px solid var(--line);background:#fff;margin:12px 0;padding:10px 16px;border-radius:0 10px 10px 0;color:var(--muted);font-size:14px;}
+blockquote a{border:none;color:var(--muted);}
+.tablewrap{overflow-x:auto;margin:14px 0;-webkit-overflow-scrolling:touch;}
+table{border-collapse:collapse;width:100%;font-size:14px;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 18px rgba(67,56,202,.08);}
+th{background:linear-gradient(90deg,var(--indigo),#6d28d9);color:#fff;text-align:left;padding:11px 13px;font-weight:700;}
+td{padding:10px 13px;border-bottom:1px solid #eef0f7;vertical-align:top;}
+tr:nth-child(even) td{background:#fafbff;}
+hr{border:none;border-top:1px solid var(--line);margin:26px 0;}
+.back{display:inline-block;margin-bottom:18px;font-size:14px;color:var(--indigo);border:none;}
+/* 섹션 점프 목차 — 스크롤해도 상단 고정(데일리와 동일 스타일) */
+.toc{position:sticky;top:8px;z-index:40;display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 30px;padding:12px 16px;background:rgba(255,255,255,0.96);backdrop-filter:saturate(180%) blur(6px);border:1.5px solid var(--line);border-radius:14px;box-shadow:0 6px 22px rgba(67,56,202,0.16);}
+.toc .toc-label{font-size:13px;font-weight:800;color:var(--indigo);margin-right:4px;}
+.toc a{position:relative;font-size:12px;font-weight:600;padding:5px 12px;border-radius:999px;background:#eef2ff;color:var(--indigo);border:1px solid var(--line);text-decoration:none;transition:background .15s,color .15s;}
+.toc a:hover{background:var(--indigo);color:#fff;}
+.toc a[data-tip]::after{content:attr(data-tip);position:absolute;left:0;top:calc(100% + 9px);width:max-content;max-width:260px;white-space:normal;background:#1e293b;color:#fff;font-size:12px;font-weight:500;line-height:1.5;letter-spacing:0;padding:8px 11px;border-radius:9px;box-shadow:0 8px 22px rgba(15,23,42,0.28);opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .15s,transform .15s;pointer-events:none;z-index:60;}
+.toc a[data-tip]::before{content:"";position:absolute;left:16px;top:calc(100% + 3px);border:6px solid transparent;border-bottom-color:#1e293b;opacity:0;visibility:hidden;transition:opacity .15s;z-index:60;}
+.toc a[data-tip]:hover::after,.toc a[data-tip]:hover::before{opacity:1;visibility:visible;transform:translateY(0);}
+/* 맨 위로 버튼 */
+.to-top{position:fixed;right:18px;bottom:18px;width:44px;height:44px;border-radius:50%;background:var(--indigo);color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:20px;line-height:1;border:none;box-shadow:0 4px 16px rgba(67,56,202,0.42);z-index:50;transition:background .15s,transform .1s;}
+.to-top:hover{background:var(--indigo-deep);}
+.to-top:active{transform:scale(0.92);}
+/* 본문 끝 태그(footer 위) */
+.foottags{margin-top:34px;}
+.foottags span{display:inline-block;font-size:12px;background:var(--soft);color:var(--indigo-deep);border:1px solid var(--line);border-radius:999px;padding:3px 11px;margin:4px 5px 0 0;}
+.foot{margin-top:18px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);}
+@media(max-width:640px){body{font-size:15px;}.wrap{padding:18px 14px 60px;}.head{padding:20px;}.head h1{font-size:21px;}h2{font-size:19px;}h2[id]{scroll-margin-top:64px;}table{font-size:13px;}
+.toc{padding:8px 10px;gap:6px;margin:0 0 20px;}.toc .toc-label{font-size:11px;}.toc a{font-size:11px;padding:4px 10px;}.toc a[data-tip]::after,.toc a[data-tip]::before{display:none;}
+.to-top{width:40px;height:40px;right:12px;bottom:12px;font-size:18px;}}
+</style></head>
+<body><div class="wrap" id="top">
+<a class="back" href="/econ-radar/">← econ-radar 아카이브</a>
+<div class="head"><div class="kicker">WEEKLY · 주간 동향</div><h1>🧭 econ-radar 동향 리포트 · 2026-W36 (Sep 1–6)</h1><div class="range">2026-09-01 ~ 2026-09-06</div></div>
+<nav class="toc" aria-label="섹션 바로가기"><span class="toc-label">📑 바로가기</span><a href="#sec-1" data-tip="지난 주를 관통한 핵심 메시지">핵심</a><a href="#sec-2" data-tip="흐름 1 | 거시: 지정학 충격 → NFP 역전 → CPI 대기">흐름 1 |</a><a href="#sec-3" data-tip="흐름 2 | 바이오: 기전 선점 딜 + 희귀질환 신약 클러스터">흐름 2 |</a><a href="#sec-4" data-tip="흐름 3 | AI·반도체: HBM 장기 잠금 + LLM 경쟁 척도 이동">흐름 3 |</a><a href="#sec-5" data-tip="투자 관점 시사점">투자</a><a href="#sec-6" data-tip="수요(Demand) 시사점">수요(Dem</a><a href="#sec-7" data-tip="R&amp;D·전략 관점 노트">전략</a><a href="#sec-8" data-tip="다음 주 지켜볼 것">다음 주 지</a></nav>
+<hr>
+<h2 id="sec-1">핵심 메시지 3가지</h2>
+<p>1. <strong>거시 충격의 반전 구조</strong>: 호르무즈 미-이란 에스컬레이션이 주초 KOSPI를 -4% 끌어내렸으나, 주후반 NFP +22,000명 쇼크로 FOMC 인상 확률이 66%→38%로 급반전하며 부분 회복. 9월 11일 CPI가 다음 분기 환경을 결정짓는 단일 변수로 부상했다.</p>
+<p>2. <strong>바이오 딜 구조의 변화</strong>: Lilly가 자가면역 기전 2건을 일주일 사이에 연속 인수했고, 알테오젠이 빅파마 4연속 SC플랫폼 메가딜을 성사시켰다. 희귀질환 신약 2건 조기 승인과 비GLP-1 비만 기전 첫 빅파마 베팅이 겹치며, 바이오 딜의 초점이 '블록버스터 보완'에서 '기전 선점'으로 이동하고 있다.</p>
+<p>3. <strong>AI 인프라의 장기 잠금</strong>: SK하이닉스 HBM이 2026년 전량 sold out·2030년 장기 계약으로 굳어졌고, Broadcom은 FY27 $115B 로드맵을 처음 공개했다. LLM 경쟁 기준은 벤치마크에서 보안등급·에이전트 특화·비용으로 이동하기 시작했다.</p>
+<hr>
+<h2 id="sec-2">흐름 1 | 거시: 지정학 충격 → NFP 역전 → CPI 대기</h2>
+<h3>무슨 일이 있었나</h3>
+<p>주 초, 이란 IRGC가 호르무즈 해협에서 영국 국적 탱커를 기뢰로 피격하고([[daily/2026-09-01]]), 이틀 뒤 미군기지 5곳에 반격을 단행했다([[daily/2026-09-03]]). 브렌트유는 $91.28에서 $94.86으로 올라섰고, KOSPI는 6,835에서 6,562로 -3.99% 급락했다([[daily/2026-09-02]]). 호르무즈 '탱커 for 탱커' 공식이 굳어지며 시장은 장기 지정학 리스크를 가격에 반영하기 시작했다.</p>
+<p>주 후반 흐름은 달랐다. 8월 NFP가 +22,000명으로 발표되며 예상을 크게 밑돌았고([[daily/2026-09-04]]), FOMC 11월 인상 확률은 66%에서 38%로 꺾였다. KOSPI는 당일 +1.64%, KOSDAQ +2.95% 반등했다. 충격의 원인(지정학)이 사라진 것이 아니라, 그보다 강한 신호(고용 냉각)가 들어온 구조다.</p>
+<p>주말 기준 브렌트유 $95~96, 이란 추가 탱커 피격 보도가 이어지면서([[daily/2026-09-06]]) 에너지 리스크는 해소되지 않았다. 9월 11일 CPI가 발표 전까지 시장은 대기 모드다.</p>
+<h3>왜 중요한가</h3>
+<p>연준 내 공개 이견이 표면화됐다. Warsh는 11월 인상을 지지하고 Waller는 데이터 의존을 강조하며 방향이 갈렸다([[daily/2026-09-02]]). 주초 66%까지 올랐던 인상 확률이 NFP 하나로 38%로 내려앉은 것은, 연준이 노동시장에 얼마나 민감하게 반응하는지를 보여준다. 동시에 에너지 가격이 $95 이상을 유지하면 CPI가 서프라이즈를 낼 가능성이 남아 있어 상방·하방 시나리오가 모두 열려 있다.</p>
+<p><strong>양면 시각</strong></p>
+<ul><li>낙관: NFP 냉각 = 11월 동결 확률 우위, 금리 부담 완화</li><li>위험: 호르무즈 지속 에스컬레이션 + CPI 서프라이즈 시 인상 확률 재급등 가능</li></ul>
+<hr>
+<h2 id="sec-3">흐름 2 | 바이오: 기전 선점 딜 + 희귀질환 신약 클러스터</h2>
+<h3>무슨 일이 있었나</h3>
+<p><strong>Lilly 자가면역 연속 인수</strong>: Lilly가 5일 사이에 두 건을 닫았다. Merida Biosciences 인수($2.875B, 자가항체 분해 기전 Phase 1, [[daily/2026-09-02]])에 이어 Orna Therapeutics 인수($2.4B, In Vivo CAR-T ORN-252 자가면역, [[daily/2026-09-04]])가 발표됐다. 두 건 합산 $5.3B, 공통 타깃은 자가면역질환이다.</p>
+<p><strong>비GLP-1 비만 첫 빅파마 베팅</strong>: 한미약품-Genentech이 HM17321 UCN2(비GLP-1 비만 기전) 계약을 $2.3B 규모로 체결했다([[daily/2026-09-01]]). GLP-1 포화 우려 속에서 빅파마가 대안 기전에 자본을 배치하기 시작한 첫 사례다.</p>
+<p><strong>희귀질환 신약 2건 연속 조기 승인</strong>: Protagonist의 Besremi가 ET(진성적혈구증가증) 적응증 확대 FDA 승인을 받았고([[daily/2026-09-01]]), Ionis의 Zanvastro(zilganersen)가 PDUFA 19일 전 Alexander병(최초 치료제, ASO 기전) 조기 승인을 받았다([[daily/2026-09-05]]). 두 건 모두 초희귀 질환이며, FDA의 조기 승인 기조가 지속되고 있다는 신호다.</p>
+<p><strong>알테오젠 SC플랫폼 4연속 빅파마 메가딜</strong>: 알테오젠-노바티스가 최대 4.4조 원 SC플랫폼 계약을 체결하며 올해 4번째 빅파마 계약이 됐다([[daily/2026-09-05]]). 연내 4건 연속 메가딜은 알테오젠의 hyaluronidase 기술이 업계 표준 경로로 굳어지고 있음을 시사한다.</p>
+<p><strong>ADC 집중 시즌</strong>: 리가켐바이오 SOT106이 FDA 패스트트랙을 받고 국민성장펀드 5,000억 원 투자 확정([[daily/2026-09-06]]), BioNTech ADC×IO 조합(pumitamig+elfetabart drozuntecan) 첫 데이터가 WCLC 서울에서 9/15 발표 예정이다([[daily/2026-09-06]]). WCLC 2026이 서울에서 열리며 국내 ADC 기업에 글로벌 주목도가 집중됐다.</p>
+<h3>왜 중요한가</h3>
+<p>Lilly가 비만(GLP-1)에서 자가면역으로 인수 축을 이동하고 있다. 이는 GLP-1 시장이 성숙 단계에 진입했다는 내부 판단을 반영하거나, 파이프라인 다변화 전략일 수 있다. 어느 쪽이든, 자가면역 분야 프리미엄 자산에 대한 M&amp;A 경쟁이 본격화될 수 있다.</p>
+<p>알테오젠의 SC플랫폼은 이제 특정 파트너십이 아니라 다품종 라이선스 모델로 정착했다. 주사 제형을 피하주사로 전환하는 니즈는 처방의와 환자 모두에게 이점이 있어, 기존 블록버스터의 SC 재포장 수요는 앞으로도 이어질 것으로 보인다.</p>
+<p><strong>양면 시각</strong></p>
+<ul><li>선점 기회: 비GLP-1 비만 기전·자가면역 초기 파이프라인은 아직 빅파마 점유 전</li><li>위험: 희귀질환 신약 개발 실패율(Phase 2→3 전환 ~30%), Lilly 연속 인수의 통합 리스크</li></ul>
+<hr>
+<h2 id="sec-4">흐름 3 | AI·반도체: HBM 장기 잠금 + LLM 경쟁 척도 이동</h2>
+<h3>무슨 일이 있었나</h3>
+<p><strong>HBM 공급 구조적 장기화</strong>: SK하이닉스가 HBM 2026년 전량 sold out, 2030년까지 장기 공급 계약 체결을 공식화했다([[daily/2026-09-05]]). HBM4 배분은 SK하이닉스 60~70%, 삼성 25~30%로 굳어졌으며([[daily/2026-09-04]]), 삼성·SK 합산 시설투자 43.2조 원(+35%)이 집행됐다([[daily/2026-09-05]]). 한국 8월 반도체 수출은 +209%였다([[daily/2026-09-02]]).</p>
+<p><strong>Broadcom FY27·FY28 로드맵 첫 공개</strong>: Broadcom은 FY3Q에서 AI매출 $16.7B(+221%)를 기록하고 FY27 $115B, FY28 $230B 로드맵을 처음 공개했다([[daily/2026-09-03]]). 그러나 Q4 가이던스($34.8B)가 컨센서스를 -4.04% 하회했고 시간외에서 하락했다. '로드맵은 낙관, 단기 가이던스는 보수적' 패턴이 반복됐다.</p>
+<p><strong>CXMT HBM3E 소량 생산</strong>: 중국 CXMT가 알리바바·캠브리콘에 HBM3E를 소량 공급하기 시작했다([[daily/2026-09-02]]). 아직 성능·수율 미검증 단계지만, 중국의 AI 메모리 내재화가 가시권에 들어왔다.</p>
+<p><strong>LLM 경쟁 척도 이동</strong>: GPT-6 Astra가 'Critical' 안전등급으로 출시되고([[daily/2026-09-04]]), 다음 날 일반 공개됐다([[daily/2026-09-05]]). Gemini 3.8 Flash는 에이전트 특화로 정식 출시됐고, MAI-Transcribe-2는 $0.10/시간 60개 언어 WER 1위를 기록했다. 기업 채택 단계에서 LLM 선택 기준이 벤치마크 점수에서 '보안등급·에이전트 능력·비용'으로 이동하고 있다([[daily/2026-09-06]]).</p>
+<p><strong>AI 인프라 병목 재정의</strong>: PwC는 AI 인프라 수요를 $31.6T로 추산하며 병목이 GPU에서 전력·냉각·토지로 이동했다고 분석했다([[daily/2026-09-03]]). OpenAI는 IPO를 2027년으로 연기하고 순손실 $38.5B, 흑자전환 2030년으로 S-1 전 재무 구조를 처음 공개했다([[daily/2026-09-02]]).</p>
+<h3>왜 중요한가</h3>
+<p>HBM의 2030년 장기 계약이 의미하는 것은 AI 인프라 투자가 단기 사이클이 아니라 10년 단위 인프라 투자로 전환됐다는 수요자(하이퍼스케일러)의 판단이다. Broadcom의 가이던스 패턴(단기 보수, 중기 낙관)은 ASIC 수요 가시성은 높지만 분기 단위 실행이 불확실하다는 것을 반영한다.</p>
+<p>CXMT HBM3E 소량 출하는 중국 AI 메모리 내재화의 시작점이다. 성능·수율이 확인되는 시점이 SK하이닉스·삼성의 프리미엄 지위에 대한 첫 도전이 될 것이다.</p>
+<p><strong>양면 시각</strong></p>
+<ul><li>기회: 전력·냉각·토지 인프라 사업자, HBM 비중 높은 패키지 기업</li><li>위험: Broadcom 가이던스 보수화 추세, CXMT 내재화 속도에 따른 가격 압박 가능성</li></ul>
+<hr>
+<h2 id="sec-5">투자 시사점</h2>
+<blockquote>매수·매도 권유가 아닌 정보·시나리오 제공이다. 최종 판단은 본인이 한다.</blockquote>
+<p><strong>시나리오 A — CPI 서프라이즈(+)</strong>: 브렌트유 $95 이상 유지 시 8월 CPI가 예상을 상회할 수 있다. 이 경우 FOMC 11월 인상 확률이 재급등하며 성장주·바이오 밸류에이션이 다시 압박받을 수 있다. 경기방어 섹터와 단기 채권 비중 점검이 유효하다.</p>
+<p><strong>시나리오 B — CPI 안정</strong>: 고용 냉각(NFP +22,000명)이 수요 둔화로 이어지면 CPI가 안정되며 동결 기조가 굳어진다. 이 경우 성장·기술·바이오 리레이팅 여지가 생긴다.</p>
+<p><strong>바이오 M&amp;A 관찰 포인트</strong>: Lilly의 자가면역 연속 인수는 동종 자산(조기 자가면역 파이프라인) 프리미엄을 높인다. AbbVie의 3자산 동시 발표([[daily/2026-09-06]])와 맞물려 자가면역 빅파마 경쟁이 격화될 수 있다.</p>
+<p><strong>HBM 공급사 vs CXMT 리스크</strong>: SK하이닉스의 장기 계약은 수익 가시성을 높이지만, CXMT의 양산 전환 시점이 중기 프리미엄 지속 여부를 결정한다. 2027년 이후 CXMT 출하량 추이를 모니터링할 필요가 있다.</p>
+<p><strong>9월 PDUFA 집중 시즌</strong>: UX111 (9/19), relutrigine (9/27), Camzyos 소아 확장 (9/30). 승인 결과에 따라 개별 기업 이벤트 리스크가 크다.</p>
+<hr>
+<h2 id="sec-6">수요(Demand) 시사점</h2>
+<p><strong>제약/바이오 3주체 렌즈</strong></p>
+<div class="tablewrap"><table><thead><tr><th>주체</th><th>이번 주 신호</th></tr></thead><tbody><tr><td>환자</td><td>Alexander병·ET 치료제 승인 — 기존 치료 선택지가 없던 환자군에 첫 옵션 발생</td></tr><tr><td>처방의</td><td>SC플랫폼(알테오젠) 확산 — IV→SC 전환은 외래 처방 편의성을 높여 처방 장벽 낮춤</td></tr><tr><td>지불자(보험·급여)</td><td>희귀질환 가격 책정·급여 협상이 승인 직후 본격화. 빅파마 인수 딜은 지불자와의 교섭력을 높이는 방향으로 작동</td></tr></tbody></table></div>
+<p><strong>AI 수요 전환 신호</strong>: 기업 LLM 채택이 파일럿에서 실무 배치로 이동하면서, 구매 결정자(CIO·CISO)가 보안등급과 에이전트 안정성을 우선 기준으로 삼기 시작했다([[daily/2026-09-06]]). 이는 LLM 시장에서 '기능 경쟁'보다 '신뢰 경쟁'이 강화되는 신호다.</p>
+<p><strong>비GLP-1 비만 수요</strong>: UCN2 기전에 대한 빅파마 베팅은 GLP-1 부작용(오심·근손실)을 피하고 싶은 환자 수요를 바탕으로 한다. 시장이 열리려면 임상에서 안전·효능 우위 데이터가 나와야 한다. Phase 1 이후 중기 관찰이 필요하다.</p>
+<hr>
+<h2 id="sec-7">전략 노트</h2>
+<p>이번 주 바이오 딜 패턴에서 주목할 구조적 변화가 있다. Lilly의 자가면역 연속 인수는 단순 파이프라인 보충이 아니라 '기전 플랫폼 선점' 논리로 읽힌다. 자가항체 분해(Merida)와 In Vivo CAR-T(Orna)는 서로 다른 기전이지만, 두 건 모두 표적이 자가면역 B세포·형질세포 축이다. 빅파마가 자가면역 면역학 플랫폼을 통합 확보하려는 움직임으로 보인다.</p>
+<p>알테오젠 SC플랫폼의 4연속 딜은 HER2 항체부터 종양학·자가면역까지 적용 범위가 넓다는 것을 확인했다. SC 전환을 위한 hyaluronidase 라이선스 수요는 기존 블록버스터 자산의 재포장 수요이므로, 파이프라인 리스크와 무관하게 구조적으로 지속된다. 국내 SC기술 기업의 기술수출 모델이 반복 검증되고 있다.</p>
+<p>ADC+IO 조합 데이터(WCLC 9/15)는 암 치료 표준이 바뀔 수 있는 변곡점이다. 효능이 확인되면 ADC와 면역항암제를 독립적으로 개발하던 접근이 조합 개발로 빠르게 이동할 것이다. 국내 ADC 플랫폼 기업(리가켐바이오)의 글로벌 컨퍼런스 데이터 발표와 맞물려 주목도가 높다.</p>
+<hr>
+<h2 id="sec-8">다음 주 지켜볼 것</h2>
+<div class="tablewrap"><table><thead><tr><th>날짜</th><th>이벤트</th><th>관전 포인트</th></tr></thead><tbody><tr><td>9/11 (목)</td><td>미국 8월 CPI 발표</td><td>브렌트유 $95 이상 유지 시 서프라이즈 가능성 — FOMC 11월 인상 확률 재등락 결정</td></tr><tr><td>9/12~15</td><td>WCLC 2026 서울</td><td>BioNTech ADC×IO 첫 조합 데이터(9/15), AbbVie 3자산, 국내 ADC 기업 데이터 발표</td></tr><tr><td>9/15</td><td>BioNTech ADC×IO 데이터</td><td>pumitamig+elfetabart drozuntecan 효능·안전성 — ADC+IO 조합 기준 형성 여부</td></tr><tr><td>9/19</td><td>UX111 PDUFA</td><td>FDA 승인 여부 — 산필리포증후군(초희귀 CNS) 첫 치료제 가능성</td></tr><tr><td>9/26</td><td>zilurgisertib FOP PDUFA</td><td>ENDO 2026 데이터 기반 승인 여부 — FOP(석골화증) 치료제</td></tr><tr><td>9/27</td><td>relutrigine PDUFA</td><td>나트륨채널 조절 희귀 간질 신약</td></tr><tr><td>미정</td><td>FOMC 9월 회의 의사록</td><td>Warsh-Waller 이견 공식화 여부, 11월 경로 신호</td></tr><tr><td>지속</td><td>호르무즈 지정학</td><td>이란 추가 피격·미국 대응 수위 — 브렌트유 방향과 직결</td></tr><tr><td>지속</td><td>CXMT HBM3E 수율·출하</td><td>소량에서 양산 전환 시점 — SK하이닉스 프리미엄 지속 여부</td></tr></tbody></table></div>
+<hr>
+<p>*생성: 2026-09-06 · econ-radar 주간 동향 자동 리포트*</p>
+
+<div class="foot">econ-radar 주간 동향 · 매일의 분석을 한 주 흐름으로 엮은 리포트. 투자·기업 언급은 정보·시나리오이며 매수·매도 권유가 아닙니다.</div>
+</div>
+<a href="#top" class="to-top" aria-label="맨 위로" title="맨 위로">&uarr;</a>
+</body></html>
