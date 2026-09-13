@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>paper-radar — 2026-W37</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+    body { font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; font-size:16px; line-height:1.78; }
+    .badge { font-size:11px; font-weight:700; padding:2px 9px; border-radius:9999px; display:inline-block; margin-right:4px; }
+    .badge-genome   { background:#dcfce7; color:#166534; }
+    .badge-clinical { background:#dbeafe; color:#1e40af; }
+    .badge-drug     { background:#ede9fe; color:#5b21b6; }
+    .badge-protein  { background:#fce7f3; color:#9d174d; }
+    .badge-llmbio   { background:#fef9c3; color:#713f12; }
+    .badge-other    { background:#f3f4f6; color:#374151; }
+    .badge-preprint { background:#fef3c7; color:#92400e; }
+    .badge-peer     { background:#d1fae5; color:#065f46; }
+    .badge-insilico { background:#e0e7ff; color:#3730a3; }
+    .badge-retro    { background:#fef9c3; color:#713f12; }
+    .badge-prosp    { background:#d1fae5; color:#065f46; }
+    .badge-multi    { background:#dbeafe; color:#1e40af; }
+    .badge-rct      { background:#dcfce7; color:#166534; }
+    .badge-nocode   { background:#fee2e2; color:#991b1b; }
+    .key-point { border-left:4px solid #4338ca; padding:10px 16px; background:#f5f3ff; border-radius:0 10px 10px 0; margin-top:12px; }
+    .key-point .label { font-size:11px; font-weight:700; letter-spacing:0.06em; color:#4338ca; margin-bottom:4px; }
+    .key-point .text { font-size:15px; font-weight:500; color:#312e81; line-height:1.7; }
+    .insight { border-left:4px solid #14b8a6; padding:10px 16px; background:#f0fdfa; border-radius:0 10px 10px 0; margin-top:10px; }
+    .insight .label { font-size:11px; font-weight:700; letter-spacing:0.06em; color:#0f766e; margin-bottom:4px; }
+    .insight .text { font-size:15px; color:#134e4a; line-height:1.7; }
+    .lens-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+    .lens-item { font-size:13.5px; color:#374151; padding:4px 10px; background:#f9fafb; border:1px solid #e5e7eb; border-radius:8px; }
+    .lens-demand { font-size:13.5px; color:#92400e; padding:4px 10px; background:#fef3c7; border:1px solid #fde68a; border-radius:8px; }
+    .verify-tag { font-size:12px; color:#6b7280; margin-top:8px; }
+</style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <div class="max-w-3xl mx-auto px-4 py-10">
+    <header class="mb-8">
+      <div class="flex items-center gap-3 mb-2">
+        <img src="logo-64.png" alt="paper-radar" class="w-9 h-9 rounded-xl" onerror="this.style.display='none'">
+        <span class="text-2xl font-bold tracking-tight text-gray-900">paper-radar 주간 다이제스트</span>
+        <span class="text-lg text-gray-500 font-medium">2026-W37</span>
+      </div>
+      <p class="text-xs text-gray-400">바이오인포·임상ML·신약AI 논문 주간 요약. 모든 해석은 preprint 단계에서의 분석임.</p>
+    </header>
+
+    <section class="mb-8">
+      <h2 class="text-xs font-bold tracking-widest text-indigo-600 uppercase mb-3">At a Glance</h2>
+      <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-5 space-y-3">
+        <p class="text-[15px] leading-relaxed text-gray-800">ProteinTalks가 유방암 세포주 교란으로 측정한 3,800만 건의 시간분해 단백질 데이터를 Neural ODE로 학습한 가상세포 모델로 Nature에 등장하며, 전사체 중심이던 파운데이션 모델 경쟁이 동적 단백질체 레이어로 이동하는 첫 대규모 신호를 보냈다. 이번 주 핵심 5편은 GRN 변화 탐지(C5)→CRISPR 히트 발굴(C3)→PROTAC 분자 설계(C2)→약물 효능 예측(C1)으로 신약 파이프라인의 연속 단계를 각각 다루며, AI가 실험 탐색 공간을 압축한다는 같은 구조를 갖는다. Genentech이 1,389개 CRISPR 스크린 벤치마크를 코드와 함께 공개하고, CARDEA가 관상동맥 조영술 판독에 RLVR을 적용해 HuggingFace 화제를 모으면서 실용성과 감사 가능성(auditability) 양면의 압박이 임상 AI 분야에서 동시에 높아지고 있다.</p>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">This Week's Top 5</h2>
+      <div class="space-y-6">
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#1</span>
+            <span class="badge badge-peer ">peer-reviewed</span> <span class="badge badge-nocode ">코드 미공개 — 재현 불가</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-1">교란 프로테오믹스 기반 운용 가능한 가상세포 모델 (An operational perturbation proteomics-based virtual cell model)</h3>
+          <p class="text-[12px] text-gray-400 mb-1">Rui Sun (1저자), 교신저자 미확인 | Westlake University · Westlake Omics Inc. · DP Technology Co., Ltd.</p>
+          <p class="text-[13px] text-gray-500 mb-3">Nature · 2026-09 · [peer-reviewed] · <a href="https://doi.org/10.1038/s41586-026-11001-9" class="underline text-indigo-700" target="_blank">DOI</a> · 코드 미공개 — 재현 불가 (본 논문 전용 코드·데이터 링크 미확인)</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">유방암 세포주에 FDA 승인 항암제 63종과 2제 병용 59종을 투여하며 투여 전·6h·24h·48h 4개 시점의 단백질 발현량 3,800만 건을 수집하고, Neural ODE 기반 파운데이션 모델(ProteinTalks)로 동적 단백질 궤적을 학습해 약물 효능·병용 시너지 예측과 약물 내성 관련 단백질 탐색에 가상세포 모델을 적용했다고 보고한다. 예측 성능 정량 수치와 외부 코호트 검증 범위는 원문 직접 확인이 필요하다.</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">DIA 질량분석 처리량 향상이 기술적 발판을 마련한 지금, "전사체는 됐는데 단백질체는 왜 안 되나"라는 가상세포 분야의 오랜 물음에 3,800만 건 시간분해 측정으로 정면 답을 시도한 연구다. 코드와 데이터 공개 여부가 이 모델의 실질적 영향력을 좌우한다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: Neural ODE를 가상세포 동역학 코어로 채택 — 투여 전·6h·24h·48h 4시점 단백질 궤적을 연속 시간 흐름으로 학습하는 것이 기존 정적 표현 파운데이션 모델과의 핵심 설계 차별점이다.</span> <span class="lens-item">🩺 Clinical: 학습·검증 모두 유방암 세포주 in vitro 기반이며 "63종 FDA 항암제"는 교란 조건의 다양성을 의미하지 임상 검증이 아니다 — 환자 반응 예측 적용까지 세포주→오가노이드→in vivo→전향 코호트의 단계가 각각 필요하다.</span> <span class="lens-item">🏭 Industry: Westlake Omics Inc.·DP Technology Co., Ltd.가 저자 기관으로 등재 — 3,800만 건 데이터셋의 공개 vs. 라이선스 전략 선택이 이 플랫폼이 표준 데이터 해자를 구축하느냐를 결정한다.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">in silico (유방암 세포주</span> <span class="badge badge-other ">peer-reviewed)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#2</span>
+            <span class="badge badge-preprint ">preprint</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-1">PROTAC 분해 활성의 E3 리가제 간 소수샷 예측 (ProMeta: Few-shot PROTAC-targeted degradation prediction across E3 ligases)</h3>
+          <p class="text-[12px] text-gray-400 mb-1">Yuansheng Liu (1저자), 교신저자 미확인 | 소속 미확인 (초록 기준)</p>
+          <p class="text-[13px] text-gray-500 mb-3">arXiv · 2026-09-09 · [preprint(미동료심사)] · <a href="https://arxiv.org/abs/2609.09891" class="underline text-indigo-700" target="_blank">DOI</a> · 코드 공개 확인 (GitHub, 링크 미확인)</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">프로토타입 기반 그래프 신경망(GNN)을 에피소딕 메타러닝으로 훈련한 ProMeta가 CRBN→VHL 교차-E3 벤치마크에서 서포트 샘플 K=2·쿼리 Q=5 조건으로 AUROC 0.883을 달성했다고 보고한다 (WebSearch — arXiv:2609.09891 기준). 검토필요: "기존 대비" 향상률의 비교 베이스라인 모델명과 CRBN→VHL 외 다른 E3 리가제 조합에서의 재현 여부는 원문 확인이 필요하다.</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">수치 자체보다 문제 정의가 이 논문의 핵심 기여다 — 교차-E3 소수샷(few-shot) 예측을 벤치마크 기본 설정으로 삼은 것만으로도 PROTAC 계산 연구의 평가 기준을 바꾸는 데 기여한다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: 분자 그래프 인코딩 + 표적 단백질·E3 리가제 서열 임베딩을 프로토타입 네트워크로 결합, 테스트 시 가중치 업데이트 없이 서포트 샘플에서 클래스 프로토타입을 즉시 추정하는 상각(amortized) 추론 구조.</span> <span class="lens-item">🩺 Clinical: 계산 예측 전용; DC50·Dmax 실험 검증 미포함. PROTAC 임상 진입까지 PK 최적화·오프타깃 평가·3자 복합체(ternary complex) 형성 검증 등 다단계가 남아 있다.</span> <span class="lens-item">🏭 Industry: CRBN·VHL 중심 IP를 우회하려는 후발 TPD(Targeted Protein Degradation) 파이프라인 보유 회사에 E3 리가제 선택지 확장의 계산 필터로 수요가 생긴다 — preprint 단계이므로 도입 검토는 동료심사·재현 확인 이후가 적절하다.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">in silico (preprint</span> <span class="badge badge-other ">미동료심사)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#3</span>
+            <span class="badge badge-preprint ">preprint</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-1">CRISPR 스크린에서 생물학-인-더-루프 방식의 상각화된 히트 발굴 (Biology-in-the-loop: Amortized Adaptive Hit Discovery in CRISPR Screens)</h3>
+          <p class="text-[12px] text-gray-400 mb-1">Carl Edwards (1저자), Gabriele Scalia (교신) | Genentech 및 공동 기관</p>
+          <p class="text-[13px] text-gray-500 mb-3">arXiv · 2026-09-10 · [preprint(미동료심사)] · <a href="https://arxiv.org/abs/2609.11877" class="underline text-indigo-700" target="_blank">DOI</a> · <a href="https://github.com/Genentech/AssayBench" class="underline text-indigo-700" target="_blank">code</a></p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">후보 라이브러리의 5%만 스크리닝하고도 히트의 27.7%를 회수하며 랜덤 선택 대비 5.67배 enrichment를 달성했다고 보고한다 (초록 기준). 과거 스크린으로 사전학습된 트랜스포머 상각 획득 정책(AssayFormer)과 LLM 생물학 사전(prior)을 적응적으로 결합한 AssayLoop가, 단독 LLM 및 단독 AssayFormer보다 우수한 히트 발굴 효율을 보였으며 학습에서 배제한 표현형 카테고리로의 전이도 확인했다고 주장한다.</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">네트워크 가중치 재학습 없이 새로운 스크린에 즉시 적응하는 상각 정책 구조는 CRISPR 스크린을 넘어 반복 실험 설계 일반에 적용 가능한 패턴이다. Genentech이 벤치마크 표준을 오픈소스로 선점한 것은 자사 방법론이 분야 기준선이 되도록 하는 전략이기도 하다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: 1,389개 공개 스크린으로 사전학습된 트랜스포머(AssayFormer)가 테스트 시 피드백 누적에 따라 우선순위를 갱신하되 가중치는 고정 — LLM prior는 초기 피드백이 없을 때 생물학 배경 지식을 보완하며 피드백이 쌓이면 AssayFormer가 주도한다.</span> <span class="lens-item">🩺 Clinical: 타깃 발굴 실험 효율화 도구이지 임상 개입 자체가 아니다 — 이 방법으로 선별된 타깃이 임상까지 이어지려면 독립 기능 검증·동물 모델·파이프라인 진입이 각각 필요하며 통상 10년 이상의 경로다.</span> <span class="lens-item">🏭 Industry: 대규모 CRISPR 스크린 예산을 운영하는 빅파마·바이오텍 R&amp;D팀의 스크린 설계 비용 절감 도구로 직접 수요가 생긴다; Genentech이 AssayBench-Loop를 오픈 벤치마크로 공개해 방법론 표준 선점을 시도하는 구조다.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">in silico (공개 CRISPR 스크린 데이터 시뮬레이션</span> <span class="badge badge-other ">시간적 홀드아웃 설계</span> <span class="badge badge-other ">preprint)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#4</span>
+            <span class="badge badge-preprint ">preprint</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-1">관상동맥 조영술 해석을 위한 공간 근거 기반 감사 가능 추론 (CARDEA: Auditable Reasoning Grounded in Spatial Evidence for End-to-End Coronary Angiography Interpretation)</h3>
+          <p class="text-[12px] text-gray-400 mb-1">Jia-Jen Lee (1저자), Shih-Sheng Chang (교신) | 소속 미확인 (초록 기준)</p>
+          <p class="text-[13px] text-gray-500 mb-3">arXiv · 2026-09-07 · [preprint(미동료심사)] · <a href="https://arxiv.org/abs/2609.06931" class="underline text-indigo-700" target="_blank">DOI</a> · <a href="https://huggingface.co/papers/2609.06931" class="underline text-indigo-700" target="_blank">model weights</a> (HuggingFace 공개)</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">공개 데이터셋만으로 훈련한 대형 시각-언어 모델(CARDEA)을 시각 정렬 → 자기-증류 Chain-of-Box(CoB) 콜드스타트 → 검증 가능 보상 기반 강화학습(RLVR) 3단계로 학습했다. 우관동맥 우세도(right coronary dominance) 분류 정확도 0.91 (95% CI 0.86–0.95), 복잡도 평가 정확도 0.90 (95% CI 0.82–0.97), vessel-severity macro-F1 0.686을 보고하며 (WebSearch — arXiv:2609.06931 기준), 폐쇄형 과제의 RLVR 훈련이 개방형 보고서 생성 능력을 창발시켰다고 주장한다. 코호트 규모와 검증 기관 수는 미공개다.</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">폐쇄형 분류 RLVR 보상이 개방형 보고서 생성 능력을 이끌어낸다는 주장이 성립한다면, 설명 가능한 의료 AI를 훈련하는 규제 친화적 레시피가 될 수 있다 — 다기관 외부 검증이 나오기 전까지 이 주장은 열린 질문으로 유지해야 한다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: 자기-증류 CoB로 bounding box 기반 공간 근거를 추론 체인에 삽입하고 RLVR로 폐쇄형 분류 보상을 통해 개방형 보고서 생성 능력을 유도 — 독점 CAG 데이터 없이 공개 데이터셋만 사용.</span> <span class="lens-item">🩺 Clinical: 이번 주 5편 중 임상 관련성 최고; 심장내과 CAG 판독 워크플로에 직접 닿지만 코호트 규모 미공개·외부 기관 검증 미확인·저자 소속 미확인 세 가지 제약이 현재 임상 함의 판단을 제한한다.</span> <span class="lens-item">🏭 Industry: 심혈관 AI SaMD(Software as a Medical Device) 공간 — FDA AI/ML SaMD 설명 가능성 요건과 CoB 공간 근거 설계 방향이 일치해 규제 경로에서 구조적 이점을 기대할 수 있다; 다기관 검증 이후 CE마크·FDA 510(k) 경로 적합성 판단이 가능해진다.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">후향 (공개 데이터셋</span> <span class="badge badge-other ">단일 기관 추정</span> <span class="badge badge-other ">preprint)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#5</span>
+            <span class="badge badge-preprint ">preprint</span> <span class="badge badge-nocode ">코드 미공개 — 재현 불가</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-1">표현형 변화와 연관된 유전자 조절 네트워크 변화 탐지 (CIDER: detecting changes in gene regulatory networks that are associated with changes in phenotype)</h3>
+          <p class="text-[12px] text-gray-400 mb-1">Wooseok J Jung (1저자), Michael Brent (교신) | Washington University in St. Louis (추정; 소속 직접 확인 필요)</p>
+          <p class="text-[13px] text-gray-500 mb-3">bioRxiv · 2026-09-08 · [preprint(미동료심사)] · <a href="https://doi.org/10.64898/2026.09.08.750185" class="underline text-indigo-700" target="_blank">DOI</a> · 코드 미공개 — 재현 불가 (코드·데이터 공개 여부 미확인)</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">두 생물학적 조건(질환 대 정상 등) 사이에서 GRN의 어느 연결이 달라지는지를 직접 탐지하는 CIDER 방법을 제안하고, 이 변화가 표현형 전환과 연관됨을 보였다고 주장한다. 알고리즘 세부·정량 수치·비교 베이스라인은 원문 직접 접근이 필요하며 현재 초록 수준으로만 확인된다.</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">조건별 GRN을 각각 추론한 뒤 비교하는 방식에서 오차가 가산되는 문제를 직접 탐지로 우회하는 방향은 타당하지만, 코드와 수치가 모두 미공개인 상태에서는 실제 기여를 평가하기 어렵다 — 코드 공개 후 공개 벤치마크 데이터에서의 재현이 이 논문의 가치를 결정한다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: 두 조건 간 GRN 연결 변화 직접 탐지 방식; 알고리즘 세부(입력 데이터 유형·통계 검증 방법)는 원문 확인 필요 — 현재 초록 기준으로만 서술 가능하다.</span> <span class="lens-item">🩺 Clinical: 기초 연구 방법론 단계; 탐지된 GRN 변화가 타깃 가능 후보로 이어지기까지 실험적 검증(ChIP-seq·perturbation 실험)과 독립 질환 코호트 재현이 필요하다.</span> <span class="lens-item">🏭 Industry: 전사인자(TF)·에피제네틱 조절인자 타깃을 탐색하는 초기 바이오텍에 타깃 우선순위화 보조 도구로 수요 가능 — 코드·수치 공개 이후 재평가가 적절하다.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">in silico (preprint</span> <span class="badge badge-other ">수치</span> <span class="badge badge-other ">알고리즘 세부 미공개)</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Deep Dive</h2>
+      <div class="mb-6">
+        <h3 class="text-[16px] font-bold text-gray-800 mb-4">ProteinTalks: 단백질체는 왜 이제서야</h3>
+        <div class="space-y-3">
+          <p class="text-[15px] text-gray-800 leading-relaxed">가상세포(virtual cell) 개념이 본격적으로 논의된 것은 2010년대 중반이지만, 약물 반응을 시뮬레이션할 만한 도구로 쓰이기까지 오랜 시간이 걸렸다. 대부분의 시도가 유전자 발현 — 전사체 — 에 머문 이유는 단순했다. RNA 측정이 단백질 측정보다 훨씬 싸고 빠르다. DIA(data-independent acquisition) 방식의 질량분석이 처리량을 극적으로 높이기 전까지, 세포 전체 단백질을 수천 종씩 정밀 정량하며 대규모 약물 교란 실험을 수행하는 것은 비용의 벽 앞에서 가로막혀 있었다. "전사체는 됐는데 단백질체는 왜 안 되나"라는 질문이 분야 안에서 오래 머물렀던 배경이다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">ProteinTalks가 가능해진 것은 이 기술적 전환점과 맞물린다. 96-well 고처리량 플랫폼으로 유방암 세포주를 FDA 승인 항암제 63종과 2제 병용 59종으로 체계적으로 교란하며, 투여 전·6h·24h·48h 4개 시점에 걸쳐 3,800만 건 이상의 단백질 발현량을 수집했다. 이 숫자 자체가 이 연구에서 알고리즘 설계만큼이나 핵심적인 기여다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">모델 구조에서 주목할 지점은 Neural ODE 채택이다. 기존 가상세포 모델 대부분이 단일 시점 스냅샷을 입력으로 썼다면, ProteinTalks는 시간 축을 명시적으로 모델링한다. ODE 네트워크가 측정 시점 사이의 단백질 궤적을 연속 시간 흐름으로 보간하며, "투여 6시간 뒤 이 단백질은 어떻게 움직이는가"라는 동역학 질문을 학습 목표로 삼는다. 이 설계가 이산 측정점 사이의 생물학적 프로세스를 올바르게 포착하는지는 방법론적 핵심 가정이며, 이 가정의 유효성은 측정되지 않은 시점의 단백질 거동 복잡성에 달려 있다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">저자들은 약물 효능·병용 시너지 예측, 약물 내성 관련 단백질 탐색이라는 세 가지 다운스트림 과제에 이 모델을 적용했다고 밝힌다. 구체적인 예측 성능 수치는 현재 원문 직접 접근이 제한되어 확인되지 않는다. Nature 게재라는 사실이 방법론의 최소 신뢰도 기준을 어느 정도 보장하지만, 수치를 독립적으로 검증하려면 원문 접근이 선행되어야 한다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">저자 기관에 Westlake Omics Inc.와 DP Technology Co., Ltd.가 등재되어 있다. 이는 순수 학술 발표를 넘어 기술 라이선싱 또는 CRO 플랫폼 서비스 포지셔닝의 신호로 읽힌다. 가장 큰 미결 과제는 데이터와 코드의 공개 여부다. 3,800만 건 동적 단백질 측정 데이터셋이 공개되지 않으면 독립 재현이 원천적으로 막히고, 다른 암종이나 환자 오가노이드로의 일반화를 커뮤니티가 직접 확인할 방법이 없다. 유방암 단일 세포주에서 학습한 표현이 다른 암종 환자 샘플로 전이 가능하다는 것을 보이려면 추가 외부 검증이 필수다. 지금 단계에서 이 논문은 "동적 단백질체 기반 가상세포가 작동한다는 대규모 개념 증명"이다. 계산 신약 발굴 파이프라인에 실제로 연결되려면 코드 공개·다기관 데이터 검증·in vitro에서 in vivo로의 일반화 실험이 차례로 따라와야 한다.</p>
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <h3 class="text-[16px] font-bold text-gray-800 mb-4">Biology-in-the-loop: 실험을 어디서 자를 것인가</h3>
+        <div class="space-y-3">
+          <p class="text-[15px] text-gray-800 leading-relaxed">연구 예산이 무한하다면 CRISPR 스크린에서 모든 후보 유전자를 실험할 것이다. 현실은 라이브러리 규모·세포주당 비용·실험 시간이 "어떤 유전자를 먼저 테스트해야 히트를 가장 빨리 찾나"라는 선택 문제를 만들어낸다. 활성 학습(active learning)이 이 문제의 자연스러운 해법처럼 보이지만, 기존 방법은 스크린마다 처음부터 학습을 시작해야 하고 과거 스크린에서 쌓인 패턴을 재사용하지 못했다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">Genentech 팀의 해법은 세 층위로 구성된다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">첫 번째는 벤치마크다. 1,389개 공개 CRISPR 스크린을 5개 표현형 카테고리로 구성한 AssayBench-Loop는 이 분야에서 "제한된 실험 예산 내 히트 회수율"을 평가 기준으로 명시화한 최초의 대규모 벤치마크다. 기존 벤치마크가 히트 분류 정확도를 중심 지표로 삼았다면, 이 벤치마크는 예산 제약 시뮬레이션 — 몇 번의 실험으로 히트를 얼마나 회수했나 — 을 핵심으로 삼는다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">두 번째는 상각 획득 정책(amortized acquisition policy)이다. AssayFormer는 이 1,389개 스크린으로 사전학습된 트랜스포머로, 새로운 스크린에 적응할 때 네트워크 가중치를 다시 학습하지 않는다. 이전 스크린에서 학습한 "히트 패턴"을 가져와 새로운 실험 피드백을 받을 때마다 후보 우선순위를 즉시 갱신한다. "상각(amortized)"이라는 표현이 가리키는 것이 이 구조다 — 학습 비용을 한번 치르고 이후 적응을 거의 공짜로 수행한다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">세 번째는 LLM과의 결합이다. AssayLoop는 AssayFormer와 LLM 파생 생물학 사전(prior)을 적응적 핸드오프 방식으로 결합한다. 실험 피드백이 없는 초기에는 LLM이 생물학적 배경 지식을 제공하고, 피드백이 쌓이면 AssayFormer가 주도권을 가져간다. 단독 LLM도, 단독 AssayFormer도 아닌 둘의 결합이 최고 성능을 낸다는 것이 실용적 시사점이다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">보고된 수치: 후보 라이브러리의 5%만 스크리닝한 시점에서 히트의 27.7%를 회수하고 랜덤 선택 대비 5.67배 enrichment를 달성했다 (초록 기준). 이 수치를 현장에서 해석하려면 두 가지를 먼저 확인해야 한다. 첫째, 히트 정의 — 어떤 농축 배수·통계 임계값으로 히트를 정의했느냐에 따라 수치의 의미가 달라진다. 둘째, 이 벤치마크는 과거 공개 스크린 기반이라는 점 — 지금 실제로 진행 중인 신규 스크린에서 같은 성능이 나오는지는 별도의 전향 wet-lab 실험이 필요하다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">코드가 GitHub에 공개되어 있다는 점이 이번 주 5편 중 재현 가능성 측면의 가장 강한 장점이다. Genentech이 벤치마크 자체를 공개한 것은 자사 방법론이 비교 기준이 되도록 하는 선점 전략이기도 하다. 이 벤치마크가 CRISPR 스크린 순차 설계의 분야 표준으로 자리 잡으면, AssayLoop와 AssayFormer가 자연스럽게 기준선이 된다 — 그 전략적 배경을 고려해 방법론적 기여를 평가해야 균형 잡힌 독법이 된다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">🔭 Wide Angle</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm px-6 py-2">
+        <div class="flex items-start gap-3 py-4 border-b border-gray-100 last:border-0">
+          <div class="flex-1">
+            <p class="text-[15px] font-semibold text-gray-900 mb-1">드 노보 신약 설계를 위한 분자 생성 모델 체계적 평가 (A Systematic Evaluation of Molecule Generation Models for De Novo Drug Design: From Benchmarks to Practical Insights) </p>
+            <p class="text-[14px] text-gray-700 leading-relaxed">· arXiv:2609.10099 · Journal of Chemical Information and Modeling [peer-reviewed] · <a href="https://arxiv.org/abs/2609.10099" class="underline text-indigo-700" target="_blank">DOI</a> · 코드 없음 (서베이 논문)</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 py-4 border-b border-gray-100 last:border-0">
+          <div class="flex-1">
+            <p class="text-[15px] font-semibold text-gray-900 mb-1">이질성과 동질성을 계층적으로 통합한 통합 의료 영상 복원 모델 (UniH³: Unifying Hierarchical Homogeneity and Heterogeneity for All-in-One Medical Image Restoration) </p>
+            <p class="text-[14px] text-gray-700 leading-relaxed">· arXiv:2609.11156 · preprint(미동료심사) · <a href="https://arxiv.org/abs/2609.11156" class="underline text-indigo-700" target="_blank">DOI</a> · <a href="https://github.com/Yaziwel/UniH3" class="underline text-indigo-700" target="_blank">code</a></p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 py-4 border-b border-gray-100 last:border-0">
+          <div class="flex-1">
+            <p class="text-[15px] font-semibold text-gray-900 mb-1">두경부 편평세포암 내 순환 단핵구 동력학의 단일세포 프로테오믹스 매핑 (Single-cell proteomics maps circulating monocyte dynamics in advanced head and neck squamous cell carcinoma) </p>
+            <p class="text-[14px] text-gray-700 leading-relaxed">· bioRxiv · preprint(미동료심사) · <a href="https://doi.org/10.64898/2026.09.09.750366" class="underline text-indigo-700" target="_blank">DOI</a> · 코드 미확인</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Threads to Follow</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <ul class="space-y-3 list-disc list-inside">
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>ProteinTalks 코드·데이터 공개 추적</strong>: Westlake Omics Inc.·DP Technology의 코드·데이터 접근 정책 발표 여부. 유방암 외 다른 암종·오가노이드에서의 검증 논문 등장 시점 모니터링. Nature 보충자료에서 외부 검증 코호트 규모 확인.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>AssayLoop 전향 검증 추적</strong>: AssayBench-Loop 벤치마크가 CRISPR 스크린 순차 설계의 표준 비교 기준으로 자리 잡는지. Genentech 또는 독립 연구팀에서 실제 신규 스크린 wet-lab 전향 검증 결과 발표 여부. 히트 정의 공개 후 수치 재해석.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>CARDEA 다기관 검증 추적</strong>: 외부 기관 데이터셋에서의 성능 보고. 저자 소속 공개 및 CE마크·FDA 인허가 경로 착수 발표. CAG 판독 RLVR 접근이 에코카디오그래피·CT 혈관 조영 등 다른 심장 영상 AI로 이어지는지 후속 추적.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>PROTAC E3 다양화 흐름 추적</strong>: ProMeta 코드·데이터 공개 및 CRBN→VHL 외 다른 E3 조합 벤치마크 확장 여부. Arvinas·C4 Therapeutics·Kymera Therapeutics 등 상장 TPD 기업의 E3 리가제 포트폴리오 발표 동향.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>W36과 연결 — 파운데이션 모델의 레이어 이동</strong>: W36에서 단일세포 전사체 파운데이션 모델의 신뢰성 논쟁이 중심이었다면, W37에서는 동적 단백질체 파운데이션 모델(ProteinTalks)이 등장했다. 전사체→단백질체 레이어로의 무게 이동이 이어지는지, 아니면 멀티오믹스 통합 방향으로 수렴하는지가 앞으로 지켜볼 지점이다.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Sources</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <ul class="space-y-2 text-[13.5px]">
+              <li><a href="https://doi.org/10.1038/s41586-026-11001-9" class="text-indigo-600 underline" target="_blank">[C1] ProteinTalks 가상세포 모델 (Nature) — [C1] ProteinTalks 가상세포 모델 (Nature)</a></li>
+              <li><a href="https://doi.org/10.1038/d41586-026-02845-2" class="text-indigo-600 underline" target="_blank">[C1] ProteinTalks Nature 뉴스 피처 — [C1] ProteinTalks Nature 뉴스 피처</a></li>
+              <li><a href="https://arxiv.org/abs/2609.09891" class="text-indigo-600 underline" target="_blank">[C2] ProMeta PROTAC E3 소수샷 예측 — [C2] ProMeta PROTAC E3 소수샷 예측</a></li>
+              <li><a href="https://arxiv.org/abs/2609.11877" class="text-indigo-600 underline" target="_blank">[C3] Biology-in-the-loop CRISPR 스크린 — [C3] Biology-in-the-loop CRISPR 스크린</a></li>
+              <li><a href="https://github.com/Genentech/AssayBench" class="text-indigo-600 underline" target="_blank">[C3] AssayBench 코드 (GitHub) — [C3] AssayBench 코드 (GitHub)</a></li>
+              <li><a href="https://arxiv.org/abs/2609.06931" class="text-indigo-600 underline" target="_blank">[C4] CARDEA 관상동맥 조영술 VLM — [C4] CARDEA 관상동맥 조영술 VLM</a></li>
+              <li><a href="https://huggingface.co/papers/2609.06931" class="text-indigo-600 underline" target="_blank">[C4] CARDEA 모델 가중치 (HuggingFace) — [C4] CARDEA 모델 가중치 (HuggingFace)</a></li>
+              <li><a href="https://doi.org/10.64898/2026.09.08.750185" class="text-indigo-600 underline" target="_blank">[C5] CIDER 차등 GRN 탐지 (bioRxiv) — [C5] CIDER 차등 GRN 탐지 (bioRxiv)</a></li>
+              <li><a href="https://arxiv.org/abs/2609.10099" class="text-indigo-600 underline" target="_blank">[W1] 분자 생성 모델 서베이 (JCIM) — [W1] 분자 생성 모델 서베이 (JCIM)</a></li>
+              <li><a href="https://arxiv.org/abs/2609.11156" class="text-indigo-600 underline" target="_blank">[W2] UniH³ 의료 영상 복원 — [W2] UniH³ 의료 영상 복원</a></li>
+              <li><a href="https://github.com/Yaziwel/UniH3" class="text-indigo-600 underline" target="_blank">[W2] UniH³ 코드 (GitHub) — [W2] UniH³ 코드 (GitHub)</a></li>
+              <li><a href="https://doi.org/10.64898/2026.09.09.750366" class="text-indigo-600 underline" target="_blank">[W3] HNSCC 순환 단핵구 프로테오믹스 (bioRxiv) — [W3] HNSCC 순환 단핵구 프로테오믹스 (bioRxiv)</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="border-t border-gray-200 pt-8 pb-10 text-center">
+      <p class="text-sm text-gray-500 mt-4">paper-radar · 2026-W37</p>
+      <p class="text-xs text-gray-400 mt-1">바이오인포·임상ML·신약AI 논문 주간 요약. preprint 분석 포함.</p>
+    </footer>
+  </div>
+</body>
+</html>
