@@ -5,7 +5,7 @@ layout: archive
 author_profile: true
 ---
 
-<p class="page__lead">Research notes and writing at the intersection of data science and life science — NGS analysis, clinical data, and genomics.</p>
+<p class="page__lead">What I build, how far I check it, and what the checking turns up. Bioinformatics, model validation, and AI agents.</p>
 
 {% assign featured = site.posts | where: "lang", "en" | where: "featured", true %}
 {% if featured.size > 0 %}

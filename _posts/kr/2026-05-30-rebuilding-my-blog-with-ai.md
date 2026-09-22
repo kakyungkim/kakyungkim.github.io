@@ -4,7 +4,6 @@ title: "방치돼 있던 블로그를 AI와 함께 되살렸다 — 진짜 문�
 date: 2026-05-30 09:00:00 +0900
 lang: kr
 ref: rebuilding-my-blog-with-ai
-featured: true
 categories: [AI & Tooling]
 tags: [Jekyll, GitHub Pages, Claude Code, AI Pair Programming, minimal-mistakes]
 permalink: /kr/2026/05/30/rebuilding-my-blog-with-ai/

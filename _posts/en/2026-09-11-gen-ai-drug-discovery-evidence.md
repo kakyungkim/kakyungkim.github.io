@@ -4,6 +4,7 @@ title: "How Far Generative AI Has Come in Drug Discovery, and How Far You Can Tr
 date: 2026-09-11 09:00:00 +0900
 lang: en
 ref: gen-ai-drug-discovery-evidence
+featured: true
 categories: [Life Science, Data Science]
 tags: [Generative AI, Drug Discovery, Protein Design, BRIC View, Data Leakage, Reproducibility, Regulation]
 permalink: /en/2026/09/11/gen-ai-drug-discovery-evidence/

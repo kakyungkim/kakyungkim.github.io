@@ -1,6 +1,6 @@
 title: "Ka-Kyung Kim"
-subtitle: "Bioinformatics · Data Science · Life Science"
-description: "Research notes and writing on bioinformatics, clinical data analysis, and the intersection of data science and life science."
+subtitle: "Drug Discovery · Precision Medicine · Bioinformatics"
+description: "Research notes on drug discovery and precision medicine: genomic analysis, AI model validation, and the LLM agent harnesses I build and check."
 locale: "en-US"
 url: "https://kakyungkim.github.io"
 repository: "kakyungkim/kakyungkim.github.io"
@@ -12,7 +12,7 @@ minimal_mistakes_skin: "air"   # default | air | aqua | contrast | dark | dirt |
 # --- Author profile (sidebar) ---
 author:
   name: "Ka-Kyung Kim"
-  bio: "Bioinformatics specialist — NGS pipelines, clinical data, genomics."
+  bio: "Genomic analysis from specimen to clinical decision. Chief Researcher, Diagnosis Division, Cytogen."
   location: "Seoul, Korea"
   links:
     - label: "Email"

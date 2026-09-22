@@ -4,6 +4,7 @@ title: "ADMET 분할 방식이 성능 추정을 얼마나 바꾸는지 재봤습
 date: 2026-09-08 09:00:00 +0900
 lang: kr
 ref: admet-split-audit
+featured: true
 categories: [AI & Tooling]
 tags: [ADMET, 신약개발AI, 모델검증, 데이터누수, 벤치마크, TDC]
 permalink: /kr/2026/09/08/admet-split-audit/

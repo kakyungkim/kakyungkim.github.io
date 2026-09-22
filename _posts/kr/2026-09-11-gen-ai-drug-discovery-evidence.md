@@ -4,6 +4,7 @@ title: "생성형 AI 신약개발의 도달점과 신뢰 범위"
 date: 2026-09-11 09:00:00 +0900
 lang: kr
 ref: gen-ai-drug-discovery-evidence
+featured: true
 categories: [Life Science, Data Science]
 tags: [생성형AI, 신약개발, 단백질설계, BRICView, 데이터누수, 재현성, 규제]
 permalink: /kr/2026/09/11/gen-ai-drug-discovery-evidence/
