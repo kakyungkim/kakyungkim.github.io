@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>paper-radar — 2026-W39</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+    body { font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; font-size:16px; line-height:1.78; }
+    .badge { font-size:11px; font-weight:700; padding:2px 9px; border-radius:9999px; display:inline-block; margin-right:4px; }
+    .badge-genome   { background:#dcfce7; color:#166534; }
+    .badge-clinical { background:#dbeafe; color:#1e40af; }
+    .badge-drug     { background:#ede9fe; color:#5b21b6; }
+    .badge-protein  { background:#fce7f3; color:#9d174d; }
+    .badge-llmbio   { background:#fef9c3; color:#713f12; }
+    .badge-other    { background:#f3f4f6; color:#374151; }
+    .badge-preprint { background:#fef3c7; color:#92400e; }
+    .badge-peer     { background:#d1fae5; color:#065f46; }
+    .badge-insilico { background:#e0e7ff; color:#3730a3; }
+    .badge-retro    { background:#fef9c3; color:#713f12; }
+    .badge-prosp    { background:#d1fae5; color:#065f46; }
+    .badge-multi    { background:#dbeafe; color:#1e40af; }
+    .badge-rct      { background:#dcfce7; color:#166534; }
+    .badge-nocode   { background:#fee2e2; color:#991b1b; }
+    .key-point { border-left:4px solid #4338ca; padding:10px 16px; background:#f5f3ff; border-radius:0 10px 10px 0; margin-top:12px; }
+    .key-point .label { font-size:11px; font-weight:700; letter-spacing:0.06em; color:#4338ca; margin-bottom:4px; }
+    .key-point .text { font-size:15px; font-weight:500; color:#312e81; line-height:1.7; }
+    .insight { border-left:4px solid #14b8a6; padding:10px 16px; background:#f0fdfa; border-radius:0 10px 10px 0; margin-top:10px; }
+    .insight .label { font-size:11px; font-weight:700; letter-spacing:0.06em; color:#0f766e; margin-bottom:4px; }
+    .insight .text { font-size:15px; color:#134e4a; line-height:1.7; }
+    .lens-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+    .lens-item { font-size:13.5px; color:#374151; padding:4px 10px; background:#f9fafb; border:1px solid #e5e7eb; border-radius:8px; }
+    .verify-tag { font-size:12px; color:#6b7280; margin-top:8px; }
+</style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <div class="max-w-3xl mx-auto px-4 py-10">
+    <header class="mb-8">
+      <div class="flex items-center gap-3 mb-2">
+        <img src="logo-64.png" alt="paper-radar" class="w-9 h-9 rounded-xl" onerror="this.style.display='none'">
+        <span class="text-2xl font-bold tracking-tight text-gray-900">paper-radar 주간 다이제스트</span>
+        <span class="text-lg text-gray-500 font-medium">2026-W39</span>
+      </div>
+      <p class="text-xs text-gray-400">바이오인포·임상ML·신약AI 논문 주간 요약. 모든 해석은 preprint 단계에서의 분석임.</p>
+    </header>
+
+    <section class="mb-8">
+      <h2 class="text-xs font-bold tracking-widest text-indigo-600 uppercase mb-3">At a Glance</h2>
+      <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-5 space-y-3">
+        <p class="text-[15px] leading-relaxed text-gray-800">이번 주 핵심 5편은 검증 사다리의 서로 다른 층에 걸쳐 있다. C1(TF 두 번째 조절 코드)은 269개 인간 전사인자의 뉴클레오솜 결합 지형을 체계적으로 매핑해 기존 naked-DNA 기반 모티프 데이터베이스 전체에 의문을 제기한 연구다. C3(GLR-MM)은 이번 주 유일하게 실환자 데이터(MIMIC ICU 9,620건)를 다루며 MICCAI 2026 동료심사를 통과했다. 코드가 공개된 논문은 C2(MIRCID) 단 한 편—L1000 랜드마크 유전자에서 miRNA를 추론해 drug MoA 분류를 개선하는 파이프라인으로 즉시 재현할 수 있다. 나머지 3편은 코드 미공개이며, C5(HR-FRGS)의 AUC &gt; 0.99는 외부 독립 검증 없이 액면 그대로 수용해서는 안 된다.</p>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">This Week's Top 5</h2>
+      <div class="space-y-6">
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#1</span>
+            <span class="badge badge-preprint">preprint</span> <span class="badge badge-nocode">코드 미공개 — 재현 불가</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-1">전사인자는 크로마틴에서 두 번째 조절 코드를 읽는다 (Transcription factors read a second regulatory code in chromatin)</h3>
+          <p class="text-[12px] text-gray-400 mb-1">Xin Zheng (1저자), Xue Yue 외 | Tongji University; Shanghai Institute of Biochemistry and Cell Biology, CAS</p>
+          <p class="text-[13px] text-gray-500 mb-3">bioRxiv · 2026-09-23 · [preprint(미동료심사)] · <a href="https://doi.org/10.64898/2026.09.23.753737" class="underline text-indigo-700" target="_blank">DOI</a> · 코드 미공개 — 재현 불가</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">NCAP-SELEX 플랫폼으로 269개 인간 TF의 뉴클레오솜 DNA 인식 지형을 체계적으로 매핑한 결과, 다수의 TF가 나체 DNA(naked DNA) 기반 정준 모티프와 구별되는 뉴클레오솜 의존적 모티프를 인식한다고 보고했다. Cryo-EM 구조는 이 인식이 뉴클레오솜에 의한 DNA 변형(deformation)과 직접 단백질-히스톤 접촉 두 가지 경로로 이루어진다는 점을 보여주었으며, 기능 분석에서 이 크로마틴 의존적 모티프가 크로마틴 접근성(chromatin accessibility) 촉진과 세포 유형 특이적 cis-조절 활성을 구동한다고 주장한다(초록 기준).</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">JASPAR·UniPROBE 등 기존 TF 결합 데이터베이스가 naked-DNA SELEX 기반이라는 사실을 생각하면, 이 논문이 제시하는 뉴클레오솜 의존적 모티프 데이터가 공개될 경우 세포 유형 특이적 인핸서 예측 모델의 특징 공간을 근본적으로 재설계하는 기반이 될 수 있다.</div>
+          </div>
+          <div class="lens-row">
+            <span class="lens-item">🔬 Method: NCAP-SELEX로 269개 TF 뉴클레오솜 결합 지형 매핑 + cryo-EM 복합체 구조 시각화. 핵심 가정: in vitro 재구성 뉴클레오솜이 실제 세포 내 크로마틴을 대표한다는 전제.</span>
+            <span class="lens-item">🩺 Clinical: 임상 적용까지 거리 매우 멀다. 발견된 모티프가 특정 질환에서 어떻게 교란되는지 병인론 연구부터 선행 필요. 현재 진료 영향 없음.</span>
+            <span class="lens-item">🏭 Industry: TF 타깃 소분자·PROTAC 신약 개발사와 세포 유형 선택적 유전자 치료 벡터 설계 그룹이 주된 수요자. 데이터 공개 여부가 산업 활용 속도를 결정한다.</span>
+          </div>
+          <div class="verify-tag">검증 수준: in vitro + cryo-EM + 기능 분석(세포; 임상 코호트 검증 없음; preprint 미동료심사)</div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#2</span>
+            <span class="badge badge-preprint">preprint</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-1">MIRCID: 추론된 허브 miRNA가 약물 기전 모델링 다중 태스크 성능을 향상시킨다 (MIRCID: Inferred Hub-miRNAs Drive Cross-Task Improvements in Drug Mechanistic Modeling)</h3>
+          <p class="text-[12px] text-gray-400 mb-1">Xin Cao (1저자), Hsien-Da Huang 외 | 소속 미확인(중국계 기관 다수)</p>
+          <p class="text-[13px] text-gray-500 mb-3">arXiv · 2026-09-21(v2) · [preprint(미동료심사)] · 검토필요: EMNLP 2026 채택 여부 미확인 · <a href="https://arxiv.org/abs/2609.21280" class="underline text-indigo-700" target="_blank">DOI</a> · <a href="https://github.com/XinCao02/MIRCID" class="underline text-indigo-700" target="_blank">code</a></p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">HubmiRNet은 L1000의 977개 랜드마크 유전자 발현에서 414개 pan-cancer 허브 miRNA 발현을 추론하며 Pearson r = 87.72%를 보고한다. miRNA 증강이 TF 활성 증강보다 경로 분류와 MoA 검색 두 태스크 모두에서 더 일관되게 성능이 향상됐다고 보고했다. 1,298-출력 변형은 전체 miRNA 태스크에서 SiCmiR 대비 71.21% vs. 67.30%를 달성했다(초록 기준).</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">"매칭 miRNA 측정 없이 기존 L1000 데이터에서 miRNA 특징을 추론해 재활용한다"는 전략의 실용성이 핵심이다. Pearson 87.72%가 독립 검증 세트에서 나온 수치인지가 전체 파이프라인 신뢰도를 가르는 핵심 지점이다.</div>
+          </div>
+          <div class="lens-row">
+            <span class="lens-item">🔬 Method: HubmiRNet(mRNA→miRNA 추론 신경망) + MIRCID 프레임워크로 경로 분류·MoA 검색 두 태스크에서 TF 활성 vs. miRNA 추론 체계적 비교. L1000 공개 데이터 + 코드 공개.</span>
+            <span class="lens-item">🩺 Clinical: in silico 계산 검증. miRNA 추론 정확도 향상이 임상 약물 결과 개선으로 이어지는 연결은 독립 검증 필요.</span>
+            <span class="lens-item">🏭 Industry: 대규모 L1000 보유 대형 제약사 계산생물학팀과 약물 재창출 바이오텍이 수요자. 코드 공개로 내부 벤치마크 시작 비용 낮다.</span>
+          </div>
+          <div class="verify-tag">검증 수준: in silico (L1000 계산 검증; 검토필요: EMNLP 2026 동료심사 통과 여부 미확인; L1000 외 독립 데이터셋 검증 미수행; preprint 미동료심사)</div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#3</span>
+            <span class="badge badge-preprint">preprint</span> <span class="badge badge-nocode">코드 미공개 — 재현 불가</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-1">GLR-MM: 결측 모달리티 조건에서 흉부 X선·EHR 다중 모달 표현 학습 (GLR-MM: Graph-Based Global-Local Reconstruction for Robust Multimodal Chest X-ray and EHR Representation Learning under Missing Modalities)</h3>
+          <p class="text-[12px] text-gray-400 mb-1">Surbhi Sharma (1저자), Devesh Maheshwari 외 | Houston Methodist; University of Wisconsin–Madison</p>
+          <p class="text-[13px] text-gray-500 mb-3">arXiv · 2026-09-23(공고) · [preprint — MICCAI 2026 accepted] · <a href="https://arxiv.org/abs/2609.23876" class="underline text-indigo-700" target="_blank">DOI</a> · 코드 미공개 — 재현 불가</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">5개 CXR-EHR 모달리티를 공유 임베딩 공간에 매핑하고, 국소 교차 모달 재구성(동일 환자)과 전역 그래프 어텐션 재구성(유사 타 환자 참조)을 적응형으로 융합한다. MIMIC 기반 ICU 9,620건에서 50% 무작위 결측 조건 기준 AUROC +0.0088, AUPRC +0.0249를 달성했다(초록 기준).</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">전역 그래프 경로—유사 환자 정보를 결측 보완에 활용—는 멀티오믹스 통합(일부 환자에 WGS는 있고 RNA-seq이 없는 경우)으로 이식 가능한 설계 원리다. 평가가 랜덤 결측(MCAR) 시나리오에 국한됐다는 점이 이 논문의 가장 뚜렷한 한계다.</div>
+          </div>
+          <div class="lens-row">
+            <span class="lens-item">🔬 Method: 국소(within-patient) + 전역(inter-patient 그래프 어텐션) 이중 재구성 + 적응형 융합 + 예측·재구성·대조 손실 동시 최적화. MIMIC 9,620건, 10%/30%/50% 무작위 결측 평가.</span>
+            <span class="lens-item">🩺 Clinical: 후향 단일 기관(MIMIC). 다기관·국제 코호트 일반화 미검증. 실제 ICU 결측은 구조적(MNAR)이 대부분으로 MCAR 가정 평가와 괴리가 있다.</span>
+            <span class="lens-item">🏭 Industry: ICU 임상 AI 솔루션사와 EMR 벤더 AI 팀이 수요자. FDA SaMD 실환경 강건성 항목과 직결.</span>
+          </div>
+          <div class="verify-tag">검증 수준: 후향 (MIMIC 단일 기관 N=9,620; MICCAI 2026 동료심사 통과; 다기관·전향 검증 미수행)</div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#4</span>
+            <span class="badge badge-preprint">preprint</span> <span class="badge badge-nocode">코드 미공개 — 재현 불가</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-1">QLoRA로 Ministral LLM을 단백질 기능 주석 생성에 파인튜닝 (QLoRA Fine-Tuning of Ministral LLM for Sequence-to-Function Protein Annotation)</h3>
+          <p class="text-[12px] text-gray-400 mb-1">Demian Pavlyshenko (1저자), Bohdan Pavlyshenko | 소속 미확인</p>
+          <p class="text-[13px] text-gray-500 mb-3">arXiv · 2026-09-21 · [preprint(미동료심사)] · <a href="https://arxiv.org/abs/2609.24538" class="underline text-indigo-700" target="_blank">DOI</a> · 코드 미공개 — 재현 불가</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">Ministral 3B 모델을 4-bit NF4 양자화 + 저랭크 어댑터(QLoRA)로 단백질 서열-주석 쌍에 파인튜닝해 자유 텍스트 형태의 기능 주석을 생성한다. 평가는 GPT 모델을 "선임 분자생물학 큐레이터"로 프롬프팅하는 LLM-as-expert 방식이며, "상당한 비율의 단백질에서 진정한 생물학적 가치"가 있다고 주장한다. 구체 정량 수치와 비교 베이스라인은 초록에 미명시(초록 기준).</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">GPT로 생성하고 GPT로 평가하는 구조는 순환 평가 위험을 내포한다. GO 용어 기반 공개 벤치마크나 인간 전문가 맹검 평가 없이는 현 단계에서 방법론적 개념 증명(proof-of-concept)으로 봐야 한다.</div>
+          </div>
+          <div class="lens-row">
+            <span class="lens-item">🔬 Method: Ministral 3B + QLoRA(4-bit NF4). 평가: LLM-as-expert(GPT 정성 채점). 학습 데이터·명시적 베이스라인 모두 초록에 미확인.</span>
+            <span class="lens-item">🩺 Clinical: in silico(LLM-as-judge 평가; 습식 실험 검증 없음). 할루시네이션 분석 미제공. 보조 도구 수준 이상의 단독 사용은 이르다.</span>
+            <span class="lens-item">🏭 Industry: 방향성(고정 온톨로지 탈피·생성 기반 주석)은 흥미롭지만 코드 미공개·정량 벤치마크 부재로 R&D 의사결정 반영은 이르다.</span>
+          </div>
+          <div class="verify-tag">검증 수준: in silico (LLM-as-expert 정성 평가; 공개 벤치마크 비교 없음; preprint 미동료심사)</div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#5</span>
+            <span class="badge badge-preprint">preprint</span> <span class="badge badge-nocode">코드 미공개 — 재현 불가</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-1">HR-FRGS: 이중 레이어 하이퍼그래프 학습을 이용한 NGS RNA 시퀀스 데이터의 바이오마커 발굴 프로토콜 (HR-FRGS)</h3>
+          <p class="text-[12px] text-gray-400 mb-1">Manan Kumar Gupta (1저자), Soumen Kumar Pati 외 | Presidency University, Bangalore; MAKAUT, West Bengal</p>
+          <p class="text-[13px] text-gray-500 mb-3">bioRxiv · 2026-09-21 · [preprint(미동료심사)] · <a href="https://doi.org/10.64898/2026.09.21.753079" class="underline text-indigo-700" target="_blank">DOI</a> · 코드 미공개 — 재현 불가</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">HR-FRGS는 PPI 정제 공동발현 네트워크와 단백질 클러스터링을 이중 레이어로 결합하고, RWR(Random Walk with Restart) 확산과 하이퍼그래프 매개 중심성으로 유전자를 점수화한다. TCGA 4개 코호트(폐 선암·두경부암·신장 투명세포암·결장암) 내부 교차 검증에서 AUC &gt; 0.99, MCC &gt; 0.94를 보고한다(초록 기반 요약; 원문 전문 미확인).</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">AUC &gt; 0.99는 TCGA 내부 교차 검증 수치다. 특징 선택이 훈련 폴드 내에서만 이루어졌는지, 아니면 전체 데이터를 보고 수행된 후 분류기만 교차 검증했는지를 원문에서 확인하는 것이 이 수치를 받아들이기 전 필수 단계다.</div>
+          </div>
+          <div class="lens-row">
+            <span class="lens-item">🔬 Method: 이중 레이어 하이퍼그래프(PPI + 공동발현) + RWR + 하이퍼그래프 매개 중심성 + 퍼지 러프 집합 유전자 선택. TCGA 4개 코호트 내부 교차 검증. 코드 미공개·ablation 미명시.</span>
+            <span class="lens-item">🩺 Clinical: in silico(TCGA 계산). "바이오마커 발굴"은 계산 우선순위 제안이며 독립 코호트 재현→ 기능 검증→ 규제 허가 단계가 남아 있다.</span>
+            <span class="lens-item">🏭 Industry: 정밀 종양학 바이오마커 파이프라인 구축 바이오텍과 IVD 기업이 방법론 참고 대상. 외부 검증 없이 CDx 개발에 직접 연결하기는 이르다.</span>
+          </div>
+          <div class="verify-tag">검증 수준: in silico (TCGA 4개 코호트 내부 교차 검증; 외부 독립 코호트 검증 없음; preprint 미동료심사)</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Deep Dive</h2>
+      <div class="mb-8">
+        <h3 class="text-[16px] font-bold text-gray-800 mb-4">C1: TF 두 번째 조절 코드 — "두 번째"라는 명명이 타당한가</h3>
+        <div class="space-y-3 text-[15px] text-gray-800 leading-relaxed">
+          <p>전사인자(TF) 연구의 중심 도구는 수십 년간 SELEX였다. JASPAR·UniPROBE 등 데이터베이스에 축적된 모티프들은 모두 뉴클레오솜이 없는 naked DNA 환경에서 도출됐다. 세포 내 DNA의 대부분은 뉴클레오솜으로 감겨 있고, TF는 그 위에서 결합 자리를 찾아야 한다. 크로마틴 구조가 TF 인식에 어떤 영향을 미치는지 269개 TF 규모에서 체계적으로 매핑한 데이터는 이전에 없었다.</p>
+          <p>업그레이드된 NCAP-SELEX 플랫폼으로 269개 TF의 뉴클레오솜 DNA 결합 지형을 단일 플랫폼에서 측정했다. 많은 TF가 naked-DNA 모티프와 구별되는 뉴클레오솜 의존적 모티프를 갖는다는 것을 보고하며, 이것을 "두 번째 조절 코드"라 명명했다. Cryo-EM 구조로 대표적인 TF-뉴클레오솜 복합체를 시각화해, DNA 변형(deformation)과 TF-히스톤 직접 접촉이라는 두 가지 구조적 경로를 보여줬다.</p>
+          <p>이 논문을 읽을 때 확인해야 할 세 가지가 있다. 첫째, pioneer factor 연구(FOXA1·GATA3 등)와의 차별점—이미 알려진 현상을 규모(269 TFs)와 체계성으로 확장한 것인지, 개념적으로 새로운 것인지. 둘째, cryo-EM이 몇 개 대표 복합체만 다루는지—269개 전체 TF에 동일 메커니즘이 일반화되는지 초록에 미명시. 셋째, 데이터 공개 여부—공개된다면 naked-DNA 모티프만 쓰는 인핸서 예측 모델에 뉴클레오솜 결합 점수를 추가 특징으로 넣는 실험이 가능해진다.</p>
+        </div>
+      </div>
+      <div class="mb-6">
+        <h3 class="text-[16px] font-bold text-gray-800 mb-4">C3: GLR-MM — ICU에서 데이터가 없을 때 모델은 어떻게 예측하는가</h3>
+        <div class="space-y-3 text-[15px] text-gray-800 leading-relaxed">
+          <p>임상 AI를 실환경에 배포할 때 가장 흔히 마주치는 문제는 데이터가 불완전하다는 점이다. GLR-MM이 제안하는 해법은 이중 경로 재구성이다. 국소(local) 경로는 동일 환자 내 다른 모달리티로 결측 임베딩을 채우고, 전역(global) 경로는 임상적으로 유사한 다른 환자들의 그래프를 참조해 보완한다.</p>
+          <p>MIMIC ICU 9,620건에서 50% 무작위 결측 조건 기준 AUROC +0.0088, AUPRC +0.0249라는 개선폭은 절댓값이 크지 않다. 이 수치가 실제 임상 의사결정에 충분한 의미를 갖는지는 decision-curve analysis로 별도 평가해야 한다. 핵심 한계는 평가 시나리오 전체를 랜덤 결측(MCAR) 조건으로 구성했다는 점이다. 실제 ICU 결측은 대부분 구조적(MNAR)이다—중증 환자에게 특정 검사가 빠지거나, 야간 촬영이 지연되거나. MCAR 시나리오 성능이 MNAR 환경에 그대로 적용된다는 보장이 없다.</p>
+          <p>전역 그래프 경로는 멀티오믹스 결측 보완(일부 환자에 WGS는 있고 RNA-seq이 없는 경우)으로 이식 가능한 설계 원리다. MICCAI 2026 채택이 학술 방법론 유효성 신호이지 임상 배포 준비 완료 신호가 아니라는 점을 염두에 둬야 한다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">🔭 Wide Angle</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm px-6 py-2">
+        <div class="py-4 border-b border-gray-100">
+          <p class="text-[15px] font-semibold text-gray-900 mb-1">JEPA-Anything: 다양한 세계에서 예측 모델 학습 (JEPA-Anything: Learning Predictive Models across Different Worlds)</p>
+          <p class="text-[14px] text-gray-700">arXiv:2609.20800 · 2026-09-17 · <a href="https://arxiv.org/abs/2609.20800" class="underline text-indigo-700" target="_blank">DOI</a> · <a href="https://github.com/Gen-Verse/JEPA-Anything" class="underline text-indigo-700" target="_blank">code</a> — 직교 예측 인수분해(OPF)로 시각·생물학·임상 궤적·분자 동역학 7개 도메인을 단일 아키텍처로 처리. HuggingFace Daily Papers 2026-09-22 등재.</p>
+        </div>
+        <div class="py-4 border-b border-gray-100">
+          <p class="text-[15px] font-semibold text-gray-900 mb-1">Brain-Token Learning: 마이크로상태 기반 EEG 토크나이제이션</p>
+          <p class="text-[14px] text-gray-700">arXiv:2609.24324 · 2026-09-21 · <a href="https://arxiv.org/abs/2609.24324" class="underline text-indigo-700" target="_blank">DOI</a> — EEG 신호를 준안정 뇌 마이크로상태 단위의 가변 길이 토큰으로 표현. 단일세포 시계열·임상 EHR 시퀀스 모델링으로 이식 가능한 토크나이제이션 아이디어.</p>
+        </div>
+        <div class="py-4">
+          <p class="text-[15px] font-semibold text-gray-900 mb-1">SoL-Pi: 효율적인 에이전트 하네스를 위한 자율 연구 루프 재귀 확장</p>
+          <p class="text-[14px] text-gray-700">arXiv:2609.20519 · 2026-09-17 · <a href="https://arxiv.org/abs/2609.20519" class="underline text-indigo-700" target="_blank">DOI</a> — 4가지 메커니즘으로 루프를 재귀 확장해 토큰 트래픽 44.7–49.0% 절감. 바이오인포 자율 연구 에이전트 효율화에 직결. HuggingFace Daily Papers 2026-09-22 등재.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Threads to Follow</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <ul class="space-y-3 list-disc list-inside text-[15px] text-gray-800 leading-relaxed">
+          <li><strong>C1 TF-뉴클레오솜 데이터 공개 추적</strong>: NCAP-SELEX raw 데이터(GEO/SRA)와 cryo-EM 구조(PDB) 등록 여부. 공개 시 naked-DNA 모티프 기반 인핸서 예측 모델에 뉴클레오솜 결합 점수를 추가 특징으로 넣는 실험이 첫 단계다.</li>
+          <li><strong>C2 MIRCID 도메인 이전 검증</strong>: L1000 외 독립 데이터셋(CCLE·GDSC·PRISM)에서 HubmiRNet miRNA 추론 품질 확인. 코드 공개로 자체 데이터에 즉시 시험 적용 가능.</li>
+          <li><strong>C3 GLR-MM 결측 패턴 확장</strong>: MCAR 시나리오를 넘어 실제 구조적 결측(MNAR) 조건과 한국·유럽 ICU 코호트 일반화 검증.</li>
+          <li><strong>W38→W39: 기존 생물학 데이터의 맹점 재발견</strong>: W38 scKITE가 소규모 데이터로 대형 scFM을 역전할 수 있다고 했다면, W39 C1은 기존 TF 데이터베이스 전체가 크로마틴 맥락을 놓쳤을 가능성을 제기한다. 공통 질문: "기존 생물학 데이터가 실제 세포 환경을 얼마나 반영하는가".</li>
+          <li><strong>NVIDIA/NTU/MIT 범용 예측 계보</strong>: W1(JEPA-Anything)·W3(SoL-Pi)가 같은 주에 같은 기관에서 나왔다. W38 C1 면역 월드 모델 1저자 Taoyong Cui가 JEPA-Anything 1저자이기도 하다. 이후 행보를 계속 추적한다.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Sources</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <ul class="space-y-2 text-[13.5px]">
+          <li><a href="https://www.biorxiv.org/content/10.64898/2026.09.23.753737v1" class="text-indigo-600 underline" target="_blank">[C1] TF 두 번째 조절 코드 (bioRxiv)</a></li>
+          <li><a href="https://arxiv.org/abs/2609.21280" class="text-indigo-600 underline" target="_blank">[C2] MIRCID (arXiv)</a></li>
+          <li><a href="https://github.com/XinCao02/MIRCID" class="text-indigo-600 underline" target="_blank">[C2] MIRCID 코드 (GitHub)</a></li>
+          <li><a href="https://arxiv.org/abs/2609.23876" class="text-indigo-600 underline" target="_blank">[C3] GLR-MM (arXiv)</a></li>
+          <li><a href="https://arxiv.org/abs/2609.24538" class="text-indigo-600 underline" target="_blank">[C4] QLoRA 단백질 주석 (arXiv)</a></li>
+          <li><a href="https://www.biorxiv.org/content/10.64898/2026.09.21.753079v1" class="text-indigo-600 underline" target="_blank">[C5] HR-FRGS (bioRxiv)</a></li>
+          <li><a href="https://arxiv.org/abs/2609.20800" class="text-indigo-600 underline" target="_blank">[W1] JEPA-Anything (arXiv)</a></li>
+          <li><a href="https://github.com/Gen-Verse/JEPA-Anything" class="text-indigo-600 underline" target="_blank">[W1] JEPA-Anything 코드 (GitHub)</a></li>
+          <li><a href="https://arxiv.org/abs/2609.24324" class="text-indigo-600 underline" target="_blank">[W2] Brain-Token Learning (arXiv)</a></li>
+          <li><a href="https://arxiv.org/abs/2609.20519" class="text-indigo-600 underline" target="_blank">[W3] SoL-Pi (arXiv)</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="border-t border-gray-200 pt-8 pb-10 text-center">
+      <p class="text-sm text-gray-500">paper-radar · 2026-W39</p>
+      <p class="text-xs text-gray-400 mt-1">바이오인포·임상ML·신약AI 논문 주간 요약. preprint 분석 포함.</p>
+    </footer>
+  </div>
+</body>
+</html>
