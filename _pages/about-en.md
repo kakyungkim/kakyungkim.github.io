@@ -7,8 +7,8 @@ author_profile: true
 I started with a B.S. in computer engineering, then took an M.S. in life science and a Ph.D. in
 molecular medicine. Since 2004 I have worked with genome, transcriptome, single-cell, and clinical
 multi-omics data for over twenty years, and the analysis carries through to reports and services
-that hospitals and the business actually use. Today I work at Cytogen as Chief Researcher and team
-lead in the Diagnosis Division.
+that hospitals and the business actually use. Today I work at Cytogen as Chief Researcher in the
+Diagnosis Division, where I served as team lead through September 2026.
 
 ## Current work
 
