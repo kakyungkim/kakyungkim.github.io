@@ -15,6 +15,11 @@ sitemap: true
 <meta property="og:title" content="김가경 Ka-Kyung Kim, Ph.D.">
 <meta property="og:description" content="검체에서 임상 판단까지, 유전체 분석을 설계하고 운영합니다.">
 <meta property="og:url" content="https://kakyungkim.github.io/">
+<meta property="og:image" content="https://kakyungkim.github.io/assets/home/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="김가경 Ka-Kyung Kim, Ph.D. 소개 카드">
+<meta name="twitter:card" content="summary_large_image">
 <script>try{if(localStorage.getItem("kkk-theme")==="light")document.documentElement.setAttribute("data-theme","light")}catch(e){}</script>
 <link rel="stylesheet" href="/assets/home/styles.css">
 <link rel="preload" as="font" type="font/woff2" href="/assets/home/fonts/newsreader-normal-400-latin.woff2" crossorigin>
@@ -40,7 +45,8 @@ sitemap: true
   "sameAs":[
     "https://www.linkedin.com/in/kakyungkim/",
     "https://github.com/kakyungkim",
-    "https://scholar.google.com/citations?user=jSjoINAAAAAJ"
+    "https://scholar.google.com/citations?user=jSjoINAAAAAJ",
+    "https://orcid.org/0009-0001-9380-597X"
   ]
 }
 </script>
@@ -59,6 +65,7 @@ sitemap: true
       <a href="#publications"><span class="kr-only">논문</span><span class="en-only">Papers</span></a>
       <a href="#built" class="nav-hide-sm"><span class="kr-only">프로젝트</span><span class="en-only">Built</span></a>
       <a href="#talks" class="nav-hide-sm"><span class="kr-only">발표</span><span class="en-only">Talks</span></a>
+      <a href="#community" class="nav-hide-sm"><span class="kr-only">커뮤니티</span><span class="en-only">Community</span></a>
       <a href="#writing" class="nav-hide-sm"><span class="kr-only">글</span><span class="en-only">Writing</span></a>
       <a class="nav-cv kr-only" href="/assets/home/KaKyung-Kim-CV_KR.pdf">이력서 ↓</a>
       <a class="nav-cv en-only" href="/assets/home/KaKyung-Kim-CV.pdf">CV ↓</a>
@@ -89,6 +96,15 @@ sitemap: true
           <span class="kr-only">유전체와 전사체, 단일세포, 임상 멀티오믹스를 20년 넘게 다뤘습니다. 분석 결과는 리포트와 서비스로 이어져 병원과 사업 현장에서 실제로 쓰입니다.</span>
           <span class="en-only">I have worked with genome, transcriptome, single-cell, and clinical multi-omics data for over twenty years. The analysis carries through to reports and services that hospitals and the business actually use.</span>
         </p>
+        <nav class="hero__links" aria-label="Profiles">
+          <a class="cv kr-only" href="/assets/home/KaKyung-Kim-CV_KR.pdf">이력서 ↓</a>
+          <a class="cv en-only" href="/assets/home/KaKyung-Kim-CV.pdf">CV ↓</a>
+          <a href="mailto:kakyung.kim@gmail.com">Email</a>
+          <a href="https://scholar.google.com/citations?user=jSjoINAAAAAJ" rel="noopener">Scholar</a>
+          <a href="https://orcid.org/0009-0001-9380-597X" rel="noopener">ORCID</a>
+          <a href="https://github.com/kakyungkim" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/kakyungkim/" rel="noopener">LinkedIn</a>
+        </nav>
       </div>
       <aside class="hero__aside">
         <div class="hero__photo"><img class="hero__portrait" src="/assets/home/profile-disc-2x.png" alt="김가경 Ka-Kyung Kim" width="680" height="680"></div>
@@ -373,44 +389,42 @@ sitemap: true
         </h2>
       </div>
       <p class="sec__lede">
-        <span class="kr-only">유전체학과 종양학, 약물유전체학, 시스템 생물학에서 동료심사 논문을 20편 넘게 냈습니다. 주도한 연구를 앞에 두고 나머지는 전체 목록에 담았습니다. 원고 3편은 아직 준비 중입니다.</span>
-        <span class="en-only">20+ peer-reviewed papers in genomics, oncology, pharmacogenomics, and systems biology. Papers I led come first, followed by the full list. Three manuscripts are in preparation.</span>
+        <span class="kr-only">유전체학과 종양학, 약물유전체학, 시스템 생물학에서 동료심사 논문을 20편 넘게 냈습니다. 대표 논문 네 편을 앞에 두고 나머지는 전체 목록에 담았습니다. 원고 3편은 아직 준비 중입니다.</span>
+        <span class="en-only">20+ peer-reviewed papers in genomics, oncology, pharmacogenomics, and systems biology. Four selected papers come first, followed by the full list. Three manuscripts are in preparation.</span>
       </p>
     </div>
 
-    <p class="mono" style="margin-bottom:0.75rem"><span class="kr-only">주도한 연구</span><span class="en-only">Papers I led</span></p>
-    <ul class="pubs" id="pubs-lead">
+    <p class="mono" style="margin-bottom:0.75rem"><span class="kr-only">대표 논문</span><span class="en-only">Selected papers</span></p>
+    <ul class="feat" id="pubs-lead">
       <li>
-        <span class="y">2019</span>
-        <span>
-          <span class="t">Whole-exome and whole-transcriptome sequencing of canine mammary gland tumors</span>
-          <span class="j"><b>Kim KK</b>, Seung BJ, … Kim S. <b>Scientific Data</b> 6(1):147<span class="role">First author</span></span>
-          <span class="lnk"><a href="https://doi.org/10.1038/s41597-019-0149-8" rel="noopener">DOI ↗</a><a href="https://pubmed.ncbi.nlm.nih.gov/31413331/" rel="noopener">PubMed ↗</a></span>
-        </span>
+        <span class="v">Scientific Data · 2019<span class="role">First author</span></span>
+        <span class="t">Whole-exome and whole-transcriptome sequencing of canine mammary gland tumors</span>
+        <span class="d kr-only">반려견 유선종양과 짝지은 정상 조직의 전엑솜, 전사체 데이터를 생산하고 임상 정보와 생물학적 특성을 붙여 공개했습니다. 사람 암과 비교 분석할 기준 자료로 설계했습니다.</span>
+        <span class="d en-only">Whole-exome and whole-transcriptome data for canine mammary tumors and matched controls, annotated with clinical and biological features and released as a reference for comparison with human cancers.</span>
+        <span class="m"><b>197</b><span class="kr-only">정상 대조를 짝지은 종양</span><span class="en-only">tumors with matched controls</span></span>
+        <span class="lnk"><a href="https://doi.org/10.1038/s41597-019-0149-8" rel="noopener">DOI ↗</a><a href="https://pubmed.ncbi.nlm.nih.gov/31413331/" rel="noopener">PubMed ↗</a></span>
       </li>
       <li>
-        <span class="y">2013</span>
-        <span>
-          <span class="t">miRTCat: a comprehensive map of human and mouse microRNA target sites including non-canonical nucleation bulges</span>
-          <span class="j"><b>Kim KK</b>, Ham J, Chi SW. <b>Bioinformatics</b> 29(15):1898–1899<span class="role">First author</span></span>
-          <span class="lnk"><a href="https://doi.org/10.1093/bioinformatics/btt296" rel="noopener">DOI ↗</a><a href="https://pubmed.ncbi.nlm.nih.gov/23709495/" rel="noopener">PubMed ↗</a></span>
-        </span>
+        <span class="v">Nature Communications · 2020</span>
+        <span class="t">Cross-species oncogenic signatures of breast cancer in canine mammary tumors</span>
+        <span class="d kr-only">반려견 유선종양 191건을 전엑솜, 전사체로 분석해 사람 유방암과 닮은 유전체 특징을 확인했습니다. 발현으로 나눈 아형 셋 가운데 하나가 사람의 basal-like 아형과 같이 묶였습니다.</span>
+        <span class="d en-only">Exome and transcriptome analysis of 191 canine mammary tumors showed genomic features closely resembling human breast cancer, with one of three expression subtypes segregating with basal-like human subtypes.</span>
+        <span class="m"><b>43.1%</b><span class="kr-only">PIK3CA 변이 빈도</span><span class="en-only">PIK3CA mutation frequency</span></span>
+        <span class="lnk"><a href="https://doi.org/10.1038/s41467-020-17458-0" rel="noopener">DOI ↗</a><a href="https://pubmed.ncbi.nlm.nih.gov/32680987/" rel="noopener">PubMed ↗</a></span>
       </li>
       <li>
-        <span class="y">2018</span>
-        <span>
-          <span class="t">Palmitate and minimally-modified low-density lipoprotein cooperatively promote inflammatory responses in macrophages</span>
-          <span class="j">Ann SJ<sup>†</sup>, <b>Kim KK</b><sup>†</sup>, … Miller YI. <b>PLoS One</b> 13:e0193649<span class="role">Co-first author</span></span>
-          <span class="lnk"><a href="https://doi.org/10.1371/journal.pone.0193649" rel="noopener">DOI ↗</a><a href="https://pubmed.ncbi.nlm.nih.gov/29518116/" rel="noopener">PubMed ↗</a></span>
-        </span>
+        <span class="v">Bioinformatics · 2013<span class="role">First author</span></span>
+        <span class="t">miRTCat: a comprehensive map of human and mouse microRNA target sites including non-canonical nucleation bulges</span>
+        <span class="d kr-only">Ago HITS-CLIP으로 새로 밝혀진 비정규 표적 부위(nucleation bulge)까지 넣어, 사람과 생쥐의 3′UTR 전체에서 microRNA 표적 부위를 검색할 수 있게 만들었습니다.</span>
+        <span class="d en-only">A searchable map of microRNA target sites across all human and mouse 3′UTRs, including the non-canonical nucleation bulges first identified by Ago HITS-CLIP.</span>
+        <span class="lnk"><a href="https://doi.org/10.1093/bioinformatics/btt296" rel="noopener">DOI ↗</a><a href="https://pubmed.ncbi.nlm.nih.gov/23709495/" rel="noopener">PubMed ↗</a></span>
       </li>
       <li>
-        <span class="y">2020</span>
-        <span>
-          <span class="t">Cross-species oncogenic signatures of breast cancer in canine mammary tumors</span>
-          <span class="j">Kim TM, … <b>Kim KK</b>, … Kim S. <b>Nature Communications</b> 11:3616</span>
-          <span class="lnk"><a href="https://doi.org/10.1038/s41467-020-17458-0" rel="noopener">DOI ↗</a><a href="https://pubmed.ncbi.nlm.nih.gov/32680987/" rel="noopener">PubMed ↗</a></span>
-        </span>
+        <span class="v">PLoS One · 2018<span class="role">Co-first author</span></span>
+        <span class="t">Palmitate and minimally-modified low-density lipoprotein cooperatively promote inflammatory responses in macrophages</span>
+        <span class="d kr-only">포화지방산(palmitate)과 약하게 산화된 LDL(mmLDL)을 함께 주면 LPS로 유도한 대식세포 활성이 더해져 커졌습니다. 발현이 달라진 유전자를 KEGG 경로로 분석하고 real-time PCR로 검증했습니다.</span>
+        <span class="d en-only">Palmitate and minimally modified LDL additively potentiated LPS-induced macrophage activation. Differentially expressed genes were mapped to KEGG pathways and validated by real-time PCR.</span>
+        <span class="lnk"><a href="https://doi.org/10.1371/journal.pone.0193649" rel="noopener">DOI ↗</a><a href="https://pubmed.ncbi.nlm.nih.gov/29518116/" rel="noopener">PubMed ↗</a></span>
       </li>
     </ul>
 
@@ -711,11 +725,56 @@ sitemap: true
     </ul>
   </section>
 
+  <!-- ============ 06 community ============ -->
+  <section class="sec wrap" id="community">
+    <div class="sec__head">
+      <div>
+        <span class="sec__no">06</span>
+        <h2 class="sec__title">
+          <span class="kr-only">커뮤니티</span><span class="en-only">Community</span>
+          <span class="en kr-only">Community</span><span class="en en-only">커뮤니티</span>
+        </h2>
+      </div>
+      <p class="sec__lede">
+        <span class="kr-only">바이오인포매틱스 스터디 모임 바이오스핀(Biospin)과 오픈 연구 커뮤니티 가짜연구소(Pseudo Lab)에서 스터디와 연구 프로젝트를 이끌어 왔습니다. 결과는 코드와 함께 공개합니다.</span>
+        <span class="en-only">I have led study groups and research projects at Biospin, a bioinformatics study community, and at Pseudo Lab, an open research community. Results are released together with the code.</span>
+      </p>
+    </div>
+    <ul class="nowlist">
+      <li>
+        <span class="k"><span class="kr-only">13기</span><span class="en-only">Season 13</span></span>
+        <span class="d">
+          <b style="color:var(--ink);font-weight:500">Falsify</b> · <span class="kr-only">프로젝트 리더, 2026년 10월 시작</span><span class="en-only">Project lead, from Oct 2026</span><br>
+          <span class="kr-only">논문에 결함을 심고 찾아내면서, AI가 낸 연구 결과를 검사하는 검증 도구를 만듭니다.</span>
+          <span class="en-only">Plants and hunts defects in papers to build tools that check research produced by AI.</span>
+          <a href="https://pseudo-lab.com/projects/238d2cc5-cf2a-4d85-9a59-4af74160251b" rel="noopener" style="border-bottom:1px solid var(--rule);font-family:var(--mono);font-size:0.625rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-3);margin-inline-start:0.4rem">Project ↗</a>
+        </span>
+      </li>
+      <li>
+        <span class="k"><span class="kr-only">12기</span><span class="en-only">Season 12</span></span>
+        <span class="d">
+          <b style="color:var(--ink);font-weight:500">AutoBioX</b> · <span class="kr-only">프로젝트 리더</span><span class="en-only">Project lead</span><br>
+          <span class="kr-only">AI 에이전트로 문헌 검토부터 분석, 원고 초안까지 잇는 연구 파이프라인을 만들었습니다. 시즌 결과를 PseudoCon 2026에서 발표했고, 연구 두 편이 GIW ISCB-Asia 2026에 채택됐습니다.</span>
+          <span class="en-only">Built a research pipeline in which AI agents carry work from literature review through analysis to a manuscript draft. Presented the season at PseudoCon 2026; two studies were accepted at GIW ISCB-Asia 2026.</span>
+        </span>
+      </li>
+      <li>
+        <span class="k"><span class="kr-only">2014년부터</span><span class="en-only">Since 2014</span></span>
+        <span class="d">
+          <b style="color:var(--ink);font-weight:500">Biospin</b> · <span class="kr-only">바이오인포매틱스 스터디</span><span class="en-only">Bioinformatics study group</span><br>
+          <span class="kr-only">바이오파이썬 스터디부터 여러 스터디를 이끌거나 함께했습니다. AutoBioX의 연구 저장소 BioProject01과 BioProject02도 이곳에 공개했습니다.</span>
+          <span class="en-only">Led or joined a run of study groups, starting with Biopython. The AutoBioX research repositories, BioProject01 and BioProject02, are published here.</span>
+          <a href="https://github.com/biospin" rel="noopener" style="border-bottom:1px solid var(--rule);font-family:var(--mono);font-size:0.625rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-3);margin-inline-start:0.4rem">GitHub ↗</a>
+        </span>
+      </li>
+    </ul>
+  </section>
+
   <!-- ============ 07 writing ============ -->
   <section class="sec wrap" id="writing">
     <div class="sec__head">
       <div>
-        <span class="sec__no">06</span>
+        <span class="sec__no">07</span>
         <h2 class="sec__title">
           <span class="kr-only">글</span><span class="en-only">Writing</span>
           <span class="en kr-only">Writing</span><span class="en en-only">글</span>
@@ -848,7 +907,7 @@ sitemap: true
 
   <!-- ============ contact ============ -->
   <section class="contact wrap" id="contact">
-    <span class="sec__no">07</span>
+    <span class="sec__no">08</span>
     <h2>
       <span class="kr-only">바이오인포매틱스와 임상, AI가 겹치는 일이라면 함께하고 싶습니다.</span>
       <span class="en-only">Interested in collaboration where bioinformatics, clinic, and AI meet.</span>
@@ -866,6 +925,9 @@ sitemap: true
       </a>
       <a href="https://scholar.google.com/citations?user=jSjoINAAAAAJ" rel="noopener">
         <span class="k">Scholar</span><span class="v">scholar.google.com</span><span class="arw">↗</span>
+      </a>
+      <a href="https://orcid.org/0009-0001-9380-597X" rel="noopener">
+        <span class="k">ORCID</span><span class="v">0009-0001-9380-597X</span><span class="arw">↗</span>
       </a>
       <a class="kr-only" href="/assets/home/KaKyung-Kim-CV_KR.pdf">
         <span class="k">이력서</span><span class="v">KaKyung-Kim-CV_KR.pdf</span><span class="arw">↓</span>

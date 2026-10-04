@@ -3,6 +3,7 @@ subtitle: "Drug Discovery · Precision Medicine · Bioinformatics"
 description: "Research notes on drug discovery and precision medicine: genomic analysis, AI model validation, and the LLM agent harnesses I build and check."
 locale: "en-US"
 url: "https://kakyungkim.github.io"
+og_image: "/assets/home/og-card.png"   # 링크 미리보기 기본 이미지. 없으면 카카오톡이 랜딩의 프로필 사진을 크게 띄운다
 repository: "kakyungkim/kakyungkim.github.io"
 
 # --- Theme (gem-based; no remote download) ---
@@ -24,6 +25,12 @@ author:
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/kakyungkim/"
+    - label: "Google Scholar"
+      icon: "fas fa-fw fa-graduation-cap"
+      url: "https://scholar.google.com/citations?user=jSjoINAAAAAJ"
+    - label: "ORCID"
+      icon: "fab fa-fw fa-orcid"
+      url: "https://orcid.org/0009-0001-9380-597X"
 
 footer:
   links:
@@ -33,6 +40,12 @@ footer:
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/kakyungkim/"
+    - label: "Google Scholar"
+      icon: "fas fa-fw fa-graduation-cap"
+      url: "https://scholar.google.com/citations?user=jSjoINAAAAAJ"
+    - label: "ORCID"
+      icon: "fab fa-fw fa-orcid"
+      url: "https://orcid.org/0009-0001-9380-597X"
 
 # --- Plugins ---
 plugins:

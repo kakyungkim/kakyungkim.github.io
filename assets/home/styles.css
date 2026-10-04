@@ -438,3 +438,30 @@ html{scroll-behavior:smooth}
 html[data-lang="kr"] .nowlist .k{font-family:'Pretendard KR',var(--serif);font-size:0.8125rem;letter-spacing:0;text-transform:none;color:var(--accent)}
 .nowlist .d{color:var(--ink-2);font-size:0.9375rem;line-height:1.6}
 @media (max-width:640px){.nowlist li{grid-template-columns:1fr;gap:0.2rem}}
+
+/* ---- 첫 화면 링크 줄: 이력서와 학술 프로필을 스크롤 없이 ---- */
+.hero__links{display:flex;flex-wrap:wrap;gap:0.55rem 1.35rem;margin-top:clamp(1.25rem,2.5vw,1.75rem)}
+.hero__links a{
+  font-family:var(--mono);font-size:0.6875rem;letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--ink-2);border-bottom:1px solid var(--rule);padding-block:2px;
+  transition:color .16s ease,border-color .16s ease;
+}
+.hero__links a.cv{color:var(--ink);border-bottom-color:var(--ink)}
+html[data-lang="kr"] .hero__links a.cv{font-family:'Pretendard KR',var(--serif);font-size:0.8125rem;letter-spacing:0}
+.hero__links a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+.hero__links a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* ---- 대표 논문 카드: 게재지, 제목, 두 줄 요약, 핵심 수치 하나 ---- */
+.feat{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(1rem,2vw,1.5rem)}
+.feat li{display:flex;flex-direction:column;gap:0.6rem;padding:clamp(1.1rem,2vw,1.5rem);border:1px solid var(--rule);border-top:2px solid var(--accent)}
+.feat .v{font-family:var(--mono);font-size:0.6875rem;letter-spacing:0.05em;color:var(--ink-3)}
+.feat .role{margin-inline-start:0.6rem;font-size:0.5625rem;letter-spacing:0.08em;color:var(--accent);text-transform:uppercase}
+.feat .t{font-size:1rem;line-height:1.45;color:var(--ink)}
+.feat .d{font-size:0.875rem;line-height:1.65;color:var(--ink-2)}
+.feat .m{display:flex;align-items:baseline;gap:0.6rem;margin-top:auto;padding-top:0.6rem;border-top:1px solid var(--rule-soft);font-size:0.8125rem;color:var(--ink-2)}
+.feat .m b{font-size:1.5rem;font-weight:500;letter-spacing:-0.02em;color:var(--accent);line-height:1}
+.feat .lnk{display:flex;flex-wrap:wrap;gap:0.75rem}
+.feat .lnk a{font-family:var(--mono);font-size:0.625rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-3);border-bottom:1px solid transparent}
+.feat .lnk a:hover{color:var(--ink);border-bottom-color:var(--accent)}
+.feat li:not(:has(.m)) .lnk{margin-top:auto}
+@media (max-width:760px){.feat{grid-template-columns:1fr}}
