@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🧭 econ-radar 동향 리포트 · 2026-W41 (2026-10-05 ~ 2026-10-11)</title>
+<style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+:root{--ink:#1e293b;--indigo:#4338ca;--indigo-deep:#3730a3;--soft:#eef2ff;--line:#c7d2fe;--muted:#64748b;--pop:#c026d3;}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Pretendard',-apple-system,'Noto Sans KR',sans-serif;color:var(--ink);background:#f6f7fb;margin:0;line-height:1.78;font-size:16px;}
+.wrap{max-width:780px;margin:0 auto;padding:30px 20px 80px;}
+.head{background:linear-gradient(135deg,#4f46e5,#3730a3);color:#eef2ff;border-radius:18px;padding:26px 28px;margin-bottom:28px;box-shadow:0 12px 40px rgba(49,46,129,.28);}
+.head .kicker{font-size:13px;letter-spacing:.08em;color:#c7d2fe;font-weight:700;}
+.head h1{font-size:25px;margin:8px 0 6px;line-height:1.35;color:#fff;}
+.head .range{font-size:14px;color:#c7d2fe;}
+.tags{margin-top:12px;}
+.tags span{display:inline-block;font-size:12px;background:rgba(255,255,255,.14);color:#e9d5ff;border-radius:999px;padding:2px 11px;margin:3px 4px 0 0;}
+h2{color:var(--indigo);font-size:21px;margin:34px 0 12px;padding-bottom:8px;line-height:1.4;background:linear-gradient(90deg,var(--indigo) 0,var(--pop) 44px,var(--line) 44px) bottom left/100% 3px no-repeat;}
+h2[id]{scroll-margin-top:74px;}
+h3{color:var(--indigo-deep);font-size:17px;margin:22px 0 8px;}
+p{margin:10px 0;}
+strong{color:var(--indigo-deep);}
+a{color:var(--indigo);text-decoration:none;border-bottom:1px solid var(--line);}
+a:hover{background:var(--soft);}
+ul{margin:10px 0;padding-left:20px;} li{margin:7px 0;}
+blockquote{border-left:4px solid var(--line);background:#fff;margin:12px 0;padding:10px 16px;border-radius:0 10px 10px 0;color:var(--muted);font-size:14px;}
+blockquote a{border:none;color:var(--muted);}
+.tablewrap{overflow-x:auto;margin:14px 0;-webkit-overflow-scrolling:touch;}
+table{border-collapse:collapse;width:100%;font-size:14px;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 18px rgba(67,56,202,.08);}
+th{background:linear-gradient(90deg,var(--indigo),#6d28d9);color:#fff;text-align:left;padding:11px 13px;font-weight:700;}
+td{padding:10px 13px;border-bottom:1px solid #eef0f7;vertical-align:top;}
+tr:nth-child(even) td{background:#fafbff;}
+hr{border:none;border-top:1px solid var(--line);margin:26px 0;}
+.back{display:inline-block;margin-bottom:18px;font-size:14px;color:var(--indigo);border:none;}
+/* 섹션 점프 목차 — 스크롤해도 상단 고정(데일리와 동일 스타일) */
+.toc{position:sticky;top:8px;z-index:40;display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 30px;padding:12px 16px;background:rgba(255,255,255,0.96);backdrop-filter:saturate(180%) blur(6px);border:1.5px solid var(--line);border-radius:14px;box-shadow:0 6px 22px rgba(67,56,202,0.16);}
+.toc .toc-label{font-size:13px;font-weight:800;color:var(--indigo);margin-right:4px;}
+.toc a{position:relative;font-size:12px;font-weight:600;padding:5px 12px;border-radius:999px;background:#eef2ff;color:var(--indigo);border:1px solid var(--line);text-decoration:none;transition:background .15s,color .15s;}
+.toc a:hover{background:var(--indigo);color:#fff;}
+.toc a[data-tip]::after{content:attr(data-tip);position:absolute;left:0;top:calc(100% + 9px);width:max-content;max-width:260px;white-space:normal;background:#1e293b;color:#fff;font-size:12px;font-weight:500;line-height:1.5;letter-spacing:0;padding:8px 11px;border-radius:9px;box-shadow:0 8px 22px rgba(15,23,42,0.28);opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .15s,transform .15s;pointer-events:none;z-index:60;}
+.toc a[data-tip]::before{content:"";position:absolute;left:16px;top:calc(100% + 3px);border:6px solid transparent;border-bottom-color:#1e293b;opacity:0;visibility:hidden;transition:opacity .15s;z-index:60;}
+.toc a[data-tip]:hover::after,.toc a[data-tip]:hover::before{opacity:1;visibility:visible;transform:translateY(0);}
+/* 맨 위로 버튼 */
+.to-top{position:fixed;right:18px;bottom:18px;width:44px;height:44px;border-radius:50%;background:var(--indigo);color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:20px;line-height:1;border:none;box-shadow:0 4px 16px rgba(67,56,202,0.42);z-index:50;transition:background .15s,transform .1s;}
+.to-top:hover{background:var(--indigo-deep);}
+.to-top:active{transform:scale(0.92);}
+/* 본문 끝 태그(footer 위) */
+.foottags{margin-top:34px;}
+.foottags span{display:inline-block;font-size:12px;background:var(--soft);color:var(--indigo-deep);border:1px solid var(--line);border-radius:999px;padding:3px 11px;margin:4px 5px 0 0;}
+.foot{margin-top:18px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);}
+@media(max-width:640px){body{font-size:15px;}.wrap{padding:18px 14px 60px;}.head{padding:20px;}.head h1{font-size:21px;}h2{font-size:19px;}h2[id]{scroll-margin-top:64px;}table{font-size:13px;}
+.toc{padding:8px 10px;gap:6px;margin:0 0 20px;}.toc .toc-label{font-size:11px;}.toc a{font-size:11px;padding:4px 10px;}.toc a[data-tip]::after,.toc a[data-tip]::before{display:none;}
+.to-top{width:40px;height:40px;right:12px;bottom:12px;font-size:18px;}}
+</style></head>
+<body><div class="wrap" id="top">
+<a class="back" href="/econ-radar/">← econ-radar 아카이브</a>
+<div class="head"><div class="kicker">WEEKLY · 주간 동향</div><h1>🧭 econ-radar 동향 리포트 · 2026-W41 (2026-10-05 ~ 2026-10-11)</h1><div class="range"></div></div>
+<nav class="toc" aria-label="섹션 바로가기"><span class="toc-label">📑 바로가기</span><a href="#sec-1" data-tip="지난 주를 관통한 핵심 메시지">핵심</a><a href="#sec-2" data-tip="흐름 1 — 거시: r 공식화와 10년물 5.35% 돌파">흐름 1 —</a><a href="#sec-3" data-tip="흐름 2 — 바이오: GLP-1 3층 구도 확정 + ADC 규제 환경 전환">흐름 2 —</a><a href="#sec-4" data-tip="흐름 3 — AI반도체: 수익화 첫 분기 숫자 공개">흐름 3 —</a><a href="#sec-5" data-tip="보조 흐름 — K바이오 SC 전환 플랫폼 확장">보조 흐름 </a><a href="#sec-6" data-tip="투자 관점 시사점">투자</a><a href="#sec-7" data-tip="수요(Demand) 시사점">수요(Dem</a><a href="#sec-8" data-tip="R&amp;D·전략 관점 노트">전략</a><a href="#sec-9" data-tip="다음 주 지켜볼 것">다음 주 지</a><a href="#sec-10" data-tip="재료 출처">재료 출처</a></nav>
+<h2 id="sec-1">핵심 메시지 3가지</h2>
+<p>1. <strong>고금리 구조가 '일시적 충격'에서 '되돌아오지 않는 수준'으로 확정됐다.</strong> FOMC 9월 의사록이 r*(장기 중립금리)를 3.25%로 공식 상향했고, 미 10년물은 2002년 이후 처음으로 5.35%를 돌파했다. 이란 호르무즈 봉쇄 재개로 Brent가 $100을 재돌파하면서 10/14 CPI가 금리 경로 전체를 결정하는 단 하나의 변수로 좁혀졌다. 팬데믹 이후 저금리를 전제로 설계됐던 바이오테크·기술주 밸류에이션 체계에 할인율 재조정 압력이 구조적으로 가해지는 국면이 됐다.</p>
+<p>2. <strong>GLP-1 전쟁의 무게중심이 '임상 데이터 비교'에서 '3층 구도(급여 잠금 + 플랫폼 확장 + 로컬 플레이어)'로 이동했다.</strong> Lilly 3대 PBM 완성(10/1 CVS 재등재), retatrutide TRIUMPH Phase 3 4건 전부 성공(비만·당뇨·심혈관·골관절염), 한미약품 에페글레나타이드 MFDS 허가(10/7, 국내 최초 주 1회 GLP-1)가 한 주에 집중됐다. 누가 가장 많이 빠지는지의 게임은 끝났고, 누가 처방 인프라를 잠그고 적응증을 얼마나 넓히느냐가 새로운 경쟁 축이다.</p>
+<p>3. <strong>AI 반도체 수익화가 처음으로 분기 숫자로 검증됐다.</strong> 삼성전자 Q3 영업이익 107.4조원(한국 기업 역대 최초 분기 100조원 돌파)이 HBM 수요의 실체를 확인했고, Marvell은 투자자의 날(10/6)에서 FY2028 $18B 가이던스와 Google 워런트 7% 구조를 공개해 커스텀 ASIC이 독립적인 수익 시장으로 자리 잡았음을 숫자로 알렸다. "AI 투자가 늘고 있다"는 서사가 "AI로 실제 이익을 내고 있다"는 검증으로 전환된 첫 분기가 이번 주에 열렸다.</p>
+<hr>
+<h2 id="sec-2">흐름 1 — 거시: r* 공식화와 10년물 5.35% 돌파</h2>
+<p>근거 노트: [[daily/2026-10-05]] · [[daily/2026-10-08]] · [[daily/2026-10-09]] · [[daily/2026-10-10]] · [[daily/2026-10-11]]</p>
+<p>10월 8일 공개된 FOMC 9월 의사록은 단 두 가지 숫자로 시장에 충격을 줬다. 18명 위원 가운데 16명이 연내 추가 인상을 지지했고, r*(장기 중립금리)를 2.5%에서 3.25%로 0.75%포인트 상향했다. r* 상향이 공식 의사록에 담긴 것은 2010년대 이후 처음이다. "저금리로 돌아가지 않는다"는 명시적 선언이었다.</p>
+<p>여기에 지정학 충격이 겹쳤다. 10월 7일 이란이 호르무즈 해협 공격을 재개하면서 Brent가 $100을 넘어섰다. 미 10년물은 5.35%까지 올라 2002년 이후 24년 만의 최고치를 찍었다. 30년 고정 모기지 금리가 7.45%대로 올라 주택·소비 냉각이 심화됐고, 달러 인덱스(DXY)는 18개월 만의 고점 102.50에 닿았다. 주 후반 유가·금리 일부 되돌림이 있었지만(10년물 5.24%로 마감), 구조적 수준 자체가 상향된 것은 변하지 않았다.</p>
+<p><strong>Why it matters</strong>: 일별 뉴스에서는 호르무즈 충격과 의사록 발표가 독립된 이벤트로 보인다. 그러나 주 단위로 겹쳐보면 한 방향이다. 지정학 충격(유가 상승 → 인플레이션 압력), 통화정책(r* 상향 → 구조적 고금리), 두 가지가 동시에 같은 방향을 가리키며 10/14 CPI로 시장의 눈을 몰았다. CPI가 예상치를 상회하면 10/28 FOMC 추가 인상이 굳고, 하회하면 동결 컨센서스가 굳는다. 어느 쪽이 되든 저금리 복귀는 없다는 점이 이번 주의 가장 중요한 출력이다.</p>
+<p><strong>양면 시각</strong>: 고금리를 "기업 이익이 금리 부담을 이미 내성화했다"는 증거(S&amp;P 500 EPS 컨센서스 전년 대비 +23%)로 읽는 시각이 있다. 반대로 "초기 바이오테크·기술 스타트업의 자금조달 비용이 올라 임상 지연·M&amp;A 밸류에이션 압축이 지속된다"는 우려도 팽팽하다. S&amp;P 500이 사상 최고(7,816pts)에 4포인트까지 접근한 채로 주를 마친 것은 시장이 아직 강세 시나리오를 버리지 않았다는 신호다.</p>
+<hr>
+<h2 id="sec-3">흐름 2 — 바이오: GLP-1 3층 구도 확정 + ADC 규제 환경 전환</h2>
+<p>근거 노트: [[daily/2026-10-05]] · [[daily/2026-10-06]] · [[daily/2026-10-07]] · [[daily/2026-10-09]] · [[daily/2026-10-10]]</p>
+<h3>GLP-1 — 임상 게임의 종료, 인프라 게임의 시작</h3>
+<p>10월 1일 CVS Caremark 재등재로 완성된 3대 PBM(CVS·Cigna·OptumRx) 전면 급여는 Lilly 비만 포트폴리오가 미국 처방 인프라에서 기본값으로 자리잡는 구조 전환이었다. 같은 주에 retatrutide TRIUMPH Phase 3 4건 전부 성공 확인이 이어졌다. 비만(최대 30% 감량, 104주), 제2형 당뇨 동반, 심혈관 위험 동반 중증 비만, 비만·무릎 골관절염(통증 75.8% 완화) — 하나의 분자가 4개 만성질환에서 Phase 3를 통과한 사례는 GLP-1 역사에 없었다. Lilly의 Q1 2027 FDA 신청 계획이 현실화됐다.</p>
+<p>국내에서는 한미약품 에페글레나타이드가 10월 7일 식약처(MFDS) 허가를 받았다. 국내 최초 주 1회 피하주사 GLP-1 비만치료제다. 글로벌 GLP-1 과점(Novo Nordisk·Lilly)에 맞서는 K-GLP-1 서사의 출발점으로, 이제 HIRA 급여 등재가 실질 상업화의 관문이 됐다.</p>
+<h3>ADC — 가속승인 경로 협소화 패턴 재확인</h3>
+<p>10월 10일 ifinatamab deruxtecan(I-DXd) BLA가 9월 25일 자진 철회됐다는 사실이 공식 확인됐다. Phase 2 단일군 ORR 48.2%(187명)로 제출했지만, FDA가 가속승인 기준을 충족하지 못한다고 판단한 데 따른 것이다. 이로써 ADC 계열에서 Phase 2 ORR 단독 기반으로 빠른 허가를 노리는 전략이 사실상 막힌 패턴이 재확인됐다. 확증 3상 설계를 우선으로 임상 전략을 재편해야 하는 상황이다.</p>
+<p><strong>Why it matters</strong>: GLP-1과 ADC는 반대 방향으로 움직인 한 주였다. GLP-1은 접근성 확대(급여 잠금, 로컬 허가), ADC는 규제 강화(3상 필수화). 두 흐름이 같은 주에 동시에 진행됐다는 점에서, 신약 개발의 전략 자원 배분이 어느 쪽을 향해야 하는지를 한 주 안에 압축해 보여줬다.</p>
+<p><strong>양면 시각</strong>: GLP-1에서 Lilly 강세를 보는 시각은 PBM 리베이트 양보에 따른 마진 압박을 경시한다. 경구 GLP-1(Lilly Foundayo, Novo 알약) 경쟁이 격화될수록 주사제 시장이 잠식될 위험도 있다. ADC 관련으로는, Phase 3 우선 설계가 부담스러운 소규모 바이오텍의 임상 지연이 예상되지만, 확증 데이터로 나온 ADC는 규제 리스크가 낮아지는 이면이 있다.</p>
+<hr>
+<h2 id="sec-4">흐름 3 — AI반도체: 수익화 첫 분기 숫자 공개</h2>
+<p>근거 노트: [[daily/2026-10-05]] · [[daily/2026-10-06]] · [[daily/2026-10-07]] · [[daily/2026-10-08]] · [[daily/2026-10-11]]</p>
+<h3>삼성전자 Q3 107.4조원 — HBM4 초호황의 첫 확인</h3>
+<p>10월 8일 삼성전자가 공개한 Q3 2026 잠정실적에서 영업이익이 107.4조원을 기록했다. 한국 기업 역사상 단일 분기 100조원을 처음으로 넘어선 것이다. HBM4 기반 AI 메모리 초호황이 숫자로 입증된 분기라는 평가가 나왔다. SK하이닉스 HBM4 Q4 출하 개시 공식화에 이어, 삼성전자의 수치로 메모리 슈퍼사이클 논의에 두 번째 확인이 붙었다.</p>
+<h3>Marvell FY2028 $18B — ASIC이 독립 시장으로</h3>
+<p>10월 6일 Marvell Technology 투자자의 날에서 FY2028 연간 매출 목표 약 180억달러(약 24조8,000억원)와 Google의 Marvell 주식 7% 워런트 구조가 공개됐다. FY2027 가이던스도 120억달러(약 16조5,000억원)로 높였다. 워런트는 수익 마일스톤 달성 시 행사하는 구조로, Google이 ASIC 공급 안정성 확보와 성장 업사이드 공유를 동시에 추구하는 이해관계 정렬 장치다.</p>
+<p><strong>Why it matters</strong>: AI 반도체 시장이 NVIDIA(범용 GPU)와 커스텀 ASIC(Marvell·Broadcom)이 경쟁이 아니라 공존하며 파이를 나누는 구조임이 이번 주에 수치로 확인됐다. 하이퍼스케일러 AI capex $6,500억~$7,000억(추정)이 GPU·ASIC 양쪽으로 분산되면서, ASIC이 더 이상 GPU의 보조 시장이 아닌 독립적인 수익 영역임을 Marvell의 가이던스가 처음으로 정량화했다.</p>
+<p><strong>양면 시각</strong>: FY2028 목표 달성은 CoWoS 패키징 공급과 맞물린다. 공급망 병목이 ASIC 성장의 잠재적 제약이다. 하이퍼스케일러 내부 설계 역량이 높아질수록 외부 파운드리 의존도가 줄어들 구조적 리스크도 남아 있다.</p>
+<hr>
+<h2 id="sec-5">보조 흐름 — K바이오 SC 전환 플랫폼 확장</h2>
+<p>근거 노트: [[daily/2026-10-10]] · [[daily/2026-10-05]]</p>
+<p>알테오젠이 10월 10일 Novartis와 Hybrozyme 플랫폼 기반 피하주사(SC) 전환 계약을 체결했다. 2026년 4번째 라이선스 계약이다. Merck·Pfizer에 이어 Novartis까지 채택하면서, Halozyme ENHANZE가 사실상 독점하던 SC 전환 플랫폼 시장에 한국산 대안이 반복 검증되는 흐름이 됐다. 알테오젠 H1 2026 매출은 490억원으로 전년 동기 대비 +900%를 기록했고, 흑자로 전환됐다.</p>
+<hr>
+<h2 id="sec-6">투자 시사점</h2>
+<p>*매수·매도 권유가 아닌 정보·시나리오 제공. 최종 판단은 본인.*</p>
+<div class="tablewrap"><table><thead><tr><th>테마</th><th>핵심 변수</th><th>주시 일정</th></tr></thead><tbody><tr><td>거시·금리</td><td>9월 CPI 수치, FOMC 10/28 결과</td><td><strong>10/14 CPI</strong>, 10/28 FOMC</td></tr><tr><td>GLP-1 생태계</td><td>Lilly Q3 실적(Zepbound·Foundayo 신규 처방), retatrutide FDA 신청 준비</td><td><strong>10/29 Lilly Q3</strong></td></tr><tr><td>bepirovirsen HBV</td><td>FDA 10/26 결정, 기능적 완치율 원문 공개</td><td><strong>10/26 PDUFA</strong></td></tr><tr><td>HBM·AI반도체</td><td>TSMC Q3 실적(AI 수요 사이클 확인), 어닝스 시즌 빅테크 AI capex 언급</td><td><strong>10/15 TSMC</strong>, 10/29 Lilly·Q3 빅테크</td></tr><tr><td>K바이오</td><td>한미약품 HIRA 급여 심사 착수 여부, 알테오젠 Keytruda SC 허가 일정</td><td>분기 IR</td></tr></tbody></table></div>
+<ul><li><strong>고금리 내성 전략</strong>: r* 3.25% 확정 이후 현금흐름이 먼 초기 바이오테크보다, 수익화 진행 중인 대형 제약사(Lilly·GSK)·AI 인프라 플레이어(삼성전자·Marvell)의 상대적 내성이 유리하다.</li><li><strong>GLP-1</strong>: 3대 PBM 잠금 + retatrutide 신청(Q1 2027) + 경구 GLP-1 경쟁 격화가 동시 진행. Lilly Q3 신규 처방 증가율이 PBM 재등재 효과를 정량화하는 첫 데이터다.</li><li><strong>ADC</strong>: I-DXd 철회로 Phase 2 단독 전략 막힘. Phase 3 데이터를 갖춘 ADC(Daiichi Sankyo·AstraZeneca Enhertu)와 그렇지 않은 파이프라인 간 프리미엄 격차가 커질 전망이다.</li></ul>
+<hr>
+<h2 id="sec-7">수요(Demand) 시사점</h2>
+<ul><li><strong>GLP-1 수요자</strong>: 비만+동반질환 환자의 실질적 Job은 체중 감량이 아니라 동반질환 통제다. retatrutide가 골관절염 적응증을 추가하면 정형외과·류마티스과 처방 채널이 새로 열린다. 지불자(PBM·HIRA)는 비만 치료 비용 대비 당뇨·심혈관 합병증 치료비 절감을 ICER 분석으로 검증한 뒤 급여를 결정한다. 한미약품의 급여 등재 성패는 이 ICER 계산에서 Lilly·Novo 대비 가격 우위를 얼마나 확보하느냐에 달렸다.</li></ul>
+<ul><li><strong>커스텀 ASIC 수요자(하이퍼스케일러)</strong>: 워런트 구조는 단순 조달을 넘어서 공급사와 이익을 공유하는 구조다. Google이 Marvell 지분 7%를 가져가는 조건에서 ASIC을 발주한다는 것은, 단기 비용 절감이 아니라 AI 인프라 공급망에서의 장기 포지션 확보가 목적임을 의미한다.</li></ul>
+<ul><li><strong>바이오 IPO 수요</strong>: 10/9 두 바이오텍이 고금리(5.35%) 환경에서 나스닥에 상장했다. Anthropic IPO가 11월로 밀렸지만 바이오 IPO 창구는 아직 열려 있다는 신호다. 임상 데이터가 검증된 단계의 바이오텍에 한정된 선택적 개방으로 보인다.</li></ul>
+<hr>
+<h2 id="sec-8">전략 노트</h2>
+<p>*R&amp;D 의사결정 관점. 단정이 아닌 관찰.*</p>
+<p>GLP-1 전쟁이 플랫폼 신약(retatrutide 다중 적응증)으로 수렴하는 흐름은, 단일 적응증에서 출발해 복수 적응증으로 확장하는 임상 설계 전략의 유효성을 다시 확인시킨다. 비만이라는 질환이 대사질환 전체의 입구로 재정의되는 구도에서, 파이프라인 설계의 질문은 "이 분자가 얼마나 많이 빠지나"에서 "이 분자가 어떤 동반질환 경로를 얼마나 넓게 커버하는가"로 이동했다.</p>
+<p>한편 ADC 가속승인 경로 협소화는 임상 설계 우선순위를 바꾼다. Phase 2 단독 전략의 위험이 높아진 만큼, Phase 3 용량·디자인을 초기에 염두에 두는 설계가 자본 효율성 면에서 더 유리해졌다. FDA의 이 방향은 단기 반전 가능성이 낮다.</p>
+<hr>
+<h2 id="sec-9">다음 주 지켜볼 것</h2>
+<ul><li><strong>10/13 (월)</strong>: J&amp;J Q3 실적 — Rybrevant+Lazcluze 분기 $10억 돌파 여부, 유한양행 마일스톤 트리거 가능성 / JPMorgan·Goldman Sachs 빅뱅크 실적 개막</li><li><strong>10/14 (화)</strong>: 미국 9월 CPI — FOMC 10/28 인상/동결 방향을 가를 결정적 데이터 / ASML Q3 실적 — AI 반도체 공급망 수요 선행 지표</li><li><strong>10/15 (수)</strong>: TSMC Q3 실적 콜 — AI 반도체 수요 사이클 지속 여부 확인</li><li><strong>10/24 (금)</strong>: ESMO 2026 개막 후 Moderna·Merck mRNA 개인화 항암백신 5년 전체생존(OS) 데이터 첫 공개</li><li><strong>10/26 (일)</strong>: bepirovirsen PDUFA — HBV 기능적 완치 첫 상업화 FDA 결정</li><li><strong>10/28 (화)</strong>: FOMC — 금리 추가 인상 vs 동결</li><li><strong>10/29 (수)</strong>: Lilly Q3 실적 / Q3 GDP 잠정치</li></ul>
+<hr>
+<h2 id="sec-10">재료 출처</h2>
+<p>[[daily/2026-10-05]] · [[daily/2026-10-06]] · [[daily/2026-10-07]] · [[daily/2026-10-08]] · [[daily/2026-10-09]] · [[daily/2026-10-10]] · [[daily/2026-10-11]]</p>
+
+<div class="foot">econ-radar 주간 동향 · 매일의 분석을 한 주 흐름으로 엮은 리포트. 투자·기업 언급은 정보·시나리오이며 매수·매도 권유가 아닙니다.</div>
+</div>
+<a href="#top" class="to-top" aria-label="맨 위로" title="맨 위로">&uarr;</a>
+</body></html>
