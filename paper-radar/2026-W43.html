@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>paper-radar — 2026-W43</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+    body { font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; font-size:16px; line-height:1.78; }
+    .badge { font-size:11px; font-weight:700; padding:2px 9px; border-radius:9999px; display:inline-block; margin-right:4px; }
+    .badge-genome   { background:#dcfce7; color:#166534; }
+    .badge-clinical { background:#dbeafe; color:#1e40af; }
+    .badge-drug     { background:#ede9fe; color:#5b21b6; }
+    .badge-protein  { background:#fce7f3; color:#9d174d; }
+    .badge-llmbio   { background:#fef9c3; color:#713f12; }
+    .badge-other    { background:#f3f4f6; color:#374151; }
+    .badge-preprint { background:#fef3c7; color:#92400e; }
+    .badge-peer     { background:#d1fae5; color:#065f46; }
+    .badge-insilico { background:#e0e7ff; color:#3730a3; }
+    .badge-retro    { background:#fef9c3; color:#713f12; }
+    .badge-prosp    { background:#d1fae5; color:#065f46; }
+    .badge-multi    { background:#dbeafe; color:#1e40af; }
+    .badge-rct      { background:#dcfce7; color:#166534; }
+    .badge-nocode   { background:#fee2e2; color:#991b1b; }
+    .key-point { border-left:4px solid #4338ca; padding:10px 16px; background:#f5f3ff; border-radius:0 10px 10px 0; margin-top:12px; }
+    .key-point .label { font-size:11px; font-weight:700; letter-spacing:0.06em; color:#4338ca; margin-bottom:4px; }
+    .key-point .text { font-size:15px; font-weight:500; color:#312e81; line-height:1.7; }
+    .insight { border-left:4px solid #14b8a6; padding:10px 16px; background:#f0fdfa; border-radius:0 10px 10px 0; margin-top:10px; }
+    .insight .label { font-size:11px; font-weight:700; letter-spacing:0.06em; color:#0f766e; margin-bottom:4px; }
+    .insight .text { font-size:15px; color:#134e4a; line-height:1.7; }
+    .lens-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+    .lens-item { font-size:13.5px; color:#374151; padding:4px 10px; background:#f9fafb; border:1px solid #e5e7eb; border-radius:8px; }
+    .lens-demand { font-size:13.5px; color:#92400e; padding:4px 10px; background:#fef3c7; border:1px solid #fde68a; border-radius:8px; }
+    .verify-tag { font-size:12px; color:#6b7280; margin-top:8px; }
+</style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <div class="max-w-3xl mx-auto px-4 py-10">
+    <header class="mb-8">
+      <div class="flex items-center gap-3 mb-2">
+        <img src="logo-64.png" alt="paper-radar" class="w-9 h-9 rounded-xl" onerror="this.style.display='none'">
+        <span class="text-2xl font-bold tracking-tight text-gray-900">paper-radar 주간 다이제스트</span>
+        <span class="text-lg text-gray-500 font-medium">2026-W43</span>
+      </div>
+      <p class="text-xs text-gray-400">바이오인포·임상ML·신약AI 논문 주간 요약. 모든 해석은 preprint 단계에서의 분석임.</p>
+    </header>
+
+    <section class="mb-8">
+      <h2 class="text-xs font-bold tracking-widest text-indigo-600 uppercase mb-3">At a Glance</h2>
+      <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-5 space-y-3">
+        <p class="text-[15px] leading-relaxed text-gray-800">NeurIPS 2026 아카이브 공개와 맞물린 이번 주는 단백질·신약AI 논문이 집중됐고, 공통 신호는 기존 평가 체계의 빈자리를 메우는 벤치마크 구축이었다 — 당질 도킹, SBDD 선택성, 생명과학 LLM 일관성 세 영역 모두 체계적 평가 기준이 없었거나 크게 부족했다. 가장 강한 산업 신호는 SelectBench: 대표적 SBDD 생성 모델 9종이 모두 오프타깃 선택성(selectivity) 기준을 충족하지 못한다는 결과는 AI 신약 설계 파이프라인의 안전성 공백을 정량화한 첫 체계적 증거다. recAMPLIFY는 155M 파라미터로 350M 모델을 넘어서면서 체크포인트와 코드를 즉시 쓸 수 있게 공개했다 — 단백질 언어 모델을 운영하는 소규모 팀이 지금 바로 테스트해볼 수 있는 논문이다.</p>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">This Week's Top 5</h2>
+      <div class="space-y-6">
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#1</span>
+             <span class="badge badge-nocode ">코드 미공개 — 재현 불가</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-1">구조 기반 신약 설계 생성 모델의 선택성 평가 벤치마크 (On the Selectivity of Generative Models in Structure-Based Drug Design)</h3>
+          <p class="text-[12px] text-gray-400 mb-1">저자명 개인 미확인 | University of Toronto · Université de Montréal (2차 출처 Pebblous 블로그 기반 — 원문 확인 권장)</p>
+          <p class="text-[13px] text-gray-500 mb-3">출처: arXiv · 2026-10-16 · <strong>NeurIPS 2026 accepted poster(동료심사 통과)</strong> · <a href="https://arxiv.org/abs/2610.24124" class="underline text-indigo-700" target="_blank">arXiv:2610.24124</a> · 코드 미공개 — 재현 불가</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">: 9개 SBDD 생성 모델을 85개 오프타깃 구조(제약업계 안전 스크리닝 패널)와 CrossDocked2020 기반 9,900 구조 쌍에서 평가한 결과, 선택성 학습 전용 모델조차 오프타깃 판별 성능이 미미했고 추론 시 유도(inference-time guidance)도 제한적 개선에 그쳤다. 엄격한 선택성 기준 미충족 비율이 50%를 초과한다(출처: Pebblous 블로그 스니펫 — 검토필요: 원문에서 기준 정의 직접 확인 권장).</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">: AI 신약 설계 도구가 결합력 최적화에 집중한 나머지 오프타깃 독성의 계산적 대리물인 선택성을 평가조차 하지 않아 왔다는 구조적 공백이 이 논문으로 처음 정량화됐다. 지금 쓰고 있는 SBDD 플랫폼이 선택성을 어떻게 다루는지 물어봐야 할 때가 됐다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: 세 가지 평가 설정(문헌 케이스 스터디 · 85개 오프타깃 안전 패널 · 대규모 구조 쌍 9,900개)으로 선택성을 분해한 SelectBench 설계. 검토필요: easy 쌍 서브샘플링(전체의 ~1%)으로 통계적 대표성이 제한됨 — 원문에서 서브샘플링 방식 확인 필요.</span> <span class="lens-item">🩺 Clinical: 이번 주 5편 중 임상 경로에 가장 가까운 논문. 85개 오프타깃 패널은 hERG·CYP450·주요 GPCR 등 실제 임상 독성 스크리닝과 개념이 맞닿는다. 단, 계산 선택성 실패가 실험 독성 발현으로 직결한다는 뜻이 아니다 — 세포·동물 검증 단계가 여전히 필요하다.</span> <span class="lens-item">🏭 Industry: Schrödinger·Recursion·Exscientia 등 AI 신약 설계 플랫폼 기업의 선택성 로드맵에 직접적 경고 신호. 해석: SelectBench가 사실상 업계 표준 평가 기준으로 자리잡으면 SBDD 벤더 평가 항목이 결합 친화도에서 선택성 포함으로 이동할 흐름이 생긴다. 코드 공개 시 사내 모델 자체 벤치마킹에 즉시 활용 가능.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-insilico ">in silico</span> <span class="badge badge-other ">NeurIPS 2026 포스터 채택(동료심사 통과)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#2</span>
+            <span class="badge badge-preprint ">preprint</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-1">재귀적 단백질 언어 모델 대규모 사전훈련 (recAMPLIFY: Large-Scale Pretraining of Recursive Protein Language Models)</h3>
+          <p class="text-[12px] text-gray-400 mb-1">Saurav Jha (1저자), Sarath Chandar (교신저자, 추정 — Chandar Lab 주임 연구자) | Mila / McGill University</p>
+          <p class="text-[13px] text-gray-500 mb-3">출처: arXiv · 2026-10-19 · <strong>preprint(미동료심사)</strong> · <a href="https://arxiv.org/abs/2610.26747" class="underline text-indigo-700" target="_blank">arXiv:2610.26747</a> · <a href="https://huggingface.co/chandar-lab/recamplify" class="underline text-indigo-700" target="_blank">code</a> (11개 체크포인트, 훈련·평가 코드 포함)</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">: 가중치 공유 Transformer 코어(weight-tied Transformer core)가 잔기(residue) 수준 은닉 상태를 조절 가능한 사이클 수만큼 반복 정제한다. 추론 시 사이클 수를 늘리면 파라미터 추가 없이 연산량을 늘릴 수 있어 테스트 타임 컴퓨팅 확장(test-time compute scaling)을 단백질 언어 모델에 구현한 형태다. Gated Mixture Recurrence(GMR)를 추가해 기대 레이어 깊이(expected layer depth)를 최대 37% 줄였고, CASP 접촉 회수율과 fold 정확도 +22.5%를 보고했다(출처: papers.cool 스니펫 — 검토필요: CASP 버전·fold 분류기 정의 원문 확인 권장). 동일 2T 토큰·UR100P 데이터셋으로 AMPLIFY-350M 대비 56% 파라미터 절감.</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">: "파라미터를 늘릴수록 성능이 오른다"는 단백질 AI 분야의 암묵적 전제에 56% 파라미터 절감으로 반례를 들었다. NLP 분야 Albert(파라미터 공유 BERT)와 유사한 시도인데, 역사적 맥락으로 보면 Albert가 실제 배포에서 속도 이점이 예상보다 작았던 선례가 있다 — 추론 사이클 수 증가에 따른 latency 트레이드오프를 내 태스크 규모에서 먼저 측정해볼 것을 권장한다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: 마스크드 pLM에 재귀적 사전훈련 최초 대규모 적용; GMR은 4개 태스크 중 3개에서만 유효 — 태스크 의존성 존재. 검토필요: 데이터 누수 방지(서열 동일성 컷오프 적용 여부) 원문 확인 필요.</span> <span class="lens-item">🩺 Clinical: 도구의 도구 단계. fold 정확도 개선이 특정 질환 단백질 임상 해석으로 연결되려면 별도 응용 연구가 필요하다. 파라미터 절감으로 소규모 연구 그룹의 pLM 접근성이 높아지는 민주화 효과는 있다.</span> <span class="lens-item">🏭 Industry: AMPLIFY 전신은 Mila-Amgen 공동 개발로 NVIDIA BioNeMo에 포함된 이력이 있다(외부 맥락). 중소 바이오텍·CRO의 인하우스 pLM 도입 문턱을 낮춘다. 검토필요: MIT vs Apache 2.0 라이선스 불일치 — 상업적 활용 전 HuggingFace 저장소 라이선스 파일 직접 확인 필수.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-insilico ">in silico</span> <span class="badge badge-other ">preprint(미동료심사)</span> <span class="badge badge-other ">코드</span> <span class="badge badge-other ">체크포인트 공개(trust_remote_code=True 필요 — 환경 격리 권장)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#3</span>
+             <span class="badge badge-nocode ">코드 미공개 — 재현 불가</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-1">단백질-당질 도킹을 위한 맞춤형 데이터셋·벤치마크·모델 (ProtGlycanDock: Towards Accurate Protein-Glycan Docking with Tailored Dataset, Benchmark and Model)</h3>
+          <p class="text-[12px] text-gray-400 mb-1">저자·소속 미확인 (NeurIPS 2026 포스터 목록 기반 — 원문 접근 불가)</p>
+          <p class="text-[13px] text-gray-500 mb-3">출처: arXiv · 2026-10-19 · <strong>NeurIPS 2026 accepted poster(동료심사 통과)</strong> · <a href="https://arxiv.org/abs/2610.26009" class="underline text-indigo-700" target="_blank">arXiv:2610.26009</a> · 코드 미공개 — 재현 불가</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">: 단백질 일반화(훈련 때 없던 표적)와 당질 일반화(훈련 때 없던 당질 구조) 두 어려운 설정의 벤치마크를 처음 체계화하고, AF3 포함 8개 모델을 공정하게 평가했다. AF3가 기존 방법 중 최고 성능을 보인 상태에서, 당질 위상적 특징(glycan topological features) 입력과 당질 에너지 손실(glycan energy loss) 결합 미세조정이 AF3를 상회하는 새로운 SOTA를 달성했다고 보고했다(출처: NeurIPS 2026 포스터 초록 — 원문 수치 직접 확인 권장).</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">: 당질 도킹은 1980년대 DOCK 이후 40년의 도킹 역사에서도 데이터 희소성과 분지형 위상 구조(branched topology) 때문에 ML 접근이 지체됐다. 범용 구조 예측 모델을 베이스라인 삼아 도메인 손실만 추가하는 파인튜닝 전략이 당질 화학에서도 유효하다는 신호가 의미 있다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: 단백질·당질 일반화 2설정 벤치마크(분야 최초 체계화) + 8개 모델 공정 비교. 미제공: 데이터셋 크기(PDB 복합체 수)·RMSD 컷오프 기준·코드·데이터 공개 계획. 외부 맥락: AF3 비상업 라이선스 기반 미세조정 시 상업적 응용 전 라이선스 확인 필수.</span> <span class="lens-item">🩺 Clinical: 항체 ADCC/CDC 최적화, EGFR·PD-L1 당단백질 타깃, 바이러스 당단백질 백신 항원 설계로의 연결 경로가 있다. 단, 도킹 정확도(RMSD 기반)가 결합 친화도(Kd·IC50)나 임상 효능을 직접 대변하지 않는다.</span> <span class="lens-item">🏭 Industry: 당질 도킹 전문 ML 벤치마크 최초 — Roche·AstraZeneca 등 항체 ADCC 최적화 팀, 렉틴 표적 바이오텍이 직접 수요자. 코드·데이터 공개 후 파이프라인 통합 검토 가능.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">in silico(PDB 구조 기반 리독킹)</span> <span class="badge badge-other ">NeurIPS 2026 포스터 채택(동료심사 통과)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#4</span>
+             <span class="badge badge-nocode ">코드 미공개 — 재현 불가</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-1">생명과학 LLM 평가를 위한 그래프 구조 벤치마크 (LG-Bench: A Graph-Structured Evaluation Benchmark for Life Science)</h3>
+          <p class="text-[12px] text-gray-400 mb-1">Lu Sun, Xiangyi Zhang, Guangtao Zhai 외 (2차 출처 book.st-hakky AI 요약 기반 — 원문 확인 권장)</p>
+          <p class="text-[13px] text-gray-500 mb-3">출처: arXiv · 2026-10-19 · <strong>NeurIPS 2026 accepted poster(동료심사 통과)</strong> · <a href="https://arxiv.org/abs/2610.26787" class="underline text-indigo-700" target="_blank">arXiv:2610.26787</a> · 코드 미공개 — 재현 불가</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">: 의학·생물학·화학 3개 도메인 10,000개 이상 4지선다 문항을 의미적 유사도(semantic similarity)로 그래프 엣지 연결한 뒤, 연관 질문들에 대한 응답 일관성을 측정하는 Global Coherence Score(GCS)와 오답의 개념 영역 집중도를 시각화하는 Knowledge Balance Score(KBS) 두 신규 지표를 제안했다(출처: NeurIPS 2026 포스터 초록 — 검토필요: GCS 명칭 2차 출처 간 불일치, 원문 확인 권장). 현행 LLM의 생명과학 개념적 맹점을 드러냈다고 보고한다.</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">: 임상 의사결정 보조 LLM이 현장에 도입되기 시작한 지금, "객관식을 얼마나 맞히나"가 아닌 "연관 개념들을 일관되게 이해하는가"라는 기준이 도구 선택 기준을 실질적으로 바꿀 수 있다. 단, MCQ 기반 일관성이 개방형 임상 추론을 보장하지는 않는다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: 양방향 매칭·의미적 유사도 기반 질문 그래프 구성; GCS·KBS 2개 신규 지표. 미제공: 문항 구축 방법론(LLM 생성 여부·전문가 검수 비율), 그래프 엣지 임계값 민감도 분석. 코드·데이터 미공개로 재현 불가.</span> <span class="lens-item">🩺 Clinical: MCQ 점수와 임상 의사결정 성능은 같지 않다. 그러나 병원 IT·의료 AI 조달 담당자가 LLM 도입 기준으로 이 지표를 요구하는 경로가 존재한다. 의료 가이드라인의 빠른 갱신 속도를 정적 MCQ 벤치마크가 따라가지 못하는 한계도 있다.</span> <span class="lens-item">🏭 Industry: 의료 LLM 개발사(Google Health·Microsoft Azure Health·국내 업체)의 모델 품질 점검 도구. 규제당국(FDA·식약처)의 SaMD 인허가 기준으로 참조될 가능성. 코드·데이터 공개 시 즉시 내부 평가 툴킷으로 전환 가능.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">in silico(LLM 벤치마크)</span> <span class="badge badge-other ">NeurIPS 2026 포스터 채택(동료심사 통과)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#5</span>
+            <span class="badge badge-preprint ">preprint</span> <span class="badge badge-nocode ">코드 미공개 — 재현 불가</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-1">모듈식 확산 스티어링을 통한 다목적 단백질 최적화 (Multi-Objective Protein Optimization via Modular Diffusion Steering)</h3>
+          <p class="text-[12px] text-gray-400 mb-1">저자·소속 미확인 (GitHub 일별 다이제스트 제목만 확인 — 원문 접근 불가)</p>
+          <p class="text-[13px] text-gray-500 mb-3">출처: arXiv · 2026-10-20 · <strong>preprint(미동료심사)</strong> · <a href="https://arxiv.org/abs/2610.28943" class="underline text-indigo-700" target="_blank">arXiv:2610.28943</a> · 코드 미공개 — 재현 불가</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">: 추정: 확산 모델(diffusion model) 기반 스티어링을 모듈화해, 재훈련 없이 교환 가능한 보상/제약 모듈로 항균 활성·독성·결합력 등 상충 목표를 동시에 최적화하는 프레임워크를 제안하는 것으로 보인다. 동계 연구 MP2D(IJCAI 2026)·MoMST(ICML 2026)와 같은 방향성이다(외부 맥락 — 제목 기반 추정, 원문 수치 전부 미확인).</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">: 추정: "모듈식"이 핵심이다. 재훈련 없이 목표 조합을 교환할 수 있다면, 항체 파이프라인의 affinity-stability 트레이드오프 같은 실제 병목을 낮은 비용으로 반복 탐색할 수 있다. 실험 검증 포함 여부가 산업 함의의 분기점이다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: 추정: 모듈식 확산 스티어링으로 다목적 단백질 최적화. 구체적 모델명·데이터셋·평가지표 전부 미확인.</span> <span class="lens-item">🩺 Clinical: 추정: 결합력 외 개발 가능성(developability) 속성 최적화는 임상 전 단계의 핵심 병목. 원문 미확인으로 임상 관련성 판단 보류.</span> <span class="lens-item">🏭 Industry: 추정: Absci·Exscientia 등 다목적 단백질 최적화 플랫폼과 경쟁 방향. 미제공: 기존 Pareto 기반 방법 대비 벤치마크 수치 — 원문 확인 전 산업 함의 평가 불가.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">추정 in silico</span> <span class="badge badge-other ">preprint(미동료심사)</span> <span class="badge badge-other ">원문 초록 미확인 — 모든 정보 잠정</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Deep Dive</h2>
+      <div class="mb-6">
+        <h3 class="text-[16px] font-bold text-gray-800 mb-4">1. SelectBench — AI 신약 설계가 "선택적이지 않다"는 증거를 정량화하다</h3>
+        <div class="space-y-3">
+          <p class="text-[15px] text-gray-800 leading-relaxed">SBDD(구조 기반 신약 설계, Structure-Based Drug Design) 분야는 지난 5년간 확산 모델·흐름 매칭(flow matching) 기반 생성 모델이 폭발적으로 늘었다. 그런데 이 모델들이 공통적으로 최적화하는 목표는 하나였다: 목표 단백질에 얼마나 잘 결합하는가(binding affinity). 임상에서 약물이 실패하는 주요 원인 중 하나인 오프타깃 결합 — 즉 의도하지 않은 단백질에도 붙어 독성을 일으키는 것 — 을 ML 벤치마크에서 아무도 체계적으로 평가하지 않았다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">SelectBench는 이 공백을 세 가지 설정으로 분해해서 다룬다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">첫 번째는 문헌 케이스 스터디로, 선택성이 실제 임상 이슈였던 약물 개발 사례를 재현한다. 두 번째가 방법론적으로 핵심이다: 제약업계에서 실제로 쓰는 안전 스크리닝 패널 85개 오프타깃 구조를 그대로 차용했다. hERG(심장독성), CYP450(대사 상호작용), 주요 GPCR 패밀리 등 임상 안전성 검사에 들어가는 표적들이 여기에 포함된다. 세 번째는 CrossDocked2020 기반 9,900 구조 쌍으로 구성된 대규모 통계적 평가인데, easy 쌍 서브샘플링(전체의 ~1%) 한계가 있어 원문에서 서브샘플링 방식 확인이 필요하다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">이 결과에서 중요한 대목은 "선택성 전용 학습 모델"도 같은 실패를 보인다는 점이다. 결합 친화도 데이터 위에 선택성 목적함수를 추가 학습한 모델조차 오프타깃 판별 성능이 미미했다. 이는 현재 모델 아키텍처·훈련 접근 전반이 구조적으로 유사한 결합 포켓들 사이의 기하 특이성(geometric specificity)을 포착하지 못한다는 의미로 읽힌다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed"><strong>관전 포인트 1 — 원인 분리</strong>: 선택성 실패가 모델 아키텍처 때문인지, 훈련 데이터의 선택성 신호 부재 때문인지, 아니면 목적함수 설계 때문인지를 이 논문이 얼마나 분리했는지 원문에서 확인해야 한다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed"><strong>관전 포인트 2 — 코드 공개</strong>: 85개 오프타깃 안전 패널이 공개된다면 사내 SBDD 모델 자체 벤치마킹의 표준 기준선이 된다. 코드 미공개 상태가 지속된다면 논문의 산업 영향력이 크게 줄어들 것이다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed"><strong>관전 포인트 3 — 다음 논문</strong>: SelectBench가 문제를 정량화했다면, 선택성을 실제로 높이는 방법론 논문이 뒤따를 것이다. 2025~2026년 Pareto 기반 다목적 최적화(MP2D, MoMST) 흐름과 결합되면 선택성 특화 SBDD 모델의 다음 세대가 나올 수 있다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">산업 함의: 현재 AI 신약 설계 플랫폼의 마케팅이 "결합력 예측 우수"에 집중하는데, 이 논문 이후 도입 협상에서 "선택성 벤치마크 점수"를 요구하는 움직임이 나올 수 있다. R&amp;D 총괄 시점에서는 벤더 평가 RFP에 SelectBench 기준 항목을 추가하는 것을 검토할 만하다.</p>
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <h3 class="text-[16px] font-bold text-gray-800 mb-4">2. recAMPLIFY — 파라미터 절반으로 더 나은 단백질 언어 모델이 가능한가</h3>
+        <div class="space-y-3">
+          <p class="text-[15px] text-gray-800 leading-relaxed">단백질 언어 모델(pLM) 분야에서 "더 크면 더 낫다"는 통념은 ESM-2(15B)가 ESM-1v를 크게 앞서는 결과로 굳어졌다. recAMPLIFY는 이 통념에 반례를 제시한다: 155M 고유 파라미터로, 2.26배 큰 AMPLIFY-350M 대비 fold 정확도 +22.5%를 냈다(출처: papers.cool 스니펫 — 검토필요: 기준 모델 명확화 및 CASP 버전 원문 확인 권장).</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed"><strong>메커니즘의 핵심</strong>: 가중치 공유 Transformer 코어가 동일 파라미터 집합으로 은닉 상태를 반복 정제한다. "같은 레이어를 여러 번 통과하는" 구조가 NLP에서는 Albert(2020)로 시도됐는데, 당시 속도 이점이 실제 배포에서 예상보다 작았다는 선례가 있다. 단백질 서열 공간에서는 어떨지 독립 재현이 필요한 지점이다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">Gated Mixture Recurrence(GMR)는 각 재귀 단계 은닉 상태를 확률 가중 혼합으로 디코딩해 기대 레이어 깊이를 줄인다. 그래디언트가 더 짧은 경로로 흘러 학습이 안정된다는 설계인데, GMR이 4개 태스크 중 3개에서만 개선됐다는 결과 자체가 이 메커니즘이 태스크 의존적임을 시사한다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed"><strong>테스트 타임 컴퓨팅 확장 관점</strong>: 사이클 수를 늘리면 연산량이 선형 증가하므로, 추론 지연(latency)이 대규모 라이브러리 스크리닝에서 병목이 될 수 있다. 내 파이프라인 규모에서 사이클 수-성능-latency 트레이드오프를 먼저 측정해볼 것을 권장한다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed"><strong>즉시 활용 경로</strong>: HuggingFace chandar-lab/recamplify에 11개 체크포인트와 훈련·평가 코드가 공개돼 있다. 단, `trust_remote_code=True` 로드가 필요하므로 가상환경이나 컨테이너 격리 환경에서 테스트하는 것이 안전하다. 라이선스(MIT vs Apache 2.0 불일치 — 외부 맥락)를 상업적 활용 전 반드시 확인해야 한다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed"><strong>한계를 직시할 지점</strong>: 현재 벤치마크가 CASP 접촉·fold 분류·지도학습 태스크 4개로 한정돼 있다. 단백질-단백질 상호작용 예측, 기능 예측, 변이 효과 예측 등 실제 파이프라인에서 쓰이는 더 넓은 태스크에서의 성능은 아직 확인되지 않았다. 데이터 누수 방지(서열 동일성 컷오프 적용 여부)도 원문에서 확인이 필요하다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">🔭 Wide Angle</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm px-6 py-2">
+        <div class="flex items-start gap-3 py-4 border-b border-gray-100 last:border-0">
+          <div class="flex-1">
+            <p class="text-[15px] font-semibold text-gray-900 mb-1">Sage-A1.5: 과학 탐색으로 확장된 장기 실행 에이전트 </p>
+            <p class="text-[14px] text-gray-700 leading-relaxed">(<a href="https://arxiv.org/abs/2610.28578" class="underline text-indigo-700" target="_blank">arXiv:2610.28578</a>) · preprint · 2026-10-20 · 저자 미확인(Shanghai AI Laboratory 추정)</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 py-4 border-b border-gray-100 last:border-0">
+          <div class="flex-1">
+            <p class="text-[15px] font-semibold text-gray-900 mb-1">OpenVLHarness: 다중모달 기억과 도구 사용을 갖춘 시각 에이전트 하네스 </p>
+            <p class="text-[14px] text-gray-700 leading-relaxed">(<a href="https://arxiv.org/abs/2610.26860" class="underline text-indigo-700" target="_blank">arXiv:2610.26860</a>) · preprint · 2026-10-19 · 저자 미확인(Apple 일부 보고 — 미확인)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Threads to Follow</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <ul class="space-y-3 list-disc list-inside">
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>평가 인프라 재설계 흐름</strong>: SelectBench(SBDD 선택성) · ProtGlycanDock(당질 도킹) · LG-Bench(생명과학 LLM 일관성)가 한 주에 동시에 NeurIPS 2026에서 등장했다. 이 세 편이 지적하는 공백들이 다음 세대 SBDD 플랫폼과 생명과학 LLM의 평가 기준을 형성해 갈 것으로 보인다. SelectBench와 ProtGlycanDock의 코드 공개 시점을 추적.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>파라미터 효율 단백질 언어 모델</strong>: recAMPLIFY의 재귀 가중치 공유 접근이 독립 재현(외부 팀의 재현 결과)을 통과할 경우, ESM-2 대형 모델 중심의 인프라 투자 논리를 재검토할 근거가 생긴다. AMPLIFY 선행 연구의 연장선에서 추적할 것.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>다목적 단백질 최적화</strong>: C5(원문 미확인) · MP2D(IJCAI 2026) · MoMST(ICML 2026) · Feynman-Kac 스티어링(arXiv 2511.09216)으로 이어지는 흐름이 2025~2026년 빠르게 성숙 중이다. 다음 관전 포인트는 실험 검증(in vitro 결합·세포 어세이)과의 연결 — wet-lab 루프가 포함된 첫 논문이 나오는 시점이 분기점이다.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>선택성 격차 해소 경쟁</strong>: SelectBench가 문제를 정량화했으니 이를 해결하는 논문들이 뒤따를 것이다. 오프타깃 인식 손실함수, 선택성 데이터로 증강된 훈련셋, Pareto 기반 다목적 SBDD 생성 모델 등의 방향성을 모니터링 권장.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>NeurIPS 2026 포스터 세션 후 공개 자료</strong>: C2·C3·C4 세 편이 NeurIPS 2026 포스터로 채택됐다. 발표 후 슬라이드·보충 자료 공개 시 현재 미확인 수치와 저자 정보를 보완할 기회가 생긴다.</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="border-t border-gray-200 pt-8 pb-10 text-center">
+      <p class="text-sm text-gray-500 mt-4">paper-radar · 2026-W43</p>
+      <p class="text-xs text-gray-400 mt-1">바이오인포·임상ML·신약AI 논문 주간 요약. preprint 분석 포함.</p>
+    </footer>
+  </div>
+</body>
+</html>
