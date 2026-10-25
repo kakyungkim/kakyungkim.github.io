@@ -1,0 +1,49 @@
+<!-- start custom head snippets -->
+{% comment %} 한영 짝 글을 검색엔진에 알린다(hreflang). 짝은 lang-switch.html 과 같이 ref 로 찾는다 {% endcomment %}
+{% if page.ref %}
+{% assign pair = site.posts | where_exp: "p", "p.ref == page.ref" %}
+{% for p in pair %}
+<link rel="alternate" hreflang="{% if p.lang == 'kr' %}ko{% else %}en{% endif %}" href="{{ p.url | absolute_url }}">
+{% if p.lang == 'en' %}<link rel="alternate" hreflang="x-default" href="{{ p.url | absolute_url }}">{% endif %}
+{% endfor %}
+{% endif %}
+{% comment %} 글마다 BlogPosting 구조화 데이터 {% endcomment %}
+{% if page.collection == "posts" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ page.title | strip_html | jsonify }},
+  "description": {{ page.excerpt | strip_html | strip_newlines | strip | jsonify }},
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+  "inLanguage": "{% if page.lang == 'kr' %}ko-KR{% else %}en-US{% endif %}",
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "{{ page.url | absolute_url }}"},
+  "url": "{{ page.url | absolute_url }}",
+  {% if page.header.og_image %}"image": "{{ page.header.og_image | absolute_url }}",{% elsif site.og_image %}"image": "{{ site.og_image | absolute_url }}",{% endif %}
+  "keywords": {{ page.tags | jsonify }},
+  "author": {
+    "@type": "Person",
+    "@id": "{{ '/' | absolute_url }}#person",
+    "name": {{ site.author.name | jsonify }},
+    "url": "{{ '/' | absolute_url }}",
+    "sameAs": [{% for l in site.author.links %}{% if l.url contains 'http' %}{{ l.url | jsonify }}{% unless forloop.last %},{% endunless %}{% endif %}{% endfor %}]
+  },
+  "publisher": {"@id": "{{ '/' | absolute_url }}#person"}
+}
+</script>
+{% endif %}
+{% comment %} 본문 질의응답 절과 같은 내용을 front matter faq 로 둔 글만 FAQPage {% endcomment %}
+{% if page.faq %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "{% if page.lang == 'kr' %}ko-KR{% else %}en-US{% endif %}",
+  "mainEntity": [{% for f in page.faq %}
+    {"@type": "Question", "name": {{ f.q | jsonify }}, "acceptedAnswer": {"@type": "Answer", "text": {{ f.a | jsonify }}}}{% unless forloop.last %},{% endunless %}{% endfor %}
+  ]
+}
+</script>
+{% endif %}
+<!-- end custom head snippets -->
