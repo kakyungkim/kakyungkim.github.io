@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>paper-radar — 2026-W41</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+    body { font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; font-size:16px; line-height:1.78; }
+    .badge { font-size:11px; font-weight:700; padding:2px 9px; border-radius:9999px; display:inline-block; margin-right:4px; }
+    .badge-genome   { background:#dcfce7; color:#166534; }
+    .badge-clinical { background:#dbeafe; color:#1e40af; }
+    .badge-drug     { background:#ede9fe; color:#5b21b6; }
+    .badge-protein  { background:#fce7f3; color:#9d174d; }
+    .badge-llmbio   { background:#fef9c3; color:#713f12; }
+    .badge-other    { background:#f3f4f6; color:#374151; }
+    .badge-preprint { background:#fef3c7; color:#92400e; }
+    .badge-peer     { background:#d1fae5; color:#065f46; }
+    .badge-insilico { background:#e0e7ff; color:#3730a3; }
+    .badge-retro    { background:#fef9c3; color:#713f12; }
+    .badge-prosp    { background:#d1fae5; color:#065f46; }
+    .badge-multi    { background:#dbeafe; color:#1e40af; }
+    .badge-rct      { background:#dcfce7; color:#166534; }
+    .badge-nocode   { background:#fee2e2; color:#991b1b; }
+    .key-point { border-left:4px solid #4338ca; padding:10px 16px; background:#f5f3ff; border-radius:0 10px 10px 0; margin-top:12px; }
+    .key-point .label { font-size:11px; font-weight:700; letter-spacing:0.06em; color:#4338ca; margin-bottom:4px; }
+    .key-point .text { font-size:15px; font-weight:500; color:#312e81; line-height:1.7; }
+    .insight { border-left:4px solid #14b8a6; padding:10px 16px; background:#f0fdfa; border-radius:0 10px 10px 0; margin-top:10px; }
+    .insight .label { font-size:11px; font-weight:700; letter-spacing:0.06em; color:#0f766e; margin-bottom:4px; }
+    .insight .text { font-size:15px; color:#134e4a; line-height:1.7; }
+    .lens-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+    .lens-item { font-size:13.5px; color:#374151; padding:4px 10px; background:#f9fafb; border:1px solid #e5e7eb; border-radius:8px; }
+    .lens-demand { font-size:13.5px; color:#92400e; padding:4px 10px; background:#fef3c7; border:1px solid #fde68a; border-radius:8px; }
+    .verify-tag { font-size:12px; color:#6b7280; margin-top:8px; }
+</style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <div class="max-w-3xl mx-auto px-4 py-10">
+    <header class="mb-8">
+      <div class="flex items-center gap-3 mb-2">
+        <img src="logo-64.png" alt="paper-radar" class="w-9 h-9 rounded-xl" onerror="this.style.display='none'">
+        <span class="text-2xl font-bold tracking-tight text-gray-900">paper-radar 주간 다이제스트</span>
+        <span class="text-lg text-gray-500 font-medium">2026-W41</span>
+      </div>
+      <p class="text-xs text-gray-400">바이오인포·임상ML·신약AI 논문 주간 요약. 모든 해석은 preprint 단계에서의 분석임.</p>
+    </header>
+
+    <section class="mb-8">
+      <h2 class="text-xs font-bold tracking-widest text-indigo-600 uppercase mb-3">At a Glance</h2>
+      <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-5 space-y-3">
+        <p class="text-[15px] leading-relaxed text-gray-800">인과 추론이 신약 AI의 두 접점에서 동시에 등장했다. CausalBind(ICLR 2026 채택)는 가상 스크리닝의 허위 상관 문제를 교차-어텐션 플러그인으로 다루고, 알츠하이머 역인과 AI는 같은 인과론적 시선으로 상류 타깃 발굴 방향을 전환했다.</p>
+        <p class="text-[15px] leading-relaxed text-gray-800">유전체 파운데이션 모델이 두 방향으로 확장됐다. 단백질 언어 모델의 선형 피트니스 부분공간 가설로 지향 진화 실험 비용을 줄이고, TDP-43 병리의 드문 스플라이싱에 특화 파인튜닝해 ALS/FTD 바이오마커를 발굴하는 두 논문이 각각 EMNLP 2026 채택·bioRxiv 게재됐다.</p>
+        <p class="text-[15px] leading-relaxed text-gray-800">역방향 반례도 날카로웠다. 트랜스포머 모델 11종 모두가 6개 구조화 공변량 로지스틱 회귀에 뒤졌다는 장기 예측 결과는 임상 예측 연구 설계에서 "복잡성 우선" 가정을 되돌아보게 한다.</p>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">This Week's Top 5</h2>
+      <div class="space-y-6">
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#1</span>
+            <span class="badge badge-peer ">peer-reviewed</span> <span class="badge badge-nocode ">코드 미공개 — 재현 불가</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-1">단백질-분자 가상 스크리닝을 위한 인과적 개념 정렬 (CausalBind: Causal Modeling and Learning for Protein-Molecule Virtual Screening)</h3>
+          <p class="text-[12px] text-gray-400 mb-1">저자·소속 미확인 (ICLR 2026 listing 저자 추출 실패)</p>
+          <p class="text-[13px] text-gray-500 mb-3">출처: arXiv · 2026-10-05 · peer-reviewed (ICLR 2026 채택) · <a href="https://arxiv.org/abs/2610.07340" class="underline text-indigo-700" target="_blank">arXiv 2610.07340</a> · 코드 미공개 — 재현 불가</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">기존 대조 학습 기반 가상 스크리닝은 단백질 포켓 전체 표현을 정렬하면서 결합(binding)과 무관한 특징까지 학습해 새 표적(unseen target)에서 성능이 급락한다. CausalBind는 교차-어텐션(cross-attention)과 학습 가능한 희소 마스킹(learnable sparse masking)으로 결합에 인과적으로 관여하는 원자 개념(atomic concept)만 분리하는 플러그인 모듈을 제안하며, LIT-PCBA 벤치마크에서 BEDROC 및 EF@1% 기준 가장 큰 향상을 보고한다. (출처: ICLR 2026 listing)</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">"플러그인" 구조 자체가 설득력의 핵심이다. 기존 파이프라인을 교체하지 않고 허위 상관 제거 단계를 삽입할 수 있다면, first-in-class 타깃 캠페인처럼 훈련 분포 밖 상황에서 실질적인 히트율 개선을 기대할 수 있다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: 교차-어텐션 + 희소 마스킹으로 원자 레벨 인과 특징 분리; LIT-PCBA에서 BEDROC·EF@1% 개선 (구체 수치 원문 확인 필요)</span> <span class="lens-item">🩺 Clinical: 새 표적 스크리닝 효율 향상 → 희귀질환·first-in-class 타깃 캠페인 비용 절감 잠재력; 현재 위치는 in silico 인프라 레이어</span> <span class="lens-item">🏭 Industry: 저분자 가상 스크리닝 플랫폼(Schrödinger·Atomwise·Exscientia 계열)의 새 타깃 일반화 병목에 직접 닿는 신호; 플러그인 형태라 파이프라인 통합 비용 낮다는 주장</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">in silico (LIT-PCBA 벤치마크); 실험적 습식(wet lab) 검증 없음</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#2</span>
+            <span class="badge badge-peer ">peer-reviewed</span> <span class="badge badge-nocode ">코드 미공개 — 재현 불가</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-1">단백질 언어 모델의 선형 피트니스 부분공간을 통한 샘플 효율적 지향 진화 (Linear Fitness Subspace in Protein Language Models Enables Sample-Efficient Directed Evolution)</h3>
+          <p class="text-[12px] text-gray-400 mb-1">저자·소속 미확인</p>
+          <p class="text-[13px] text-gray-500 mb-3">출처: arXiv · 2026-10-06 · peer-reviewed (EMNLP 2026 Findings 채택) · <a href="https://arxiv.org/abs/2610.07607" class="underline text-indigo-700" target="_blank">arXiv 2610.07607</a> · 코드 미공개 — 재현 불가</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">(해석: 초록 미확인 — 제목·게재처 기반) 단백질 언어 모델(PLM) 내부 표현 공간에서 피트니스(활성·안정성 등 목표 특성)가 선형 부분공간(linear subspace)으로 포착된다는 가설 위에서, 소수의 실험 측정값만으로 지향 진화(directed evolution) 탐색을 가능하게 하는 방법을 제안하는 것으로 보인다. EMNLP 2026 채택은 NLP 방법론으로서의 기여를 인정받은 것이며, 단백질 공학 데이터셋에서의 생물학적 타당성은 독립 검증이 필요하다.</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">PLM 피트니스 지형의 선형화가 실제로 성립한다면, 항체 affinity maturation 같은 실험 집약적 파이프라인에서 변이체 탐색 횟수를 대폭 줄일 수 있다. 선형성 가설이 어떤 단백질 패밀리·피트니스 유형에서 성립하는지에 따라 이 논문의 실용 범위가 달라진다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: PLM 표현의 선형 피트니스 부분공간 가설; 평가지표·벤치마크 미확인 (초록 미확인)</span> <span class="lens-item">🩺 Clinical: (해석) 치료용 단백질(항체·효소 대체제) 공학 실험 비용 절감 → 희귀질환 단백질 의약 개발 효율화 가능성</span> <span class="lens-item">🏭 Industry: 항체 최적화(Absci·Generate Biomedicines·BigHat) 및 AAV 캡시드 공학 분야의 실험 사이클 단축; 샘플 효율은 직접적 R&amp;D 비용 절감 신호</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">미확인 (추정 in silico + 소규모 in vitro; 초록 미확인); peer-reviewed (EMNLP 2026 Findings)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#3</span>
+            <span class="badge badge-preprint ">preprint</span> <span class="badge badge-nocode ">코드 미공개 — 재현 불가</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-1">알츠하이머 신약 개발을 위한 엔트로피 유도 역인과 AI로 상류 병목 유전자 발굴 (Entropy-Guided Reverse-Causal AI to Identify Upstream Bottleneck Genes for Alzheimer's Drug Discovery)</h3>
+          <p class="text-[12px] text-gray-400 mb-1">저자·소속 미확인 (관련 선행연구 arXiv 2502.03938: 홍콩대 그룹으로 추정, 확인 필요)</p>
+          <p class="text-[13px] text-gray-500 mb-3">출처: arXiv · 2026-10-06 · preprint(미동료심사) · <a href="https://arxiv.org/abs/2610.08736" class="underline text-indigo-700" target="_blank">arXiv 2610.08736</a> · 코드 미공개 — 재현 불가</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">(해석: 초록 미확인 — 제목·관련 선행연구 기반) 알츠하이머 전사체·유전체 데이터에서 엔트로피(entropy) 기반 기준으로 상류 병목 유전자(upstream bottleneck gene)를 선별하고, 역인과(reverse-causal) 추론으로 하류 병리 표현형에서 원인 방향을 역추적하는 방법을 제안하는 것으로 보인다. 관련 선행연구(arXiv 2502.03938, AAAI 2025)의 Reverse-Gene-Finder와 연속선상에 있을 가능성이 있다 (확인 필요).</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">역인과 추론이 진짜 생물학적 인과를 포착하는지, 아니면 강한 상관관계를 역방향으로 추적하는 데 그치는지가 이 방법의 핵심 쟁점이다. 이 구분 없이 "상류 타깃 발굴"이라고 주장하는 것은 과대해석이 될 수 있다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: 엔트로피 유도 병목 선별 + 역인과 추적; 데이터셋·평가지표·베이스라인 미확인 (초록 미확인)</span> <span class="lens-item">🩺 Clinical: AD 타깃 발굴 최초 단계; 발굴 유전자의 세포/동물 검증 없이 임상과의 거리는 크다; in silico 가설 수준</span> <span class="lens-item">🏭 Industry: Biogen·Eli Lilly·Roche 등 AD 파이프라인 보유사 및 BenevolentAI·Insilico Medicine 등 타깃 발굴 AI 기업의 주목 가능성; 상용화까지 거리는 장기</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">추정 in silico (ROSMAP</span> <span class="badge badge-other ">ADNI 등 공개 데이터 가능성; 초록 미확인); preprint(미동료심사)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#4</span>
+            <span class="badge badge-preprint ">preprint</span> <span class="badge badge-nocode ">코드 미공개 — 재현 불가</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-1">드문 스플라이싱 이벤트에 유전체 모델 파인튜닝으로 TDP-43 병리 신규 바이오마커 발굴 (Fine-tuning genomic models on rare splicing events identifies a novel biomarker of TDP-43 pathology)</h3>
+          <p class="text-[12px] text-gray-400 mb-1">저자·소속 미확인</p>
+          <p class="text-[13px] text-gray-500 mb-3">출처: bioRxiv · 2026-10-07 · preprint(미동료심사) · <a href="https://doi.org/10.64898/2026.10.07.757366" class="underline text-indigo-700" target="_blank">DOI 10.64898/2026.10.07.757366</a> · 코드 미공개 — 재현 불가</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">(해석: 초록 미확인 — 제목·DOI·외부 맥락 기반) TDP-43 기능 손실 시 발생하는 드문 스플라이싱 이벤트(cryptic exon inclusion 등)는 일반 RNA-seq 파이프라인에서 잘 포착되지 않는다. 이 연구는 유전체 파운데이션 모델을 그 드문 이벤트 데이터로 파인튜닝해 TDP-43 병리의 신규 RNA 기반 바이오마커를 발굴하는 방향으로 보인다. STMN2·UNC13A 같은 기존 cryptic exon 바이오마커 위에서 추가 발굴을 시도하는 것으로 추정된다.</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">드문 스플라이싱 이벤트에 파운데이션 모델을 파인튜닝하는 접근은 TDP-43 외에도 FUS·SFPQ 같은 다른 RNA 결합 단백질(RNA-binding protein) 병리로 일반화될 수 있다. 바이오마커가 액체 생검(liquid biopsy) 경로로 연결되면 임상 파급력이 달라진다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: 유전체 파운데이션 모델(세부 모델 미확인) → 드문 스플라이싱 이벤트 데이터 파인튜닝 → TDP-43 병리 바이오마커 발굴; 훈련 데이터셋·평가지표 미확인</span> <span class="lens-item">🩺 Clinical: ALS/FTD 생전 진단 및 임상시험 환자 선별 바이오마커로의 활용 가능성; 독립 코호트 검증 및 액체 생검 전환 가능성 확인 필요</span> <span class="lens-item">🏭 Industry: Ionis·Biogen·Wave Life Sciences 등 ALS/FTD 파이프라인 보유사; RNA 기반 액체생검 플랫폼 기업; 동반진단 IP 경로 열릴 가능성</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">추정 in silico</span> <span class="badge badge-other ">후향 (초록 미확인); preprint(미동료심사)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#5</span>
+            <span class="badge badge-preprint ">preprint</span> <span class="badge badge-nocode ">코드 미공개 — 재현 불가</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-1">마우스-인간 신경 역학 정렬로 임상 약효를 추적하는 교차 종 표현 학습 (Cross-species representation learning aligns mouse and human neural dynamics and tracks clinical drug efficacy)</h3>
+          <p class="text-[12px] text-gray-400 mb-1">저자·소속 미확인</p>
+          <p class="text-[13px] text-gray-500 mb-3">출처: arXiv · 2026-10-08 · preprint(미동료심사) · <a href="https://arxiv.org/abs/2610.11222" class="underline text-indigo-700" target="_blank">arXiv 2610.11222</a> · 코드 미공개 — 재현 불가</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">(해석: 초록 미확인 — 제목·ID 기반) 마우스와 인간의 신경 역학(전기생리·LFP 등으로 추정)을 공동 잠재 공간으로 정렬하는 교차 종 표현 학습(cross-species representation learning)을 제안하고, 정렬된 공간에서 전임상 데이터로 임상 약효(clinical drug efficacy)를 소급 추적하는 것이 핵심 주장으로 보인다. 핵심 가정은 "약물이 종에 독립적으로 신경 역학을 이동시키는 방향과 크기가 약효 지표가 된다"는 것이다.</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">전향(prospective) 예측 데이터가 없다면 신약 개발 의사결정 도구로서의 가치는 제한된다. 그러나 방법론 자체 — 종간 또는 모달리티 간 표현 정렬로 번역 예측을 세우는 구조 — 는 멀티오믹스 통합 문제로 전이 가능하다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: 교차 종 표현 정렬 (신경 신호 유형·아키텍처 미확인); 임상 약효 추적 평가 방식 미확인 (초록 미확인)</span> <span class="lens-item">🩺 Clinical: 전임상-임상 번역 개선 → 유망한 CNS 후보만 임상 진입, 환자 노출 리스크 장기 감소 가능성; 전향 예측 검증 없으면 현재 단계의 임상 함의 제한</span> <span class="lens-item">🏭 Industry: AstraZeneca·Roche·J&amp;J 등 CNS 파이프라인 보유 빅파마; 풍부한 종간 신경 역학 연동 데이터 보유 기관이 실질적 경쟁 해자를 가질 가능성</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">추정 in silico</span> <span class="badge badge-other ">후향 (초록 미확인); preprint(미동료심사)</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Deep Dive</h2>
+      <div class="mb-6">
+        <h3 class="text-[16px] font-bold text-gray-800 mb-4">CausalBind: 가상 스크리닝의 오래된 약점에 인과론 칼날을 댄다</h3>
+        <div class="space-y-3">
+          <p class="text-[15px] text-gray-800 leading-relaxed">가상 스크리닝(virtual screening)의 핵심 문제는 훈련 단백질과 다른 새 표적에서 성능이 급격히 무너진다는 것이었다. 수십 년간 쌓인 경험적 불신의 원인을 CausalBind는 명확하게 진단한다. 대조 학습 기반 방법이 단백질 포켓과 분자의 전체 표현을 정렬할 때, 결합(binding)과 무관한 특징들 — 단백질 계열 편향, 용매 노출 잔기의 일반적 패턴 같은 것들 — 이 함께 학습된다. 이 허위 상관이 새 표적에서의 일반화를 방해한다. (출처: ICLR 2026 listing iclr.cc/virtual/2026/10022811)</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">제안된 해법은 의도적으로 단순하다. 교차-어텐션(cross-attention)으로 단백질-분자 표현 사이의 교호작용을 원자 수준까지 분해하고, 그 위에 학습 가능한 희소 마스크(learnable sparse mask)를 올려 인과적으로 결합에 관여하는 원자 개념만 골라낸다. 기존 아키텍처에 플러그인 모듈로 삽입하는 구조여서, 현재 파이프라인을 유지한 채 이 단계만 추가할 수 있다고 주장한다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">평가 지표 선택도 중요한 신호를 담는다. 전체 AUC 대신 BEDROC와 EF@1%(초기 농축도)를 주 지표로 삼았는데, 실제 고처리량 스크리닝(HTS) 캠페인에서 수백만 화합물 중 상위 1%를 얼마나 잘 농축하느냐가 실용적으로 의미 있기 때문이다. LIT-PCBA 벤치마크는 DUD-E 대비 decoy bias가 낮은 더 현실적인 기준으로, 이 데이터에서 가장 큰 향상을 보고했다. (출처: ICLR 2026 listing)</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed"><strong>관전 포인트</strong>: 인과적 특징 선별이 화학적으로 해석 가능한 결합 원자에 실제로 대응하는지 — 즉 모델이 정말로 결합 파마코포어(binding pharmacophore)을 학습했는지, 아니면 희소 마스킹이 또 다른 형태의 과적합을 만드는지 — 는 실험적 검증(SAR 분석, mutagenesis) 없이는 확인되지 않는다. 코드 미공개 상태에서 독립 재현이 불가능한 것이 현재 가장 큰 제약이다. ICLR 2026 채택으로 동료 심사는 통과했으나, NeurIPS 2026 Oral 병기 표기가 있어 원문 재확인을 권장한다.</p>
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <h3 class="text-[16px] font-bold text-gray-800 mb-4">TDP-43 RNA 바이오마커: 생전 진단의 공백을 드문 스플라이싱으로 채운다</h3>
+        <div class="space-y-3">
+          <p class="text-[15px] text-gray-800 leading-relaxed">ALS(근위축성 측삭경화증)과 FTD(전두측두엽 치매)는 치료제 개발에서 가장 혹독한 환경 중 하나다. 병의 이질성이 크고, 현재로서는 TDP-43 병리(proteinopathy)를 생전에 확인할 신뢰할 수 있는 바이오마커가 없다. TDP-43이 핵에서 세포질로 이탈해 응집물을 형성하는 현상은 ALS 환자의 약 97%, FTD 환자의 약 45%에서 확인되지만, 진단은 사후 조직에서만 가능한 실정이다. (검토필요: 외부 통계 — UKDRI 등 연구 그룹 현황 기반, 원문 미확인)</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">TDP-43이 기능을 잃으면 정상 조건에서 억제되던 비정상 스플라이싱 — cryptic exon inclusion — 이 드러난다. UNC13A, STMN2 같은 유전자에서 이 cryptic exon이 TDP-43 병리 바이오마커로 주목받았고, 이 논문은 유전체 파운데이션 모델을 그런 드문 스플라이싱 이벤트 데이터에 파인튜닝해 신규 바이오마커를 발굴한다. (해석: 제목·도메인 맥락 기반)</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">방법론의 핵심 가정은 두 가지다. 드문 스플라이싱 이벤트가 일반 사전학습 데이터에서 저표현(underrepresented)되어 있으므로 특화 파인튜닝이 예측력을 높인다는 것, 그리고 TDP-43 의존적 cryptic exon 패턴이 시퀀스 맥락으로부터 예측 가능한 규칙성을 가진다는 것이다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed"><strong>임상으로 가는 거리</strong>: 발굴된 바이오마커가 독립 코호트에서 재현되고, 혈액·CSF 같은 임상 접근 가능 시료에서 검출 가능하다면 ALS/FTD 임상시험의 환자 선별 도구로 직접 연결된다. 이질적인 ALS 환자군을 TDP-43 병리 확인 여부로 층화하면 임상시험 성공률 개선 가능성이 있다. 그러나 드문 스플라이싱 이벤트는 신호 대 잡음비(signal-to-noise)가 낮아 시퀀싱 깊이(sequencing depth) 요건이 높다. 현재 long-read sequencing 없이 short-read만으로 cryptic exon을 신뢰성 있게 정량화할 수 있는지는 검증 과제다. 이 연구가 bioRxiv 프리프린트 단계임을 고려할 때, 사용된 파운데이션 모델 종류와 실제 발굴된 바이오마커 목록은 원문 확인이 필요하다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">🔭 Wide Angle</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm px-6 py-2">
+        <div class="flex items-start gap-3 py-4 border-b border-gray-100 last:border-0">
+          <div class="flex-1">
+            <p class="text-[15px] font-semibold text-gray-900 mb-1">변환기(Transformer)는 여섯 공변량보다 못하다: 아동기 에세이에서 우울 증상 장기 예측 </p>
+            <p class="text-[14px] text-gray-700 leading-relaxed">영국 NCDS(National Child Development Study) 코호트에서 11세 에세이로 23세 우울 증상을 예측하는 실험에서 파인튜닝 트랜스포머 7종과 제로샷 LLM 4종 전부가 아동기 6개 구조화 공변량 로지스틱 회귀에 미치지 못했다. (초록 확인 — opentrain.ai 집계 기반) 임상 ML 연구 설계에서 "구조화 공변량을 먼저, 복잡한 모델은 그다음"이라는 원칙을 실증한 반례. 단, 1950–70년대 코호트·12년 장기 예측이라는 특수 설정에서 나온 결과를 현대 단기 임상 예측으로 일반화하면 과대해석이 된다. 저자: Daniel Kua, Emrul Hasan, John-Jose Nunez, Frances Chen. <a href="https://arxiv.org/abs/2610.07764" class="underline text-indigo-700" target="_blank">arXiv 2610.07764</a> · preprint(미동료심사)</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 py-4 border-b border-gray-100 last:border-0">
+          <div class="flex-1">
+            <p class="text-[15px] font-semibold text-gray-900 mb-1">CircuitATLAS: 회로 질환 타깃 발굴을 위한 시스템 신경과학 지식 그래프 기반 에이전틱 추론 </p>
+            <p class="text-[14px] text-gray-700 leading-relaxed">시스템 신경과학 지식 그래프 위에서 LLM 에이전트가 다단계 추론을 수행해 회로병증(circuitopathies — 우울증·조현병·파킨슨병 등 뇌 회로 이상 질환)의 신약 타깃을 발굴하는 프레임워크로 보인다. (해석: 제목·ID 기반) 단일 분자 타깃 패러다임이 반복 실패한 CNS 영역에서 회로 수준 에이전틱 타깃 발굴 방향은 관심 가치가 있으나, LLM 환각(hallucination) 억제와 지식 그래프 품질이 결과 신뢰성을 결정한다. 저자·소속 미확인. <a href="https://arxiv.org/abs/2610.09643" class="underline text-indigo-700" target="_blank">arXiv 2610.09643</a> · preprint(미동료심사)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Threads to Follow</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <ul class="space-y-3 list-disc list-inside">
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>인과 추론 × 신약 AI</strong>: CausalBind(C1)와 역인과 AD 타깃 발굴(C3)은 같은 방향이다. causal ML이 분자 스크리닝과 타깃 발굴 양쪽에서 동시에 진입하고 있다. 이 축에서 다음 주에 추가 논문이 나오면 "인과 신약 AI" 주제로 모아 추적 가능.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>유전체 파운데이션 모델의 희소 데이터 응용</strong>: PLM 선형 피트니스(C2)와 드문 스플라이싱 파인튜닝(C4)은 서로 다른 파운데이션 모델을 쓰지만 "희소한 학습 데이터 환경에서 파운데이션 모델이 어떻게 기여하는가"라는 공통 질문을 공유한다. 이 흐름이 계속되면 vault에 별도 MOC로 누적 검토.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>전임상-임상 번역 실패 공략</strong>: C5(신경 역학 정렬)는 신경 표현 학습으로, C3(AD 상류 타깃)는 인과 경로 역추적으로 같은 번역 실패 문제를 다른 각도에서 건드린다. CNS 신약 개발에서 이 두 방향이 수렴할 가능성이 있다.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>임상 ML 복잡성 재고</strong>: W1은 장기 예측에서 텍스트 모델의 한계를 보였다. EHR 기반 단기·임상 예측에서 같은 비교 실험이 반복적으로 확인되는지 주시. 구조화 변수 최적화 먼저 → 모델 복잡도 높이기 순서의 실험 설계 원칙이 강화되는 추세인지 확인할 것.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Sources</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <ul class="space-y-2 text-[13.5px]">
+              <li><a href="https://arxiv.org/abs/2610.07340" class="text-indigo-600 underline" target="_blank">C1. CausalBind — C1. CausalBind</a></li>
+              <li><a href="https://arxiv.org/abs/2610.07607" class="text-indigo-600 underline" target="_blank">C2. Linear Fitness Subspace — C2. Linear Fitness Subspace</a></li>
+              <li><a href="https://arxiv.org/abs/2610.08736" class="text-indigo-600 underline" target="_blank">C3. Entropy-Guided Reverse-Causal AI — C3. Entropy-Guided Reverse-Causal AI</a></li>
+              <li><a href="https://doi.org/10.64898/2026.10.07.757366" class="text-indigo-600 underline" target="_blank">C4. TDP-43 Splicing Biomarker — C4. TDP-43 Splicing Biomarker</a></li>
+              <li><a href="https://arxiv.org/abs/2610.11222" class="text-indigo-600 underline" target="_blank">C5. Cross-species Neural Dynamics — C5. Cross-species Neural Dynamics</a></li>
+              <li><a href="https://arxiv.org/abs/2610.07764" class="text-indigo-600 underline" target="_blank">W1. No Transformer Beats Six Covariates — W1. No Transformer Beats Six Covariates</a></li>
+              <li><a href="https://arxiv.org/abs/2610.09643" class="text-indigo-600 underline" target="_blank">W2. CircuitATLAS — W2. CircuitATLAS</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="border-t border-gray-200 pt-8 pb-10 text-center">
+      <p class="text-sm text-gray-500 mt-4">paper-radar · 2026-W41</p>
+      <p class="text-xs text-gray-400 mt-1">바이오인포·임상ML·신약AI 논문 주간 요약. preprint 분석 포함.</p>
+    </footer>
+  </div>
+</body>
+</html>
