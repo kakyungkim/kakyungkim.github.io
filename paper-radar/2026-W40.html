@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>paper-radar — 2026-W40</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+    body { font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; font-size:16px; line-height:1.78; }
+    .badge { font-size:11px; font-weight:700; padding:2px 9px; border-radius:9999px; display:inline-block; margin-right:4px; }
+    .badge-genome   { background:#dcfce7; color:#166534; }
+    .badge-clinical { background:#dbeafe; color:#1e40af; }
+    .badge-drug     { background:#ede9fe; color:#5b21b6; }
+    .badge-protein  { background:#fce7f3; color:#9d174d; }
+    .badge-llmbio   { background:#fef9c3; color:#713f12; }
+    .badge-other    { background:#f3f4f6; color:#374151; }
+    .badge-preprint { background:#fef3c7; color:#92400e; }
+    .badge-peer     { background:#d1fae5; color:#065f46; }
+    .badge-insilico { background:#e0e7ff; color:#3730a3; }
+    .badge-retro    { background:#fef9c3; color:#713f12; }
+    .badge-prosp    { background:#d1fae5; color:#065f46; }
+    .badge-multi    { background:#dbeafe; color:#1e40af; }
+    .badge-rct      { background:#dcfce7; color:#166534; }
+    .badge-nocode   { background:#fee2e2; color:#991b1b; }
+    .key-point { border-left:4px solid #4338ca; padding:10px 16px; background:#f5f3ff; border-radius:0 10px 10px 0; margin-top:12px; }
+    .key-point .label { font-size:11px; font-weight:700; letter-spacing:0.06em; color:#4338ca; margin-bottom:4px; }
+    .key-point .text { font-size:15px; font-weight:500; color:#312e81; line-height:1.7; }
+    .insight { border-left:4px solid #14b8a6; padding:10px 16px; background:#f0fdfa; border-radius:0 10px 10px 0; margin-top:10px; }
+    .insight .label { font-size:11px; font-weight:700; letter-spacing:0.06em; color:#0f766e; margin-bottom:4px; }
+    .insight .text { font-size:15px; color:#134e4a; line-height:1.7; }
+    .lens-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+    .lens-item { font-size:13.5px; color:#374151; padding:4px 10px; background:#f9fafb; border:1px solid #e5e7eb; border-radius:8px; }
+    .lens-demand { font-size:13.5px; color:#92400e; padding:4px 10px; background:#fef3c7; border:1px solid #fde68a; border-radius:8px; }
+    .verify-tag { font-size:12px; color:#6b7280; margin-top:8px; }
+</style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <div class="max-w-3xl mx-auto px-4 py-10">
+    <header class="mb-8">
+      <div class="flex items-center gap-3 mb-2">
+        <img src="logo-64.png" alt="paper-radar" class="w-9 h-9 rounded-xl" onerror="this.style.display='none'">
+        <span class="text-2xl font-bold tracking-tight text-gray-900">paper-radar 주간 다이제스트</span>
+        <span class="text-lg text-gray-500 font-medium">2026-W40</span>
+      </div>
+      <p class="text-xs text-gray-400">바이오인포·임상ML·신약AI 논문 주간 요약. 모든 해석은 preprint 단계에서의 분석임.</p>
+    </header>
+
+    <section class="mb-8">
+      <h2 class="text-xs font-bold tracking-widest text-indigo-600 uppercase mb-3">At a Glance</h2>
+      <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-5 space-y-3">
+        <p class="text-[15px] leading-relaxed text-gray-800">단백질 언어 모델 토크나이징에 진화 정보가 직접 주입됐다. LEMON-ZEST(검토필요: NeurIPS 2026 채택 미확인 — 웹검색 교차 확인 불가, 본문 확인 필요)는 BLOSUM 치환 행렬 기반 어휘로 ESM 계열의 단일 잔기 방식에 처음 도전했고, HuggingFace 모델 공개로 이번 주 즉시 활용 가능한 유일한 논문이 됐다. 같은 주에 EHRFlow가 100만 명 이상 환자 EHR에 multi-marginal flow matching을 처음 도입해 불규칙 관측 시간 처리 문제를 수학적으로 정면 돌파했다. 다만 핵심 5편 중 코드가 공개된 것은 C2(LEMON-ZEST) 1편뿐 — 나머지 4편의 수치와 주장은 원문 직접 확인 전까지 잠정치로 읽어야 한다.</p>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">This Week's Top 5</h2>
+      <div class="space-y-6">
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#1</span>
+            <span class="badge badge-preprint ">preprint</span> <span class="badge badge-nocode ">코드 미공개 — 재현 불가</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-1">C1. 화학·단백질 언어 모델의 위계적 교차 어텐션을 통한 약물-표적 상호작용 예측 (Drug-Target Interaction Prediction via Hierarchical Sequential Cross-Attention over Chemical and Protein Language Models)</h3>
+          <p class="text-[12px] text-gray-400 mb-1">저자·소속 미확인</p>
+          <p class="text-[13px] text-gray-500 mb-3">arXiv · 2026-09-28 · [preprint(미동료심사)] · <a href="https://arxiv.org/abs/2609.34921" class="underline text-indigo-700" target="_blank">DOI</a> · 코드 미공개 — 재현 불가</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">SMILES 기반 화학 LM과 단백질 서열 LM 두 인코더를 위계적 순차 교차 어텐션(hierarchical sequential cross-attention)으로 이어 분자 수준과 서열 수준에서 표현을 계층적으로 융합한다. 구체적 벤치마크 수치와 비교 베이스라인은 원문 직접 확인 필요.</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">두 모달리티를 계층적으로 교차시키는 구조는 개념적으로 타당하지만, 3D 결합 포켓 정보 없이 서열만으로 DTI를 예측하는 한계는 이 논문도 피하기 어렵다 — 코드와 외부 검증 없이는 기존 DTI 방법(ConPLex, DeepDTA 등) 대비 우위를 확인할 방법이 없다.</div>
+          </div>
+
+<div class="verify-tag">검증 수준: <span class="badge badge-insilico ">in silico</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#2</span>
+            
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-1">C2. 진화 정보 기반 토크나이저로 효율적인 단백질 언어 모델 구축 — LEMON-ZEST (LEMON-ZEST: Evolution-Informed Tokenization for Efficient Protein Language Modeling)</h3>
+          <p class="text-[12px] text-gray-400 mb-1">Team-LEMON (저자 명단 미확인, 익명 제출 이력 있음)</p>
+          <p class="text-[13px] text-gray-500 mb-3">arXiv · 2026-09-29 · [검토필요: NeurIPS 2026 제출, 채택 미확인(웹검색 교차 불가 — 본문 확인 필요)] · <a href="https://arxiv.org/abs/2609.37675" class="underline text-indigo-700" target="_blank">DOI</a> · <a href="https://huggingface.co/Team-LEMON/lemon" class="underline text-indigo-700" target="_blank">code</a></p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">ZEST(Zoned Encoding of Sequence Traits) 토크나이저가 BLOSUM/PAM 치환 행렬 기반의 생화학적으로 치환 가능한 아미노산 n-gram 클러스터를 greedy max-match trie 알고리즘으로 32K 어휘로 구성한다. 24-레이어 트랜스포머(768-d, 헤드 12개, 203.72M 파라미터)가 이 어휘로 단백질 패밀리·폴드 유사도 검색 성능을 높인다.</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">기존 단백질 LM은 통계적 공출현 기반 어휘를 써왔지만, ZEST는 진화적 보존 패턴을 어휘 설계 자체에 반영한다. 생물학적 사전지식이 토큰 경계를 결정한다.</div>
+          </div>
+
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">in silico (검토필요: NeurIPS 2026 동료심사 완료 미확인 — 본문 확인 필요)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#3</span>
+            <span class="badge badge-preprint ">preprint</span> <span class="badge badge-nocode ">코드 미공개 — 재현 불가</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-1">C3. 단백질 지향 진화를 위한 구조 인식 강화학습 (Structure-aware Reinforcement Learning for Protein Directed Evolution)</h3>
+          <p class="text-[12px] text-gray-400 mb-1">저자·소속 미확인</p>
+          <p class="text-[13px] text-gray-500 mb-3">arXiv · 2026-09-30 · [preprint(미동료심사)] · <a href="https://arxiv.org/abs/2609.39048" class="underline text-indigo-700" target="_blank">DOI</a> · 코드 미공개 — 재현 불가</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">단백질 서열 공간을 탐색하는 RL 프레임워크에 3D 구조 예측 모델의 출력을 보상 신호 또는 상태 표현으로 통합한다. 서열 공간만 탐색하던 기존 방법과 달리 구조적 실현 가능성을 탐색 단계에서 직접 제약한다고 주장한다. 평가 단백질 계열·베이스라인·구체 수치는 원문 확인 필요.</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">구조 오라클(추정: ESMFold/AlphaFold3)을 RL iteration마다 호출하는 계산 비용이 실용화의 첫 번째 병목이 될 것인데, 코드가 공개되기 전까지는 그 비용 구조조차 가늠하기 어렵다.</div>
+          </div>
+
+<div class="verify-tag">검증 수준: <span class="badge badge-insilico ">in silico</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#4</span>
+            <span class="badge badge-preprint ">preprint</span> <span class="badge badge-nocode ">코드 미공개 — 재현 불가</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-1">C4. 형태-공간 거시 상태와 저-계수 분자 프로그램을 통한 조직병리에서 유전자 발현 예측 — MoSPR (MoSPR: Histology-to-Gene Expression Prediction with Morpho-Spatial Macrostates and Low-Rank Molecular Programs)</h3>
+          <p class="text-[12px] text-gray-400 mb-1">저자·소속 미확인</p>
+          <p class="text-[13px] text-gray-500 mb-3">arXiv · 2026-09-28 · [preprint(미동료심사)] · <a href="https://arxiv.org/abs/2609.34280" class="underline text-indigo-700" target="_blank">DOI</a> · 코드 미공개 — 재현 불가</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">H&amp;E 이미지 패치를 형태-공간 거시 상태(morpho-spatial macrostates)로 클러스터링해 공간 맥락을 포착하고, 유전자 발현 행렬을 저-계수 분자 프로그램(low-rank molecular programs)으로 압축해 예측 타깃을 구조화하는 이중 분해 구조를 제안한다. 사용 데이터셋·암종·샘플 수·베이스라인 수치는 원문 확인 필요.</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">동일 형태 세포가 전혀 다른 전사 상태를 가질 수 있다는 종양 내 이질성 연구들이 이 논문의 핵심 가정 — "H&amp;E 형태학이 유전자 발현을 결정론적으로 반영한다" — 을 직접 위협한다. 외부 코호트 검증이 코드 공개만큼 중요하다.</div>
+          </div>
+
+<div class="verify-tag">검증 수준: <span class="badge badge-insilico ">in silico</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#5</span>
+            <span class="badge badge-preprint ">preprint</span> <span class="badge badge-nocode ">코드 미공개 — 재현 불가</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-1">C5. 전자 건강 기록에서 연속적 환자 궤적 학습 — EHRFlow (Learning Continuous Patient Trajectories from Electronic Health Records)</h3>
+          <p class="text-[12px] text-gray-400 mb-1">저자·소속 미확인 (GitHub: PKU-AICare/EHRFlow 레포 존재 확인 — 내용 미확인)</p>
+          <p class="text-[13px] text-gray-500 mb-3">arXiv · 2026-09-28 · [preprint(미동료심사); ML4H 2026 Proceedings Track 제출] · <a href="https://arxiv.org/abs/2609.36144" class="underline text-indigo-700" target="_blank">DOI</a> · 코드 미공개 (PKU-AICare/EHRFlow 레포 존재 — 내용 미확인)</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">인코딩된 환자 과거 기록을 조건으로 다중-마진 플로우 매칭(multi-marginal flow matching)이 관측된 여러 시점의 경계 분포(marginals)를 동시에 만족하는 연속 확률 경로(probability path)를 학습한다. 임의 시점 예측과 불규칙 관측 처리를 단일 프레임워크로 다루며, 100만 명 이상 실제 임상 데이터셋에서 임상 코드 예측과 잠재 상태 복원 성능 개선을 주장한다(초록 기준, 검토필요: 기관·데이터 거버넌스 원문 확인 필요).</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">100만 명 이상 규모 후향 검증은 이번 주 핵심 5편 중 현실 세계와 가장 가깝지만, 서로게이트 지표(임상 코드 예측 정확도)가 실제 임상 결과 개선을 보장하지는 않는다 — 전향 검증과 설명 가능성 설계 없이 CDSS로 배포하는 것은 이르다.</div>
+          </div>
+
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">후향적 (N=100만+</span> <span class="badge badge-other ">단일 기관 추정; preprint 검토필요)</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Deep Dive</h2>
+      <div class="mb-6">
+        <h3 class="text-[16px] font-bold text-gray-800 mb-4">LEMON-ZEST: 단백질 언어 모델 토크나이징의 구조적 전환</h3>
+        <div class="space-y-3">
+          <p class="text-[15px] text-gray-800 leading-relaxed">단백질 언어 모델(pLM) 연구의 오랜 전제 하나가 흔들렸다. ESM-2 계열을 포함한 기존 pLM은 아미노산 한 글자 토크나이징 또는 BPE(Byte Pair Encoding)를 써왔다. NLP에서 검증된 데이터 기반 어휘 구성 전략이지만, 단백질 서열에서는 맹점이 있다 — 진화적으로 기능이 동등한 아미노산 집합(예: BLOSUM 치환 허용 군)이 어휘 경계에서 무작위로 분절되거나 무의미한 조합으로 묶인다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">LEMON-ZEST는 이 문제에 정면으로 접근했다. ZEST(Zoned Encoding of Sequence Traits) 토크나이저는 BLOSUM/PAM 치환 행렬에서 정의된 생화학적 치환 허용 아미노산 n-gram 클러스터를 greedy max-match trie 알고리즘으로 32K 어휘로 구성한다. "진화 정보를 어휘 설계에 직접 주입"한다는 아이디어가 이 연구의 출발점이다. 모델이 학습 중에 패턴을 조정하기 전에, 생물학적 사전지식이 이미 토큰 경계를 결정한다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">아키텍처는 24-레이어 트랜스포머(768-d, 헤드 12개, 203.72M 파라미터)다. ESM-2 650M 대비 훨씬 작은 규모이면서도 단백질 패밀리·폴드 유사도 검색 성능을 높인다고 주장한다. NeurIPS 2026에 제출됐고(검토필요: 채택 미확인 — 웹검색 교차 불가, 본문 확인 필요), HuggingFace(Team-LEMON/lemon)에 모델을 공개했다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed"><strong>관전 포인트:</strong></p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">ZEST 어휘 자체의 재현성이 첫 번째 관문이다. BLOSUM 치환 행렬 선택과 n-gram 클러스터링 파라미터가 어떻게 결정됐는지, 토크나이저 학습 코드가 별도로 공개됐는지가 추가 검증의 핵심이다. 두 번째는 ESM-2와의 공정한 ablation 여부 — 아키텍처와 학습 데이터를 고정한 상태에서 ZEST 어휘 사용 유무만 비교한 결과가 논문에 있는지 원문 확인이 필요하다. 어휘 설계 개선의 순수 기여를 분리하지 않으면 신규성 주장이 약해진다. 세 번째는 극단적 비전형 서열에서의 한계다 — 극단호성 미생물 단백질이나 비표준 아미노산이 포함된 서열에서 32K 고정 어휘가 충분한지는 미확인이다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">현 시점 가장 빠른 활용 경로: HuggingFace 공개 모델을 단백질 패밀리 분류·서열 검색 파이프라인에 즉시 적용하고 ESM-2와 직접 비교 실험을 진행하는 것이다.</p>
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <h3 class="text-[16px] font-bold text-gray-800 mb-4">EHRFlow: 불규칙 EHR 시계열에 플로우 매칭을 처음 도입하다</h3>
+        <div class="space-y-3">
+          <p class="text-[15px] text-gray-800 leading-relaxed">EHR 기반 임상 ML에서 관측 시점의 불규칙성은 오랜 기술적 골칫거리였다. 환자는 정해진 간격이 아니라 임상 상태가 변할 때 측정되고, 기존 RNN·트랜스포머 기반 모델은 이 불규칙 시계열을 고정 간격으로 리샘플링하거나 마스킹해 처리했다. 정보 손실 없이 임의 시점 예측까지 지원하는 통일 프레임워크가 없었다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">EHRFlow는 flow matching을 이 문제에 적용했다. multi-marginal flow matching은 관측된 여러 시점의 경계 분포(marginals)를 동시에 만족하는 연속 확률 경로를 학습하고, 인코딩된 환자 과거 기록이 조건 신호가 되어 임의 미래 시점의 임상 상태 분포를 샘플링할 수 있다. 이론적으로 불규칙 관측 시간과 임의 시점 예측을 단일 프레임워크로 처리하는 구조다. 외부 맥락: EHR 시계열에 flow matching을 적용한 선행 연구(TFM, arXiv:2410.21154; IMMFM, arXiv:2510.03569)가 있으나, EHRFlow의 EHR 도메인 특화 차별점은 원문 확인 필요.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">100만 명 이상 실제 임상 데이터셋에서 임상 코드 예측과 잠재 상태 복원 성능 개선을 주장한다(초록 기준). 임상 ML 논문 중 드문 규모다. 다만 검토필요: 기관 출처·데이터 거버넌스·기간·입원/외래 구분은 원문 직접 확인 전까지 불명이다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed"><strong>한계와 다음 단계:</strong></p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">연속 경로 가정이 임상 현실과 어긋나는 경우가 있다. 패혈증 발현이나 급성 심근경색처럼 임상 상태가 불연속적으로 전환되는 사건에서 연속 확률 경로 모델이 얼마나 잘 작동하는지는 별도 검증이 필요하다. 악화 시 관측이 더 자주 일어나는 편향(informative missingness)을 multi-marginal 설계가 충분히 처리하는지도 원문에서 확인해야 할 사항이다. 단일 기관 후향 코호트 한계도 여전하다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">ML4H 2026 동료심사 결과가 이 논문의 다음 신뢰도 지표다. PKU-AICare/EHRFlow 레포의 코드 내용 공개 여부와 학습 데이터 접근 경로가 재현 및 외부 검증의 병목이다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">🔭 Wide Angle</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm px-6 py-2">
+        <div class="flex items-start gap-3 py-4 border-b border-gray-100 last:border-0">
+          <div class="flex-1">
+            <p class="text-[15px] font-semibold text-gray-900 mb-1">W1. CAGenMol-2: 마스크드 분자 추론으로 재정의한 약물 설계 (CAGenMol-2) </p>
+            <p class="text-[14px] text-gray-700 leading-relaxed">· <a href="https://arxiv.org/abs/2609.34301" class="underline text-indigo-700" target="_blank">arXiv:2609.34301</a> · preprint(미동료심사) · 코드 미공개</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 py-4 border-b border-gray-100 last:border-0">
+          <div class="flex-1">
+            <p class="text-[15px] font-semibold text-gray-900 mb-1">W2. 전체 슬라이드 이미지를 동적 종양 미세환경 장(場)으로 모델링 </p>
+            <p class="text-[14px] text-gray-700 leading-relaxed">· <a href="https://arxiv.org/abs/2609.34451" class="underline text-indigo-700" target="_blank">arXiv:2609.34451</a> · 검토필요: NeurIPS 2026 제출(채택 미확인) · 코드 미공개</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 py-4 border-b border-gray-100 last:border-0">
+          <div class="flex-1">
+            <p class="text-[15px] font-semibold text-gray-900 mb-1">W3. AI 보조 유사분열상 계수로 복수 종양 유형에서 재현성·효율 향상 </p>
+            <p class="text-[14px] text-gray-700 leading-relaxed">· <a href="https://arxiv.org/abs/2610.01813" class="underline text-indigo-700" target="_blank">arXiv:2610.01813</a> · preprint(미동료심사) · 코드 미공개</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Threads to Follow</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <ul class="space-y-3 list-disc list-inside">
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>단백질 LM 토크나이징 경쟁</strong>: LEMON-ZEST는 ZEST 어휘로 ESM 계열의 단일 잔기 토크나이징에 도전했다. 다음 관심 지점은 토크나이저 학습 코드 공개 여부, ablation 결과 확인, 그리고 단백질 구조 예측 태스크에서의 ESM-2 직접 비교 실험이다.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>EHR + 생성 모델 시계열</strong>: EHRFlow(flow matching)는 ODE 기반 Neural ODE·SDE, diffusion 계열에 이어 생성 모델을 EHR에 적용하는 흐름의 최신 기점이다. ML4H 2026 채택 여부와 코드 공개가 이 흐름의 다음 기준선이 될 것이다.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>H&amp;E → 분자 프로파일링 브릿지</strong>: MoSPR(C4)와 W2(Dynamic TME Fields)가 같은 주에 나온 것은 병리 AI가 등급화에서 분자 정보 추론으로 이동하는 흐름을 보여준다. 10x Genomics 플랫폼과 이 방향의 충돌·협력 관계를 주시할 것.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>신약개발 AI 코드 공개율</strong>: 핵심 5편 중 코드 공개는 C2(LEMON-ZEST) 1편뿐이다. C1·C3·C4·C5의 코드 공개 시점이 이 논문들의 실질 활용도를 결정할 것이다.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Sources</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <ul class="space-y-2 text-[13.5px]">
+              <li><a href="https://arxiv.org/abs/2609.34921" class="text-indigo-600 underline" target="_blank">[C1] DTI — Drug-Target Interaction Prediction via Hierarchical Sequential Cross-Attention — [C1] DTI — Drug-Target Interaction Prediction via Hierarchical Sequential Cross-Attention</a></li>
+              <li><a href="https://arxiv.org/abs/2609.37675" class="text-indigo-600 underline" target="_blank">[C2] LEMON-ZEST — Evolution-Informed Tokenization for Efficient Protein Language Modeling — [C2] LEMON-ZEST — Evolution-Informed Tokenization for Efficient Protein Language Modeling</a></li>
+              <li><a href="https://huggingface.co/Team-LEMON/lemon" class="text-indigo-600 underline" target="_blank">[C2 model] LEMON 모델 (HuggingFace) — [C2 model] LEMON 모델 (HuggingFace)</a></li>
+              <li><a href="https://arxiv.org/abs/2609.39048" class="text-indigo-600 underline" target="_blank">[C3] Structure-aware RL for Protein Directed Evolution — [C3] Structure-aware RL for Protein Directed Evolution</a></li>
+              <li><a href="https://arxiv.org/abs/2609.34280" class="text-indigo-600 underline" target="_blank">[C4] MoSPR — Histology-to-Gene Expression Prediction — [C4] MoSPR — Histology-to-Gene Expression Prediction</a></li>
+              <li><a href="https://arxiv.org/abs/2609.36144" class="text-indigo-600 underline" target="_blank">[C5] EHRFlow — Learning Continuous Patient Trajectories from EHR — [C5] EHRFlow — Learning Continuous Patient Trajectories from EHR</a></li>
+              <li><a href="https://arxiv.org/abs/2609.34301" class="text-indigo-600 underline" target="_blank">[W1] CAGenMol-2 — One Sequence, Many Decodings — [W1] CAGenMol-2 — One Sequence, Many Decodings</a></li>
+              <li><a href="https://arxiv.org/abs/2609.34451" class="text-indigo-600 underline" target="_blank">[W2] Dynamic Tumor Microenvironment Fields from WSI — [W2] Dynamic Tumor Microenvironment Fields from WSI</a></li>
+              <li><a href="https://arxiv.org/abs/2610.01813" class="text-indigo-600 underline" target="_blank">[W3] AI-assisted mitotic counting across multiple tumour types — [W3] AI-assisted mitotic counting across multiple tumour types</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="border-t border-gray-200 pt-8 pb-10 text-center">
+      <p class="text-sm text-gray-500 mt-4">paper-radar · 2026-W40</p>
+      <p class="text-xs text-gray-400 mt-1">바이오인포·임상ML·신약AI 논문 주간 요약. preprint 분석 포함.</p>
+    </footer>
+  </div>
+</body>
+</html>
