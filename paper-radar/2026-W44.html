@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>paper-radar — 2026-W44</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+    body { font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; font-size:16px; line-height:1.78; }
+    .badge { font-size:11px; font-weight:700; padding:2px 9px; border-radius:9999px; display:inline-block; margin-right:4px; }
+    .badge-genome   { background:#dcfce7; color:#166534; }
+    .badge-clinical { background:#dbeafe; color:#1e40af; }
+    .badge-drug     { background:#ede9fe; color:#5b21b6; }
+    .badge-protein  { background:#fce7f3; color:#9d174d; }
+    .badge-llmbio   { background:#fef9c3; color:#713f12; }
+    .badge-other    { background:#f3f4f6; color:#374151; }
+    .badge-preprint { background:#fef3c7; color:#92400e; }
+    .badge-peer     { background:#d1fae5; color:#065f46; }
+    .badge-insilico { background:#e0e7ff; color:#3730a3; }
+    .badge-retro    { background:#fef9c3; color:#713f12; }
+    .badge-prosp    { background:#d1fae5; color:#065f46; }
+    .badge-multi    { background:#dbeafe; color:#1e40af; }
+    .badge-rct      { background:#dcfce7; color:#166534; }
+    .badge-nocode   { background:#fee2e2; color:#991b1b; }
+    .key-point { border-left:4px solid #4338ca; padding:10px 16px; background:#f5f3ff; border-radius:0 10px 10px 0; margin-top:12px; }
+    .key-point .label { font-size:11px; font-weight:700; letter-spacing:0.06em; color:#4338ca; margin-bottom:4px; }
+    .key-point .text { font-size:15px; font-weight:500; color:#312e81; line-height:1.7; }
+    .insight { border-left:4px solid #14b8a6; padding:10px 16px; background:#f0fdfa; border-radius:0 10px 10px 0; margin-top:10px; }
+    .insight .label { font-size:11px; font-weight:700; letter-spacing:0.06em; color:#0f766e; margin-bottom:4px; }
+    .insight .text { font-size:15px; color:#134e4a; line-height:1.7; }
+    .lens-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+    .lens-item { font-size:13.5px; color:#374151; padding:4px 10px; background:#f9fafb; border:1px solid #e5e7eb; border-radius:8px; }
+    .lens-demand { font-size:13.5px; color:#92400e; padding:4px 10px; background:#fef3c7; border:1px solid #fde68a; border-radius:8px; }
+    .verify-tag { font-size:12px; color:#6b7280; margin-top:8px; }
+</style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <div class="max-w-3xl mx-auto px-4 py-10">
+    <header class="mb-8">
+      <div class="flex items-center gap-3 mb-2">
+        <img src="logo-64.png" alt="paper-radar" class="w-9 h-9 rounded-xl" onerror="this.style.display='none'">
+        <span class="text-2xl font-bold tracking-tight text-gray-900">paper-radar 주간 다이제스트</span>
+        <span class="text-lg text-gray-500 font-medium">2026-W44</span>
+      </div>
+      <p class="text-xs text-gray-400">바이오인포·임상ML·신약AI 논문 주간 요약. 모든 해석은 preprint 단계에서의 분석임.</p>
+    </header>
+
+    <section class="mb-8">
+      <h2 class="text-xs font-bold tracking-widest text-indigo-600 uppercase mb-3">At a Glance</h2>
+      <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-5 space-y-3">
+        <p class="text-[15px] leading-relaxed text-gray-800">임상 AI 평가가 in silico 벤치마크를 넘어 전향적 다기관 검증으로 진입하는 흐름이 이번 주 가장 뚜렷했다. 임상 유전체 해석 에이전트(C1)는 11개 기관 전문가를 대상으로 한 달간 실제 업무에 적용했고, 암 이상반응 예측 모델(C4)은 224,000명 규모의 종단 데이터로 보류·전향·외부 코호트 전 범위에서 성능을 검증했다. 두 논문 모두 preprint(미동료심사) 단계다. 검증 설계 수준은 임상 AI 분야에서 이례적으로 엄격하고, 신약개발 총괄 관점에서도 데이터 공유 전략의 함의가 담겨 있다.</p>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">This Week's Top 5</h2>
+      <div class="space-y-6">
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#1</span>
+            <span class="badge badge-preprint ">preprint</span> <span class="badge badge-nocode ">코드 미공개 — 재현 불가</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-1">임상 유전체 분석을 위한 스킬 중심 에이전트 (Advancing Clinical Genomic Analysis with a Skill-Centred Agent)</h3>
+          <p class="text-[12px] text-gray-400 mb-1">저자명 미확인 | 다중 의료기관 소속 (원문 접근 불가)</p>
+          <p class="text-[13px] text-gray-500 mb-3">출처 · 2026-10-29 · [preprint] · <a href="https://arxiv.org/abs/2610.40556" class="underline text-indigo-700" target="_blank">arXiv:2610.40556</a> · 코드 미공개 — 재현 불가</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">희귀 유전 질환(rare genetic disease) 해석과 분자 종양학(molecular oncology) 의사결정 두 임상 영역을 커버하는 105개 원자적(atomic) 스킬을 큐레이션했다. 11개 의료기관 임상 유전체 전문가 11명이 1개월간 실제 업무에 에이전트를 적용해 96건의 완료된 분석에 대한 피드백을 제공했다. 모든 평가 시나리오에서 해석 소요 시간이 단축됐고, 기준 판단(criterion-level) 변이 분석 일치율과 유전체 해석 일치율도 향상됐다고 보고했다. (출처: arXiv 리스팅 스니펫)</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">스킬 중심 에이전트 아키텍처 자체보다 검증 설계가 이 논문의 진짜 기여다. 임상 유전체 LLM 연구에서 전향적 다기관 사용자 연구는 드물고, 이 설계 자체가 임상 배포를 향한 증거의 틀을 만들고 있다. 코드와 스킬 정의 방식이 공개되지 않아 독립 검증이 현재 불가능한 점은 주요 한계다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: 105개 원자적 스킬 큐레이션 기반 에이전트 시스템. 기저 LLM 종류·스킬 정의 방식(규칙 기반/RAG/파인튜닝 여부) 미공개.</span> <span class="lens-item">🩺 Clinical: 전향 다기관 사용자 연구 — 해석 시간 단축·일치율 향상 동시 보고. N=96은 파일럿 수준이며, 선택 편향(자원 참여 전문가)과 blinding 여부 미제공이 일치율 해석을 제한한다.</span> <span class="lens-item">🏭 Industry: CDSS(Clinical Decision Support System) 허가 신청 시 real-world workflow evidence로 활용 가능한 구조. Fabric Genomics·Emedgene(Illumina)·Diploid(Centogene) 등 기존 임상 유전체 플랫폼과 경쟁하는 포지션.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-prosp ">전향</span> <span class="badge badge-other ">다기관 N=96건</span> <span class="badge badge-other ">전문가 11명 (preprint</span> <span class="badge badge-other ">미동료심사)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#2</span>
+            <span class="badge badge-preprint ">preprint</span> <span class="badge badge-nocode ">코드 미공개 — 재현 불가</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-1">종단 AI 모델로 암 이상반응 예측 (Longitudinal AI Models Predict Cancer Adverse Events)</h3>
+          <p class="text-[12px] text-gray-400 mb-1">저자명 미확인 | 다기관 소속 (원문 접근 불가)</p>
+          <p class="text-[13px] text-gray-500 mb-3">출처 · 2026-10-26 · [preprint] · <a href="https://www.medrxiv.org/content/10.64898/2026.10.22.26364879v1" class="underline text-indigo-700" target="_blank">medRxiv:10.64898/2026.10.22.26364879v1</a> · 코드 미공개 — 재현 불가</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">암 환자 약 224,000명의 약 1억 200만 건(102M) 측정값으로 모델을 사전훈련 및 미세조정했다. 보류 코호트(held-out cohort), 전향적 코호트(prospective cohort), 외부 검증 코호트(external validation cohort) 전반에 걸쳐 암 관련 이상반응(adverse event) 예측에서 최신 성능(SoTA)을 달성했으며, 단일 기관 미세조정보다 다기관 데이터 풀링이 일반화 성능을 더 크게 향상시켰다고 보고했다. (출처: medRxiv 검색 스니펫)</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">"다기관 풀링 &gt; 단기관 미세조정"이라는 결론은 수치 이상의 메시지다. 데이터 컨소시엄 구조가 개별 기관의 자체 모델보다 임상 배포 성능에서 우위를 가진다면, 데이터 공유 협약의 비용이 성능 향상으로 직접 환원된다는 실용적 근거가 된다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: 종단 시계열 사전훈련(longitudinal pretraining) + 이상반응 예측 미세조정. 모델 아키텍처·사전훈련 태스크 정의·베이스라인 비교 모델 미공개.</span> <span class="lens-item">🩺 Clinical: 전향 + 외부 다기관 세 종류 검증 코호트 — 이 분야에서 강한 설계다. 예측 대상 이상반응 종류와 예측 리드 타임(lead time)이 미제공이어서 임상 유용성 판단이 아직 어렵다.</span> <span class="lens-item">🏭 Industry: 종양내과 외래 모니터링, 제약사 약물감시(pharmacovigilance), 임상시험 안전성 모니터링에 직접 닿는다. Flatiron Health(Roche)·Tempus 등 RWE(real-world evidence) 온콜로지 플레이어와 경쟁 구도.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">전향 + 외부</span> <span class="badge badge-other ">다기관 (N=224K 사전훈련</span> <span class="badge badge-other ">보류</span> <span class="badge badge-prosp ">전향</span> <span class="badge badge-other ">외부 코호트 평가; preprint</span> <span class="badge badge-other ">미동료심사)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#3</span>
+            <span class="badge badge-peer ">peer-reviewed</span> <span class="badge badge-nocode ">코드 미공개 — 재현 불가</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-1">바이오뱅크 규모 조건부 합성 게놈 생성 — HELICS (Biobank-scale Conditional Synthetic Genome Generation via Latent Flow Matching)</h3>
+          <p class="text-[12px] text-gray-400 mb-1">Ahmad Abdel-Azim, Xihong Lin (교신저자) | Harvard T.H. Chan School of Public Health</p>
+          <p class="text-[13px] text-gray-500 mb-3">출처 · 2026-10-28 · [peer-reviewed] · <a href="https://arxiv.org/abs/2610.36361" class="underline text-indigo-700" target="_blank">arXiv:2610.36361</a> · <a href="https://neurips.cc/virtual/2026/poster/150881" class="underline text-indigo-700" target="_blank">NeurIPS 2026 포스터 #150881</a> · 코드 미공개 — 재현 불가</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">컨볼루션 오토인코더(convolutional autoencoder)로 염색체 단위 SNP 데이터를 4,096개 잠재 토큰으로 압축하고, 트랜스포머 기반 조건부 플로우 매칭(conditional flow matching) 모델로 합성 게놈을 생성한다. UK Biobank 약 428,000개 게놈으로 학습했으며, 조상(ancestry)과 유전적 부담(genetic liability) 요약 통계를 조건으로 타깃 생성이 가능하다. 보류 실제 게놈 대비 대립 유전자 빈도(allele frequency) 검증 R² = 0.992로 기존 하플로타입 기반 시뮬레이터를 상회했다. (출처: NeurIPS 2026 공식 포스터 초록)</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">위상 분리 없이 학습한다는 것은 실제 임상·바이오뱅크 데이터의 상당 부분에 별도 전처리 없이 바로 적용할 수 있다는 뜻이다. 단, R² = 0.992는 집단 수준 통계이며, 연계 불균형(LD, linkage disequilibrium) 구조 보존과 희귀 변이 충실도는 별도 검증이 필요하다. UK Biobank는 유럽 조상에 편중돼 있어 비유럽 집단 적용 시 제약이 된다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: Conv AE + 트랜스포머 조건부 플로우 매칭. 위상 분리 불필요, 조상 + 유전적 부담 조건부 생성. 코드 미공개 상태로 독립 재현 불가.</span> <span class="lens-item">🩺 Clinical: in silico 검증 단계. 형식적 프라이버시 보증(formal privacy guarantee, 예: membership inference attack 저항성) 미제시로, 임상 데이터 공유 목적 활용 전 별도 평가가 필요하다.</span> <span class="lens-item">🏭 Industry: 희귀 유전자형 증강이 필요한 신약개발 바이오텍, GDPR 제약 하에서 합성 데이터 배포를 원하는 바이오뱅크·기관이 주요 수요자. Harvard HSPH 소속, Bayh-Dole 라이선스 경로.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-insilico ">in silico</span> <span class="badge badge-other ">allele frequency R² 검증 (NeurIPS 2026 peer-reviewed)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#4</span>
+            <span class="badge badge-preprint ">preprint</span> <span class="badge badge-nocode ">코드 미공개 — 재현 불가</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-1">단백질 서열·구조·언어를 통합한 확산 언어 모델 — Trion-1 (Trion-1: Unifying Language, Protein Sequence, and Structure with Diffusion Language Models)</h3>
+          <p class="text-[12px] text-gray-400 mb-1">저자명 미확인 | 미확인 (원문 접근 불가)</p>
+          <p class="text-[13px] text-gray-500 mb-3">출처 · 2026-10-26 · [preprint] · <a href="https://arxiv.org/abs/2610.31215" class="underline text-indigo-700" target="_blank">arXiv:2610.31215</a> · 코드 미공개 — 재현 불가</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">단백질 서열·3D 구조·자연어를 단일 이산 토큰(discrete token) 공간으로 통합한 확산 언어 모델 Trion-1을 제안했다. 검토필요: 엄격한 상동성 관리(strict homology control) 조건에서 단일 샘플로 TM-score 0.8 초과, 서열 이해(sequence understanding) 62.37%(최상위 LLM 동등 수준 — 62.37%가 Trion-1 자신의 점수인지 비교 LLM의 점수인지 스니펫에서 불분명)를 보고했다. 기존 삼중모달 모델이 200 샘플에서 달성하던 성능을 1 샘플로 재현했다고 주장한다. (출처: papers.cool 스니펫 — 원문 재확인 권장)</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">AlphaFold2(폴딩) → ProteinMPNN(역폴딩) → ESM(서열 이해)처럼 태스크별 모델을 직렬로 이어붙이던 구조를 단일 모델로 통합한다는 방향은 파이프라인 복잡도를 줄이는 데 실용적이다. 다만 "최초의 네이티브 다중모달 dLLM" 주장은 DPLM-2(2024) 등 선행 연구와의 명확한 비교가 원문에서 확인돼야 한다. 수치는 papers.cool 스니펫 기반이라 원문 재검토가 필요하다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: 이산 토큰 통합 삼중모달 확산 언어 모델. 구조 토크나이저 종류·학습 데이터셋·하이퍼파라미터 미공개. TM-score·서열 이해 수치는 원문 미확인 상태.</span> <span class="lens-item">🩺 Clinical: 전임상 이전 도구 수준. wet lab 검증 없음. 임상 적용까지 신약개발 파이프라인 전 단계가 남아 있다.</span> <span class="lens-item">🏭 Industry: 단백질 설계 파이프라인을 단순화하려는 바이오텍 엔지니어링 팀, CRO, Nvidia BioNeMo·Schrödinger 같은 컴퓨팅 플랫폼이 주요 수요자. ESMFold(Meta)·AlphaFold3(DeepMind) 등과 경쟁.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-insilico ">in silico</span> <span class="badge badge-other ">6개 태스크 계산 벤치마크 (preprint</span> <span class="badge badge-other ">미동료심사 — 핵심 수치 원문 미확인)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#5</span>
+            <span class="badge badge-preprint ">preprint</span> <span class="badge badge-nocode ">코드 미공개 — 재현 불가</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-1">머신러닝 원자간 포텐셜로 유도하는 구조 기반 신약 설계 확산 모델 — MLIPDiff (MLIPDiff: Guiding Denoising Diffusion Models for Structure-Based Drug Design via Machine-Learned Interatomic Potentials)</h3>
+          <p class="text-[12px] text-gray-400 mb-1">저자명 미확인 | 미확인 (원문 접근 불가)</p>
+          <p class="text-[13px] text-gray-500 mb-3">출처 · 2026-10-27 · [preprint] · <a href="https://arxiv.org/abs/2610.33315" class="underline text-indigo-700" target="_blank">arXiv:2610.33315</a> · 코드 미공개 — 재현 불가</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">추정: SBDD 확산 모델의 디노이징 단계에 MLIP를 유도 신호로 결합해, 단백질 결합 포켓(binding pocket) 내에서 생성되는 리간드의 물리화학적 타당성을 높인다. 핵심 수치, 사용 데이터셋, 베이스라인 비교 모델 모두 미확인이다. (출처: GitHub 다이제스트 제목 기반 추정)</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">추정: 기존 포스트 필터링(post-hoc force field minimization) 방식보다 생성 과정 내 연속적 물리화학적 교정이 가능하다는 이론적 이점이 있다. MLIP가 디노이징 중간 구조(노이즈 섞인 단계)에서도 안정적인 에너지·힘 정보를 제공하는지, 그리고 MLIP 추론 비용이 총 샘플링 시간을 얼마나 늘리는지가 핵심 검증 과제다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: 추정: MLIP guidance + SBDD 확산 모델 통합. 사용 MLIP 종류(ANI·MACE·NequIP 등), 평가 데이터셋, 성능 수치 모두 미확인.</span> <span class="lens-item">🏭 Industry: 추정: 저분자 신약(small molecule) 설계 플랫폼 — Schrödinger·Recursion·Exscientia(AZ 인수) 등이 유사 방향 탐색 중.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">미확인 — 원문 직접 확인 필요 (preprint</span> <span class="badge badge-other ">미동료심사</span> <span class="badge badge-other ">초록 미확인)</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Deep Dive</h2>
+      <div class="mb-6">
+        <h3 class="text-[16px] font-bold text-gray-800 mb-4">C1. 임상 유전체 에이전트가 설계한 검증의 의미</h3>
+        <div class="space-y-3">
+          <p class="text-[15px] text-gray-800 leading-relaxed">임상 유전체 해석(clinical genomic analysis)에서 AI는 오랫동안 "어떤 벤치마크 데이터셋에서 몇 퍼센트를 맞췄나"라는 in silico 성적표에 머물렀다. 실제 임상의가 실제 환자 케이스에 쓸 때 어떻게 되는지, 해석 시간이 줄어드는지, 전문가 판단과 얼마나 일치하는지는 별도로 묻지 않았다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">이 논문은 그 간극을 직접 채우려 했다. 희귀 유전 질환 해석과 분자 종양학이라는 두 임상 영역에 걸쳐 105개 원자적 스킬을 큐레이션했고, 11개 의료기관의 임상 유전체 전문가 11명이 한 달간 자신의 실제 업무에 에이전트를 적용했다. 96건의 완료된 분석에 대한 피드백 결과, 모든 평가 시나리오에서 해석 소요 시간이 단축됐고 변이 분석 일치율과 유전체 해석 일치율이 향상됐다고 arXiv 리스팅 스니펫은 전한다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">방법론적으로 이 연구의 진짜 기여는 아키텍처보다 평가 설계에 있다. 스킬 중심 에이전트 구조 자체는 이전에도 유사한 접근이 있었다(외부 맥락: 163개 스킬을 모은 과학 에이전트 라이브러리가 arXiv에 존재한다). 전향적 다기관 전문가 연구가 임상 유전체 AI 평가에서 이례적인 이유는, 이 분야가 in vitro 벤치마크와 실제 임상 워크플로 사이 거리를 좁히는 방법론적 틀을 마련하는 데 오랫동안 어려움을 겪어 왔기 때문이다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">제한도 명확하다. N=96이라는 규모는 변이 유형·적응증별 층화 분석을 감당하기 어렵다. 참여를 자원한 11명의 전문가는 AI 도구에 우호적인 집단일 가능성이 있고(선택 편향), "일치율 향상"이 에이전트 제안에 대한 앵커 효과(anchor effect)인지 실제 정확도 향상인지는 blinding 여부가 명시되지 않으면 판단하기 어렵다. 코드와 스킬 정의 방식이 공개되지 않아 독립 검증이 현재로서 불가능하다는 점 역시 주요 한계다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">임상 현장 적용까지는 더 큰 다기관 검증과 자동화 편향(automation bias) 안전성 연구, 규제 경로(SaMD — Software as a Medical Device) 확보가 남아 있다. 그럼에도 이 논문이 제시한 검증 설계의 틀 — 전향적, 다기관, 해석 시간 직접 측정 — 은 임상 AI 도구 평가의 참조 사례로 삼을 만하다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed"><strong>관전 포인트</strong>: 향후 원문에서 (1) 105개 스킬 목록과 커버리지 갭, (2) 스킬 없는 LLM 단독 대비 베이스라인 비교 공정성, (3) 오류 케이스 유형 분포를 확인해야 이 논문의 실질적 기여를 온전히 평가할 수 있다.</p>
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <h3 class="text-[16px] font-bold text-gray-800 mb-4">C4. 암 이상반응 예측 모델이 보내는 데이터 공유 신호</h3>
+        <div class="space-y-3">
+          <p class="text-[15px] text-gray-800 leading-relaxed">항암 치료의 이상반응(adverse event)은 종류와 시점에 따라 치료를 중단시키거나 입원으로 이어진다. 이를 조기에 예측할 수 있다면 예방적 지지 치료 계획·용량 조절·입원 예방이 가능해진다. 이 미충족 수요는 크지만, 기존 예측 모델 대부분은 단일 기관 후향 데이터에 머물렀다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">이 논문은 규모와 검증 설계 양면에서 기존 연구와 차별화된다. 암 환자 약 224,000명으로부터 수집된 약 1억 200만 건의 임상 측정값으로 모델을 사전훈련했고, 보류·전향·외부 검증 코호트 세 종류를 평가에 동시에 포함했다. 이 구조는 과적합과 기관 편향 두 가지 위험을 함께 통제하려는 설계다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">방법론 관점에서 가장 의미 있는 발견은 "다기관 데이터 풀링이 단기관 미세조정보다 일반화 성능을 더 크게 향상시킨다"는 결론이다. 이 결론이 원문에서 실제로 확인된다면 — 현재는 medRxiv 검색 스니펫 기반이다 — 임상 AI 배포 전략에 직접적인 처방을 제공한다. 해석: 여러 기관이 데이터를 공유하는 컨소시엄 구조가 개별 기관 자체 모델보다 일반화 성능이 높다면, 데이터 공유 협약에 드는 비용과 노력이 성능 향상으로 환원된다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">모델 아키텍처(종단 시계열 사전훈련이 트랜스포머 기반인지, 어떤 시계열 모델인지)와 사전훈련 태스크 정의가 공개되지 않아 재현이 어렵다. "SoTA 달성"의 비교 기준 — 어떤 베이스라인 모델과 동일 데이터 기반으로 비교했는지 — 도 원문에서 확인이 필요하다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">임상 배포까지의 거리를 가르는 지점은 규제 경로다. 이 시스템이 SaMD(Software as a Medical Device)로 분류되면 FDA AI/ML-based SaMD guidance와 Post-Market Performance Monitoring(PMPM) 요건을 충족해야 한다. 외부 검증 코호트가 있다는 점은 허가 신청 근거의 시작점이 될 수 있지만, 임상 개입(intervention)으로 이어지는 prospective 연구가 없으면 진료 표준 채택까지는 단계가 더 남아 있다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed"><strong>관전 포인트</strong>: 원문에서 (1) 예측 대상 이상반응 종류(혈액독성·신독성·면역독성 등)와 예측 리드 타임(lead time), (2) AUC·AUPRC 등 세부 성능 지표, (3) "전향적 코호트"의 구체 정의(개발 완료 후 독립 수집 데이터 여부)를 확인해야 이 논문의 실질적 기여를 평가할 수 있다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">🔭 Wide Angle</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm px-6 py-2">
+        <div class="flex items-start gap-3 py-4 border-b border-gray-100 last:border-0">
+          <div class="flex-1">
+            <p class="text-[15px] font-semibold text-gray-900 mb-1">Solvent: 다단계 역합성을 위한 장기 추론 에이전트 <span class="badge badge-preprint ">preprint</span></p>
+            <p class="text-[14px] text-gray-700 leading-relaxed">추정: 다단계 역합성 계획(retrosynthesis planning)을 단일 단계 모델 + 트리 탐색 조합이 아닌 장기 추론(long-horizon reasoning) 에이전트 문제로 재구성했다. 코드와 HuggingFace 모델이 공개됐다는 점이 빠른 학술·산업 채택의 촉매가 된다. 합성 경로 자동화는 신약 후보 물질 합성 가능성(synthesizability) 스크리닝과 직결되나, RetroAgent·ReTriP 등 동시기 연구와의 구체 비교는 원문 미확인이다. <a href="https://arxiv.org/abs/2610.32308" class="underline text-indigo-700" target="_blank">arXiv:2610.32308</a></p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 py-4 border-b border-gray-100 last:border-0">
+          <div class="flex-1">
+            <p class="text-[15px] font-semibold text-gray-900 mb-1">AskGLP1: GLP-1 경험 탐색을 위한 지식 그래프 LLM 에이전트 <span class="badge badge-preprint ">preprint</span></p>
+            <p class="text-[14px] text-gray-700 leading-relaxed">추정: 온라인 환자 내러티브(Reddit·포럼)에서 세마글루타이드·티르제파타이드 등 GLP-1 수용체 작용제(GLP-1 receptor agonist) 사용 경험을 지식 그래프와 LLM 에이전트로 구조화해 탐색한다. 임상시험이 포착 못하는 이상반응·패턴 신호 조기 탐지가 목적이나, 자기 선택·보고 편향이 내재해 가설 생성(hypothesis generation) 도구로 활용하는 수준에 그쳐야 한다. <a href="https://arxiv.org/abs/2610.34987" class="underline text-indigo-700" target="_blank">arXiv:2610.34987</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Threads to Follow</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <ul class="space-y-3 list-disc list-inside">
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>임상 AI 전향 검증 설계</strong>: C1(유전체 에이전트)과 C4(암 이상반응)가 각각 전향적 다기관 평가 설계를 채택했다. 이 흐름이 계속 쌓이면, in silico 벤치마크 중심의 임상 AI 평가 문화에 실질적 변화 압력이 생긴다. 두 논문 모두 preprint 상태이므로 동료심사 후 수치 변화를 추적할 필요가 있다.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>합성 게놈 생성의 도구화</strong>: HELICS(C2)처럼 바이오뱅크 규모 합성 게놈 생성기가 코드 공개로 이어지면, 희귀 유전자형 증강과 개인정보 보호 데이터 공유를 위한 표준 도구로 자리 잡을 가능성이 있다. 핵심 관문은 LD 구조 보존 검증과 형식적 프라이버시 보증이다.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>단백질 파운데이션 모델 통합</strong>: Trion-1(C3)이 제안하는 삼중모달 통합 방향은 AlphaFold2·ProteinMPNN·ESM 직렬 파이프라인 구조에 변화 압력을 가한다. AlphaFold3·ESM3 등 기존 강자와의 독립 비교 데이터가 나올 때 이 흐름의 실질적 의미를 평가할 수 있다.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>다기관 풀링 대 연합학습</strong>: C4의 "다기관 풀링 &gt; 단기관 미세조정" 발견은 federated learning 없이 centralized pooling이 작동한다는 신호다. 데이터 공유 정책이 허용된 환경에서 컨소시엄 설계의 근거 자료로 계속 추적할 가치가 있다.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Sources</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <ul class="space-y-2 text-[13.5px]">
+              <li><a href="https://arxiv.org/abs/2610.40556" class="text-indigo-600 underline" target="_blank">C1. Advancing Clinical Genomic Analysis with a Skill-Centred Agent — C1. Advancing Clinical Genomic Analysis with a Skill-Centred Agent</a></li>
+              <li><a href="https://arxiv.org/abs/2610.36361" class="text-indigo-600 underline" target="_blank">C2. HELICS: Biobank-scale Conditional Synthetic Genome Generation via Latent Flow Matching — C2. HELICS: Biobank-scale Conditional Synthetic Genome Generation via Latent Flow Matching</a></li>
+              <li><a href="https://arxiv.org/abs/2610.31215" class="text-indigo-600 underline" target="_blank">C3. Trion-1: Unifying Language, Protein Sequence, and Structure with Diffusion Language Models — C3. Trion-1: Unifying Language, Protein Sequence, and Structure with Diffusion Language Models</a></li>
+              <li><a href="https://www.medrxiv.org/content/10.64898/2026.10.22.26364879v1" class="text-indigo-600 underline" target="_blank">C4. Longitudinal AI Models Predict Cancer Adverse Events — C4. Longitudinal AI Models Predict Cancer Adverse Events</a></li>
+              <li><a href="https://arxiv.org/abs/2610.33315" class="text-indigo-600 underline" target="_blank">C5. MLIPDiff: Guiding Denoising Diffusion Models for Structure-Based Drug Design via MLIPs — C5. MLIPDiff: Guiding Denoising Diffusion Models for Structure-Based Drug Design via MLIPs</a></li>
+              <li><a href="https://arxiv.org/abs/2610.32308" class="text-indigo-600 underline" target="_blank">W1. Solvent: Long-Horizon Reasoning for Multi-Step Retrosynthesis — W1. Solvent: Long-Horizon Reasoning for Multi-Step Retrosynthesis</a></li>
+              <li><a href="https://arxiv.org/abs/2610.34987" class="text-indigo-600 underline" target="_blank">W2. AskGLP1: A Knowledge Graph LLM Agent for Exploring GLP-1 Experience from Online Patient Narratives — W2. AskGLP1: A Knowledge Graph LLM Agent for Exploring GLP-1 Experience from Online Patient Narratives</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="border-t border-gray-200 pt-8 pb-10 text-center">
+      <p class="text-sm text-gray-500 mt-4">paper-radar · 2026-W44</p>
+      <p class="text-xs text-gray-400 mt-1">바이오인포·임상ML·신약AI 논문 주간 요약. preprint 분석 포함.</p>
+    </footer>
+  </div>
+</body>
+</html>
