@@ -17,6 +17,10 @@ Author: {{ site.author.name }}. {{ site.author.bio }} Posts are written in Korea
 {% for p in site.posts %}{% if p.lang == "kr" %}
 - [{{ p.title }}]({{ p.url | absolute_url }}): {{ p.excerpt | strip_html | strip_newlines | strip | truncate: 200 }}{% endif %}{% endfor %}
 
+## Newsletters
+- [econ-radar](https://kakyungkim.github.io/econ-radar/): 한국어 일일 경제 뉴스레터(2026-06부터). 제약·바이오·AI 비중이 크고, 산업구조·투자·시장(유망 기업과 수요) 세 관점으로 정리한다. 매일 저녁 발행, 월요일 아침 주간 동향 리포트. 구독: https://buttondown.com/kakyungkim, 텔레그램 https://t.me/econradar
+- [paper-radar](https://kakyungkim.github.io/paper-radar/): 바이오인포매틱스·임상 ML·신약 AI 분야 주간 논문 다이제스트(bioRxiv, medRxiv, arXiv, PubMed). 방법·임상·산업 세 렌즈로 읽는다.
+
 ## Profiles
 {% for l in site.author.links %}{% if l.url contains 'http' %}
 - [{{ l.label }}]({{ l.url }}){% endif %}{% endfor %}
