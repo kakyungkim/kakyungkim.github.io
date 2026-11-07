@@ -98,7 +98,7 @@ Careful here. **It does not mean 27 numbers are wrong.** Opening them one by one
 
 The **21 metrics** are computed from raw data. Accuracy is correct-over-total, so of course it isn't sitting in a results file in that form. The real problem is elsewhere: **where that computation happened isn't recorded**, not in the manuscript and not in the repository.
 
-The **5 percentages** bother me more. The value 21.4 appears five times, and you can't tell from the text what was divided by what. A ratio without a denominator can't be sized. 21 out of 100 and 3 out of 14 are both 21.4%, and they don't mean the same thing.
+The **5 percentages** bother me more. The value 21.4 appears five times, and you can't tell from the text what was divided by what. A ratio without a denominator can't be sized. 12 out of 56 and 3 out of 14 are both 21.4%, and they don't mean the same thing.
 
 ## A human referee and a machine landed on the same spot
 
