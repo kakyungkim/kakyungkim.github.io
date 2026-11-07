@@ -17,7 +17,9 @@ Diagnosis Division, where I served as team lead through September 2026.
 - Designed, built, and now run four internal data tools together with the portal that ties them
   together.
 - Preparing an oral presentation for GIW ISCB-Asia in November 2026, on a reliability map for
-  per-gene multiome RNA velocity parameters in single-cell kinetics.
+  per-gene multiome RNA velocity parameters in single-cell kinetics. The same study was accepted to
+  the ML4H 2026 Findings track (NeurIPS 2026 workshop).
+- Leading Falsify at Pseudo Lab, a verification benchmark for checking research produced by AI.
 
 ## What this blog covers
 
