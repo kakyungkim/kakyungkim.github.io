@@ -81,7 +81,7 @@ The audit also showed that every daily page was titled with nothing but a date (
 - Titles now lead with the day's main story ("DNA 치료백신의 첫 FDA 허가 \| econ-radar 2026-11-01").
 - New pages and the 161 existing ones now carry a description, Open Graph preview tags, and NewsArticle structured data.
 - Each daily page now has an email signup button next to the Telegram one.
-- Topic notes that had split over spacing and hyphens (five for ADC, six for GLP-1, and so on) were merged into 13 canonical notes, which will feed topic pages next.
+- Topic notes that had split over spacing and hyphens (five for ADC, six for GLP-1, and so on) were merged into 13 canonical notes, which now feed the topic hubs below.
 
 I haven't measured any effect yet. Page analytics went in today, so I'll compare in a few weeks.
 
@@ -103,4 +103,4 @@ When I find mistakes like these, I fix them and keep a record. If a number looks
 
 ## Next
 
-Next I want to pull events (deals, approvals, trial readouts, earnings) out of the 143 issues into a table, and use it to build topic pages that follow ADC, GLP-1, HBM, and the like over time, for readers who come looking for a topic rather than a date. paper-radar has the same root problem, since the cloud session can't open preprint abstracts either, so I've started moving its candidate collection to GitHub Actions.
+I pulled 3,603 items out of the daily issues into a table and used it to open 12 [topic hubs](/econ-radar/topics/) that follow SK hynix, HBM, ADCs, GLP-1, and more over time, for readers who come looking for a topic rather than a date (the hubs are in Korean). Next I want to tag each item with company and event type (deal, approval, trial readout, earnings) so the table can feed a book and papers. paper-radar has the same root problem, since the cloud session can't open preprint abstracts either, so I've started moving its candidate collection to GitHub Actions.
