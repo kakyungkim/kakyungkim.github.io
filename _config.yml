@@ -1,5 +1,5 @@
 title: "Ka-Kyung Kim"
-subtitle: "Drug Discovery · Precision Medicine · Bioinformatics"
+subtitle: "Bioinformatics · Clinical Genomics · AI Agents"
 description: "Research notes on drug discovery and precision medicine: genomic analysis, AI model validation, and the LLM agent harnesses I build and check."
 locale: "en-US"
 url: "https://kakyungkim.github.io"
@@ -13,7 +13,7 @@ minimal_mistakes_skin: "air"   # default | air | aqua | contrast | dark | dirt |
 # --- Author profile (sidebar) ---
 author:
   name: "Ka-Kyung Kim"
-  bio: "Genomic analysis from specimen to clinical decision. Chief Researcher, Diagnosis Division, Cytogen."
+  bio: "Building AI agents for biomedical research and checking their conclusions. Chief Researcher, Diagnosis Division, Cytogen."
   location: "Seoul, Korea"
   links:
     - label: "Email"
