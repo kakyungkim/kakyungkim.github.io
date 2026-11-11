@@ -16,7 +16,7 @@ LLMs and agents. I work at Cytogen as Chief Researcher in the Diagnosis Division
   adverse event review. The critic agent rejected all 16 planted overclaims and flagged none of 17
   clean cases.
 - **ML4H 2026 Findings:** first and corresponding author of a paper on a reliability map for per-gene
-  RNA velocity parameters. The same study is an oral talk at BIOINFO/GIW ISCB-Asia 2026 in November.
+  RNA velocity parameters. The same study is an oral talk at BIOINFO/GIW ISCB-Asia 2026 on November 18.
 
 ## My part on the NVIDIA AI stack
 
