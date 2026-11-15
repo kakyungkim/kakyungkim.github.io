@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>paper-radar — 2026-W45</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+    body { font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; font-size:16px; line-height:1.78; }
+    .badge { font-size:11px; font-weight:700; padding:2px 9px; border-radius:9999px; display:inline-block; margin-right:4px; }
+    .badge-genome   { background:#dcfce7; color:#166534; }
+    .badge-clinical { background:#dbeafe; color:#1e40af; }
+    .badge-drug     { background:#ede9fe; color:#5b21b6; }
+    .badge-protein  { background:#fce7f3; color:#9d174d; }
+    .badge-llmbio   { background:#fef9c3; color:#713f12; }
+    .badge-other    { background:#f3f4f6; color:#374151; }
+    .badge-preprint { background:#fef3c7; color:#92400e; }
+    .badge-peer     { background:#d1fae5; color:#065f46; }
+    .badge-insilico { background:#e0e7ff; color:#3730a3; }
+    .badge-retro    { background:#fef9c3; color:#713f12; }
+    .badge-prosp    { background:#d1fae5; color:#065f46; }
+    .badge-multi    { background:#dbeafe; color:#1e40af; }
+    .badge-rct      { background:#dcfce7; color:#166534; }
+    .badge-nocode   { background:#fee2e2; color:#991b1b; }
+    .key-point { border-left:4px solid #4338ca; padding:10px 16px; background:#f5f3ff; border-radius:0 10px 10px 0; margin-top:12px; }
+    .key-point .label { font-size:11px; font-weight:700; letter-spacing:0.06em; color:#4338ca; margin-bottom:4px; }
+    .key-point .text { font-size:15px; font-weight:500; color:#312e81; line-height:1.7; }
+    .insight { border-left:4px solid #14b8a6; padding:10px 16px; background:#f0fdfa; border-radius:0 10px 10px 0; margin-top:10px; }
+    .insight .label { font-size:11px; font-weight:700; letter-spacing:0.06em; color:#0f766e; margin-bottom:4px; }
+    .insight .text { font-size:15px; color:#134e4a; line-height:1.7; }
+    .lens-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+    .lens-item { font-size:13.5px; color:#374151; padding:4px 10px; background:#f9fafb; border:1px solid #e5e7eb; border-radius:8px; }
+    .lens-demand { font-size:13.5px; color:#92400e; padding:4px 10px; background:#fef3c7; border:1px solid #fde68a; border-radius:8px; }
+    .verify-tag { font-size:12px; color:#6b7280; margin-top:8px; }
+</style>
+<script data-goatcounter="https://kakyungkim.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <div class="max-w-3xl mx-auto px-4 py-10">
+    <header class="mb-8">
+      <div class="flex items-center gap-3 mb-2">
+        <img src="logo-64.png" alt="paper-radar" class="w-9 h-9 rounded-xl" onerror="this.style.display='none'">
+        <span class="text-2xl font-bold tracking-tight text-gray-900">paper-radar 주간 다이제스트</span>
+        <span class="text-lg text-gray-500 font-medium">2026-W45</span>
+      </div>
+      <p class="text-xs text-gray-400">바이오인포·임상ML·신약AI 논문 주간 요약. 모든 해석은 preprint 단계에서의 분석임.</p>
+    </header>
+
+    <section class="mb-8">
+      <h2 class="text-xs font-bold tracking-widest text-indigo-600 uppercase mb-3">At a Glance</h2>
+      <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-5 space-y-3">
+        <p class="text-[15px] leading-relaxed text-gray-800">단일세포 파운데이션 모델(FM) 생태계가 본격적인 도구화 단계에 접어들었다. MUTUAL은 기존 RNA/ATAC FM을 고정한 채로 300만 쌍 세포에서 공유 잠재 공간을 학습해 재학습 없는 크로스모달 전이를 가능하게 했고, 별도 벤치마크 연구(W1)는 FM이 종간 전이와 in silico 교란에서 가장 가치를 더한다는 증거를 모았다. 한편 반대 방향의 신호도 함께 나왔다 — Evo2 맹점 연구는 집계 성능이 높아도 tRNA 변이 오분류가 발생할 수 있다는 임상 경고를 발했고, LLM 허약 지수 연구는 LLM 보강이 민감도는 올리되 판별력은 개선하지 않는다는 음성 결과를 명확히 보고했다. 이 흐름의 배경에는 PrismSNV+Ligo-Seq가 제기한 더 근본적인 질문이 있다 — 체세포 변이의 영향이 서열이 아니라 세포 상태로 결정된다면, 현재 변이 해석 체계 전체를 다시 쌓아야 한다.</p>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">This Week's Top 5</h2>
+      <div class="space-y-6">
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#1</span>
+            <span class="badge badge-preprint ">preprint</span> <span class="badge badge-nocode ">코드 미공개 — 재현 불가</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-1">단일세포 멀티모달 파운데이션 모델: 전사체와 크로마틴을 연결하다 (MUTUAL)</h3>
+          <p class="text-[12px] text-gray-400 mb-1">Bao, X.; Zhu, J.; Song, X.; et al.</p>
+          <p class="text-[13px] text-gray-500 mb-3">출처 · 2026-11-02 · [preprint] · <a href="https://doi.org/10.64898/2026.10.28.762297" class="underline text-indigo-700" target="_blank">DOI:10.64898/2026.10.28.762297</a> · 코드 미공개 — 재현 불가</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">scFoundation과 EpiAgent 가중치를 동결(frozen)한 상태에서 각 모달리티의 임베딩과 선형 요약(linear summary)을 결합해 RNA–ATAC 공유 공간을 구축했다. 훈련에 사용하지 않은 10개 보류 데이터셋에서 (1) RNA↔ATAC 세포 매칭, (2) ATAC-only 세포 주석, (3) RNA-only 세포에 TF 모티프 활성도 전이를 재학습 없이 수행했으며, 같은 데이터셋의 다른 도너에서 학습한 모델보다 정확하게 세포를 매칭했다. 줄기세포 유래 아이슬렛 성숙 계열에서 RNA로 예측한 TF 모티프 활성도가 측정된 단계별 변화를 재현했다.</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">복잡한 아키텍처 없이 선형 프로젝션만으로 모달리티 간 정렬이 된다는 점이 실용성의 핵심이다. 단일세포 멀티오믹 비용(10x Multiome 등)이 높은 연구 환경에서 기존 scRNA-seq 라이브러리로 에피게놈 조절 신호를 소급 추출할 수 있다면, 타깃 발굴 초기 단계의 데이터 생성 비용 구조가 달라진다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: frozen FM 위의 선형 RNA-ATAC 브릿지 학습. 300만 세포·400 데이터셋 규모의 공유 공간. 선형 프로젝션 차원·하이퍼파라미터 미공개.</span> <span class="lens-item">🩺 Clinical: in silico 단계. 임상 등급 샘플(생검, FFPE) 성능 미검증. 훈련 분포 밖 세포 유형에서의 성능 불명.</span> <span class="lens-item">🏭 Industry: RNA-only 데이터에서 ATAC 정보 소급 추론 가능 → 멀티오믹 데이터 생성 비용 없이 TF 조절 분석 가능. 코드 공개 확인 후 R&amp;D 타깃 발굴 파이프라인 직접 통합 검토.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-insilico ">in silico</span> <span class="badge badge-other ">10개 보류 데이터셋 (preprint</span> <span class="badge badge-other ">미동료심사)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#2</span>
+            <span class="badge badge-preprint ">preprint</span> <span class="badge badge-nocode ">코드 미공개 — 재현 불가</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-1">DNA 파운데이션 모델의 임상적 맹점: Evo2 변이 효과 예측 벤치마크</h3>
+          <p class="text-[12px] text-gray-400 mb-1">Mathur, V.; Sachidanandam, R.</p>
+          <p class="text-[13px] text-gray-500 mb-3">출처 · 2026-11-03 · [preprint] · <a href="https://doi.org/10.64898/2026.03.10.710786" class="underline text-indigo-700" target="_blank">DOI:10.64898/2026.03.10.710786</a> · 코드 미공개 — 재현 불가</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">미토콘드리아 변이에서 AUROC=0.927을 달성했지만, 코돈 사용 편향(codon usage bias)과 같은 단범위 신호에서 맹점이 확인됐다. 생물학적으로 중립인 인접 서열(flanking sequence) 변화만으로 병원성 tRNA 변이가 양성(benign)으로 오분류될 수 있다. 이는 모델의 예측 성능이 생물학적 제약보다 학습된 서열 규칙성에 더 많이 의존할 가능성을 시사한다.</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">"집계 AUROC 높음 = 임상 준비 완료"라는 단순 논리의 위험성을 실증한 연구다. DNA FM을 임상 변이 해석에 도입하기 전, 타깃 변이 클래스(tRNA 변이, 비코딩 변이 등)별로 맹점을 사전 평가하는 캘리브레이션 단계가 의무화돼야 한다는 실용적 교훈이다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: 코돈 사용 편향과 인접 서열 중립성에 기반한 통제된 벤치마크 설계. 맹점의 임상 발생 빈도는 미측정.</span> <span class="lens-item">🩺 Clinical: 직접적 임상 경고. tRNA 변이를 다루는 미토콘드리아 질환 진단(MELAS, MERRF 등)에서 Evo2 단독 사용은 위험할 수 있다. 외부 맥락: 핵 비코딩 변이, CNV, 인델 등 다른 임상 중요 변이에 대한 맹점은 별도 평가 필요.</span> <span class="lens-item">🏭 Industry: Evo2 임상 배포를 검토하는 진단 기업에서 이 논문의 벤치마크 프레임이 검증 요건으로 인용될 가능성이 있다. DNA FM의 IVD 허가 경로에서 체계적 맹점 보완이 선행 과제가 된다.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-insilico ">in silico</span> <span class="badge badge-other ">미토콘드리아</span> <span class="badge badge-other ">핵 서열 통제 벤치마크 (preprint</span> <span class="badge badge-other ">미동료심사)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#3</span>
+            <span class="badge badge-preprint ">preprint</span> <span class="badge badge-nocode ">코드 미공개 — 재현 불가</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-1">약물 발굴을 위한 스케일러블 AI 사이언티스트 (El Agente Fármaco)</h3>
+          <p class="text-[12px] text-gray-400 mb-1">Marcel Müller, Mohammad Ghazi Vakili, Yoshihiro Ogura, et al.</p>
+          <p class="text-[13px] text-gray-500 mb-3">출처 · 2026-11-02 · [preprint] · <a href="https://arxiv.org/abs/2611.03832" class="underline text-indigo-700" target="_blank">arXiv:2611.03832</a> · 코드 미공개 — 재현 불가</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">에이전트 하네스가 도구를 선택하고 결과를 검토하며 후속 단계를 조정한다. 핵심은 Fármaco Atlas — 분자·구조·결과를 출처와 함께 저장하는 공유 과학 메모리로, 화합물 컬렉션 단위 계산이 가능해 화합물마다 별도 LLM 결정이 필요 없다. 전문가 주도 캠페인 대비 소급 비교에서 경쟁적 도킹 점수와 더 높은 약물유사성(drug-likeness)을 달성했고, 22-task 벤치마크에서 최고 평균 점수와 낮은 중앙값 토큰 사용량을 기록했다.</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">Fármaco Atlas의 아이디어 — 결정 근거와 결과를 함께 보존하는 출처 추적 과학 메모리 — 는 약물 발굴을 넘어 바이오인포 파이프라인 결과 관리에도 적용할 만하다. 단, 22-task 평가의 "model-judged score"는 LLM 자체가 출력을 평가한다는 점에서 평가자 편향 위험이 있고, 전향적 타깃-히트 캠페인 결과가 없어 주장 강도는 아직 낮다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: LLM 오케스트레이터 + Fármaco Atlas (provenance-linked 메모리). 사용된 LLM 종류·버전, 도킹 도구, 소급 비교 조건 미공개.</span> <span class="lens-item">🩺 Clinical: 신약 발굴 lead identification 단계 — 임상까지 10–15년, 성공률 ~5–10%의 파이프라인이 남아 있다. 세포·동물 활성 검증 없음.</span> <span class="lens-item">🏭 Industry: 소분자 도킹 단계의 전문가 개입 감소 → hit identification 속도·비용 구조에 직접 영향. Insilico Medicine, Recursion/Exscientia, Schrödinger 등과 경쟁·보완 구도.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-insilico ">in silico</span> <span class="badge badge-other ">소급 비교 (preprint</span> <span class="badge badge-other ">미동료심사)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#4</span>
+            <span class="badge badge-preprint ">preprint</span> <span class="badge badge-nocode ">코드 미공개 — 재현 불가</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-1">LLM 보강 전자 허약 지수: 더 많이 찾되 더 잘 예측하지는 않는다</h3>
+          <p class="text-[12px] text-gray-400 mb-1">Dalal, A. K.; Lundstedt, J.; Ernecoff, N.; et al.</p>
+          <p class="text-[13px] text-gray-500 mb-3">출처 · 2026-11-05 · [preprint] · <a href="https://doi.org/10.64898/2026.11.04.26367272" class="underline text-indigo-700" target="_blank">DOI:10.64898/2026.11.04.26367272</a> · 코드 미공개 — 재현 불가</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">616건 입원(50세 이상, 2022–2024). 표준 eFI는 35.1%를 허약으로 분류했고, GPT-4o 기반 LLM 보강 eFI는 58.8%를 허약으로 분류했다. 두 지수 모두 복합 불량 결과(퇴원 시설 이송·재입원·90일 내 사망)와 독립적으로 연관: 조정 OR 1.98(95% CI 1.39–2.83) vs 2.46(1.75–3.47). AUROC는 0.636 vs 0.660으로 차이 0.024(95% CI −0.006~0.053; p=0.12). LLM 보강으로 민감도 42.5%→69.4%, 특이도 73.0%→52.7%.</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">"더 많이 찾는다"와 "더 잘 예측한다"는 다른 목표다. 선별(허약 환자를 놓치지 않는) 목적이라면 민감도 향상은 의미 있고, 불량 결과 예측(AUROC 개선) 목적이라면 현재 접근법의 한계가 있다. 임상 AI 프로젝트에서 LLM 보강을 설계하기 전에 목적 지표를 먼저 고정해야 한다는 사례다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: GPT-4o + 물리치료(PT) 기록에서 허약 결손 추출. PT 기록 보유 329건(53.4%)에서만 LLM 보강 가능. GPT-4o 버전·프롬프트 미공개.</span> <span class="lens-item">🩺 Clinical: 단일 의료시스템 후향 코호트. 외부 타당성 미검증. LLM 추출 정밀도·재현율 gold standard 비교 미제공. 허약하지만 LLM으로도 놓치는 환자 30.6% — 고위험군에서 허위 음성은 환자 안전 문제다.</span> <span class="lens-item">🏭 Industry: EHR-AI 임상 위험 계층화 공간에서 "LLM 보강 = 무조건 개선"이라는 단순 주장에 대한 과학적 균형추 역할. 판별력 미개선이라는 결과는 FDA·CE 마킹 허가 과정에서도 핵심 질문이 된다.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">후향적 코호트</span> <span class="badge badge-other ">단일 의료시스템</span> <span class="badge badge-other ">N=616 (preprint</span> <span class="badge badge-other ">미동료심사)</span></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+          <div class="flex items-center gap-2 mb-2 flex-wrap">
+            <span class="text-xs font-bold text-gray-400">#5</span>
+            <span class="badge badge-preprint ">preprint</span> <span class="badge badge-nocode ">코드 미공개 — 재현 불가</span>
+          </div>
+          <h3 class="text-[17px] font-bold text-gray-900 leading-snug mb-1">세포 상태가 변이의 의미를 결정한다: PrismSNV + Ligo-Seq</h3>
+          <p class="text-[12px] text-gray-400 mb-1">Sun, P.; Jia, P.; Lou, C.; et al.</p>
+          <p class="text-[13px] text-gray-500 mb-3">출처 · 2026-11-02 · [preprint] · <a href="https://doi.org/10.64898/2026.10.28.760887" class="underline text-indigo-700" target="_blank">DOI:10.64898/2026.10.28.760887</a> · 코드 미공개 — 재현 불가</p>
+          <div class="key-point">
+            <div class="label">KEY POINT</div>
+            <div class="text">26개 샘플(3개 암종)에서 60% 이상의 후보 SNV가 세포 유형별로 유의미한 전사체 변위(transcriptomic displacement)를 보였으며, 변위 크기의 변동폭이 30% 이상이었다. 서열 기반 병원성 점수는 세포 수준 변위와 낮은 상관을 보였다. 6개 암종 전체에서 상위 변위 SNV의 3% 미만만 ClinVar에 등재돼 있다. 655,349개 CD4+ T세포 전사체 분석에서 같은 SNV의 유전자 연관이 T세포 활성화 중 크기뿐 아니라 방향도 바뀌었다.</div>
+          </div>
+          <div class="insight">
+            <div class="label">💡 인사이트</div>
+            <div class="text">"변이-세포 쌍(variant-cell pair)"이 체세포 변이 해석의 핵심 단위라는 주장은 현재 서열 기반 VUS 분류 체계(ACMG/AMP) 전체를 흔드는 명제다. 단, 이 연구가 측정한 것은 전사체 변위이지 기능적 결과(phenotypic consequence)가 아니며, Ligo-Seq 플랫폼도 프리프린트와 함께 처음 공개된 것으로 보인다. 패러다임 전환의 선행 신호로 모니터링하되, 대규모 외부 검증이 나올 때까지 현행 체계를 대체하는 증거로 과대해석하지 않는 것이 중요하다.</div>
+          </div>
+<div class="lens-row"><span class="lens-item">🔬 Method: Ligo-Seq(단일세포 전장 전사체 시퀀싱) + PrismSNV(SNV 상태 토글에 연결된 전사체 변위 정량). 클론 배경 통제 방법, Ligo-Seq 커버리지 균일성 미제공.</span> <span class="lens-item">🩺 Clinical: 탐색적 플랫폼 개발 단계. 임상 결과 미연결. 세포 맥락 의존성이 강한 변이가 임상 중요 타깃(BRCA1/2, KRAS 등)에서도 같은 패턴인지 별도 연구 필요.</span> <span class="lens-item">🏭 Industry: Foundation Medicine(Roche)·Guardant Health 등 현행 NGS 기반 정밀 종양학 플랫폼이 세포 맥락을 무시한다는 근본적 한계를 실증. 단일세포 기반 액체생검(Mission Bio, Scale Biosciences 등) 경쟁 위치 강화 가능성.</span></div>
+<div class="verify-tag">검증 수준: <span class="badge badge-other ">탐색적</span> <span class="badge badge-insilico ">in silico</span> <span class="badge badge-other ">26개 암 샘플 + 655</span> <span class="badge badge-other ">349개 T세포 (preprint</span> <span class="badge badge-other ">미동료심사)</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Deep Dive</h2>
+      <div class="mb-6">
+        <h3 class="text-[16px] font-bold text-gray-800 mb-4">C2. Evo2 맹점 — "AUROC 0.927이어도 오진한다"는 경고의 함의</h3>
+        <div class="space-y-3">
+          <p class="text-[15px] text-gray-800 leading-relaxed">DNA 파운데이션 모델(FM)에 대한 임상 기대는 높다. 수조 토큰으로 학습된 모델이 서열 하나를 받아 병원성 여부를 예측한다면, 임상 유전체 진단에서 오랫동안 미충족 수요였던 VUS(임상적 의미 불명 변이) 분류 문제가 해소될 수 있다. Evo2의 집계 AUROC=0.927은 그 기대에 부응하는 숫자처럼 보인다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">이 논문은 그 숫자의 이면을 파고든다. 미토콘드리아 변이에서 높은 집계 성능을 달성하면서도, 코돈 사용 편향(codon usage bias)처럼 단범위(short-range) 서열 신호에서는 체계적 맹점이 존재한다. 더 직접적인 경고는 인접 서열 감도다 — 초록에 직접 인용된 발견에 따르면, 생물학적으로 중립인 인접 서열 변화만으로 병원성 tRNA 변이가 양성(benign)으로 오분류될 수 있다. tRNA 변이는 미토콘드리아 질환(MELAS, MERRF, Leigh syndrome 등)의 주요 원인 변이 군이다. 외부 맥락: 이 군에서 오분류가 발생하면 환자에게 "이 변이는 무해하다"는 잘못된 보고가 갈 수 있다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">왜 이런 맹점이 생기는가. 초록의 표현을 그대로 옮기면, Evo2의 예측 성능이 "생물학적 제약을 학습한 것보다 서열 규칙성(sequence regularity)을 학습한 것에 더 의존"할 가능성이 있다. 7B~40B 파라미터로 2.7조 토큰을 학습한 모델도 단범위 생물학적 신호를 충분히 내재화하지 못할 수 있다는 뜻이다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">논문이 열어 놓은 질문이 여러 개 있다. 이 맹점이 Evo2 고유 문제인지 DNA FM 전반의 구조적 취약점인지는 아직 불명이다 — 초록은 DNABERT-2도 유사 평가 대상으로 언급하지만 구체 비교 범위가 불명이다. 맹점이 임상적으로 얼마나 자주 발생하는지(빈도·규모)도 이번 연구는 답하지 않는다. 코드가 공개되지 않아 벤치마크를 다른 DNA FM에 확장하기도 어렵다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">이 논문의 가장 큰 기여는 경고 신호의 구조를 보여줬다는 것이다. 임상 배포를 검토하는 R&amp;D·진단 조직에게 메시지는 명확하다 — DNA FM을 도입하기 전에 타깃 변이 클래스별로 맹점을 사전 평가하는 캘리브레이션 단계를 의무화해야 한다. 이 논문이 제시한 통제된 벤치마크 설계(codon bias + flanking neutrality test)는 그 사전 평가의 출발점이 될 수 있다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed"><strong>관전 포인트</strong>: 원문에서 (1) DNABERT-2와의 비교 범위, (2) 맹점이 발생하는 변이 클래스의 임상 빈도 추정, (3) Evo2 버전별 차이 여부를 확인해야 이 경고의 실제 범위를 가늠할 수 있다.</p>
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <h3 class="text-[16px] font-bold text-gray-800 mb-4">C5. 변이-세포 쌍 — 현재 변이 해석 체계가 놓치는 것</h3>
+        <div class="space-y-3">
+          <p class="text-[15px] text-gray-800 leading-relaxed">체세포 변이를 어떻게 해석할 것인가. 지금까지의 답은 주로 서열에 있었다 — ClinVar 등재 여부, CADD/REVEL/AlphaMissense 같은 서열 기반 병원성 점수, 재발도. 같은 변이는 어느 환자, 어느 세포에서나 같은 의미를 가진다고 암묵적으로 전제해 왔다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">PrismSNV와 Ligo-Seq는 그 전제에 직접 의문을 제기한다. 단일세포 전장 전사체 시퀀싱(Ligo-Seq)으로 세포 내 SNV 상태 토글에 연결된 전사체 변위를 측정했더니, 세 가지 계층이 드러났다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">26개 암 샘플·3개 암종에서 60% 이상의 후보 SNV가 세포 유형에 따라 전사체 변위가 유의하게 달랐고, 그 크기의 변동폭이 30% 이상이었다. 더 의미 있는 것은 두 번째 발견이다 — 서열 기반 병원성 점수와 세포 수준 변위의 상관이 낮았고, 상위 변위 SNV의 3% 미만만 ClinVar에 등재돼 있었다. 임상적으로 annotation되지 않은 변이 대부분이 세포 맥락에서는 활발한 영향을 가질 수 있다는 뜻이다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">655,349개 CD4+ T세포 전사체에서 나온 세 번째 발견이 가장 충격적이다 — 같은 SNV의 유전자 연관이 T세포 활성화 중 크기뿐 아니라 방향도 바뀌었다. 변이가 활성화 전에는 특정 유전자를 올리고, 활성화 후에는 내린다는 것은 "변이 하나에 하나의 임상 의미"라는 현재 체계가 근본적으로 불완전함을 시사한다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">이 연구의 한계를 과소평가해서는 안 된다. Ligo-Seq 자체가 프리프린트와 함께 처음 공개된 플랫폼이다(추정). 26개 샘플은 암종·세포 유형별 세분화 분석에 충분하지 않다. 전사체 변위가 단백질 기능 변화, 나아가 임상 결과로 이어지는지는 미검증이다. 클론 배경 통제(같은 세포 유형 내 SNV 보유/비보유 세포가 클론적으로 다를 수 있다)가 충분한지도 초록 범위에서 판단하기 어렵다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed">그럼에도 이 연구 방향을 계속 추적해야 하는 이유는 그 질문 자체의 위치에 있다. 패러다임이 아직 바뀌지 않았을 때 선행 신호를 포착하는 것이 중요하다. 대규모 독립 검증이 나올 때까지 현행 VUS 분류 체계를 대체하는 증거로 사용하는 것은 과대해석이지만, 단일세포 변이-전사체 연결 연구의 다음 논문들을 추적하는 것은 충분한 이유가 있다.</p>
+          <p class="text-[15px] text-gray-800 leading-relaxed"><strong>관전 포인트</strong>: (1) PrismSNV·Ligo-Seq 코드·데이터 공개 여부, (2) 고빈도 임상 변이(BRCA1/2, KRAS 등)에서 같은 세포 맥락 의존성이 재현되는지, (3) 클론 배경 통제 방법 원문 확인.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">🔭 Wide Angle</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm px-6 py-2">
+        <div class="flex items-start gap-3 py-4 border-b border-gray-100 last:border-0">
+          <div class="flex-1">
+            <p class="text-[15px] font-semibold text-gray-900 mb-1">단일세포 파운데이션 모델이 가치를 더하는 태스크와 그렇지 않은 태스크 (Cupaioli &amp; Merelli, biorxiv 2026-11-04) </p>
+            <p class="text-[14px] text-gray-700 leading-relaxed">· <strong>[preprint]</strong> — 5개 FM(scGPT, Geneformer V1·V2, Nicheformer, scFoundation)을 단순 베이스라인과 비교한 종합 벤치마크. 종간 주석 전이에서 FM이 가장 뚜렷한 강점을 보였다(Nicheformer: human→mouse lung 정확도 0.98; Geneformer V2·scFoundation: ~0.90 vs 베이스라인 0.68). Zero-shot in silico 교란에서도 scFoundation이 최대 75%를 올바른 방향으로 이동시켰다. 반면 같은 종 내에서는 FM 임베딩이 PCA 수준을 크게 넘지 않았다. 벤치마크 패키지 fmaudit 공개 예정. <a href="https://doi.org/10.64898/2026.11.03.763968" class="underline text-indigo-700" target="_blank">DOI:10.64898/2026.11.03.763968</a></p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 py-4 border-b border-gray-100 last:border-0">
+          <div class="flex-1">
+            <p class="text-[15px] font-semibold text-gray-900 mb-1">자율 바이오인포매틱스에서 확장 추론 LLM이 오히려 실패하는 이유와 해결책 (Salami et al., biorxiv 2026-11-03) </p>
+            <p class="text-[14px] text-gray-700 leading-relaxed">· <strong>[preprint]</strong> — 컨테이너화된 계산 생물학 샌드박스(scRNA-seq, DESeq2, 변이 우선순위화; n=22/군)에서 확장 추론 모델(DeepSeek-R1-Distill-Qwen-14B)이 명령어 튜닝 모델(Qwen2.5-Coder-14B)보다 오히려 낮은 성능을 보인 역설을 처음 체계적으로 분석했다. 두 가지 실패 모드 — PubMed Prior Trap(문헌 추정으로 실증 계산 대체)과 태그 언어 중첩 충돌 — 를 식별하고, DTDR(Dual Track Decoupled Reasoning) 아키텍처로 코드 오류 81% 감소, 솔루션 단계 66% 감소를 달성했다. <a href="https://doi.org/10.64898/2026.10.30.763189" class="underline text-indigo-700" target="_blank">DOI:10.64898/2026.10.30.763189</a></p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 py-4 border-b border-gray-100 last:border-0">
+          <div class="flex-1">
+            <p class="text-[15px] font-semibold text-gray-900 mb-1">370만 종양학 초록에서 변이-치료-암 연관성 대규모 추출 (Variantscape; Wosny et al., medrxiv 2026-11-02) </p>
+            <p class="text-[14px] text-gray-700 leading-relaxed">· <strong>[preprint]</strong> — 2014–2026년 370만 편 초록에서 변이·암 유형·치료제를 함께 언급한 37,895편을 선별했다. LLM 검증으로 35,224편에서 연관성 확인, 최종 10,571개 노드·44,644개 엣지의 그래프로 구축(197개 암 유형, 547개 치료제, 11,985개 고유 변이). BRAF V600E(흑색종) 같은 표준 연관성은 강하게 연결됐고, 고신뢰도 문헌 근거를 가진 희귀 변이도 발굴됐다. 분자 종양위원회(MTB) 준비에 직접 활용 가능한 오픈 액세스 도구다. <a href="https://doi.org/10.64898/2026.08.02.26359492" class="underline text-indigo-700" target="_blank">DOI:10.64898/2026.08.02.26359492</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Threads to Follow</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <ul class="space-y-3 list-disc list-inside">
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>단일세포 FM의 도구화 단계</strong>: MUTUAL(C1)과 W1 벤치마크가 같은 주에 나왔다. FM이 종간 전이와 in silico 교란에서 베이스라인을 뛰어넘는다는 증거가 쌓이면서, "어떤 태스크에서 쓸 것인가"라는 질문이 "쓸 것인가"를 대체하고 있다. fmaudit 패키지 공개 시 직접 단일세포 파이프라인 평가에 적용할 수 있다.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>DNA FM 임상 적용의 맹점 지도</strong>: C2(Evo2)가 코돈 편향·인접 서열 감도 맹점을 실증했다. 이 벤치마크 프레임이 코드로 공개되면 HyenaDNA, Nucleotide Transformer 등 다른 DNA FM에 같은 평가를 적용할 수 있다. 임상 DNA FM 도입을 검토하는 조직은 이 평가를 사전 캘리브레이션 단계로 의무화할 필요가 있다.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>세포 맥락 변이 해석의 증거 쌓기</strong>: C5(PrismSNV)는 패러다임 전환의 선행 신호다. 대규모 독립 코호트, 임상 중요 변이 클래스(BRCA1/2, KRAS 등) 검증, Ligo-Seq 플랫폼의 비용·처리량 개선이 후속 논문에서 확인돼야 임상 함의가 현실화된다. PrismSNV·Ligo-Seq 코드 공개 여부 추적이 첫 번째 관문이다.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>LLM 보강의 목적 명세</strong>: C4(허약 지수)는 LLM 보강이 민감도 목표와 판별력 목표를 동시에 만족하지 않는다는 것을 보였다. 이 구분은 EHR-LLM 프로젝트 설계 전 단계에서 반드시 해결해야 할 과제다. 같은 패턴이 다른 임상 텍스트 추출(퇴원 기록, 간호 기록 등)에서도 반복되는지 후속 연구 추적 가치가 있다.</li>
+          <li class="text-[15px] text-gray-800 leading-relaxed"><strong>자율 바이오인포매틱스의 추론 모델 선택</strong>: W2(Reasoning Paradox)가 보여준 역설 — 더 많이 추론하는 모델이 오히려 실패한다 — 은 AI 에이전트 기반 계산 생물학 파이프라인 구축 시 모델 선택 기준에 직접 영향을 준다. DTDR 아키텍처 코드가 공개되면 실제 scRNA-seq·DESeq2 파이프라인에서 평가해볼 가치가 있다.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b border-gray-200">Sources</h2>
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <ul class="space-y-2 text-[13.5px]">
+              <li><a href="https://doi.org/10.64898/2026.10.28.762297" class="text-indigo-600 underline" target="_blank">C1. MUTUAL: A single-cell multimodal foundation model enables cross modality analysis — C1. MUTUAL: A single-cell multimodal foundation model enables cross modality analysis</a></li>
+              <li><a href="https://doi.org/10.64898/2026.03.10.710786" class="text-indigo-600 underline" target="_blank">C2. Benchmarking DNA Foundation Models: Biological Blind Spots in Evo2 Variant-Effect Prediction — C2. Benchmarking DNA Foundation Models: Biological Blind Spots in Evo2 Variant-Effect Prediction</a></li>
+              <li><a href="https://arxiv.org/abs/2611.03832" class="text-indigo-600 underline" target="_blank">C3. El Agente Fármaco: A Scalable AI Scientist for Drug Discovery — C3. El Agente Fármaco: A Scalable AI Scientist for Drug Discovery</a></li>
+              <li><a href="https://doi.org/10.64898/2026.11.04.26367272" class="text-indigo-600 underline" target="_blank">C4. Large Language Model-Enhanced Electronic Frailty Assessment and Prognostic Performance — C4. Large Language Model-Enhanced Electronic Frailty Assessment and Prognostic Performance</a></li>
+              <li><a href="https://doi.org/10.64898/2026.10.28.760887" class="text-indigo-600 underline" target="_blank">C5. Cellular context shapes the transcriptomic impact of somatic variants — C5. Cellular context shapes the transcriptomic impact of somatic variants</a></li>
+              <li><a href="https://doi.org/10.64898/2026.11.03.763968" class="text-indigo-600 underline" target="_blank">W1. Where single-cell foundation models help: a benchmark of annotation, perturbation and regulatory inference — W1. Where single-cell foundation models help: a benchmark of annotation, perturbation and regulatory inference</a></li>
+              <li><a href="https://doi.org/10.64898/2026.10.30.763189" class="text-indigo-600 underline" target="_blank">W2. The Reasoning Paradox in Scientific Sandboxes: Why Extended Reasoning Fails in Autonomous Bioinformatics — W2. The Reasoning Paradox in Scientific Sandboxes: Why Extended Reasoning Fails in Autonomous Bioinformatics</a></li>
+              <li><a href="https://doi.org/10.64898/2026.08.02.26359492" class="text-indigo-600 underline" target="_blank">W3. Variantscape: Retrospective Study of LLM-Based Extraction of Variant-Treatment-Cancer Associations — W3. Variantscape: Retrospective Study of LLM-Based Extraction of Variant-Treatment-Cancer Associations</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="border-t border-gray-200 pt-8 pb-10 text-center">
+      <p class="text-sm text-gray-500 mt-4">paper-radar · 2026-W45</p>
+      <p class="text-xs text-gray-400 mt-1">바이오인포·임상ML·신약AI 논문 주간 요약. preprint 분석 포함.</p>
+    </footer>
+  </div>
+</body>
+</html>
