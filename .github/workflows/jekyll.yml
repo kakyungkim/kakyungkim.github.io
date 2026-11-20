@@ -19,7 +19,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.2.2 # 3.2 이상으로 변경
+          ruby-version: '3.2' # 러너 이미지가 바뀌어도 3.2 최신 패치를 쓴다(3.2.2는 ubuntu-26.04에 없음)
           bundler-cache: true
 
       - name: Setup Node.js (for coffeescript)
